@@ -6,6 +6,7 @@ hexo 博客项目,建议直接fork这个仓库到自己的主仓库 `<username>.
 2. `/source/CNAME` 没有自己注册域名需要删除
 3. next主题我用的是自己fork的仓库,为了支持简书图片,就自己改了下源代码,如果想使用官方仓库,需要改`\.github\workflows\pages.yml`
 
+```diff
 --- a/.github/workflows/pages.yml
 +++ b/.github/workflows/pages.yml
 @@ -24,7 +24,7 @@ jobs:
@@ -17,3 +18,4 @@ hexo 博客项目,建议直接fork这个仓库到自己的主仓库 `<username>.
        - name: Build
          run: npm run build
        - name: Deploy
+```
