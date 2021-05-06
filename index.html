@@ -114,6 +114,16 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
@@ -146,6 +156,70 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/06/git/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈诗樵">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/06/git/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">git常见问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-06 15:01:50" itemprop="dateCreated datePublished" datetime="2021-05-06T15:01:50+00:00">2021-05-06</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="使用git提交到github-每次都要输入用户名和密码的解决方法"><a href="#使用git提交到github-每次都要输入用户名和密码的解决方法" class="headerlink" title="使用git提交到github,每次都要输入用户名和密码的解决方法"></a>使用git提交到github,每次都要输入用户名和密码的解决方法</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sky6862/p/7992736.html">https://www.cnblogs.com/sky6862/p/7992736.html</a></p>
+<h1 id="使用ssh协议提交github代码"><a href="#使用ssh协议提交github代码" class="headerlink" title="使用ssh协议提交github代码"></a>使用ssh协议提交github代码</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013778905/article/details/83501204">https://blog.csdn.net/u013778905/article/details/83501204</a></p>
+<h1 id="git-记住密码"><a href="#git-记住密码" class="headerlink" title="git 记住密码"></a>git 记住密码</h1><p><code>git config --global credential.helper store</code></p>
+<h1 id="git-密码错误"><a href="#git-密码错误" class="headerlink" title="git 密码错误"></a>git 密码错误</h1><p>控制面板\用户帐户和家庭安全\凭据管理器  把网站的凭证删除掉</p>
+<h1 id="git-pull-冲突"><a href="#git-pull-冲突" class="headerlink" title="git pull 冲突"></a>git pull 冲突</h1><p>如果不想解决的话,可以直接 <code>git reset --hard HEAD</code></p>
+<h1 id="一次提交需要提交到多个分支的时候-使用摘取命令"><a href="#一次提交需要提交到多个分支的时候-使用摘取命令" class="headerlink" title="一次提交需要提交到多个分支的时候,使用摘取命令"></a>一次提交需要提交到多个分支的时候,使用摘取命令</h1><p><code>git cherry-pick &lt;commitID&gt;</code></p>
+<h1 id="git-从本地clone"><a href="#git-从本地clone" class="headerlink" title="git 从本地clone"></a>git 从本地clone</h1><p>git clone 除了从远程地址clone，还能从本地clone。<br>有时候方便开发我们需要不同的分支在不同的文件夹下同步开发，避免频繁的编译重构。<br>直接复制文件夹，里面的node_modules  target 等被gitignore的文件会非常慢.<br><img src="https://upload-images.jianshu.io/upload_images/8156292-9a607263a9ddbf2c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/06/%E5%8D%9A%E5%AE%A2/2018-3-17-%E6%96%B0%E5%B9%B4%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -170,7 +244,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-06 14:53:03" itemprop="dateCreated datePublished" datetime="2021-05-06T14:53:03+00:00">2021-05-06</time>
+              <time title="创建时间：2021-05-06 15:01:50" itemprop="dateCreated datePublished" datetime="2021-05-06T15:01:50+00:00">2021-05-06</time>
             </span>
 
           
@@ -228,7 +302,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-06 14:53:03" itemprop="dateCreated datePublished" datetime="2021-05-06T14:53:03+00:00">2021-05-06</time>
+              <time title="创建时间：2021-05-06 15:01:50" itemprop="dateCreated datePublished" datetime="2021-05-06T15:01:50+00:00">2021-05-06</time>
             </span>
 
           
@@ -286,7 +360,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-06 14:53:03" itemprop="dateCreated datePublished" datetime="2021-05-06T14:53:03+00:00">2021-05-06</time>
+              <time title="创建时间：2021-05-06 15:01:50" itemprop="dateCreated datePublished" datetime="2021-05-06T15:01:50+00:00">2021-05-06</time>
             </span>
 
           
@@ -390,7 +464,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-06 14:53:03" itemprop="dateCreated datePublished" datetime="2021-05-06T14:53:03+00:00">2021-05-06</time>
+              <time title="创建时间：2021-05-06 15:01:50" itemprop="dateCreated datePublished" datetime="2021-05-06T15:01:50+00:00">2021-05-06</time>
             </span>
 
           
@@ -501,7 +575,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-06 14:53:03" itemprop="dateCreated datePublished" datetime="2021-05-06T14:53:03+00:00">2021-05-06</time>
+              <time title="创建时间：2021-05-06 15:01:50" itemprop="dateCreated datePublished" datetime="2021-05-06T15:01:50+00:00">2021-05-06</time>
             </span>
 
           
@@ -555,70 +629,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/06/git/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈诗樵">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/06/git/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">git常见问题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-06 14:53:03" itemprop="dateCreated datePublished" datetime="2021-05-06T14:53:03+00:00">2021-05-06</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="使用git提交到github-每次都要输入用户名和密码的解决方法"><a href="#使用git提交到github-每次都要输入用户名和密码的解决方法" class="headerlink" title="使用git提交到github,每次都要输入用户名和密码的解决方法"></a>使用git提交到github,每次都要输入用户名和密码的解决方法</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sky6862/p/7992736.html">https://www.cnblogs.com/sky6862/p/7992736.html</a></p>
-<h1 id="使用ssh协议提交github代码"><a href="#使用ssh协议提交github代码" class="headerlink" title="使用ssh协议提交github代码"></a>使用ssh协议提交github代码</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013778905/article/details/83501204">https://blog.csdn.net/u013778905/article/details/83501204</a></p>
-<h1 id="git-记住密码"><a href="#git-记住密码" class="headerlink" title="git 记住密码"></a>git 记住密码</h1><p><code>git config --global credential.helper store</code></p>
-<h1 id="git-密码错误"><a href="#git-密码错误" class="headerlink" title="git 密码错误"></a>git 密码错误</h1><p>控制面板\用户帐户和家庭安全\凭据管理器  把网站的凭证删除掉</p>
-<h1 id="git-pull-冲突"><a href="#git-pull-冲突" class="headerlink" title="git pull 冲突"></a>git pull 冲突</h1><p>如果不想解决的话,可以直接 <code>git reset --hard HEAD</code></p>
-<h1 id="一次提交需要提交到多个分支的时候-使用摘取命令"><a href="#一次提交需要提交到多个分支的时候-使用摘取命令" class="headerlink" title="一次提交需要提交到多个分支的时候,使用摘取命令"></a>一次提交需要提交到多个分支的时候,使用摘取命令</h1><p><code>git cherry-pick &lt;commitID&gt;</code></p>
-<h1 id="git-从本地clone"><a href="#git-从本地clone" class="headerlink" title="git 从本地clone"></a>git 从本地clone</h1><p>git clone 除了从远程地址clone，还能从本地clone。<br>有时候方便开发我们需要不同的分支在不同的文件夹下同步开发，避免频繁的编译重构。<br>直接复制文件夹，里面的node_modules  target 等被gitignore的文件会非常慢.<br><img src="https://upload-images.jianshu.io/upload_images/8156292-9a607263a9ddbf2c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/06/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/2021-5-6-466%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -644,7 +654,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-06 13:39:47 / 修改时间：14:53:03" itemprop="dateCreated datePublished" datetime="2021-05-06T13:39:47+00:00">2021-05-06</time>
+              <time title="创建时间：2021-05-06 13:39:47 / 修改时间：15:01:50" itemprop="dateCreated datePublished" datetime="2021-05-06T13:39:47+00:00">2021-05-06</time>
             </span>
 
           
@@ -718,7 +728,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-06 14:53:03" itemprop="dateModified" datetime="2021-05-06T14:53:03+00:00">2021-05-06</time>
+                <time title="修改时间：2021-05-06 15:01:50" itemprop="dateModified" datetime="2021-05-06T15:01:50+00:00">2021-05-06</time>
               </span>
 
           
@@ -785,7 +795,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-06 14:53:03" itemprop="dateModified" datetime="2021-05-06T14:53:03+00:00">2021-05-06</time>
+                <time title="修改时间：2021-05-06 15:01:50" itemprop="dateModified" datetime="2021-05-06T15:01:50+00:00">2021-05-06</time>
               </span>
 
           
@@ -879,7 +889,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-06 14:53:03" itemprop="dateModified" datetime="2021-05-06T14:53:03+00:00">2021-05-06</time>
+                <time title="修改时间：2021-05-06 15:01:50" itemprop="dateModified" datetime="2021-05-06T15:01:50+00:00">2021-05-06</time>
               </span>
 
           
