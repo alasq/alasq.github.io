@@ -158,6 +158,92 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2023.%20%E4%BD%BF%E7%94%A8sourceMap%20%E8%B0%83%E8%AF%95ESNext%E8%AF%AD%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈诗樵">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2023.%20%E4%BD%BF%E7%94%A8sourceMap%20%E8%B0%83%E8%AF%95ESNext%E8%AF%AD%E6%B3%95/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 23. 使用sourceMap 调试ESNext语法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-07 16:21:06" itemprop="dateModified" datetime="2021-05-07T16:21:06+00:00">2021-05-07</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2023.%20%E4%BD%BF%E7%94%A8sourceMap%20%E8%B0%83%E8%AF%95ESNext%E8%AF%AD%E6%B3%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2023.%20%E4%BD%BF%E7%94%A8sourceMap%20%E8%B0%83%E8%AF%95ESNext%E8%AF%AD%E6%B3%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>现在经常使用ESNext语法书写代码,再使用babel转换成ES5,</p>
+<ol>
+<li>使用webpack 打包时候设置 devtool 为 source-map 即可</li>
+<li>生产环境上一般使用压缩混淆后的代码</li>
+<li>生产环境的ngnix服务器出于安全考虑,一般也不会返回source map类型的文件!!!</li>
+</ol>
+<h1 id="使用Sourcemap-调试时解析变量名"><a href="#使用Sourcemap-调试时解析变量名" class="headerlink" title="使用Sourcemap 调试时解析变量名"></a>使用Sourcemap 调试时解析变量名</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-ede34451980feb28.gif?imageMogr2/auto-orient/strip" alt="resolve-variable-names.gif"><br>调试的时候就算有sourceMap,显示的依然是被混淆的名字<code>a,b,c</code>这种,我们想看到真实的变量名称,怎么做呢?<br>启动 试验功能的<code>Resolve Variable Names</code></p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>我在Chrome 89 看不到这个老外说的这个试验功能,应该是已经转正了!!不需要单独启用,知道有这个东西就好了</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2024.%20%E5%9C%A8%E2%80%9CNetwork%E2%80%9D%E4%B8%AD%E6%9F%A5%E7%9C%8B%E6%9D%A5%E8%87%AA%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BD%91%E7%BB%9C%E6%B5%81%E9%87%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -189,7 +275,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-07 15:43:22" itemprop="dateModified" datetime="2021-05-07T15:43:22+00:00">2021-05-07</time>
+                <time title="修改时间：2021-05-07 16:21:06" itemprop="dateModified" datetime="2021-05-07T16:21:06+00:00">2021-05-07</time>
               </span>
 
           
@@ -271,7 +357,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-07 15:43:22" itemprop="dateModified" datetime="2021-05-07T15:43:22+00:00">2021-05-07</time>
+                <time title="修改时间：2021-05-07 16:21:06" itemprop="dateModified" datetime="2021-05-07T16:21:06+00:00">2021-05-07</time>
               </span>
 
           
@@ -351,7 +437,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-07 15:43:22" itemprop="dateModified" datetime="2021-05-07T15:43:22+00:00">2021-05-07</time>
+                <time title="修改时间：2021-05-07 16:21:06" itemprop="dateModified" datetime="2021-05-07T16:21:06+00:00">2021-05-07</time>
               </span>
 
           
@@ -436,7 +522,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-07 15:43:22" itemprop="dateModified" datetime="2021-05-07T15:43:22+00:00">2021-05-07</time>
+                <time title="修改时间：2021-05-07 16:21:06" itemprop="dateModified" datetime="2021-05-07T16:21:06+00:00">2021-05-07</time>
               </span>
 
           
@@ -520,7 +606,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-07 15:43:22" itemprop="dateModified" datetime="2021-05-07T15:43:22+00:00">2021-05-07</time>
+                <time title="修改时间：2021-05-07 16:21:06" itemprop="dateModified" datetime="2021-05-07T16:21:06+00:00">2021-05-07</time>
               </span>
 
           
@@ -604,7 +690,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-07 15:43:22" itemprop="dateModified" datetime="2021-05-07T15:43:22+00:00">2021-05-07</time>
+                <time title="修改时间：2021-05-07 16:21:06" itemprop="dateModified" datetime="2021-05-07T16:21:06+00:00">2021-05-07</time>
               </span>
 
           
@@ -684,7 +770,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-07 15:43:22" itemprop="dateModified" datetime="2021-05-07T15:43:22+00:00">2021-05-07</time>
+                <time title="修改时间：2021-05-07 16:21:06" itemprop="dateModified" datetime="2021-05-07T16:21:06+00:00">2021-05-07</time>
               </span>
 
           
@@ -768,7 +854,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-07 15:43:22" itemprop="dateModified" datetime="2021-05-07T15:43:22+00:00">2021-05-07</time>
+                <time title="修改时间：2021-05-07 16:21:06" itemprop="dateModified" datetime="2021-05-07T16:21:06+00:00">2021-05-07</time>
               </span>
 
           
@@ -848,7 +934,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-07 15:43:22" itemprop="dateModified" datetime="2021-05-07T15:43:22+00:00">2021-05-07</time>
+                <time title="修改时间：2021-05-07 16:21:06" itemprop="dateModified" datetime="2021-05-07T16:21:06+00:00">2021-05-07</time>
               </span>
 
           
@@ -878,86 +964,6 @@
       
           <p><img src="https://upload-images.jianshu.io/upload_images/8156292-369c984fe07235d6.gif?imageMogr2/auto-orient/strip" alt="lighthouse-audits.gif"></p>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>多维度给网页打分的工具,把里面的问题都修复了,网页绝对棒棒哒。我们可以根据生成的报告，有针对性的修复页面问题</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2033.%20%60css%20tracker%60%E9%9D%A2%E6%9D%BF%E6%9F%A5%E7%9C%8B%E6%9C%AA%E4%BD%BF%E7%94%A8%E7%9A%84css/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈诗樵">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2033.%20%60css%20tracker%60%E9%9D%A2%E6%9D%BF%E6%9F%A5%E7%9C%8B%E6%9C%AA%E4%BD%BF%E7%94%A8%E7%9A%84css/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 33. `css tracker`面板查看未使用的css</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-07 15:43:22" itemprop="dateModified" datetime="2021-05-07T15:43:22+00:00">2021-05-07</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2033.%20%60css%20tracker%60%E9%9D%A2%E6%9D%BF%E6%9F%A5%E7%9C%8B%E6%9C%AA%E4%BD%BF%E7%94%A8%E7%9A%84css/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2033.%20%60css%20tracker%60%E9%9D%A2%E6%9D%BF%E6%9F%A5%E7%9C%8B%E6%9C%AA%E4%BD%BF%E7%94%A8%E7%9A%84css/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://upload-images.jianshu.io/upload_images/8156292-81a164ed962f8385.gif?imageMogr2/auto-orient/strip" alt="css-tracker-enhancements.gif"><br><code>css-tracker</code>面板查看未使用的css</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>这个其实用处不大，因为很多css资源是共享的<br>但是 em….. 它真的可以发现某个项目有多烂,顺便推荐一个原子化的css库 <code>tailwindcss</code>可以有效的减少垃圾样式代码</p>
 
       
     </div>
@@ -1042,7 +1048,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
