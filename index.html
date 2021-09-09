@@ -158,6 +158,235 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/09/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bbase64%E5%9B%BE%E7%89%87%E4%BC%A0%E8%BE%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈诗樵">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/09/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bbase64%E5%9B%BE%E7%89%87%E4%BC%A0%E8%BE%93/" class="post-title-link" itemprop="url">开发灵异事件之base64图片传输</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-09-09 20:11:56 / 修改时间：12:13:20" itemprop="dateCreated datePublished" datetime="2021-09-09T20:11:56+00:00">2021-09-09</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/09/09/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bbase64%E5%9B%BE%E7%89%87%E4%BC%A0%E8%BE%93/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/09/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bbase64%E5%9B%BE%E7%89%87%E4%BC%A0%E8%BE%93/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>发出去的请求一毛一样，都包含了同一张base64格式的图片，图片显示出来是一样的。对比内容不一样。但是请求时间差距3分钟，甚至超时。接口20M大小的图片也能秒级处理。 图片来源一个是前端上传转换的base64，一个是后端把pdf文件首页转换出来的。</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>后端生成的图片base64包含大量的换行符，http协议中的换行符有特殊含义，会被网关服务器解析，导致请求超时。</p>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>base64格式里面有大量的换行符，会严重影响传输效率</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/09/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%98%E5%8D%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈诗樵">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/09/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%98%E5%8D%A1/" class="post-title-link" itemprop="url">开发灵异事件之浏览器变卡</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-09-09 20:10:19 / 修改时间：12:13:20" itemprop="dateCreated datePublished" datetime="2021-09-09T20:10:19+00:00">2021-09-09</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/09/09/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%98%E5%8D%A1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/09/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%98%E5%8D%A1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h3><p>使用window.open 开一个页签后，回到原本的页面，动画啥的变卡了。开的页面越多越卡</p>
+<p>当新开的页签崩溃，原有页面也会一起崩溃。</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>window.open 新开的页面跟原有页面用的是同一个渲染器。另外 超链接  target=_blank也是一样的。</p>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>使用超链接打开新页面，并使用<code>&lt;a href=&quot;&quot; rel=&quot;noopener&quot;&gt;&lt;/a&gt;</code>属性</p>
+<p>也能使用 <code>window.open(URL,_blank,&#39;noopener&#39;)</code></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/09/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈诗樵">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/09/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD/" class="post-title-link" itemprop="url">开发灵异事件之图片下载</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-09-09 20:09:36 / 修改时间：12:13:20" itemprop="dateCreated datePublished" datetime="2021-09-09T20:09:36+00:00">2021-09-09</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/09/09/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/09/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h3><p>使用download属性用a标签下载图片，变成了新页签打开预览</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>下载的图片跨域，早期chrome没有这个限制</p>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>后台接口转发可以解决</p>
+<p>图片服务器增加允许跨域相关响应头</p>
+<p>前端用image拿到图片资源，使用Blob对象下载</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/09/%E5%9F%BA%E4%BA%8Estrapi-gridsome%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84%E7%9A%84%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F-CMS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -183,7 +412,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-09-09 20:00:41 / 修改时间：12:03:01" itemprop="dateCreated datePublished" datetime="2021-09-09T20:00:41+00:00">2021-09-09</time>
+              <time title="创建时间：2021-09-09 20:00:41 / 修改时间：12:13:20" itemprop="dateCreated datePublished" datetime="2021-09-09T20:00:41+00:00">2021-09-09</time>
             </span>
 
           
@@ -268,7 +497,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-09-09 12:03:01" itemprop="dateCreated datePublished" datetime="2021-09-09T12:03:01+00:00">2021-09-09</time>
+              <time title="创建时间：2021-09-09 12:13:20" itemprop="dateCreated datePublished" datetime="2021-09-09T12:13:20+00:00">2021-09-09</time>
             </span>
 
           
@@ -346,7 +575,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-09-09 12:03:01" itemprop="dateCreated datePublished" datetime="2021-09-09T12:03:01+00:00">2021-09-09</time>
+              <time title="创建时间：2021-09-09 12:13:20" itemprop="dateCreated datePublished" datetime="2021-09-09T12:13:20+00:00">2021-09-09</time>
             </span>
 
           
@@ -418,7 +647,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-09-09 12:03:01" itemprop="dateCreated datePublished" datetime="2021-09-09T12:03:01+00:00">2021-09-09</time>
+              <time title="创建时间：2021-09-09 12:13:20" itemprop="dateCreated datePublished" datetime="2021-09-09T12:13:20+00:00">2021-09-09</time>
             </span>
 
           
@@ -490,7 +719,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-09-09 12:03:01" itemprop="dateCreated datePublished" datetime="2021-09-09T12:03:01+00:00">2021-09-09</time>
+              <time title="创建时间：2021-09-09 12:13:20" itemprop="dateCreated datePublished" datetime="2021-09-09T12:13:20+00:00">2021-09-09</time>
             </span>
 
           
@@ -608,7 +837,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-09-09 12:03:01" itemprop="dateCreated datePublished" datetime="2021-09-09T12:03:01+00:00">2021-09-09</time>
+              <time title="创建时间：2021-09-09 12:13:20" itemprop="dateCreated datePublished" datetime="2021-09-09T12:13:20+00:00">2021-09-09</time>
             </span>
 
           
@@ -733,7 +962,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-09-09 12:03:01" itemprop="dateCreated datePublished" datetime="2021-09-09T12:03:01+00:00">2021-09-09</time>
+              <time title="创建时间：2021-09-09 12:13:20" itemprop="dateCreated datePublished" datetime="2021-09-09T12:13:20+00:00">2021-09-09</time>
             </span>
 
           
@@ -782,291 +1011,6 @@
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;python.pythonPath&quot;</span>: <span class="string">&quot;F:\\ProgramData\\Anaconda3\\envs\\tensorflow&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;code-runner.executorMap&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;python&quot;</span>: <span class="string">&quot;set PYTHONIOENCODING=utf8 &amp;&amp; F:\\ProgramData\\Anaconda3\\envs\\tensorflow\\python.exe&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>试下tensorflow官网的例子,能跑起来就是成功了。有时候下载测试数据集的时候会失败，多试几次就好了</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/07/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86-%E5%BD%B1%E5%93%8D%E5%8A%9B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈诗樵">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/07/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86-%E5%BD%B1%E5%93%8D%E5%8A%9B/" class="post-title-link" itemprop="url">项目管理/影响力</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-07 23:43:34" itemprop="dateCreated datePublished" datetime="2021-05-07T23:43:34+00:00">2021-05-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-09 12:03:01" itemprop="dateModified" datetime="2021-09-09T12:03:01+00:00">2021-09-09</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/05/07/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86-%E5%BD%B1%E5%93%8D%E5%8A%9B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/07/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86-%E5%BD%B1%E5%93%8D%E5%8A%9B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="做事情成功的要素"><a href="#做事情成功的要素" class="headerlink" title="做事情成功的要素"></a>做事情成功的要素</h2><ol>
-<li>自己想不想做</li>
-<li>环境允不允许</li>
-<li>能不能做到</li>
-</ol>
-<h2 id="如何说服他人"><a href="#如何说服他人" class="headerlink" title="如何说服他人"></a>如何说服他人</h2><p>晓之以理。动之以情。诱之以利。绳之以法。胁之以威。</p>
-<ul>
-<li>晓之以理的难处是，个人认知的不同,很难达到一致</li>
-<li>动之以情的问题是，感情培养的成本很高。</li>
-<li>诱之以利的问题是，公司给的政策是有限的。</li>
-<li>绳之以法，工作中基本上用不到</li>
-<li>胁之以威，“你给我滚！”  “好的！老子不干了！！”</li>
-</ul>
-<p>管理真正能用的就是晓之以理动之以情两种，因为成本高，所以要做好一定很累。</p>
-<h2 id="影响他人的方法"><a href="#影响他人的方法" class="headerlink" title="影响他人的方法"></a>影响他人的方法</h2><ol>
-<li>能给人带来好处，激励</li>
-<li>能给人带来痛苦，惩罚</li>
-</ol>
-<h2 id="沟通方式方法"><a href="#沟通方式方法" class="headerlink" title="沟通方式方法"></a>沟通方式方法</h2><ol>
-<li>客观阐述事实</li>
-<li>陈述自己的观点</li>
-<li>表示愿意协助改进</li>
-<li>商讨解决办法</li>
-</ol>
-<h2 id="人与人的关系"><a href="#人与人的关系" class="headerlink" title="人与人的关系"></a>人与人的关系</h2><ol>
-<li>人际关系是流体，有波动性</li>
-<li>需要你的时候，关系就会变好</li>
-<li>不需要的时候，关系会被冷落</li>
-</ol>
-<h2 id="性格分析方法-DISC"><a href="#性格分析方法-DISC" class="headerlink" title="性格分析方法 DISC"></a>性格分析方法 DISC</h2><p>根据人做事情的快慢，人际交往的意愿。大致可分为四类。</p>
-<ul>
-<li>D型人格：孙悟空 支配型 自己+环境</li>
-<li>I型人格：猪八戒 影响型 自己+他人</li>
-<li>S型人格：沙悟净 稳健型 他人</li>
-<li>C型人格：唐三丈 谨慎型 环境</li>
-</ul>
-<h2 id="沟通技巧——时间换空间"><a href="#沟通技巧——时间换空间" class="headerlink" title="沟通技巧——时间换空间"></a>沟通技巧——时间换空间</h2><p>有时候，不好处理的事情，可以先放一放，冷一冷。情绪爆炸的时候，不是沟通的好时机。</p>
-<h2 id="管理者要做到"><a href="#管理者要做到" class="headerlink" title="管理者要做到"></a>管理者要做到</h2><p>见人说人话，见鬼说鬼话。斗战圣佛有72般变化，以应对不同的场景。也能保持一个战心。自我，本我，超我。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/06/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/2021-5-6-466%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈诗樵">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/06/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/2021-5-6-466%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">466时间管理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-06 13:39:47" itemprop="dateCreated datePublished" datetime="2021-05-06T13:39:47+00:00">2021-05-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-09 12:03:01" itemprop="dateModified" datetime="2021-09-09T12:03:01+00:00">2021-09-09</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/05/06/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/2021-5-6-466%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/06/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/2021-5-6-466%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="时间的4个特性"><a href="#时间的4个特性" class="headerlink" title="时间的4个特性"></a>时间的4个特性</h2><ul>
-<li>无法开源</li>
-<li>无法节流</li>
-<li>无法取代</li>
-<li>无法再生</li>
-</ul>
-<h2 id="时间管理6原则"><a href="#时间管理6原则" class="headerlink" title="时间管理6原则"></a>时间管理6原则</h2><p><img src="https://upload-images.jianshu.io/upload_images/8156292-eca9e181b2a68dfa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="时间管理6原则"></p>
-<h2 id="时间管理6步骤——做正确的事"><a href="#时间管理6步骤——做正确的事" class="headerlink" title="时间管理6步骤——做正确的事"></a>时间管理6步骤——做正确的事</h2><p><img src="https://upload-images.jianshu.io/upload_images/8156292-7efb944b9c0b0b7a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="时间管理6步骤"></p>
-<h3 id="四象限原则"><a href="#四象限原则" class="headerlink" title="四象限原则"></a>四象限原则</h3><p><img src="https://upload-images.jianshu.io/upload_images/8156292-779dfccb034b172c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="四象限"></p>
-<h3 id="每天时间安排-9宫格"><a href="#每天时间安排-9宫格" class="headerlink" title="每天时间安排(9宫格)"></a>每天时间安排(9宫格)</h3><p><img src="https://upload-images.jianshu.io/upload_images/8156292-7844c69c9478bc4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="每天时间安排"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/19/2021-4-19-%20docker%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈诗樵">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/19/2021-4-19-%20docker%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">2021-4-19- docker基本原理概述</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-19 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-19T00:00:00+00:00">2021-04-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-09 12:03:01" itemprop="dateModified" datetime="2021-09-09T12:03:01+00:00">2021-09-09</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/04/19/2021-4-19-%20docker%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/19/2021-4-19-%20docker%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h1><p>软件部署的时候,我们需要打包发布到 开发环境 测试环境 生产环境。<br>但是我开发环境,测试环境用的是windows 。 集成测试环境, 生产环境用的linux。<br>由于环境的不同可能会导致意想不到的问题，明明在环境A测试通过，在环境B测试失败。于是又要加班定位，而这种系统级别的定位往往是最费时间和脑子的，而聪明的程序员就想到，我直接备份我的操作系统，然后你那边直接还原我的操作系统就好了。<br>备份操作系统文件太大，操作系统的硬件也可能不一样，那么怎么办？<br>虚拟机呗！！！<br>虚拟机还不够快，不够小，不够方便，docker应运而生!!</p>
-<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>docker最重要的两个概念,是<strong>容器</strong>,和<strong>镜像</strong><br>其实根据我的docker起源说,聪明的小伙伴肯定能类比到上述的虚拟机和虚拟机用到的镜像文件,对的,咱就这么理解就好了<br>容器==虚拟机 镜像==虚拟机启动用到的镜像<br>要想我们发布的软件跑起来,怎么做?<br>运行一个容器,容器里面装个镜像就可以了!!! so easy</p>
-<h1 id="Git神模仿"><a href="#Git神模仿" class="headerlink" title="Git神模仿"></a>Git神模仿</h1><p>做过开发的应该都用过git去管理源代码,docker将git的思想用在镜像上。<br>假如有个容器运行着linux的基础镜像,你在此容器中上安装了nodejs,然后我们就可以commit一下这个容器,容器的状态就会被保存成生成一个新的镜像了.<br>很多docker命令都能做到类似git commit 的这种命令,然后返回一个hash值来标识新的镜像,我们就可以根据这些hash标记,在容器内时光倒流,docker也支持git打标签的方式给容器或者镜像取个别名,方便查找,hash谁记得住<br>#下一篇文章 就是hello world环节了</p>
 
       
     </div>
@@ -1151,7 +1095,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

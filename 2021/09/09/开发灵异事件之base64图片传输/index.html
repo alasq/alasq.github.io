@@ -20,23 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="--auto-open-devtools-for-tabs 新打开的标签页,带上devtools工具比如新打开的页面有重定向问题,但是由于没有打开devtools会导致在Network面板看不到任何有用的信息. 补充老外给的图里面是使用命令行启动，苹果机器的，在windows下可以创建快接方式，在快捷方式里带上参数即可 没生效！！添加启动参数后,发现没生效。已经打开了一个浏览器实例导致的。关闭所">
+  <meta name="description" content="事件发出去的请求一毛一样，都包含了同一张base64格式的图片，图片显示出来是一样的。对比内容不一样。但是请求时间差距3分钟，甚至超时。接口20M大小的图片也能秒级处理。 图片来源一个是前端上传转换的base64，一个是后端把pdf文件首页转换出来的。 原因后端生成的图片base64包含大量的换行符，http协议中的换行符有特殊含义，会被网关服务器解析，导致请求超时。 知识点base64格式里面有">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2021-4-7- Chrome Devtools Tip： 28. Chrome带参数启动">
-<meta property="og:url" content="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2028.%20Chrome%E5%B8%A6%E5%8F%82%E6%95%B0%E5%90%AF%E5%8A%A8/index.html">
+<meta property="og:title" content="开发灵异事件之base64图片传输">
+<meta property="og:url" content="http://example.com/2021/09/09/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bbase64%E5%9B%BE%E7%89%87%E4%BC%A0%E8%BE%93/index.html">
 <meta property="og:site_name" content="有人在代码里下毒，啊……">
-<meta property="og:description" content="--auto-open-devtools-for-tabs 新打开的标签页,带上devtools工具比如新打开的页面有重定向问题,但是由于没有打开devtools会导致在Network面板看不到任何有用的信息. 补充老外给的图里面是使用命令行启动，苹果机器的，在windows下可以创建快接方式，在快捷方式里带上参数即可 没生效！！添加启动参数后,发现没生效。已经打开了一个浏览器实例导致的。关闭所">
+<meta property="og:description" content="事件发出去的请求一毛一样，都包含了同一张base64格式的图片，图片显示出来是一样的。对比内容不一样。但是请求时间差距3分钟，甚至超时。接口20M大小的图片也能秒级处理。 图片来源一个是前端上传转换的base64，一个是后端把pdf文件首页转换出来的。 原因后端生成的图片base64包含大量的换行符，http协议中的换行符有特殊含义，会被网关服务器解析，导致请求超时。 知识点base64格式里面有">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8156292-cbfad927c7427d7f.gif?imageMogr2/auto-orient/strip">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8156292-27dd854e848f6924.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="article:published_time" content="2021-04-07T00:00:00.000Z">
+<meta property="article:published_time" content="2021-09-09T20:11:56.000Z">
 <meta property="article:modified_time" content="2021-09-09T12:13:20.926Z">
 <meta property="article:author" content="陈诗樵">
-<meta property="article:tag" content="Chrome Devtools Tip">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/8156292-cbfad927c7427d7f.gif?imageMogr2/auto-orient/strip">
 
-<link rel="canonical" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2028.%20Chrome%E5%B8%A6%E5%8F%82%E6%95%B0%E5%90%AF%E5%8A%A8/">
+<link rel="canonical" href="http://example.com/2021/09/09/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bbase64%E5%9B%BE%E7%89%87%E4%BC%A0%E8%BE%93/">
 
 
 <script id="page-configurations">
@@ -49,7 +45,7 @@
   };
 </script>
 
-  <title>2021-4-7- Chrome Devtools Tip： 28. Chrome带参数启动 | 有人在代码里下毒，啊……</title>
+  <title>开发灵异事件之base64图片传输 | 有人在代码里下毒，啊……</title>
   <meta name="referrer" content="no-referrer"/>
   
 
@@ -167,7 +163,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2028.%20Chrome%E5%B8%A6%E5%8F%82%E6%95%B0%E5%90%AF%E5%8A%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/09/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bbase64%E5%9B%BE%E7%89%87%E4%BC%A0%E8%BE%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -180,7 +176,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          2021-4-7- Chrome Devtools Tip： 28. Chrome带参数启动
+          开发灵异事件之base64图片传输
         </h1>
 
         <div class="post-meta">
@@ -189,16 +185,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
+              <time title="创建时间：2021-09-09 20:11:56 / 修改时间：12:13:20" itemprop="dateCreated datePublished" datetime="2021-09-09T20:11:56+00:00">2021-09-09</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-09 12:13:20" itemprop="dateModified" datetime="2021-09-09T12:13:20+00:00">2021-09-09</time>
-              </span>
 
           
   
@@ -209,8 +199,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2028.%20Chrome%E5%B8%A6%E5%8F%82%E6%95%B0%E5%90%AF%E5%8A%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2028.%20Chrome%E5%B8%A6%E5%8F%82%E6%95%B0%E5%90%AF%E5%8A%A8/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/09/09/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bbase64%E5%9B%BE%E7%89%87%E4%BC%A0%E8%BE%93/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/09/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bbase64%E5%9B%BE%E7%89%87%E4%BC%A0%E8%BE%93/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -225,12 +215,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="https://upload-images.jianshu.io/upload_images/8156292-cbfad927c7427d7f.gif?imageMogr2/auto-orient/strip" alt="auto-open-devtools.gif"></p>
-<p><code>--auto-open-devtools-for-tabs</code> 新打开的标签页,带上devtools工具<br>比如新打开的页面有重定向问题,但是由于没有打开devtools会导致在Network面板看不到任何有用的信息.</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>老外给的图里面是使用命令行启动，苹果机器的，在windows下可以创建快接方式，在快捷方式里带上参数即可<br><img src="https://upload-images.jianshu.io/upload_images/8156292-27dd854e848f6924.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h1 id="没生效！！"><a href="#没生效！！" class="headerlink" title="没生效！！"></a>没生效！！</h1><p>添加启动参数后,发现没生效。已经打开了一个浏览器实例导致的。关闭所有的Chrome浏览器，再通过这个快接方式打开就能生效了。</p>
-<h1 id="让Chrome支持跨域调用"><a href="#让Chrome支持跨域调用" class="headerlink" title="让Chrome支持跨域调用"></a>让Chrome支持跨域调用</h1><p>本地调试小程序挺好用的,不用代理服务器<br><code> --disable-web-security --user-data-dir=C:\MyChromeDevUserData</code> 高版本Chrome需要<code>--user-data-dir</code>这个参数才可以使disable-web-security生效,后面是个例子<br><code>&quot;C:\Program Files (x86)\Google\Chrome\Application\chrome.exe&quot; --disable-web-security --user-data-dir=C:\MyChromeDevUserData</code></p>
-<h1 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h1><p>老铁们,还有些什么有用的启动命令可以在评论区发下</p>
+        <h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>发出去的请求一毛一样，都包含了同一张base64格式的图片，图片显示出来是一样的。对比内容不一样。但是请求时间差距3分钟，甚至超时。接口20M大小的图片也能秒级处理。 图片来源一个是前端上传转换的base64，一个是后端把pdf文件首页转换出来的。</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>后端生成的图片base64包含大量的换行符，http协议中的换行符有特殊含义，会被网关服务器解析，导致请求超时。</p>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>base64格式里面有大量的换行符，会严重影响传输效率</p>
 
     </div>
 
@@ -273,9 +260,6 @@
 
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Chrome-Devtools-Tip/" rel="tag"># Chrome Devtools Tip</a>
-          </div>
 
         
 
@@ -283,13 +267,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2029.%20%E8%87%AA%E5%AE%9A%E4%B9%89Network%E9%9D%A2%E6%9D%BF%E7%9A%84%E6%98%BE%E7%A4%BA%E5%88%97%EF%BC%8C%E5%B1%95%E7%A4%BA%E6%88%91%E4%BB%AC%E5%85%B3%E5%BF%83%E7%9A%84%E5%93%8D%E5%BA%94%E5%A4%B4/" rel="prev" title="2021-4-7- Chrome Devtools Tip： 29. 自定义Network面板的显示列，展示我们关心的响应头">
-      <i class="fa fa-chevron-left"></i> 2021-4-7- Chrome Devtools Tip： 29. 自定义Network面板的显示列，展示我们关心的响应头
+    <a href="/2021/09/09/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%98%E5%8D%A1/" rel="prev" title="开发灵异事件之浏览器变卡">
+      <i class="fa fa-chevron-left"></i> 开发灵异事件之浏览器变卡
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2027.%20%E5%88%A9%E7%94%A8Quick%20Source%20%E5%BF%AB%E9%80%9F%E5%86%99%E6%A0%B7%E5%BC%8F/" rel="next" title="2021-4-7- Chrome Devtools Tip： 27. 利用Quick Source 快速写样式">
-      2021-4-7- Chrome Devtools Tip： 27. 利用Quick Source 快速写样式 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -349,7 +330,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A5%E5%85%85"><span class="nav-number">1.</span> <span class="nav-text">补充</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B2%A1%E7%94%9F%E6%95%88%EF%BC%81%EF%BC%81"><span class="nav-number">2.</span> <span class="nav-text">没生效！！</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A9Chrome%E6%94%AF%E6%8C%81%E8%B7%A8%E5%9F%9F%E8%B0%83%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">让Chrome支持跨域调用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A8%E8%AE%BA"><span class="nav-number">4.</span> <span class="nav-text">讨论</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">知识点</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
