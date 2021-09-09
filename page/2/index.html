@@ -158,6 +158,114 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/19/2021-4-19-%20docker%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈诗樵">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/19/2021-4-19-%20docker%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">2021-4-19- docker的一些命令</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-19 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-19T00:00:00+00:00">2021-04-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-09-09 12:03:01" itemprop="dateModified" datetime="2021-09-09T12:03:01+00:00">2021-09-09</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/19/2021-4-19-%20docker%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/19/2021-4-19-%20docker%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>承接上一篇的 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/8ac09895933c">win7 docker环境安装</a><br><code>docker info</code> 查看当前虚拟机的docker信息<br><img src="https://upload-images.jianshu.io/upload_images/8156292-5eb649af529413be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><code>docker help</code>  查看命令的帮助文档<br><img src="https://upload-images.jianshu.io/upload_images/8156292-62a65b9f3fc65cad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/8156292-7f6a4d45057a544b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/8156292-748199cb9f11bba6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/8156292-921ccef7c8b1887a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>一共40来个命令,每个命令后面有解释,一看就明白干嘛的</p>
+<h1 id="第一类命令-镜像相关的命令跟git-命令可以类比着记忆"><a href="#第一类命令-镜像相关的命令跟git-命令可以类比着记忆" class="headerlink" title="第一类命令 镜像相关的命令跟git 命令可以类比着记忆"></a>第一类命令 镜像相关的命令跟git 命令可以类比着记忆</h1><ul>
+<li>build==init  初始化镜像</li>
+<li>commit==commit  提交镜像</li>
+<li>diff 比较文件系统</li>
+<li>tag 给镜像打标签</li>
+<li>history 查看镜像历史</li>
+<li> save 将镜像保存成 tar包</li>
+<li>load 从tar中读取镜像</li>
+<li>rmi 删除镜像</li>
+</ul>
+<h1 id="第二类命令-容器相关的命令-每个容器可以理解成系统中的一个运行的进程"><a href="#第二类命令-容器相关的命令-每个容器可以理解成系统中的一个运行的进程" class="headerlink" title="第二类命令 容器相关的命令,每个容器可以理解成系统中的一个运行的进程"></a>第二类命令 容器相关的命令,每个容器可以理解成系统中的一个运行的进程</h1><ul>
+<li>create ,rm 创建容器</li>
+<li>attach 给容器附加个什么东西</li>
+<li>exec 在容器里执行什么东西</li>
+<li>restart 重启容器</li>
+<li>export 导出容器成tar压缩包</li>
+<li>pause ,unpause  取消暂停</li>
+<li>run,kill 启动容器</li>
+<li>stop,start 杀容器,停止运行,并不会删除,容器有三种状态,运行的,暂停的,停止的,看这状态是不是更像虚拟机了</li>
+<li>rename 重命名</li>
+<li>ps ,port,logs,top,stats 容器列表,容器的接口映射关系,容器的日志,容器内的进程,容器资源使用情况,这几个都是看容器状态的</li>
+<li>update 更新容器的配置<h1 id="第三类命令-dockerHub相关的"><a href="#第三类命令-dockerHub相关的" class="headerlink" title="第三类命令 dockerHub相关的"></a>第三类命令 dockerHub相关的</h1></li>
+<li>login ,logout 登录,登出</li>
+<li>pull,push dockerHub 拉取 推送 镜像</li>
+</ul>
+<h1 id="stop与kill的区别"><a href="#stop与kill的区别" class="headerlink" title="stop与kill的区别"></a>stop与kill的区别</h1><p>stop 会等10秒后再kill容器,并会告知容器内的程序<br>详情请参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34414196/article/details/86428138">https://blog.csdn.net/weixin_34414196/article/details/86428138</a></p>
+<h1 id="run-跟-start的区别"><a href="#run-跟-start的区别" class="headerlink" title="run 跟 start的区别"></a>run 跟 start的区别</h1><p>run =create + start<br>所以咱们第一次用run  后面用start就好了</p>
+<p>当我们具体用哪个命令的时候,<code>docker COMMAND --help</code> 查看某个命令的帮助文档<br><img src="https://upload-images.jianshu.io/upload_images/8156292-42e1a0d65a8641d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>[OPTIONS] 上图中的这种参数就是可有可无,大写代表变量,不要直接抄哦<br>NAME|ID  容器的名称或者ID 必选<br>[NAME|ID…] 表示可以填多个</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/19/2021-4-19-%20win7%20docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -189,7 +297,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-07 16:21:06" itemprop="dateModified" datetime="2021-05-07T16:21:06+00:00">2021-05-07</time>
+                <time title="修改时间：2021-09-09 12:03:01" itemprop="dateModified" datetime="2021-09-09T12:03:01+00:00">2021-09-09</time>
               </span>
 
           
@@ -274,7 +382,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-07 16:21:06" itemprop="dateModified" datetime="2021-05-07T16:21:06+00:00">2021-05-07</time>
+                <time title="修改时间：2021-09-09 12:03:01" itemprop="dateModified" datetime="2021-09-09T12:03:01+00:00">2021-09-09</time>
               </span>
 
           
@@ -370,7 +478,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-07 16:21:06" itemprop="dateModified" datetime="2021-05-07T16:21:06+00:00">2021-05-07</time>
+                <time title="修改时间：2021-09-09 12:03:01" itemprop="dateModified" datetime="2021-09-09T12:03:01+00:00">2021-09-09</time>
               </span>
 
           
@@ -469,7 +577,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-07 16:21:06" itemprop="dateModified" datetime="2021-05-07T16:21:06+00:00">2021-05-07</time>
+                <time title="修改时间：2021-09-09 12:03:01" itemprop="dateModified" datetime="2021-09-09T12:03:01+00:00">2021-09-09</time>
               </span>
 
           
@@ -697,7 +805,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-07 16:21:06" itemprop="dateModified" datetime="2021-05-07T16:21:06+00:00">2021-05-07</time>
+                <time title="修改时间：2021-09-09 12:03:01" itemprop="dateModified" datetime="2021-09-09T12:03:01+00:00">2021-09-09</time>
               </span>
 
           
@@ -820,7 +928,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-07 16:21:06" itemprop="dateModified" datetime="2021-05-07T16:21:06+00:00">2021-05-07</time>
+                <time title="修改时间：2021-09-09 12:03:01" itemprop="dateModified" datetime="2021-09-09T12:03:01+00:00">2021-09-09</time>
               </span>
 
           
@@ -922,7 +1030,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-07 16:21:06" itemprop="dateModified" datetime="2021-05-07T16:21:06+00:00">2021-05-07</time>
+                <time title="修改时间：2021-09-09 12:03:01" itemprop="dateModified" datetime="2021-09-09T12:03:01+00:00">2021-09-09</time>
               </span>
 
           
@@ -1001,7 +1109,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-07 16:21:06" itemprop="dateModified" datetime="2021-05-07T16:21:06+00:00">2021-05-07</time>
+                <time title="修改时间：2021-09-09 12:03:01" itemprop="dateModified" datetime="2021-09-09T12:03:01+00:00">2021-09-09</time>
               </span>
 
           
@@ -1088,7 +1196,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-07 16:21:06" itemprop="dateModified" datetime="2021-05-07T16:21:06+00:00">2021-05-07</time>
+                <time title="修改时间：2021-09-09 12:03:01" itemprop="dateModified" datetime="2021-09-09T12:03:01+00:00">2021-09-09</time>
               </span>
 
           
@@ -1142,92 +1250,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>  status-code</li>
 <li>  url<h1 id="查看网络资源依赖关系"><a href="#查看网络资源依赖关系" class="headerlink" title="查看网络资源依赖关系"></a>查看网络资源依赖关系</h1><img src="https://upload-images.jianshu.io/upload_images/8156292-de7a51900ab3d6b1.gif?imageMogr2/auto-orient/strip" alt="network-dependency.gif"><br>点击到具体的请求，查看 initiator 面板也是可以看到的 请求的调用栈与树状依赖结构</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2012.%20Element%E9%9D%A2%E6%9D%BF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈诗樵">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2012.%20Element%E9%9D%A2%E6%9D%BF/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 12. Element面板</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-07 16:21:06" itemprop="dateModified" datetime="2021-05-07T16:21:06+00:00">2021-05-07</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2012.%20Element%E9%9D%A2%E6%9D%BF/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2012.%20Element%E9%9D%A2%E6%9D%BF/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="1-Alt-Click展开所有的子节点"><a href="#1-Alt-Click展开所有的子节点" class="headerlink" title="1. Alt + Click展开所有的子节点"></a>1. Alt + Click展开所有的子节点</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-4524814cf7ea524e.gif?imageMogr2/auto-orient/strip" alt="alt-click-expand-node.gif"></p>
-<h1 id="2-轻松修改tagName"><a href="#2-轻松修改tagName" class="headerlink" title="2. 轻松修改tagName"></a>2. 轻松修改tagName</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-7ef233fca006f66a.gif?imageMogr2/auto-orient/strip" alt="quick-edit-element.gif"></p>
-<h1 id="3-查看元素的事件侦听器"><a href="#3-查看元素的事件侦听器" class="headerlink" title="3. 查看元素的事件侦听器"></a>3. 查看元素的事件侦听器</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-731375e6190683ef.gif?imageMogr2/auto-orient/strip" alt="view-event-listeners.gif"></p>
-<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>DevTools可以向您显示在元素上注册的JavaScript事件侦听器。例如，向click注册的处理程序.addEventListener()。</p>
-<p>DevTools还可将您带到注册该事件的确切代码行，这在从中进行外部调试时非常有用。</p>
-<p>###如何使用此功能<br>在“Element”面板中检查元素<br>导航到“Element”面板中的“Event Listener”窗格<br>浏览在任何节点上注册的事件。您可以通过在上下文菜单中选择“显示函数定义”来查看事件侦听器的源。</p>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>有时候事件显示特别多，可以去掉 <code>Ancestors</code>复选框，只显示绑定在元素自身的事件，而非被代理的事件</p>
-<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><p>事件的冒泡与代理，事件的队列</p>
 
       
     </div>
@@ -1312,7 +1334,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-count">65</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
