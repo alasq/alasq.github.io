@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="工具名称 维护人员 支持语言    Caffe 加州大学伯利克分校视觉与学习中心 C++,py,matlab   Deeplearning4j Skymind java,scala,clojure   Microsoft Cognitive Toolkit( CNTK) 微软研究院 py,c++   MXNext 分布式机器学习社区 py,c++,go,r,…   PaddlePaddle">
+  <meta name="description" content="现象使用download属性用a标签下载图片，变成了新页签打开预览 原因下载的图片跨域，早期chrome没有这个限制 解决后台接口转发可以解决 图片服务器增加允许跨域相关响应头 前端用image拿到图片资源，使用Blob对象下载">
 <meta property="og:type" content="article">
-<meta property="og:title" content="主流的深度学习开源工具">
-<meta property="og:url" content="http://example.com/2021/09/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2021-4-21-%20%E4%B8%BB%E6%B5%81%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/index.html">
+<meta property="og:title" content="开发灵异事件之图片下载">
+<meta property="og:url" content="http://example.com/2021/09/09/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD/index.html">
 <meta property="og:site_name" content="有人在代码里下毒，啊……">
-<meta property="og:description" content="工具名称 维护人员 支持语言    Caffe 加州大学伯利克分校视觉与学习中心 C++,py,matlab   Deeplearning4j Skymind java,scala,clojure   Microsoft Cognitive Toolkit( CNTK) 微软研究院 py,c++   MXNext 分布式机器学习社区 py,c++,go,r,…   PaddlePaddle">
+<meta property="og:description" content="现象使用download属性用a标签下载图片，变成了新页签打开预览 原因下载的图片跨域，早期chrome没有这个限制 解决后台接口转发可以解决 图片服务器增加允许跨域相关响应头 前端用image拿到图片资源，使用Blob对象下载">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-09-09T12:13:20.926Z">
-<meta property="article:modified_time" content="2021-09-09T12:13:20.926Z">
+<meta property="article:published_time" content="2021-09-09T20:09:36.000Z">
+<meta property="article:modified_time" content="2021-09-13T14:22:17.460Z">
 <meta property="article:author" content="陈诗樵">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2021/09/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2021-4-21-%20%E4%B8%BB%E6%B5%81%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/">
+<link rel="canonical" href="http://example.com/2021/09/09/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>主流的深度学习开源工具 | 有人在代码里下毒，啊……</title>
+  <title>开发灵异事件之图片下载 | 有人在代码里下毒，啊……</title>
   <meta name="referrer" content="no-referrer"/>
   
 
@@ -163,7 +163,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2021-4-21-%20%E4%B8%BB%E6%B5%81%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/09/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -176,7 +176,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          主流的深度学习开源工具
+          开发灵异事件之图片下载
         </h1>
 
         <div class="post-meta">
@@ -186,8 +186,15 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-09-09 12:13:20" itemprop="dateCreated datePublished" datetime="2021-09-09T12:13:20+00:00">2021-09-09</time>
+              <time title="创建时间：2021-09-09 20:09:36" itemprop="dateCreated datePublished" datetime="2021-09-09T20:09:36+00:00">2021-09-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-09-13 14:22:17" itemprop="dateModified" datetime="2021-09-13T14:22:17+00:00">2021-09-13</time>
+              </span>
 
           
   
@@ -198,8 +205,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/09/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2021-4-21-%20%E4%B8%BB%E6%B5%81%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2021-4-21-%20%E4%B8%BB%E6%B5%81%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/09/09/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/09/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -214,60 +221,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <table>
-<thead>
-<tr>
-<th>工具名称</th>
-<th>维护人员</th>
-<th>支持语言</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Caffe</td>
-<td>加州大学伯利克分校视觉与学习中心</td>
-<td>C++,py,matlab</td>
-</tr>
-<tr>
-<td>Deeplearning4j</td>
-<td>Skymind</td>
-<td>java,scala,clojure</td>
-</tr>
-<tr>
-<td>Microsoft Cognitive Toolkit( CNTK)</td>
-<td>微软研究院</td>
-<td>py,c++</td>
-</tr>
-<tr>
-<td>MXNext</td>
-<td>分布式机器学习社区</td>
-<td>py,c++,go,r,…</td>
-</tr>
-<tr>
-<td>PaddlePaddle</td>
-<td>百度</td>
-<td>py,c++</td>
-</tr>
-<tr>
-<td>TensorFlow</td>
-<td>google</td>
-<td>py,c++</td>
-</tr>
-<tr>
-<td>Theano</td>
-<td>蒙特利尔大学</td>
-<td>py</td>
-</tr>
-<tr>
-<td>Torch</td>
-<td>Item1</td>
-<td>lua,c,  luaJIT</td>
-</tr>
-<tr>
-<td>PyTorch</td>
-<td>Item1</td>
-<td>py</td>
-</tr>
-</tbody></table>
+        <h3 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h3><p>使用download属性用a标签下载图片，变成了新页签打开预览</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>下载的图片跨域，早期chrome没有这个限制</p>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>后台接口转发可以解决</p>
+<p>图片服务器增加允许跨域相关响应头</p>
+<p>前端用image拿到图片资源，使用Blob对象下载</p>
 
     </div>
 
@@ -317,12 +275,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/09/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/2021-4-24-tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="prev" title="tensorflow环境搭建">
-      <i class="fa fa-chevron-left"></i> tensorflow环境搭建
+    <a href="/2021/09/09/%E5%9F%BA%E4%BA%8Estrapi-gridsome%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84%E7%9A%84%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F-CMS/" rel="prev" title="基于strapi gridsome技术架构的内容管理系统(CMS)">
+      <i class="fa fa-chevron-left"></i> 基于strapi gridsome技术架构的内容管理系统(CMS)
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/09/09/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/" rel="next" title="小工具集合">
-      小工具集合 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/09/09/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%98%E5%8D%A1/" rel="next" title="开发灵异事件之浏览器变卡">
+      开发灵异事件之浏览器变卡 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -383,6 +341,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%B0%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">现象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3"><span class="nav-number">3.</span> <span class="nav-text">解决</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -396,7 +355,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -409,7 +368,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
