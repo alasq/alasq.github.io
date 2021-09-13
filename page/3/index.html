@@ -158,6 +158,234 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/19/2021-4-26-async.js%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈诗樵">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/19/2021-4-26-async.js%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/" class="post-title-link" itemprop="url">2021-4-26-async.js中文文档</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-19 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-19T00:00:00+00:00">2021-04-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-09-13 14:29:18" itemprop="dateModified" datetime="2021-09-13T14:29:18+00:00">2021-09-13</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/19/2021-4-26-async.js%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/19/2021-4-26-async.js%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://raw.githubusercontent.com/caolan/async/master/logo/async-logo_readme.jpg" alt="Async Logo"></p>
+<p><em>For Async v1.5.x documentation, go <a target="_blank" rel="noopener" href="https://github.com/caolan/async/blob/v1.5.2/README.md">HERE</a></em></p>
+<p>Async 是一个功能强大的异步 JavaScript 模块。虽然最初是为了与 <a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js</a> 一起使用，可以通过 <code>npm i async</code>安装,<br>它也可以直接在浏览器中使用。</p>
+<p>Async 也能通过 yarn 安装:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://yarnpkg.com/en/">yarn</a>: <code>yarn add async</code></li>
+</ul>
+<p>Async提供了大约70个函数。其中包括集合 (<code>map</code>, <code>reduce</code>, <code>filter</code>, <code>each</code>…) 的异步扩展。以及常见的异步控制流模式 (<code>parallel</code>, <code>series</code>, <code>waterfall</code>…). 这些函数假定您遵循Node.js约定 (提供一个callback作为异步函数的最后一个参数– 一个期望错误作为其第一个参数的回调—并调用回调一次)。</p>
+<p>你也可以用 <code>async</code> 函数代替 callback-accepting 函数提供给 Async 方法.  更多信息,请参考 <a href="global.html#AsyncFunction">AsyncFunction</a></p>
+<h2 id="Quick-Examples"><a href="#Quick-Examples" class="headerlink" title="Quick Examples"></a>Quick Examples</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span>.map([<span class="string">&#x27;file1&#x27;</span>,<span class="string">&#x27;file2&#x27;</span>,<span class="string">&#x27;file3&#x27;</span>], fs.stat, <span class="function"><span class="keyword">function</span>(<span class="params">err, results</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// results is now an array of stats for each file</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span>.filter([<span class="string">&#x27;file1&#x27;</span>,<span class="string">&#x27;file2&#x27;</span>,<span class="string">&#x27;file3&#x27;</span>], <span class="function"><span class="keyword">function</span>(<span class="params">filePath, callback</span>) </span>&#123;</span><br><span class="line">  fs.access(filePath, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">    callback(<span class="literal">null</span>, !err)</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, results</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// results now equals an array of the existing files</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span>.parallel([</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123; ... &#125;,</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123; ... &#125;</span><br><span class="line">], <span class="function"><span class="keyword">function</span>(<span class="params">err, results</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// optional callback</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span>.series([</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123; ... &#125;,</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123; ... &#125;</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<p>还有更多的功能哦,请查看后面完整功能列表。如果您觉得还缺了点什么，请创建一个GitHub issue 给我们。</p>
+<h2 id="常见问题-StackOverflow"><a href="#常见问题-StackOverflow" class="headerlink" title="常见问题 (StackOverflow)"></a>常见问题 <a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/tagged/async.js">(StackOverflow)</a></h2><h3 id="同步迭代函数-Synchronous-iteration-functions"><a href="#同步迭代函数-Synchronous-iteration-functions" class="headerlink" title="同步迭代函数 (Synchronous iteration functions)"></a>同步迭代函数 (Synchronous iteration functions)</h3><p>在使用async的时候,如果你遇到类似 <code>RangeError: Maximum call stack size exceeded.</code>的报错或者其他栈溢出问题 , 你可能使用了同步迭代。使用“同步”，意味着一个方法与它的callback在同一个事件循环(javascript event loop)中执行，使用 I/O 或者 定时器 除外。调用太多的callback会使栈溢出。如果你遇到这个问题，只需要通过<code>async.setImmediate</code>方法启动一个新的调用栈在下一次事件循环中运行。</p>
+<p>如果在某些情况下提早回调，这也偶然会产生：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span>.eachSeries(hugeArray, <span class="function"><span class="keyword">function</span> <span class="title">iteratee</span>(<span class="params">item, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (inCache(item)) &#123;</span><br><span class="line">        callback(<span class="literal">null</span>, cache[item]); <span class="comment">// 如果太多的项目被缓存，也会栈溢出</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        doSomeIO(item, callback);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> <span class="title">done</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>该成这样:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span>.eachSeries(hugeArray, <span class="function"><span class="keyword">function</span> <span class="title">iteratee</span>(<span class="params">item, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (inCache(item)) &#123;</span><br><span class="line">        <span class="keyword">async</span>.setImmediate(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            callback(<span class="literal">null</span>, cache[item]);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        doSomeIO(item, callback);</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>出于性能考虑，Async没有做同步迭代器校验。如果仍然遇到堆栈溢出,可以按照上面的方法进行延迟。或者使用<a href="#ensureAsync"><code>async.ensureAsync</code></a>方法包装函数，这些函数本质上是异步的，因此不存在此问题，也不需要额外的回调延迟。</p>
+<p>如果JavaScript的事件循环仍然有点模糊，请查看<a target="_blank" rel="noopener" href="http://blog.carbonfive.com/2013/10/27/the-javascript-event-loop-explained/">this article</a> or <a target="_blank" rel="noopener" href="http://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html">this talk</a> 获取更多详细信息。</p>
+<h3 id="多次调用回调函数-Multiple-callbacks"><a href="#多次调用回调函数-Multiple-callbacks" class="headerlink" title="多次调用回调函数( Multiple callbacks)"></a>多次调用回调函数( Multiple callbacks)</h3><p>确保在调用callback后<code>return</code>这个函数,否则在许多情况下会导致多次回调和不可预知的行为。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span>.waterfall([</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">        getSomething(options, <span class="function"><span class="keyword">function</span> (<span class="params">err, result</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                callback(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&quot;failed getting something:&quot;</span> + err.message));</span><br><span class="line">                <span class="comment">// we should return here</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// since we did not return, this callback still will be called and</span></span><br><span class="line">            <span class="comment">// `processData` will be called twice</span></span><br><span class="line">            callback(<span class="literal">null</span>, result);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    processData</span><br><span class="line">], done)</span><br></pre></td></tr></table></figure>
+
+
+<p>每当回调调用不是函数的最后一个语句时，最好使用 <code>return callback(err, result)</code>。</p>
+<h3 id="Using-ES2017-async-functions"><a href="#Using-ES2017-async-functions" class="headerlink" title="Using ES2017 async functions"></a>Using ES2017 <code>async</code> functions</h3><p>Async 可以用 <code>async</code> functions 代替 Node-风格 回调函数。没有callback形参,通过<code>return</code> 替代<code>callback(null,result)</code>。通过抛异常<code>throw new Error()</code>代替 <code>callback(err)</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span>.mapLimit(files, <span class="number">10</span>, <span class="keyword">async</span> file =&gt; &#123; <span class="comment">// &lt;- no callback!</span></span><br><span class="line">    <span class="keyword">const</span> text = <span class="keyword">await</span> util.promisify(fs.readFile)(dir + file, <span class="string">&#x27;utf8&#x27;</span>)</span><br><span class="line">    <span class="keyword">const</span> body = <span class="built_in">JSON</span>.parse(text) <span class="comment">// &lt;- a parse error here will be caught automatically</span></span><br><span class="line">    <span class="keyword">if</span> (!(<span class="keyword">await</span> checkValidity(body))) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`<span class="subst">$&#123;file&#125;</span> has invalid contents`</span>) <span class="comment">// &lt;- this error will also be caught</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> body <span class="comment">// &lt;- return a value!</span></span><br><span class="line">&#125;, <span class="function">(<span class="params">err, contents</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">    <span class="built_in">console</span>.log(contents)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>我们只能识别到原生<code>async</code> functions，不包括被转移的版本(e.g. with Babel)。另外您可以通过<code>async.asyncify()</code>把<code>async</code> functions 包装成 node-style callback</p>
+<h3 id="绑定上下文-Binding-a-context-to-an-iteratee"><a href="#绑定上下文-Binding-a-context-to-an-iteratee" class="headerlink" title="绑定上下文 Binding a context to an iteratee"></a>绑定上下文 Binding a context to an iteratee</h3><p>传递给Async的异步函数,this的上下文指向会被改变,需要通过<code>bind</code>方法指定上下文</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Here is a simple object with an (unnecessarily roundabout) squaring method</span></span><br><span class="line"><span class="keyword">var</span> AsyncSquaringLibrary = &#123;</span><br><span class="line">    squareExponent: <span class="number">2</span>,</span><br><span class="line">    square: <span class="function"><span class="keyword">function</span>(<span class="params">number, callback</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> result = <span class="built_in">Math</span>.pow(number, <span class="built_in">this</span>.squareExponent);</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            callback(<span class="literal">null</span>, result);</span><br><span class="line">        &#125;, <span class="number">200</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span>.map([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], AsyncSquaringLibrary.square, <span class="function"><span class="keyword">function</span>(<span class="params">err, result</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// result is [NaN, NaN, NaN]</span></span><br><span class="line">    <span class="comment">// This fails because the `this.squareExponent` expression in the square</span></span><br><span class="line">    <span class="comment">// function is not evaluated in the context of AsyncSquaringLibrary, and is</span></span><br><span class="line">    <span class="comment">// therefore undefined.</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span>.map([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], AsyncSquaringLibrary.square.bind(AsyncSquaringLibrary), <span class="function"><span class="keyword">function</span>(<span class="params">err, result</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// result is [1, 4, 9]</span></span><br><span class="line">    <span class="comment">// With the help of bind we can attach a context to the iteratee before</span></span><br><span class="line">    <span class="comment">// passing it to Async. Now the square function will be executed in its</span></span><br><span class="line">    <span class="comment">// &#x27;home&#x27; AsyncSquaringLibrary context and the value of `this.squareExponent`</span></span><br><span class="line">    <span class="comment">// will be as expected.</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="内存泄漏-Subtle-Memory-Leaks"><a href="#内存泄漏-Subtle-Memory-Leaks" class="headerlink" title="内存泄漏 Subtle Memory Leaks"></a>内存泄漏 Subtle Memory Leaks</h3><p>在某些情况下，当您在另一个异步函数中调用Async方法时，您可能想尽早退出异步流：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span> (<span class="params">args, outerCallback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">async</span>.waterfall([</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> (<span class="params">arg, next</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (someImportantCondition()) &#123;</span><br><span class="line">                <span class="keyword">return</span> outerCallback(<span class="literal">null</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="function"><span class="keyword">function</span> (<span class="params">arg, next</span>) </span>&#123;<span class="comment">/*...*/</span>&#125;</span><br><span class="line">    ], <span class="function"><span class="keyword">function</span> <span class="title">done</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有时候你想跳过瀑布流的剩余过程,你调用了外部的回调函数,但是Async还是会等待内部的<code>next</code>函数被调用,从而造成函数没有正确结束。</p>
+<p>从 3.0版本, 你可以调用任何 <code>false</code> 作为 <code>error</code> 参数的Async 回调,让Async结束方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">arg, next</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (someImportantCondition()) &#123;</span><br><span class="line">        outerCallback(<span class="literal">null</span>)</span><br><span class="line">        <span class="keyword">return</span> next(<span class="literal">false</span>) <span class="comment">// ← signal that you called an outer callback</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="处理集合时对集合进行改变-Mutating-collections-while-processing-them"><a href="#处理集合时对集合进行改变-Mutating-collections-while-processing-them" class="headerlink" title="处理集合时对集合进行改变 Mutating collections while processing them"></a>处理集合时对集合进行改变 Mutating collections while processing them</h3><p>如果你通过一个数组去调用Async的集合方法(例如 <code>each</code>, <code>mapLimit</code>, or <code>filterSeries</code>),<br>然后数组被<code>push</code>, <code>pop</code>, or <code>splice</code> 这些方法修改,这可能会导致意外,或者不确定的行为。Async会迭代到满足数组的原始 <code>length</code>次数。一些 <code>push</code>, <code>pop</code>, or <code>splice</code> 的索引已经被处理。因此，不建议在异步开始对其进行迭代之后修改该数组。 如果确实需要<code>push</code>, <code>pop</code>, or <code>splice</code>，请改用 <code>queue</code>。</p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>从<br><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/caolan/async/master/dist/async.min.js">GitHub</a>下载源码.<br>也可以通过npm安装:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i async</span><br></pre></td></tr></table></figure>
+
+<p>然后 <code>require()</code>引入整个模块:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="keyword">async</span> = <span class="built_in">require</span>(<span class="string">&quot;async&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>或缺部分引入某个方法:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> waterfall = <span class="built_in">require</span>(<span class="string">&quot;async/waterfall&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> map = <span class="built_in">require</span>(<span class="string">&quot;async/map&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>开发版:</strong> <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/caolan/async/master/dist/async.js">async.js</a> - 29.6kb 未压缩</p>
+<h3 id="在浏览器-In-the-Browser"><a href="#在浏览器-In-the-Browser" class="headerlink" title="在浏览器 In the Browser"></a>在浏览器 In the Browser</h3><p>Async 可以运行在任何 ES2015 环境 (Node 6+ and all modern browsers).</p>
+<p>如果你想在更老的环境中使用Async, (e.g. Node 4, IE11) 你需要做如下转换.</p>
+<p>Usage:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;async.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="keyword">async</span>.map(data, asyncProcess, <span class="function"><span class="keyword">function</span>(<span class="params">err, results</span>) </span>&#123;</span></span><br><span class="line">        alert(results);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>Async 的可移植版本, 包含 <code>async.js</code> and <code>async.min.js</code>, 在 <code>/dist</code> 文件夹下. Async 支持 <a target="_blank" rel="noopener" href="http://www.jsdelivr.com/projects/async">jsDelivr CDN</a>.</p>
+<h3 id="ES-Modules-支持"><a href="#ES-Modules-支持" class="headerlink" title="ES Modules 支持"></a>ES Modules 支持</h3><p>Async包含一个 <code>.mjs</code>版本，该版本应由兼容的打包工具自动使用，例如Webpack或Rollup等任何使用 <code>package.json</code>的<code>module</code>字段的东西。</p>
+<p>我们还在npm上的另一个<code>async-es</code>包中提供Async作为纯ES2015模块的集合。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install async-es</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> waterfall <span class="keyword">from</span> <span class="string">&#x27;async-es/waterfall&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">async</span> <span class="keyword">from</span> <span class="string">&#x27;async-es&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Typescript-支持"><a href="#Typescript-支持" class="headerlink" title="Typescript 支持"></a>Typescript 支持</h3><p>Async 的第三方类型定义。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D @types&#x2F;async</span><br></pre></td></tr></table></figure>
+<p>建议在您的<code>tsconfig.json</code>中编译选项中配置ES2017或更高版本，这样会保留<code>async</code>函数：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;compilerOptions&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;target&quot;</span>: <span class="string">&quot;es2017&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他仓库-友情链接"><a href="#其他仓库-友情链接" class="headerlink" title="其他仓库(友情链接)"></a>其他仓库(友情链接)</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/limiter"><code>limiter</code></a> a package for rate-limiting based on requests per sec/hour.</li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/neo-async"><code>neo-async</code></a> an altername implementation of Async, focusing on speed.</li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/co-async"><code>co-async</code></a> a library inspired by Async for use with <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/co"><code>co</code></a> and generator functions.</li>
+<li> <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/promise-async"><code>promise-async</code></a> a version of Async where all the methods are Promisified.</li>
+</ul>
+<h2 id="docjs-文档"><a href="#docjs-文档" class="headerlink" title="docjs 文档"></a>docjs 文档</h2><p>不是很好翻译,直接看官方英文的<br> <a target="_blank" rel="noopener" href="https://caolan.github.io/async/">https://caolan.github.io/async/</a></p>
+<hr>
+<hr>
+<p>———华丽的分割线, 后面是我的理解——————</p>
+<hr>
+<hr>
+<h2 id="Async-主要包含三个部分的函数"><a href="#Async-主要包含三个部分的函数" class="headerlink" title="Async 主要包含三个部分的函数"></a>Async 主要包含三个部分的函数</h2><h3 id="1-对集合的异步拓展-Array-prototype上方法的补充-原生是不支持异步的"><a href="#1-对集合的异步拓展-Array-prototype上方法的补充-原生是不支持异步的" class="headerlink" title="1. 对集合的异步拓展,Array.prototype上方法的补充,原生是不支持异步的"></a>1. 对集合的异步拓展,Array.prototype上方法的补充,原生是不支持异步的</h3><ul>
+<li>concat</li>
+<li>detect find</li>
+<li>each forEach  –不带index</li>
+<li>eachOf forEachOf –带index</li>
+<li>every</li>
+<li>filter</li>
+<li>groupBy</li>
+<li>map</li>
+<li>mapValues</li>
+<li>reduce reduceRight transform –都是做累加的</li>
+<li>reject –filter的补集</li>
+<li>some</li>
+<li>sortBy</li>
+<li>以上方法又有Limit变体版本</li>
+<li>Limit是限制并发数量的</li>
+<li>Series又是Limit并发数为1的变体版本</li>
+</ul>
+<h3 id="2-异步工作流"><a href="#2-异步工作流" class="headerlink" title="2. 异步工作流"></a>2. 异步工作流</h3><ul>
+<li><p>工作流</p>
+<ul>
+<li>queue 队列,执行器只能拿到当前执行的任务</li>
+<li>priorityQueue 跟queue相同,但是任务带执行优先级</li>
+<li>cargo 队列,执行器中拿到队列中的所有任务信息</li>
+<li>waterfall 瀑布,从上往下执行,最后的回调拿到瀑布中最后一个函数的执行结果</li>
+<li>series 一个一个运行,最后的回调拿到所有函数的执行结果</li>
+<li>auto 自动运行,根据异步函数的依赖关系自动执行</li>
+<li>times 执行同一个函数多次</li>
+<li>retry 执行失败会重试,直到成功(默认重试5次,重试间隔0秒)</li>
+<li>forever 一直执行这个函数,除非报错</li>
+</ul>
+</li>
+<li><p>Promise对应的Async实现</p>
+<ul>
+<li>parallel 一起执行,任何一个报错就退出,等同于Promise.all [拿到全部正确的结果]</li>
+<li>Promise.allSettled [拿到全部结果,不论对错],这个Async没有对应的实现,reflect和reflectAll可以阻止错误终端工作流<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span>.allSettled=<span class="keyword">async</span>.parallel(<span class="keyword">async</span>.reflectAll(tasks))</span><br></pre></td></tr></table></figure></li>
+<li>tryEach 任何一个异步函数成功就会退出工作流,等同于Promise.any [拿到第一个正确的结果]</li>
+<li>race 任何一个异步函数成功或者失败就是退出工作流,等同于Promise.race[拿到第一个执行完成的结果,不论对错]</li>
+</ul>
+</li>
+<li><p>循环工作流</p>
+<ul>
+<li>whilst while(condition){statement}  条件满足继续循环</li>
+<li>doWhilst do{statement}while(condition) 至少会执行一次</li>
+<li></li>
+<li>until  loop{}until(condition)  条件满足退出循环</li>
+<li>doUntil do{}until(condition) 至少会执行一次</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>辅助函数<ul>
+<li>compose 打散管道方法 例如 <code>a(b(c()))</code> compose(a,b,c)</li>
+<li>seq compose的可读版本 seq(a,b,c) 对应的是 <code>c(b(a()))</code></li>
+<li>applyEach 多个异步方法的参数相同,并发版</li>
+<li>applyEachSeries 多个异步方法的参数相同,排队版</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-辅助函数"><a href="#3-辅助函数" class="headerlink" title="3. 辅助函数"></a>3. 辅助函数</h3><ul>
+<li>apply 多参数转换成只有一个callback参数的函数</li>
+<li>asyncify,wrapSync 包装 ES2017 async function 成 Node-style风格AsyncFunction</li>
+<li>constant 包装常量成 AsyncFunction</li>
+<li>dir,log 方便调试输出异步函数的执行结果</li>
+<li>ensureAsync 确保函数是异步执行,防止同步调用迭代栈溢出</li>
+<li>memoize unmemoize 慢函数增加缓存,清除缓存</li>
+<li>nextTick 将函数放入下一次事假循环执行</li>
+<li>reflect reflectAll 返回一个新的函数,及时callback(error)也不会导致工作流结束</li>
+<li>setImmediate 跟nextTick差不多</li>
+<li>timeout 给异步函数增加超时</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/19/2021-4-29-%20rxjs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -189,7 +417,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-13 14:22:17" itemprop="dateModified" datetime="2021-09-13T14:22:17+00:00">2021-09-13</time>
+                <time title="修改时间：2021-09-13 14:29:18" itemprop="dateModified" datetime="2021-09-13T14:29:18+00:00">2021-09-13</time>
               </span>
 
           
@@ -312,7 +540,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-13 14:22:17" itemprop="dateModified" datetime="2021-09-13T14:22:17+00:00">2021-09-13</time>
+                <time title="修改时间：2021-09-13 14:29:18" itemprop="dateModified" datetime="2021-09-13T14:29:18+00:00">2021-09-13</time>
               </span>
 
           
@@ -414,7 +642,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-13 14:22:17" itemprop="dateModified" datetime="2021-09-13T14:22:17+00:00">2021-09-13</time>
+                <time title="修改时间：2021-09-13 14:29:18" itemprop="dateModified" datetime="2021-09-13T14:29:18+00:00">2021-09-13</time>
               </span>
 
           
@@ -501,7 +729,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-13 14:22:17" itemprop="dateModified" datetime="2021-09-13T14:22:17+00:00">2021-09-13</time>
+                <time title="修改时间：2021-09-13 14:29:18" itemprop="dateModified" datetime="2021-09-13T14:29:18+00:00">2021-09-13</time>
               </span>
 
           
@@ -605,7 +833,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-13 14:22:17" itemprop="dateModified" datetime="2021-09-13T14:22:17+00:00">2021-09-13</time>
+                <time title="修改时间：2021-09-13 14:29:18" itemprop="dateModified" datetime="2021-09-13T14:29:18+00:00">2021-09-13</time>
               </span>
 
           
@@ -691,7 +919,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-13 14:22:17" itemprop="dateModified" datetime="2021-09-13T14:22:17+00:00">2021-09-13</time>
+                <time title="修改时间：2021-09-13 14:29:18" itemprop="dateModified" datetime="2021-09-13T14:29:18+00:00">2021-09-13</time>
               </span>
 
           
@@ -771,7 +999,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-13 14:22:17" itemprop="dateModified" datetime="2021-09-13T14:22:17+00:00">2021-09-13</time>
+                <time title="修改时间：2021-09-13 14:29:18" itemprop="dateModified" datetime="2021-09-13T14:29:18+00:00">2021-09-13</time>
               </span>
 
           
@@ -856,7 +1084,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-13 14:22:17" itemprop="dateModified" datetime="2021-09-13T14:22:17+00:00">2021-09-13</time>
+                <time title="修改时间：2021-09-13 14:29:18" itemprop="dateModified" datetime="2021-09-13T14:29:18+00:00">2021-09-13</time>
               </span>
 
           
@@ -942,7 +1170,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-13 14:22:17" itemprop="dateModified" datetime="2021-09-13T14:22:17+00:00">2021-09-13</time>
+                <time title="修改时间：2021-09-13 14:29:18" itemprop="dateModified" datetime="2021-09-13T14:29:18+00:00">2021-09-13</time>
               </span>
 
           
@@ -991,89 +1219,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2017.%20%E8%B0%83%E8%AF%95jquery%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈诗樵">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2017.%20%E8%B0%83%E8%AF%95jquery%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 17. 调试jquery 事件监听</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-13 14:22:17" itemprop="dateModified" datetime="2021-09-13T14:22:17+00:00">2021-09-13</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2017.%20%E8%B0%83%E8%AF%95jquery%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2017.%20%E8%B0%83%E8%AF%95jquery%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://upload-images.jianshu.io/upload_images/8156292-c203c83afc13da33.gif?imageMogr2/auto-orient/strip" alt="jquery-event-listeners.gif"><br>jquery事件监听指向jquery的源代码，这对于调试没啥用，我们可以通过查看监听器方法的定义，找到事件处理函数</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1139,7 +1288,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1152,7 +1301,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
