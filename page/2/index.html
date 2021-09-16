@@ -158,6 +158,88 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/13/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E7%99%BB%E5%BD%95%E5%A4%B1%E6%95%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈诗樵">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/13/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E7%99%BB%E5%BD%95%E5%A4%B1%E6%95%88/" class="post-title-link" itemprop="url">开发灵异事件之登录失效</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-09-13 22:19:42" itemprop="dateCreated datePublished" datetime="2021-09-13T22:19:42+00:00">2021-09-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-09-16 11:31:58" itemprop="dateModified" datetime="2021-09-16T11:31:58+00:00">2021-09-16</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/09/13/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E7%99%BB%E5%BD%95%E5%A4%B1%E6%95%88/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/13/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E7%99%BB%E5%BD%95%E5%A4%B1%E6%95%88/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h1><p>登录界面多次重定向到自己。退出浏览器，清理缓存，无痕模式，都不行。</p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>google chrome在90+版本后，关闭所有窗口仍然会在后台运行，右下角有个小图标。这样会导致存在session Storage里面的数据不会被清理，或者是一些缓存命中机制出现变化，原有的登录判断逻辑出现问题。</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>右击电脑屏幕右下角状态栏chrome小图标，测底关闭浏览器后台程序。</p>
+<p>一劳永逸法，chrome://settings 界面去勾选退出后在后台运行的设置<br><img src="%5Bhttps://%5D(https://upload-images.jianshu.io/upload_images/8156292-157357cdc6edd678.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)" alt="alt"><br>根本解决法，修改判断登录的机制，适配浏览器更新</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/09/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E5%8D%8E%E4%B8%BA%E7%A0%94%E5%8F%91%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%EF%BC%88RDPM%EF%BC%89%E4%B8%AD%E7%9A%84%E6%9C%AF%E8%AF%AD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -189,7 +271,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 17:16:30" itemprop="dateModified" datetime="2021-09-15T17:16:30+00:00">2021-09-15</time>
+                <time title="修改时间：2021-09-16 11:31:58" itemprop="dateModified" datetime="2021-09-16T11:31:58+00:00">2021-09-16</time>
               </span>
 
           
@@ -525,7 +607,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 17:16:30" itemprop="dateModified" datetime="2021-09-15T17:16:30+00:00">2021-09-15</time>
+                <time title="修改时间：2021-09-16 11:31:58" itemprop="dateModified" datetime="2021-09-16T11:31:58+00:00">2021-09-16</time>
               </span>
 
           
@@ -606,7 +688,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 17:16:30" itemprop="dateModified" datetime="2021-09-15T17:16:30+00:00">2021-09-15</time>
+                <time title="修改时间：2021-09-16 11:31:58" itemprop="dateModified" datetime="2021-09-16T11:31:58+00:00">2021-09-16</time>
               </span>
 
           
@@ -689,7 +771,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 17:16:30" itemprop="dateModified" datetime="2021-09-15T17:16:30+00:00">2021-09-15</time>
+                <time title="修改时间：2021-09-16 11:31:58" itemprop="dateModified" datetime="2021-09-16T11:31:58+00:00">2021-09-16</time>
               </span>
 
           
@@ -772,7 +854,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 17:16:30" itemprop="dateModified" datetime="2021-09-15T17:16:30+00:00">2021-09-15</time>
+                <time title="修改时间：2021-09-16 11:31:58" itemprop="dateModified" datetime="2021-09-16T11:31:58+00:00">2021-09-16</time>
               </span>
 
           
@@ -864,7 +946,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 17:16:30" itemprop="dateModified" datetime="2021-09-15T17:16:30+00:00">2021-09-15</time>
+                <time title="修改时间：2021-09-16 11:31:58" itemprop="dateModified" datetime="2021-09-16T11:31:58+00:00">2021-09-16</time>
               </span>
 
           
@@ -980,7 +1062,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 17:16:30" itemprop="dateModified" datetime="2021-09-15T17:16:30+00:00">2021-09-15</time>
+                <time title="修改时间：2021-09-16 11:31:58" itemprop="dateModified" datetime="2021-09-16T11:31:58+00:00">2021-09-16</time>
               </span>
 
           
@@ -1068,7 +1150,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 17:16:30" itemprop="dateModified" datetime="2021-09-15T17:16:30+00:00">2021-09-15</time>
+                <time title="修改时间：2021-09-16 11:31:58" itemprop="dateModified" datetime="2021-09-16T11:31:58+00:00">2021-09-16</time>
               </span>
 
           
@@ -1149,7 +1231,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 17:16:30" itemprop="dateModified" datetime="2021-09-15T17:16:30+00:00">2021-09-15</time>
+                <time title="修改时间：2021-09-16 11:31:58" itemprop="dateModified" datetime="2021-09-16T11:31:58+00:00">2021-09-16</time>
               </span>
 
           
@@ -1207,91 +1289,6 @@
 <h1 id="stop与kill的区别"><a href="#stop与kill的区别" class="headerlink" title="stop与kill的区别"></a>stop与kill的区别</h1><p>stop 会等10秒后再kill容器,并会告知容器内的程序<br>详情请参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34414196/article/details/86428138">https://blog.csdn.net/weixin_34414196/article/details/86428138</a></p>
 <h1 id="run-跟-start的区别"><a href="#run-跟-start的区别" class="headerlink" title="run 跟 start的区别"></a>run 跟 start的区别</h1><p>run =create + start<br>所以咱们第一次用run  后面用start就好了</p>
 <p>当我们具体用哪个命令的时候,<code>docker COMMAND --help</code> 查看某个命令的帮助文档<br><img src="https://upload-images.jianshu.io/upload_images/8156292-42e1a0d65a8641d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>[OPTIONS] 上图中的这种参数就是可有可无,大写代表变量,不要直接抄哦<br>NAME|ID  容器的名称或者ID 必选<br>[NAME|ID…] 表示可以填多个</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/19/2021-4-19-%20win7%20docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈诗樵">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/19/2021-4-19-%20win7%20docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">2021-4-19- win7 docker环境安装</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-19 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-19T00:00:00+00:00">2021-04-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 17:16:30" itemprop="dateModified" datetime="2021-09-15T17:16:30+00:00">2021-09-15</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/04/19/2021-4-19-%20win7%20docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/19/2021-4-19-%20win7%20docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ol>
-<li>本人win7,先下载DockerToolBox,win10的可以下载docker desktop for windows<br>下载地址 <a target="_blank" rel="noopener" href="https://docs.docker.com/toolbox/overview/">https://docs.docker.com/toolbox/overview/</a><br>双击运行 一路下一步就好了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-f83cd8976a133c8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-<li>然后报错,手按太快,询问是否安装虚拟机的时候直接点了回车,不安装,这里要注意下<br><img src="https://upload-images.jianshu.io/upload_images/8156292-bf7c186d1f902ae6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-<li>正常安装后桌面应该出现这三个小图标,第一个是docker的命令行工具,第二个是联网查看dockerhub的镜像,第三个是虚拟机<br><img src="https://upload-images.jianshu.io/upload_images/8156292-5424787ab9e6b89d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-<li>把提前下载好的 docker2boot镜像丢到缓存里面,否则启动的时候找不到会自动下载比较慢<br><img src="https://upload-images.jianshu.io/upload_images/8156292-06cb26f3eeb4ada1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-<li>我们运行第一个Docker Quickstart Terminal ,出现下面的界面就ok了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-35392cc5cc1dcd05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-</ol>
 
       
     </div>
@@ -1376,7 +1373,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

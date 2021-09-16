@@ -158,6 +158,91 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2014.%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E7%9B%B8%E5%85%B3%E7%9A%84%E6%8A%80%E5%B7%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈诗樵">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2014.%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E7%9B%B8%E5%85%B3%E7%9A%84%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 14.断点调试相关的技巧</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-09-16 11:31:58" itemprop="dateModified" datetime="2021-09-16T11:31:58+00:00">2021-09-16</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2014.%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E7%9B%B8%E5%85%B3%E7%9A%84%E6%8A%80%E5%B7%A7/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2014.%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E7%9B%B8%E5%85%B3%E7%9A%84%E6%8A%80%E5%B7%A7/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://upload-images.jianshu.io/upload_images/8156292-b182b48798fc84b5.gif?imageMogr2/auto-orient/strip" alt="highlight-paused-statement.gif"><br>调试器暂停后，您现在可以看到正在执行的代码的确切部分。它以高亮显示较深的蓝色阴影。这在调试精简代码时很有用。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8156292-f5fdd4026a918fda.gif?imageMogr2/auto-orient/strip" alt="debugger-shortcuts.gif"></p>
+<p>Toggle a breakpoint while on a line: <code>Cmd + B</code> （切换当前行的断点）<br>Select the next call frame: Ctrl + . (下一个调用栈)<br>Select the previous call frame: Ctrl + , (上一个调用栈)</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>动图上点击的按钮是当遇到报错的时候，自动触发断点调试。<br>我们可以在源代码中添加 <code>debugger</code> 设置断点<br>可以在source面板中文件的行号前面单击设置断点 <code>Cmd + B</code></p>
+<h3 id="通过DOM被修改，被移除命中断点"><a href="#通过DOM被修改，被移除命中断点" class="headerlink" title="通过DOM被修改，被移除命中断点"></a>通过DOM被修改，被移除命中断点</h3><p><img src="https://upload-images.jianshu.io/upload_images/8156292-a07045fdf96cc168.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="通过触发网络请求命中断点"><a href="#通过触发网络请求命中断点" class="headerlink" title="通过触发网络请求命中断点"></a>通过触发网络请求命中断点</h3><p><img src="https://upload-images.jianshu.io/upload_images/8156292-f9c5980598e753fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="断点触发后，按住Ctrl-能跳转到的地方会被高亮"><a href="#断点触发后，按住Ctrl-能跳转到的地方会被高亮" class="headerlink" title="断点触发后，按住Ctrl 能跳转到的地方会被高亮"></a>断点触发后，按住Ctrl 能跳转到的地方会被高亮</h3><p><img src="https://upload-images.jianshu.io/upload_images/8156292-371da7a472f180de.gif?imageMogr2/auto-orient/strip" alt="js-jump-to-destination.gif"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2015.%20%E9%A2%9C%E8%89%B2%E6%8B%BE%E5%8F%96%E5%99%A8%E5%A2%9E%E5%BC%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -189,7 +274,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 17:16:30" itemprop="dateModified" datetime="2021-09-15T17:16:30+00:00">2021-09-15</time>
+                <time title="修改时间：2021-09-16 11:31:58" itemprop="dateModified" datetime="2021-09-16T11:31:58+00:00">2021-09-16</time>
               </span>
 
           
@@ -275,7 +360,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 17:16:30" itemprop="dateModified" datetime="2021-09-15T17:16:30+00:00">2021-09-15</time>
+                <time title="修改时间：2021-09-16 11:31:58" itemprop="dateModified" datetime="2021-09-16T11:31:58+00:00">2021-09-16</time>
               </span>
 
           
@@ -359,7 +444,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 17:16:30" itemprop="dateModified" datetime="2021-09-15T17:16:30+00:00">2021-09-15</time>
+                <time title="修改时间：2021-09-16 11:31:58" itemprop="dateModified" datetime="2021-09-16T11:31:58+00:00">2021-09-16</time>
               </span>
 
           
@@ -438,7 +523,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 17:16:30" itemprop="dateModified" datetime="2021-09-15T17:16:30+00:00">2021-09-15</time>
+                <time title="修改时间：2021-09-16 11:31:58" itemprop="dateModified" datetime="2021-09-16T11:31:58+00:00">2021-09-16</time>
               </span>
 
           
@@ -518,7 +603,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 17:16:30" itemprop="dateModified" datetime="2021-09-15T17:16:30+00:00">2021-09-15</time>
+                <time title="修改时间：2021-09-16 11:31:58" itemprop="dateModified" datetime="2021-09-16T11:31:58+00:00">2021-09-16</time>
               </span>
 
           
@@ -601,7 +686,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 17:16:30" itemprop="dateModified" datetime="2021-09-15T17:16:30+00:00">2021-09-15</time>
+                <time title="修改时间：2021-09-16 11:31:58" itemprop="dateModified" datetime="2021-09-16T11:31:58+00:00">2021-09-16</time>
               </span>
 
           
@@ -686,7 +771,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 17:16:30" itemprop="dateModified" datetime="2021-09-15T17:16:30+00:00">2021-09-15</time>
+                <time title="修改时间：2021-09-16 11:31:58" itemprop="dateModified" datetime="2021-09-16T11:31:58+00:00">2021-09-16</time>
               </span>
 
           
@@ -766,7 +851,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 17:16:30" itemprop="dateModified" datetime="2021-09-15T17:16:30+00:00">2021-09-15</time>
+                <time title="修改时间：2021-09-16 11:31:58" itemprop="dateModified" datetime="2021-09-16T11:31:58+00:00">2021-09-16</time>
               </span>
 
           
@@ -848,7 +933,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 17:16:30" itemprop="dateModified" datetime="2021-09-15T17:16:30+00:00">2021-09-15</time>
+                <time title="修改时间：2021-09-16 11:31:58" itemprop="dateModified" datetime="2021-09-16T11:31:58+00:00">2021-09-16</time>
               </span>
 
           
@@ -884,88 +969,6 @@
 </ol>
 <h1 id="使用Sourcemap-调试时解析变量名"><a href="#使用Sourcemap-调试时解析变量名" class="headerlink" title="使用Sourcemap 调试时解析变量名"></a>使用Sourcemap 调试时解析变量名</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-ede34451980feb28.gif?imageMogr2/auto-orient/strip" alt="resolve-variable-names.gif"><br>调试的时候就算有sourceMap,显示的依然是被混淆的名字<code>a,b,c</code>这种,我们想看到真实的变量名称,怎么做呢?<br>启动 试验功能的<code>Resolve Variable Names</code></p>
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>我在Chrome 89 看不到这个老外说的这个试验功能,应该是已经转正了!!不需要单独启用,知道有这个东西就好了</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2024.%20%E5%9C%A8%E2%80%9CNetwork%E2%80%9D%E4%B8%AD%E6%9F%A5%E7%9C%8B%E6%9D%A5%E8%87%AA%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BD%91%E7%BB%9C%E6%B5%81%E9%87%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈诗樵">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2024.%20%E5%9C%A8%E2%80%9CNetwork%E2%80%9D%E4%B8%AD%E6%9F%A5%E7%9C%8B%E6%9D%A5%E8%87%AA%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BD%91%E7%BB%9C%E6%B5%81%E9%87%8F/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 24. 在“Network”中查看来自其他应用程序的网络流量</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 17:16:30" itemprop="dateModified" datetime="2021-09-15T17:16:30+00:00">2021-09-15</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2024.%20%E5%9C%A8%E2%80%9CNetwork%E2%80%9D%E4%B8%AD%E6%9F%A5%E7%9C%8B%E6%9D%A5%E8%87%AA%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BD%91%E7%BB%9C%E6%B5%81%E9%87%8F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2024.%20%E5%9C%A8%E2%80%9CNetwork%E2%80%9D%E4%B8%AD%E6%9F%A5%E7%9C%8B%E6%9D%A5%E8%87%AA%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BD%91%E7%BB%9C%E6%B5%81%E9%87%8F/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="常用的抓包工具"><a href="#常用的抓包工具" class="headerlink" title="常用的抓包工具"></a>常用的抓包工具</h2><p>Fiddler 小巧精悍,适合http<br>Burpsuite 安全测试的时候用过,很强大<br>wireshark  抓网卡,内容没有聚合上手难度高点</p>
-<p>NetWork 面板很好用,用来拦截操作系统的网络流量<br><img src="https://upload-images.jianshu.io/upload_images/8156292-af20e8217608951b.gif?imageMogr2/auto-orient/strip" alt="os-network-proxy.gif"></p>
-<p>这里需要另外一个 工具来配合 github kdzwinel/betwixt<br>安装好了再设置下系统的代理就好了</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>其实这个不是用Chrome DevTools去抓包啦,只是betwixt这个抓包工具,长得跟NetWork面板一样</p>
 
       
     </div>
@@ -1050,7 +1053,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
