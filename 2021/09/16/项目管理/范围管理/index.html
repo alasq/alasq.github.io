@@ -20,22 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="当打断点的时候,可以在如下图进行调用栈的复制,复制到剪贴板!! 讨论这个鸡肋功能到底有啥用啊?? 发stackOverflow帖子的时候用吗?">
+  <meta name="description" content="范围管理分两部分，第一是需求管理，项目组单位时间的产出是固定的。哪些需求可以砍，哪些需求可以延期，都是范围管理的内容。范围管理的另外一部分，是标识项目交付与验收标准。  主要确定 业务需求，交付时间，验收标准，交付件 就差不多了  做好范围管理的核心是做好需求变更的控制，一定要评估变更对进度，成本，质量的影响，才能决定需求变更。 需求获取外部需求：来自用户内部需求：来自开发与测试（这个容易被忽视）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2021-4-7- Chrome Devtools Tip： 38. 复制完整的调用栈">
-<meta property="og:url" content="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2038.%20%E5%A4%8D%E5%88%B6%E5%AE%8C%E6%95%B4%E7%9A%84%E8%B0%83%E7%94%A8%E6%A0%88/index.html">
+<meta property="og:title" content="范围管理">
+<meta property="og:url" content="http://example.com/2021/09/16/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E8%8C%83%E5%9B%B4%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="有人在代码里下毒，啊……">
-<meta property="og:description" content="当打断点的时候,可以在如下图进行调用栈的复制,复制到剪贴板!! 讨论这个鸡肋功能到底有啥用啊?? 发stackOverflow帖子的时候用吗?">
+<meta property="og:description" content="范围管理分两部分，第一是需求管理，项目组单位时间的产出是固定的。哪些需求可以砍，哪些需求可以延期，都是范围管理的内容。范围管理的另外一部分，是标识项目交付与验收标准。  主要确定 业务需求，交付时间，验收标准，交付件 就差不多了  做好范围管理的核心是做好需求变更的控制，一定要评估变更对进度，成本，质量的影响，才能决定需求变更。 需求获取外部需求：来自用户内部需求：来自开发与测试（这个容易被忽视）">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8156292-369ec63c02f61443.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="article:published_time" content="2021-04-07T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-09-16T12:38:26.455Z">
+<meta property="article:published_time" content="2021-09-16T20:15:41.000Z">
+<meta property="article:modified_time" content="2021-09-16T12:38:26.459Z">
 <meta property="article:author" content="陈诗樵">
-<meta property="article:tag" content="Chrome Devtools Tip">
+<meta property="article:tag" content="项目管理">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/8156292-369ec63c02f61443.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
-<link rel="canonical" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2038.%20%E5%A4%8D%E5%88%B6%E5%AE%8C%E6%95%B4%E7%9A%84%E8%B0%83%E7%94%A8%E6%A0%88/">
+<link rel="canonical" href="http://example.com/2021/09/16/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E8%8C%83%E5%9B%B4%E7%AE%A1%E7%90%86/">
 
 
 <script id="page-configurations">
@@ -48,7 +46,7 @@
   };
 </script>
 
-  <title>2021-4-7- Chrome Devtools Tip： 38. 复制完整的调用栈 | 有人在代码里下毒，啊……</title>
+  <title>范围管理 | 有人在代码里下毒，啊……</title>
   <meta name="referrer" content="no-referrer"/>
   
 
@@ -166,7 +164,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2038.%20%E5%A4%8D%E5%88%B6%E5%AE%8C%E6%95%B4%E7%9A%84%E8%B0%83%E7%94%A8%E6%A0%88/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/16/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E8%8C%83%E5%9B%B4%E7%AE%A1%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -179,7 +177,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          2021-4-7- Chrome Devtools Tip： 38. 复制完整的调用栈
+          范围管理
         </h1>
 
         <div class="post-meta">
@@ -188,16 +186,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
+              <time title="创建时间：2021-09-16 20:15:41 / 修改时间：12:38:26" itemprop="dateCreated datePublished" datetime="2021-09-16T20:15:41+00:00">2021-09-16</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-16 12:38:26" itemprop="dateModified" datetime="2021-09-16T12:38:26+00:00">2021-09-16</time>
-              </span>
 
           
   
@@ -208,8 +200,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2038.%20%E5%A4%8D%E5%88%B6%E5%AE%8C%E6%95%B4%E7%9A%84%E8%B0%83%E7%94%A8%E6%A0%88/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2038.%20%E5%A4%8D%E5%88%B6%E5%AE%8C%E6%95%B4%E7%9A%84%E8%B0%83%E7%94%A8%E6%A0%88/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/09/16/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E8%8C%83%E5%9B%B4%E7%AE%A1%E7%90%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/16/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E8%8C%83%E5%9B%B4%E7%AE%A1%E7%90%86/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -224,8 +216,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>当打断点的时候,可以在如下图进行调用栈的复制,复制到剪贴板!!<br><img src="https://upload-images.jianshu.io/upload_images/8156292-369ec63c02f61443.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h1 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h1><p>这个鸡肋功能到底有啥用啊?? 发stackOverflow帖子的时候用吗?</p>
+        <p>范围管理分两部分，第一是需求管理，项目组单位时间的产出是固定的。哪些需求可以砍，哪些需求可以延期，都是范围管理的内容。<br>范围管理的另外一部分，是标识项目交付与验收标准。</p>
+<blockquote>
+<p>主要确定 业务需求，交付时间，验收标准，交付件 就差不多了</p>
+</blockquote>
+<p>做好范围管理的核心是做好需求变更的控制，一定要评估变更对进度，成本，质量的影响，才能决定需求变更。</p>
+<h2 id="需求获取"><a href="#需求获取" class="headerlink" title="需求获取"></a>需求获取</h2><p>外部需求：来自用户<br>内部需求：来自开发与测试（这个容易被忽视）</p>
+<h2 id="需求分析与优先级"><a href="#需求分析与优先级" class="headerlink" title="需求分析与优先级"></a>需求分析与优先级</h2><ul>
+<li>what/why 目的是什么，要解决什么，背景是什么</li>
+<li>who 主要看这个需求是普遍需求还是个别需求</li>
+<li>when 需求要什么时候满足</li>
+<li>优先级，必选，可选，是否可替代</li>
+<li>how 客户期待推荐的解决方案</li>
+</ul>
+<blockquote>
+<p>总的来说就是 投资回报高 &gt; 提升用户满意的 &gt; 提升竞争力的 &gt; 能做的</p>
+</blockquote>
 
     </div>
 
@@ -269,7 +275,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Chrome-Devtools-Tip/" rel="tag"># Chrome Devtools Tip</a>
+              <a href="/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" rel="tag"># 项目管理</a>
           </div>
 
         
@@ -278,13 +284,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2039.%20%E7%BD%91%E9%A1%B5%E5%85%A8%E9%A1%B5%E6%88%AA%E5%9B%BE/" rel="prev" title="2021-4-7- Chrome Devtools Tip： 39. 网页全页截图">
-      <i class="fa fa-chevron-left"></i> 2021-4-7- Chrome Devtools Tip： 39. 网页全页截图
+    <a href="/2021/09/16/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" rel="prev" title="风险管理">
+      <i class="fa fa-chevron-left"></i> 风险管理
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2036.%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%B6%E9%97%B4%E6%B5%8B%E9%87%8FAPI/" rel="next" title="2021-4-7- Chrome Devtools Tip： 36. 自定义时间测量API">
-      2021-4-7- Chrome Devtools Tip： 36. 自定义时间测量API <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -344,7 +347,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A8%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">讨论</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E8%8E%B7%E5%8F%96"><span class="nav-number">1.</span> <span class="nav-text">需求获取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">2.</span> <span class="nav-text">需求分析与优先级</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
