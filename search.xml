@@ -14,55 +14,6 @@
       </tags>
   </entry>
   <entry>
-    <title>《编写可测试javascript》 第三章</title>
-    <url>/2019/04/06/2019-4-6-%E3%80%8A%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95javascript%E3%80%8B%20%E7%AC%AC%E4%B8%89%E7%AB%A0/</url>
-    <content><![CDATA[<p>通过事件解耦和隔离代码是javascript的一个原生特性,参考浏览器的DOM事件模型</p>
-<h1 id="3-1-基于事件的好处"><a href="#3-1-基于事件的好处" class="headerlink" title="3.1 基于事件的好处"></a>3.1 基于事件的好处</h1><ul>
-<li>应用程序都与消息传递有关</li>
-<li>拿到其他对象的消息<br>全局对象（易污染）<br>函数参数传入（参数过多）<br>函数参数注入（要维护注入列表）<br>局部初始化（紧耦合）</li>
-<li>函数是javascript的第一公民</li>
-<li>浏览器 DOM是事件模型</li>
-<li>nodejs 利用回调实现异步编程<h1 id="3-2事件集线器"><a href="#3-2事件集线器" class="headerlink" title="3.2事件集线器"></a>3.2事件集线器</h1></li>
-<li>一个中央处理器（110接警中心）</li>
-<li>向中央处理器注册事件的处理器（派出所，交警，刑警，消防，120急救中心，等）</li>
-<li>事件触发器（打110报警的用户）<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">eventHub.fire(<span class="string">&#x27;着火了&#x27;</span>，&#123;<span class="attr">address</span>:<span class="string">&#x27;南山腾讯大厦&#x27;</span>，leave:<span class="string">&#x27;烧了10层&#x27;</span>&#125;)</span><br><span class="line">eventHub.listen(<span class="string">&#x27;着火了&#x27;</span>，killFire)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">killFire</span>(<span class="params">msg</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`出动消防车到<span class="subst">$&#123;msg.address&#125;</span>去灭火，火灾等级<span class="subst">$&#123;leave&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-集线器属于<strong>公共耦合</strong>，但在集线器对象里，没有共享的状态<h2 id="3-2-1使用事件集线器"><a href="#3-2-1使用事件集线器" class="headerlink" title="3.2.1使用事件集线器"></a>3.2.1使用事件集线器</h2><h2 id="3-2-2事件的响应"><a href="#3-2-2事件的响应" class="headerlink" title="3.2.2事件的响应"></a>3.2.2事件的响应</h2><h2 id="3-2-3基于事件的架构与MVC架构-思想一致"><a href="#3-2-3基于事件的架构与MVC架构-思想一致" class="headerlink" title="3.2.3基于事件的架构与MVC架构(思想一致)"></a>3.2.3基于事件的架构与MVC架构(思想一致)</h2>MVC倡导 关注点分离与模块化，基于事件的架构都满足<br>事件集线器==Controller<br>事件传递的数据==Model数据库的行<br>事件推送的数据==View查询模型获得数据<h2 id="3-2-4基于事件架构与面向对象编程（不冲突，可以一起用）"><a href="#3-2-4基于事件架构与面向对象编程（不冲突，可以一起用）" class="headerlink" title="3.2.4基于事件架构与面向对象编程（不冲突，可以一起用）"></a>3.2.4基于事件架构与面向对象编程（不冲突，可以一起用）</h2>面向对象=》继承耦合<br>面向对象=》没有链式交互对象<br>事件架构=》数据都是私有的，仅通过事件API暴露<br>事件架构=》没有生命周期问题，对象存在于整个应用程序生命周期，不需要析构<h2 id="3-2-5-基于事件的架构与软件及服务（促进关系）"><a href="#3-2-5-基于事件的架构与软件及服务（促进关系）" class="headerlink" title="3.2.5 基于事件的架构与软件及服务（促进关系）"></a>3.2.5 基于事件的架构与软件及服务（促进关系）</h2>软件及服务（SaaS），每个独立的服务都可以加入事件集线器</li>
-</ul>
-<h1 id="3-3-web应用程序"><a href="#3-3-web应用程序" class="headerlink" title="3.3 web应用程序"></a>3.3 web应用程序</h1><p>web应用程序大多与web服务器搅合在一起<br>让事件集线器成为web应用程序的中心，而不是web服务器<br>使用socke.io可以解决http同源的问题</p>
-<h1 id="3-4测试基于事件的架构"><a href="#3-4测试基于事件的架构" class="headerlink" title="3.4测试基于事件的架构"></a>3.4测试基于事件的架构</h1><p>略……</p>
-<h1 id="3-5基于事件的架构说明"><a href="#3-5基于事件的架构说明" class="headerlink" title="3.5基于事件的架构说明"></a>3.5基于事件的架构说明</h1><ol>
-<li>可伸缩性<br>集线器宕机，则整个app宕机，所以，搞一组集线器负载匀衡</li>
-<li>广播<br>广播给所有客户端会产生大量通信流量，所以慎用</li>
-<li>运行时检查<br>函数和方法名 拼写错误，编译器能检查到，但是事件是字符串不能检查到，建议使用枚举值</li>
-<li>安全性<br>事件集线器实现“可信任”客户端身份验证<br>socket.io支持数据加密</li>
-<li>状态<br>web服务器通过会话cookie记录状态<br>事件集线器本身会将会话注入到事件中</li>
-</ol>
-<h1 id="3-6更智能的集线器，事件交换机"><a href="#3-6更智能的集线器，事件交换机" class="headerlink" title="3.6更智能的集线器，事件交换机"></a>3.6更智能的集线器，事件交换机</h1><p>事件分组：广播，单播<br>特性：节省网络带宽，自动防故障安全部署</p>
-<h2 id="3-6-1部署"><a href="#3-6-1部署" class="headerlink" title="3.6.1部署"></a>3.6.1部署</h2><p>新版本部署=重启web服务（一般的web应用）<br>目标：模块完全独立于web服务的部署（跟微服务的架构很像啊）<br>条件：停用事件监听而不删除事件<br>方式：事件交换机</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">eventSwitch.on(<span class="string">&#x27;depositMoney&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">  cash+=data.depositAmount;</span><br><span class="line">  eventSwitch.emit(<span class="string">&#x27;depositMoney&#x27;</span>,cash)</span><br><span class="line">&#125;,&#123;<span class="attr">type</span>:<span class="string">&#x27;unicast&#x27;</span>&#125;)<span class="comment">//告知注册的是单播事件</span></span><br><span class="line"><span class="comment">//eventClient:done 这个事件不能由已连接的客户端触发</span></span><br><span class="line"><span class="comment">//单播</span></span><br><span class="line">eventHub.on(<span class="string">&#x27;eventClient:done&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">  process.exit(<span class="number">0</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//广播</span></span><br><span class="line">eventHub.on(<span class="string">&#x27;eventClient:done&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">  eventHub.removeAllListeers(event)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="3-6-2一种实现"><a href="#3-6-2一种实现" class="headerlink" title="3.6.2一种实现"></a>3.6.2一种实现</h2><p><a href="https://github.com/zzo/EventHub">https://github.com/zzo/EventHub</a><br><code>npm install EventHub</code>安装<br><code>npm start EventHub</code>启动 默认监听5883端口</p>
-<h2 id="3-6-3-会话"><a href="#3-6-3-会话" class="headerlink" title="3.6.3 会话"></a>3.6.3 会话</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">eventHub=<span class="built_in">require</span>(<span class="string">&#x27;EventHub/clients/server/eventClient.js&#x27;</span>)</span><br><span class="line">.getClientHub(<span class="string">&#x27;http://localhost:5886?token=secret&#x27;</span>)</span><br><span class="line">eventHub.on(<span class="string">&#x27;user&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line"> <span class="keyword">var</span> sessionID=obj[<span class="string">&#x27;eventHub:session&#x27;</span>]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="3-6-4-可拓展性"><a href="#3-6-4-可拓展性" class="headerlink" title="3.6.4 可拓展性"></a>3.6.4 可拓展性</h2><p>socket.io 支持多种客户端，多种语言，不仅仅是javascript<br>一个例子<a href="https://github.com/zzo/BidSilent">https:github.com/zzo/BidSilent </a></p>
-<h2 id="3-7-小结"><a href="#3-7-小结" class="headerlink" title="3.7 小结"></a>3.7 小结</h2><ul>
-<li><p>基于事件的架构<br>高度模块化<br>松耦合<br>小依赖<br>高可重用性<br>便于创建可测试javascript</p>
-</li>
-<li><p>事件集线器构建在 socket.io 上</p>
-</li>
-<li><p>MVC实际上是用事件进行了增强</p>
-</li>
-<li><p>基于事件的架构开启了软件即服务,根据需要对小而独立的功能进行动态增删</p>
-</li>
-<li><p>使用事件交换机部署基于事件的模块非常容易,允许单独关闭旧模块,而不丢任何事件</p>
-</li>
-<li><p>测试已经隔离的模块更简单</p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>读书笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>《编写可测试javascript》 第二章 复杂度（一）</title>
     <url>/2019/04/03/2019-4-3-%E3%80%8A%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95javascript%E3%80%8B%20%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%88%E4%B8%80%EF%BC%89/</url>
     <content><![CDATA[<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
@@ -105,6 +56,55 @@
 <li>*扇出计算公式**：扇出=内部流程数量（指挥别人做的）+所更新数据结构数量（自己做的）</li>
 <li>*最佳实践<strong>：函数的</strong>扇出应该小于等于4**，绝对不要大于7，超过的话就需要重构<br>解决方式：拆分模块，依赖注入<br>例子：requirejs定义一个模块，下面的就需要拆分了<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//拆分前</span></span><br><span class="line">define([a,b,c,d,e,f,g,h],<span class="function"><span class="keyword">function</span>(<span class="params">a,b,c,d,e,f,g,h</span>)</span>&#123;<span class="comment">//定义一个模块，依赖了7个小模块</span></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">module</span>=&#123;</span><br><span class="line">    a,b,c,d,e,f,g,h</span><br><span class="line">  &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">module</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//拆分后</span></span><br><span class="line">define([],<span class="function"><span class="keyword">function</span>(<span class="params">a,b,c,d</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">SubModule</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.a=<span class="keyword">new</span> a()</span><br><span class="line">        <span class="built_in">this</span>.b=<span class="keyword">new</span> b()</span><br><span class="line">        <span class="built_in">this</span>.c=<span class="keyword">new</span> c()</span><br><span class="line">        <span class="built_in">this</span>.d=<span class="keyword">new</span> d()</span><br><span class="line">    &#125;</span><br><span class="line">    subModule.prototype.getA=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">this</span>.a&#125;</span><br><span class="line">    subModule.prototype.getB=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">this</span>.b&#125;</span><br><span class="line">    subModule.prototype.getC=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">this</span>.c&#125;</span><br><span class="line">    subModule.prototype.getD=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">this</span>.d&#125;</span><br><span class="line">    <span class="keyword">return</span> subModule</span><br><span class="line">&#125;)</span><br><span class="line">define([subModule,e,f,g,h],<span class="function"><span class="keyword">function</span>(<span class="params">subModule,e,f,g,h</span>)</span>&#123;<span class="comment">//仅仅减小扇出，但无实际意义</span></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">module</span>=&#123;</span><br><span class="line">    a:subModule.getA(),</span><br><span class="line">    b:subModule.getB(),</span><br><span class="line">    c:subModule.getC(),</span><br><span class="line">    d:subModule.getD(),</span><br><span class="line">    e,f,g,h</span><br><span class="line">  &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">module</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h3 id="6-扇入（入参？）"><a href="#6-扇入（入参？）" class="headerlink" title="6.扇入（入参？）"></a>6.扇入（入参？）</h3>定义：过程A的扇入是  过程A的内部流程数量 与 欲从过程A中获取信息的数据结构总和<br>高扇入复用程度越高，底层函数应该扇入高，扇出低。上层函数应该扇入低，扇出高。这样能保证函数的复杂度都比较低。<h3 id="7-耦合"><a href="#7-耦合" class="headerlink" title="7.耦合"></a>7.耦合</h3><a href="https://www.jianshu.com/p/33faf9d810f0">《编写可测试javascript》 第二章 复杂度（二）</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>读书笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《编写可测试javascript》 第三章</title>
+    <url>/2019/04/06/2019-4-6-%E3%80%8A%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95javascript%E3%80%8B%20%E7%AC%AC%E4%B8%89%E7%AB%A0/</url>
+    <content><![CDATA[<p>通过事件解耦和隔离代码是javascript的一个原生特性,参考浏览器的DOM事件模型</p>
+<h1 id="3-1-基于事件的好处"><a href="#3-1-基于事件的好处" class="headerlink" title="3.1 基于事件的好处"></a>3.1 基于事件的好处</h1><ul>
+<li>应用程序都与消息传递有关</li>
+<li>拿到其他对象的消息<br>全局对象（易污染）<br>函数参数传入（参数过多）<br>函数参数注入（要维护注入列表）<br>局部初始化（紧耦合）</li>
+<li>函数是javascript的第一公民</li>
+<li>浏览器 DOM是事件模型</li>
+<li>nodejs 利用回调实现异步编程<h1 id="3-2事件集线器"><a href="#3-2事件集线器" class="headerlink" title="3.2事件集线器"></a>3.2事件集线器</h1></li>
+<li>一个中央处理器（110接警中心）</li>
+<li>向中央处理器注册事件的处理器（派出所，交警，刑警，消防，120急救中心，等）</li>
+<li>事件触发器（打110报警的用户）<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">eventHub.fire(<span class="string">&#x27;着火了&#x27;</span>，&#123;<span class="attr">address</span>:<span class="string">&#x27;南山腾讯大厦&#x27;</span>，leave:<span class="string">&#x27;烧了10层&#x27;</span>&#125;)</span><br><span class="line">eventHub.listen(<span class="string">&#x27;着火了&#x27;</span>，killFire)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">killFire</span>(<span class="params">msg</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`出动消防车到<span class="subst">$&#123;msg.address&#125;</span>去灭火，火灾等级<span class="subst">$&#123;leave&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+集线器属于<strong>公共耦合</strong>，但在集线器对象里，没有共享的状态<h2 id="3-2-1使用事件集线器"><a href="#3-2-1使用事件集线器" class="headerlink" title="3.2.1使用事件集线器"></a>3.2.1使用事件集线器</h2><h2 id="3-2-2事件的响应"><a href="#3-2-2事件的响应" class="headerlink" title="3.2.2事件的响应"></a>3.2.2事件的响应</h2><h2 id="3-2-3基于事件的架构与MVC架构-思想一致"><a href="#3-2-3基于事件的架构与MVC架构-思想一致" class="headerlink" title="3.2.3基于事件的架构与MVC架构(思想一致)"></a>3.2.3基于事件的架构与MVC架构(思想一致)</h2>MVC倡导 关注点分离与模块化，基于事件的架构都满足<br>事件集线器==Controller<br>事件传递的数据==Model数据库的行<br>事件推送的数据==View查询模型获得数据<h2 id="3-2-4基于事件架构与面向对象编程（不冲突，可以一起用）"><a href="#3-2-4基于事件架构与面向对象编程（不冲突，可以一起用）" class="headerlink" title="3.2.4基于事件架构与面向对象编程（不冲突，可以一起用）"></a>3.2.4基于事件架构与面向对象编程（不冲突，可以一起用）</h2>面向对象=》继承耦合<br>面向对象=》没有链式交互对象<br>事件架构=》数据都是私有的，仅通过事件API暴露<br>事件架构=》没有生命周期问题，对象存在于整个应用程序生命周期，不需要析构<h2 id="3-2-5-基于事件的架构与软件及服务（促进关系）"><a href="#3-2-5-基于事件的架构与软件及服务（促进关系）" class="headerlink" title="3.2.5 基于事件的架构与软件及服务（促进关系）"></a>3.2.5 基于事件的架构与软件及服务（促进关系）</h2>软件及服务（SaaS），每个独立的服务都可以加入事件集线器</li>
+</ul>
+<h1 id="3-3-web应用程序"><a href="#3-3-web应用程序" class="headerlink" title="3.3 web应用程序"></a>3.3 web应用程序</h1><p>web应用程序大多与web服务器搅合在一起<br>让事件集线器成为web应用程序的中心，而不是web服务器<br>使用socke.io可以解决http同源的问题</p>
+<h1 id="3-4测试基于事件的架构"><a href="#3-4测试基于事件的架构" class="headerlink" title="3.4测试基于事件的架构"></a>3.4测试基于事件的架构</h1><p>略……</p>
+<h1 id="3-5基于事件的架构说明"><a href="#3-5基于事件的架构说明" class="headerlink" title="3.5基于事件的架构说明"></a>3.5基于事件的架构说明</h1><ol>
+<li>可伸缩性<br>集线器宕机，则整个app宕机，所以，搞一组集线器负载匀衡</li>
+<li>广播<br>广播给所有客户端会产生大量通信流量，所以慎用</li>
+<li>运行时检查<br>函数和方法名 拼写错误，编译器能检查到，但是事件是字符串不能检查到，建议使用枚举值</li>
+<li>安全性<br>事件集线器实现“可信任”客户端身份验证<br>socket.io支持数据加密</li>
+<li>状态<br>web服务器通过会话cookie记录状态<br>事件集线器本身会将会话注入到事件中</li>
+</ol>
+<h1 id="3-6更智能的集线器，事件交换机"><a href="#3-6更智能的集线器，事件交换机" class="headerlink" title="3.6更智能的集线器，事件交换机"></a>3.6更智能的集线器，事件交换机</h1><p>事件分组：广播，单播<br>特性：节省网络带宽，自动防故障安全部署</p>
+<h2 id="3-6-1部署"><a href="#3-6-1部署" class="headerlink" title="3.6.1部署"></a>3.6.1部署</h2><p>新版本部署=重启web服务（一般的web应用）<br>目标：模块完全独立于web服务的部署（跟微服务的架构很像啊）<br>条件：停用事件监听而不删除事件<br>方式：事件交换机</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">eventSwitch.on(<span class="string">&#x27;depositMoney&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">  cash+=data.depositAmount;</span><br><span class="line">  eventSwitch.emit(<span class="string">&#x27;depositMoney&#x27;</span>,cash)</span><br><span class="line">&#125;,&#123;<span class="attr">type</span>:<span class="string">&#x27;unicast&#x27;</span>&#125;)<span class="comment">//告知注册的是单播事件</span></span><br><span class="line"><span class="comment">//eventClient:done 这个事件不能由已连接的客户端触发</span></span><br><span class="line"><span class="comment">//单播</span></span><br><span class="line">eventHub.on(<span class="string">&#x27;eventClient:done&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">  process.exit(<span class="number">0</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//广播</span></span><br><span class="line">eventHub.on(<span class="string">&#x27;eventClient:done&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">  eventHub.removeAllListeers(event)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="3-6-2一种实现"><a href="#3-6-2一种实现" class="headerlink" title="3.6.2一种实现"></a>3.6.2一种实现</h2><p><a href="https://github.com/zzo/EventHub">https://github.com/zzo/EventHub</a><br><code>npm install EventHub</code>安装<br><code>npm start EventHub</code>启动 默认监听5883端口</p>
+<h2 id="3-6-3-会话"><a href="#3-6-3-会话" class="headerlink" title="3.6.3 会话"></a>3.6.3 会话</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">eventHub=<span class="built_in">require</span>(<span class="string">&#x27;EventHub/clients/server/eventClient.js&#x27;</span>)</span><br><span class="line">.getClientHub(<span class="string">&#x27;http://localhost:5886?token=secret&#x27;</span>)</span><br><span class="line">eventHub.on(<span class="string">&#x27;user&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line"> <span class="keyword">var</span> sessionID=obj[<span class="string">&#x27;eventHub:session&#x27;</span>]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="3-6-4-可拓展性"><a href="#3-6-4-可拓展性" class="headerlink" title="3.6.4 可拓展性"></a>3.6.4 可拓展性</h2><p>socket.io 支持多种客户端，多种语言，不仅仅是javascript<br>一个例子<a href="https://github.com/zzo/BidSilent">https:github.com/zzo/BidSilent </a></p>
+<h2 id="3-7-小结"><a href="#3-7-小结" class="headerlink" title="3.7 小结"></a>3.7 小结</h2><ul>
+<li><p>基于事件的架构<br>高度模块化<br>松耦合<br>小依赖<br>高可重用性<br>便于创建可测试javascript</p>
+</li>
+<li><p>事件集线器构建在 socket.io 上</p>
+</li>
+<li><p>MVC实际上是用事件进行了增强</p>
+</li>
+<li><p>基于事件的架构开启了软件即服务,根据需要对小而独立的功能进行动态增删</p>
+</li>
+<li><p>使用事件交换机部署基于事件的模块非常容易,允许单独关闭旧模块,而不丢任何事件</p>
+</li>
+<li><p>测试已经隔离的模块更简单</p>
+</li>
 </ul>
 ]]></content>
       <tags>
@@ -458,14 +458,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>前端开发文档之devdocs</title>
-    <url>/2021/09/13/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3%E4%B9%8Bdevdocs/</url>
-    <content><![CDATA[<p>devdocs.io 是一个在线的web开发文档在线站点，收藏了500+的前端开发文档，还支持离线模式。很适合部署在公司内网中。</p>
-<p>如果是我的话，可能会开发一个Chrome插件，用于替换Chrome的欢迎页面，然后把我收藏的所有开发文档做成一个欢迎页。</p>
-<p>真是个好想法，行动起来。<br>先给你们一个仓库地址 <a href="https://github.com/alasq/web.devdocs.chrome.welcome">web.devdocs.chrome.welcome</a> 大家可以贡献代码</p>
-]]></content>
-  </entry>
-  <entry>
     <title>win10小技巧之剪切板</title>
     <url>/2021/09/13/win10%E5%B0%8F%E6%8A%80%E5%B7%A7%E4%B9%8B%E5%89%AA%E5%88%87%E6%9D%BF/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-059a726b92b331b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>windows10开启剪贴板历史后，使用 <code>win+v</code>可以看到剪贴板历史，从历史中选择。非常好用<br><img src="https://upload-images.jianshu.io/upload_images/8156292-b343ce64720df903.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
@@ -473,6 +465,14 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       <tags>
         <tag>windows10</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>前端开发文档之devdocs</title>
+    <url>/2021/09/13/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3%E4%B9%8Bdevdocs/</url>
+    <content><![CDATA[<p>devdocs.io 是一个在线的web开发文档在线站点，收藏了500+的前端开发文档，还支持离线模式。很适合部署在公司内网中。</p>
+<p>如果是我的话，可能会开发一个Chrome插件，用于替换Chrome的欢迎页面，然后把我收藏的所有开发文档做成一个欢迎页。</p>
+<p>真是个好想法，行动起来。<br>先给你们一个仓库地址 <a href="https://github.com/alasq/web.devdocs.chrome.welcome">web.devdocs.chrome.welcome</a> 大家可以贡献代码</p>
+]]></content>
   </entry>
   <entry>
     <title>基于strapi gridsome技术架构的内容管理系统(CMS)</title>
@@ -726,16 +726,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 13. 通过快捷键快速切换 devtools 附着状态</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2013.%20%E9%80%9A%E8%BF%87%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2%20devtools%20%E9%99%84%E7%9D%80%E7%8A%B6%E6%80%81/</url>
-    <content><![CDATA[<p><code>Ctrl + Shift + D</code><br><img src="https://upload-images.jianshu.io/upload_images/8156292-1429d3fb31add89d.gif?imageMogr2/auto-orient/strip" alt="dock-undock-shortcut.gif"></p>
-<h1 id="调试chrome-devtools面板自身"><a href="#调试chrome-devtools面板自身" class="headerlink" title="调试chrome devtools面板自身"></a>调试chrome devtools面板自身</h1><p>chrome devtools 可以检查我们的htnl页面，而devtools自身也是一个html页面，可以通过 <code>Ctrl shift I </code>快捷键调试检查面板自己，适用场景为devtools插件开发</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 12. Element面板</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2012.%20Element%E9%9D%A2%E6%9D%BF/</url>
     <content><![CDATA[<h1 id="1-Alt-Click展开所有的子节点"><a href="#1-Alt-Click展开所有的子节点" class="headerlink" title="1. Alt + Click展开所有的子节点"></a>1. Alt + Click展开所有的子节点</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-4524814cf7ea524e.gif?imageMogr2/auto-orient/strip" alt="alt-click-expand-node.gif"></p>
@@ -746,6 +736,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <p>###如何使用此功能<br>在“Element”面板中检查元素<br>导航到“Element”面板中的“Event Listener”窗格<br>浏览在任何节点上注册的事件。您可以通过在上下文菜单中选择“显示函数定义”来查看事件侦听器的源。</p>
 <h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>有时候事件显示特别多，可以去掉 <code>Ancestors</code>复选框，只显示绑定在元素自身的事件，而非被代理的事件</p>
 <h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><p>事件的冒泡与代理，事件的队列</p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 13. 通过快捷键快速切换 devtools 附着状态</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2013.%20%E9%80%9A%E8%BF%87%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2%20devtools%20%E9%99%84%E7%9D%80%E7%8A%B6%E6%80%81/</url>
+    <content><![CDATA[<p><code>Ctrl + Shift + D</code><br><img src="https://upload-images.jianshu.io/upload_images/8156292-1429d3fb31add89d.gif?imageMogr2/auto-orient/strip" alt="dock-undock-shortcut.gif"></p>
+<h1 id="调试chrome-devtools面板自身"><a href="#调试chrome-devtools面板自身" class="headerlink" title="调试chrome devtools面板自身"></a>调试chrome devtools面板自身</h1><p>chrome devtools 可以检查我们的htnl页面，而devtools自身也是一个html页面，可以通过 <code>Ctrl shift I </code>快捷键调试检查面板自己，适用场景为devtools插件开发</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1044,6 +1044,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 38. 复制完整的调用栈</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2038.%20%E5%A4%8D%E5%88%B6%E5%AE%8C%E6%95%B4%E7%9A%84%E8%B0%83%E7%94%A8%E6%A0%88/</url>
+    <content><![CDATA[<p>当打断点的时候,可以在如下图进行调用栈的复制,复制到剪贴板!!<br><img src="https://upload-images.jianshu.io/upload_images/8156292-369ec63c02f61443.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h1><p>这个鸡肋功能到底有啥用啊?? 发stackOverflow帖子的时候用吗?</p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 39. 网页全页截图</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2039.%20%E7%BD%91%E9%A1%B5%E5%85%A8%E9%A1%B5%E6%88%AA%E5%9B%BE/</url>
     <content><![CDATA[<p>这个真心不错,以前都是装插件使用滚动截图的功能弄得</p>
@@ -1054,16 +1064,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 </ol>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>如果觉得每次找这个命令麻烦,可以把该功能设置成快捷键<br>除了全页截图,还有<br>Capture node screenshot - 截取正在检查的节点<br>Capture screenshot - 只截取可视区域的页面<br>Capture full size screenshot - 整个页面的截图,即使没有呈现在可视区域内的<br>Capture area screenshot - 跟QQ截图一样,自己划定区域</p>
 <h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>这个截图功能在做自动化测试时候非常有用,不知道 webDriver是不是用这种内置API去实现的,还是说用的c++调用操作系统能力去实现的?有知道的老铁留言讨论下</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 38. 复制完整的调用栈</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2038.%20%E5%A4%8D%E5%88%B6%E5%AE%8C%E6%95%B4%E7%9A%84%E8%B0%83%E7%94%A8%E6%A0%88/</url>
-    <content><![CDATA[<p>当打断点的时候,可以在如下图进行调用栈的复制,复制到剪贴板!!<br><img src="https://upload-images.jianshu.io/upload_images/8156292-369ec63c02f61443.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h1 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h1><p>这个鸡肋功能到底有啥用啊?? 发stackOverflow帖子的时候用吗?</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1085,17 +1085,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 9.多光标编辑 框选</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%209.%E5%A4%9A%E5%85%89%E6%A0%87%E7%BC%96%E8%BE%91%20%E6%A1%86%E9%80%89/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-a28a562f0bf0c356.gif?imageMogr2/auto-orient/strip" alt="multiple-cursors.gif"><br><code>Ctrl + click </code> 撤销 <code>Ctrl + U </code></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/8156292-e85e9974e61816f8.gif?imageMogr2/auto-orient/strip" alt="drag-select.gif"></p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>vscode中的<strong>多光标</strong>快捷键是 <code>ALT+ click    </code><br>框选是 <code>ALT+ SHIFT + 拖动</code><br><code>Ctrl+D</code>选中相同项<br><code>Ctrl+ Alt+ ↑</code>  <code>Ctrl+ Alt+ ↓</code></p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 8.资源面板Source中的快捷键</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%208.%20%E8%B5%84%E6%BA%90%E9%9D%A2%E6%9D%BFSource%E4%B8%AD%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-293c6c7a656174ab.gif?imageMogr2/auto-orient/strip" alt="go-to-column.gif"></p>
@@ -1109,6 +1098,17 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li><code>ctrl shift o</code> 查找文件中的方法定义,不在source面板中使用会跳转到书签管理器界面。这个vscode快捷键是一样的。<br><img src="https://upload-images.jianshu.io/upload_images/8156292-cee42ec6605207cf.gif?imageMogr2/auto-orient/strip" alt="go-to-member.gif"></li>
 </ol>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>资源面板里面编辑文件是有智能提示和代码检测的呢</p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 9.多光标编辑 框选</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%209.%E5%A4%9A%E5%85%89%E6%A0%87%E7%BC%96%E8%BE%91%20%E6%A1%86%E9%80%89/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-a28a562f0bf0c356.gif?imageMogr2/auto-orient/strip" alt="multiple-cursors.gif"><br><code>Ctrl + click </code> 撤销 <code>Ctrl + U </code></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8156292-e85e9974e61816f8.gif?imageMogr2/auto-orient/strip" alt="drag-select.gif"></p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>vscode中的<strong>多光标</strong>快捷键是 <code>ALT+ click    </code><br>框选是 <code>ALT+ SHIFT + 拖动</code><br><code>Ctrl+D</code>选中相同项<br><code>Ctrl+ Alt+ ↑</code>  <code>Ctrl+ Alt+ ↓</code></p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1246,15 +1246,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用小书匠在线编辑器书写博客</title>
-    <url>/2021/09/18/%E5%8D%9A%E5%AE%A2/2018-3-17-%E6%96%B0%E5%B9%B4%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<p>欢迎使用 <strong>{小书匠}(xiaoshujiang)编辑器</strong>，您可以通过 <code>小书匠主按钮&gt;模板</code> 里的模板管理来改变新建文章的内容。 这里需要给小书匠一个token,提供上传的权限，编辑后提交到仓库就可以更新博客，非常的方便。</p>
-]]></content>
-      <tags>
-        <tag>小书匠</tag>
       </tags>
   </entry>
   <entry>
@@ -1401,12 +1392,12 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 </tr>
 <tr>
 <td>Torch</td>
-<td>Item1</td>
+<td></td>
 <td>lua,c,  luaJIT</td>
 </tr>
 <tr>
 <td>PyTorch</td>
-<td>Item1</td>
+<td></td>
 <td>py</td>
 </tr>
 </tbody></table>
@@ -1778,35 +1769,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>tensorflow环境搭建</title>
-    <url>/2021/09/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/2021-4-24-tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h2 id="TensorFlow-的两个依赖"><a href="#TensorFlow-的两个依赖" class="headerlink" title="TensorFlow 的两个依赖"></a>TensorFlow 的两个依赖</h2><h3 id="Protocol-Buffer"><a href="#Protocol-Buffer" class="headerlink" title="Protocol Buffer"></a>Protocol Buffer</h3><p>结构化处理工具,比json,xml更小,解析更快</p>
-<h3 id="Bazel-自动化构建工具-类似于maven"><a href="#Bazel-自动化构建工具-类似于maven" class="headerlink" title="Bazel 自动化构建工具,类似于maven"></a>Bazel 自动化构建工具,类似于maven</h3><ul>
-<li>BUILD  文件用于表示构建目标</li>
-<li>WORKSPACE 文件用于标记外部依赖</li>
-</ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>三种方式安装: docker  pip 源码<br>我们使用pip来安装</p>
-<h3 id="安装-Anaconda"><a href="#安装-Anaconda" class="headerlink" title="安装 Anaconda"></a>安装 Anaconda</h3><p>python的发行版,除了python,还包含了很多常用的关于科学计算的库<br>我参考这篇文章安装成功的 <a href="https://www.cnblogs.com/ljysy/p/10660885.html">https://www.cnblogs.com/ljysy/p/10660885.html</a></p>
-<p>我这里下载的是 Anaconda 版本是 Anaconda3-5.3.1-Windows-x86_64.exe 对应的 python3.7.0</p>
-<ol>
-<li><code>conda create -n tensorflow python=3.7.0</code> 创建了一个独立的tensorflow的工作空间,在这个空间内使用的python版本为3.7.0</li>
-<li><code>conda activate tensorflow</code> 激活这个名为tensorflow空间</li>
-<li><code>pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</code>  在空间内配置pip的镜像源</li>
-<li><code>pip install tensorflow</code></li>
-</ol>
-<h3 id="Anaconda-vscode-配置"><a href="#Anaconda-vscode-配置" class="headerlink" title="Anaconda + vscode 配置"></a>Anaconda + vscode 配置</h3><p><a href="https://www.jianshu.com/p/ef1ae10ba950">https://www.jianshu.com/p/ef1ae10ba950</a></p>
-<h3 id="如果提示pip的版本过低-就使用下面的命令升级pip"><a href="#如果提示pip的版本过低-就使用下面的命令升级pip" class="headerlink" title="如果提示pip的版本过低,就使用下面的命令升级pip"></a>如果提示pip的版本过低,就使用下面的命令升级pip</h3><p><code>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U</code></p>
-<h3 id="code-runner-输出乱码"><a href="#code-runner-输出乱码" class="headerlink" title="code-runner 输出乱码"></a>code-runner 输出乱码</h3><p>参考这个文章解决  <a href="https://www.cnblogs.com/zhaoshizi/p/9050768.html">https://www.cnblogs.com/zhaoshizi/p/9050768.html</a>  </p>
-<p>在项目下 <code>.vscode/settings.json</code> 配置python的路径以及 code-runner的执行路径,设置成全局的也行吧</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;python.pythonPath&quot;</span>: <span class="string">&quot;F:\\ProgramData\\Anaconda3\\envs\\tensorflow&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;code-runner.executorMap&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;python&quot;</span>: <span class="string">&quot;set PYTHONIOENCODING=utf8 &amp;&amp; F:\\ProgramData\\Anaconda3\\envs\\tensorflow\\python.exe&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>试下tensorflow官网的例子,能跑起来就是成功了。有时候下载测试数据集的时候会失败，多试几次就好了</p>
-]]></content>
-      <tags>
-        <tag>TensorFlow</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>风险管理</title>
     <url>/2021/09/16/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<h1 id="项目管理风险识别-CheckList"><a href="#项目管理风险识别-CheckList" class="headerlink" title="项目管理风险识别 CheckList"></a>项目管理风险识别 CheckList</h1><table>
@@ -1898,6 +1860,35 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>项目管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>tensorflow环境搭建</title>
+    <url>/2021/09/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/2021-4-24-tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h2 id="TensorFlow-的两个依赖"><a href="#TensorFlow-的两个依赖" class="headerlink" title="TensorFlow 的两个依赖"></a>TensorFlow 的两个依赖</h2><h3 id="Protocol-Buffer"><a href="#Protocol-Buffer" class="headerlink" title="Protocol Buffer"></a>Protocol Buffer</h3><p>结构化处理工具,比json,xml更小,解析更快</p>
+<h3 id="Bazel-自动化构建工具-类似于maven"><a href="#Bazel-自动化构建工具-类似于maven" class="headerlink" title="Bazel 自动化构建工具,类似于maven"></a>Bazel 自动化构建工具,类似于maven</h3><ul>
+<li>BUILD  文件用于表示构建目标</li>
+<li>WORKSPACE 文件用于标记外部依赖</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>三种方式安装: docker  pip 源码<br>我们使用pip来安装</p>
+<h3 id="安装-Anaconda"><a href="#安装-Anaconda" class="headerlink" title="安装 Anaconda"></a>安装 Anaconda</h3><p>python的发行版,除了python,还包含了很多常用的关于科学计算的库<br>我参考这篇文章安装成功的 <a href="https://www.cnblogs.com/ljysy/p/10660885.html">https://www.cnblogs.com/ljysy/p/10660885.html</a></p>
+<p>我这里下载的是 Anaconda 版本是 Anaconda3-5.3.1-Windows-x86_64.exe 对应的 python3.7.0</p>
+<ol>
+<li><code>conda create -n tensorflow python=3.7.0</code> 创建了一个独立的tensorflow的工作空间,在这个空间内使用的python版本为3.7.0</li>
+<li><code>conda activate tensorflow</code> 激活这个名为tensorflow空间</li>
+<li><code>pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</code>  在空间内配置pip的镜像源</li>
+<li><code>pip install tensorflow</code></li>
+</ol>
+<h3 id="Anaconda-vscode-配置"><a href="#Anaconda-vscode-配置" class="headerlink" title="Anaconda + vscode 配置"></a>Anaconda + vscode 配置</h3><p><a href="https://www.jianshu.com/p/ef1ae10ba950">https://www.jianshu.com/p/ef1ae10ba950</a></p>
+<h3 id="如果提示pip的版本过低-就使用下面的命令升级pip"><a href="#如果提示pip的版本过低-就使用下面的命令升级pip" class="headerlink" title="如果提示pip的版本过低,就使用下面的命令升级pip"></a>如果提示pip的版本过低,就使用下面的命令升级pip</h3><p><code>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U</code></p>
+<h3 id="code-runner-输出乱码"><a href="#code-runner-输出乱码" class="headerlink" title="code-runner 输出乱码"></a>code-runner 输出乱码</h3><p>参考这个文章解决  <a href="https://www.cnblogs.com/zhaoshizi/p/9050768.html">https://www.cnblogs.com/zhaoshizi/p/9050768.html</a>  </p>
+<p>在项目下 <code>.vscode/settings.json</code> 配置python的路径以及 code-runner的执行路径,设置成全局的也行吧</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;python.pythonPath&quot;</span>: <span class="string">&quot;F:\\ProgramData\\Anaconda3\\envs\\tensorflow&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;code-runner.executorMap&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;python&quot;</span>: <span class="string">&quot;set PYTHONIOENCODING=utf8 &amp;&amp; F:\\ProgramData\\Anaconda3\\envs\\tensorflow\\python.exe&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>试下tensorflow官网的例子,能跑起来就是成功了。有时候下载测试数据集的时候会失败，多试几次就好了</p>
+]]></content>
+      <tags>
+        <tag>TensorFlow</tag>
       </tags>
   </entry>
   <entry>
