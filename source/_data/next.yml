@@ -1,5 +1,3 @@
-# Algolia Search
-# For more information: https://www.algolia.com
 algolia_search:
   enable: true
   hits:
