@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="介绍您可以使用“is:running高级网络过滤器”查看未完成的网络请求（例如正在运行的请求）。其他一些过滤器，您可以尝试是：status-code，method，domain和更多！ 如何使用它在“网络面板”过滤器框中，键入is:running并重新加载页面。观察可见的“网络面板”行如何快速变化以仅显示当前正在运行的资源。 别的过滤器 补充还有这些过滤器可以使用    domain   has">
@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8156292-421dbaa61601a622.gif?imageMogr2/auto-orient/strip">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8156292-de7a51900ab3d6b1.gif?imageMogr2/auto-orient/strip">
 <meta property="article:published_time" content="2021-04-07T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-09-18T00:22:16.109Z">
+<meta property="article:modified_time" content="2021-09-18T00:24:55.027Z">
 <meta property="article:author" content="陈诗樵">
 <meta property="article:tag" content="Chrome Devtools Tip">
 <meta name="twitter:card" content="summary">
@@ -154,18 +154,21 @@
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
-  <div class="search-input-container"></div>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div class="algolia-results">
-  <div id="algolia-stats"></div>
-  <div id="algolia-hits"></div>
-  <div id="algolia-pagination" class="algolia-pagination"></div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
 </div>
 
-      
     </div>
   </div>
 
@@ -223,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-18 00:22:16" itemprop="dateModified" datetime="2021-09-18T00:22:16+00:00">2021-09-18</time>
+                <time title="修改时间：2021-09-18 00:24:55" itemprop="dateModified" datetime="2021-09-18T00:24:55+00:00">2021-09-18</time>
               </span>
 
           
@@ -329,8 +332,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2012.%20Element%E9%9D%A2%E6%9D%BF/" rel="prev" title="2021-4-7- Chrome Devtools Tip： 12. Element面板">
-      <i class="fa fa-chevron-left"></i> 2021-4-7- Chrome Devtools Tip： 12. Element面板
+    <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2013.%20%E9%80%9A%E8%BF%87%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2%20devtools%20%E9%99%84%E7%9D%80%E7%8A%B6%E6%80%81/" rel="prev" title="2021-4-7- Chrome Devtools Tip： 13. 通过快捷键快速切换 devtools 附着状态">
+      <i class="fa fa-chevron-left"></i> 2021-4-7- Chrome Devtools Tip： 13. 通过快捷键快速切换 devtools 附着状态
     </a></div>
       <div class="post-nav-item">
     <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2010.%20Console%E9%9D%A2%E6%9D%BF%E7%9A%84%E4%B8%80%E4%BA%9BAPI/" rel="next" title="2021-4-7- Chrome Devtools Tip： 10.Console面板的一些API">
@@ -528,10 +531,7 @@
 
 
   
-<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
-<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
-<script src="/js/algolia-search.js"></script>
-
+<script src="/js/local-search.js"></script>
 
 
 
