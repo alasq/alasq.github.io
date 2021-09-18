@@ -20,19 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="项目地址https:&#x2F;&#x2F;gitee.com&#x2F;alasq&#x2F;tools.git  请原谅我把gitee当网盘用☺️ 开发用的小工具介绍前端开发用的小工具 工具列表(该仓库有安装包的工具) Hotkey Commander 检测快捷键冲突 小书匠 写作工具,可直接同步到多个平台 licecap 录屏 ScreenToGif 录Gif还能编辑 gif fscupture 截屏,测距,取色,录屏(视频),滚">
+  <meta name="description" content="TensorFlow 的两个依赖Protocol Buffer结构化处理工具,比json,xml更小,解析更快 Bazel 自动化构建工具,类似于maven BUILD  文件用于表示构建目标 WORKSPACE 文件用于标记外部依赖  安装三种方式安装: docker  pip 源码我们使用pip来安装 安装 Anacondapython的发行版,除了python,还包含了很多常用的关于科学计算">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小工具集合">
-<meta property="og:url" content="http://example.com/2021/09/16/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/index.html">
+<meta property="og:title" content="tensorflow环境搭建">
+<meta property="og:url" content="http://example.com/2021/09/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/2021-4-24-tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/index.html">
 <meta property="og:site_name" content="有人在代码里下毒，啊……">
-<meta property="og:description" content="项目地址https:&#x2F;&#x2F;gitee.com&#x2F;alasq&#x2F;tools.git  请原谅我把gitee当网盘用☺️ 开发用的小工具介绍前端开发用的小工具 工具列表(该仓库有安装包的工具) Hotkey Commander 检测快捷键冲突 小书匠 写作工具,可直接同步到多个平台 licecap 录屏 ScreenToGif 录Gif还能编辑 gif fscupture 截屏,测距,取色,录屏(视频),滚">
+<meta property="og:description" content="TensorFlow 的两个依赖Protocol Buffer结构化处理工具,比json,xml更小,解析更快 Bazel 自动化构建工具,类似于maven BUILD  文件用于表示构建目标 WORKSPACE 文件用于标记外部依赖  安装三种方式安装: docker  pip 源码我们使用pip来安装 安装 Anacondapython的发行版,除了python,还包含了很多常用的关于科学计算">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-09-16T12:38:26.459Z">
-<meta property="article:modified_time" content="2021-09-16T12:38:26.459Z">
+<meta property="article:published_time" content="2021-09-18T00:10:40.252Z">
+<meta property="article:modified_time" content="2021-09-18T00:10:40.252Z">
 <meta property="article:author" content="陈诗樵">
+<meta property="article:tag" content="TensorFlow">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2021/09/16/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/">
+<link rel="canonical" href="http://example.com/2021/09/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/2021-4-24-tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
 
 
 <script id="page-configurations">
@@ -45,7 +46,7 @@
   };
 </script>
 
-  <title>小工具集合 | 有人在代码里下毒，啊……</title>
+  <title>tensorflow环境搭建 | 有人在代码里下毒，啊……</title>
   <meta name="referrer" content="no-referrer"/>
   
 
@@ -163,7 +164,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/16/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/2021-4-24-tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -176,7 +177,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          小工具集合
+          tensorflow环境搭建
         </h1>
 
         <div class="post-meta">
@@ -186,7 +187,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-09-16 12:38:26" itemprop="dateCreated datePublished" datetime="2021-09-16T12:38:26+00:00">2021-09-16</time>
+              <time title="创建时间：2021-09-18 00:10:40" itemprop="dateCreated datePublished" datetime="2021-09-18T00:10:40+00:00">2021-09-18</time>
             </span>
 
           
@@ -198,8 +199,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/09/16/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/16/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/09/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/2021-4-24-tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/2021-4-24-tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -214,53 +215,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a target="_blank" rel="noopener" href="https://gitee.com/alasq/tools.git">https://gitee.com/alasq/tools.git</a> </p>
-<p>请原谅我把gitee当网盘用☺️</p>
-<h1 id="开发用的小工具"><a href="#开发用的小工具" class="headerlink" title="开发用的小工具"></a>开发用的小工具</h1><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>前端开发用的小工具</p>
-<h4 id="工具列表-该仓库有安装包的工具"><a href="#工具列表-该仓库有安装包的工具" class="headerlink" title="工具列表(该仓库有安装包的工具)"></a>工具列表(该仓库有安装包的工具)</h4><ul>
-<li>Hotkey Commander 检测快捷键冲突</li>
-<li>小书匠 写作工具,可直接同步到多个平台</li>
-<li>licecap 录屏</li>
-<li>ScreenToGif 录Gif还能编辑 gif</li>
-<li>fscupture 截屏,测距,取色,录屏(视频),滚动录屏</li>
-<li>Snipaste 截屏,粘贴到桌面</li>
-<li>everything 文件系统快速搜索</li>
-<li>Q-dir 分屏资源管理器</li>
+        <h2 id="TensorFlow-的两个依赖"><a href="#TensorFlow-的两个依赖" class="headerlink" title="TensorFlow 的两个依赖"></a>TensorFlow 的两个依赖</h2><h3 id="Protocol-Buffer"><a href="#Protocol-Buffer" class="headerlink" title="Protocol Buffer"></a>Protocol Buffer</h3><p>结构化处理工具,比json,xml更小,解析更快</p>
+<h3 id="Bazel-自动化构建工具-类似于maven"><a href="#Bazel-自动化构建工具-类似于maven" class="headerlink" title="Bazel 自动化构建工具,类似于maven"></a>Bazel 自动化构建工具,类似于maven</h3><ul>
+<li>BUILD  文件用于表示构建目标</li>
+<li>WORKSPACE 文件用于标记外部依赖</li>
 </ul>
-<h4 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h4><ul>
-<li>chrome &amp; firefox &amp; ie &amp; edge &amp; 360浏览器</li>
-<li>Git &amp; Git tortoise 版本管理工具</li>
-<li>Node 跑Node代码用</li>
-<li>nvm node版本管理工具</li>
-<li>Oracle JDK / Open JDK 跑java代码用的</li>
-<li>Postman 接口测试工具</li>
-<li>XAMPP（Apache+MySQL+PHP+PERL）跑PHP用,还白送一个comcat 一个mysql数据库</li>
-<li>Beyond Compare 比较文件夹很好用</li>
-<li>WinSCP sftp工具</li>
-<li>xShell / mabaxterm ssh远程连接工具</li>
-<li>docker windows上不建议装,能用的镜像太少</li>
-</ul>
-<h3 id="Chrome-插件"><a href="#Chrome-插件" class="headerlink" title="Chrome 插件"></a>Chrome 插件</h3><ul>
-<li>RSS 订阅</li>
-<li>划词翻译</li>
-<li>Vue DevTools</li>
-</ul>
-<h4 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h4><ul>
-<li>Vscode/WebStorm</li>
-<li>HBuilder</li>
-<li>微信开发者工具</li>
-<li>nodePad++</li>
-</ul>
-<h4 id="直播三件套"><a href="#直播三件套" class="headerlink" title="直播三件套"></a>直播三件套</h4><ul>
-<li>OBS Studio 录屏</li>
-<li>Arctime Pro 字幕工具</li>
-<li>Adobe Pr 视频编辑(会声会影/拍大师/剪映/爱剪辑)</li>
-</ul>
-<h3 id="办公软件"><a href="#办公软件" class="headerlink" title="办公软件"></a>办公软件</h3><ul>
-<li>word &amp; ppt &amp; excel </li>
-<li>pdf</li>
-<li>email/foxmail</li>
-</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>三种方式安装: docker  pip 源码<br>我们使用pip来安装</p>
+<h3 id="安装-Anaconda"><a href="#安装-Anaconda" class="headerlink" title="安装 Anaconda"></a>安装 Anaconda</h3><p>python的发行版,除了python,还包含了很多常用的关于科学计算的库<br>我参考这篇文章安装成功的 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/ljysy/p/10660885.html">https://www.cnblogs.com/ljysy/p/10660885.html</a></p>
+<p>我这里下载的是 Anaconda 版本是 Anaconda3-5.3.1-Windows-x86_64.exe 对应的 python3.7.0</p>
+<ol>
+<li><code>conda create -n tensorflow python=3.7.0</code> 创建了一个独立的tensorflow的工作空间,在这个空间内使用的python版本为3.7.0</li>
+<li><code>conda activate tensorflow</code> 激活这个名为tensorflow空间</li>
+<li><code>pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</code>  在空间内配置pip的镜像源</li>
+<li><code>pip install tensorflow</code></li>
+</ol>
+<h3 id="Anaconda-vscode-配置"><a href="#Anaconda-vscode-配置" class="headerlink" title="Anaconda + vscode 配置"></a>Anaconda + vscode 配置</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ef1ae10ba950">https://www.jianshu.com/p/ef1ae10ba950</a></p>
+<h3 id="如果提示pip的版本过低-就使用下面的命令升级pip"><a href="#如果提示pip的版本过低-就使用下面的命令升级pip" class="headerlink" title="如果提示pip的版本过低,就使用下面的命令升级pip"></a>如果提示pip的版本过低,就使用下面的命令升级pip</h3><p><code>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U</code></p>
+<h3 id="code-runner-输出乱码"><a href="#code-runner-输出乱码" class="headerlink" title="code-runner 输出乱码"></a>code-runner 输出乱码</h3><p>参考这个文章解决  <a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhaoshizi/p/9050768.html">https://www.cnblogs.com/zhaoshizi/p/9050768.html</a>  </p>
+<p>在项目下 <code>.vscode/settings.json</code> 配置python的路径以及 code-runner的执行路径,设置成全局的也行吧</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;python.pythonPath&quot;</span>: <span class="string">&quot;F:\\ProgramData\\Anaconda3\\envs\\tensorflow&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;code-runner.executorMap&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;python&quot;</span>: <span class="string">&quot;set PYTHONIOENCODING=utf8 &amp;&amp; F:\\ProgramData\\Anaconda3\\envs\\tensorflow\\python.exe&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>试下tensorflow官网的例子,能跑起来就是成功了。有时候下载测试数据集的时候会失败，多试几次就好了</p>
 
     </div>
 
@@ -303,6 +278,9 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
+          </div>
 
         
 
@@ -310,12 +288,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/09/16/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2021-4-21-%20%E4%B8%BB%E6%B5%81%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/" rel="prev" title="主流的深度学习开源工具">
-      <i class="fa fa-chevron-left"></i> 主流的深度学习开源工具
+    <a href="/2021/09/16/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E8%8C%83%E5%9B%B4%E7%AE%A1%E7%90%86/" rel="prev" title="范围管理">
+      <i class="fa fa-chevron-left"></i> 范围管理
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/09/16/%E5%8D%9A%E5%AE%A2/2021-5-6-%20hexo%20cname%20github%20pages%20%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/" rel="next" title="hexo github pages 域名设置">
-      hexo github pages 域名设置 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/09/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2021-4-21-%20%E4%B8%BB%E6%B5%81%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/" rel="next" title="主流的深度学习开源工具">
+      主流的深度学习开源工具 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -376,7 +354,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%9C%B0%E5%9D%80"><span class="nav-number">1.</span> <span class="nav-text">项目地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E7%94%A8%E7%9A%84%E5%B0%8F%E5%B7%A5%E5%85%B7"><span class="nav-number">2.</span> <span class="nav-text">开发用的小工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E5%88%97%E8%A1%A8-%E8%AF%A5%E4%BB%93%E5%BA%93%E6%9C%89%E5%AE%89%E8%A3%85%E5%8C%85%E7%9A%84%E5%B7%A5%E5%85%B7"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">工具列表(该仓库有安装包的工具)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">开发环境</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chrome-%E6%8F%92%E4%BB%B6"><span class="nav-number">2.0.1.</span> <span class="nav-text">Chrome 插件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IDE"><span class="nav-number">2.0.1.1.</span> <span class="nav-text">IDE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B4%E6%92%AD%E4%B8%89%E4%BB%B6%E5%A5%97"><span class="nav-number">2.0.1.2.</span> <span class="nav-text">直播三件套</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%9E%E5%85%AC%E8%BD%AF%E4%BB%B6"><span class="nav-number">2.0.2.</span> <span class="nav-text">办公软件</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow-%E7%9A%84%E4%B8%A4%E4%B8%AA%E4%BE%9D%E8%B5%96"><span class="nav-number">1.</span> <span class="nav-text">TensorFlow 的两个依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Protocol-Buffer"><span class="nav-number">1.1.</span> <span class="nav-text">Protocol Buffer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bazel-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7-%E7%B1%BB%E4%BC%BC%E4%BA%8Emaven"><span class="nav-number">1.2.</span> <span class="nav-text">Bazel 自动化构建工具,类似于maven</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Anaconda"><span class="nav-number">2.1.</span> <span class="nav-text">安装 Anaconda</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Anaconda-vscode-%E9%85%8D%E7%BD%AE"><span class="nav-number">2.2.</span> <span class="nav-text">Anaconda + vscode 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%8F%90%E7%A4%BApip%E7%9A%84%E7%89%88%E6%9C%AC%E8%BF%87%E4%BD%8E-%E5%B0%B1%E4%BD%BF%E7%94%A8%E4%B8%8B%E9%9D%A2%E7%9A%84%E5%91%BD%E4%BB%A4%E5%8D%87%E7%BA%A7pip"><span class="nav-number">2.3.</span> <span class="nav-text">如果提示pip的版本过低,就使用下面的命令升级pip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code-runner-%E8%BE%93%E5%87%BA%E4%B9%B1%E7%A0%81"><span class="nav-number">2.4.</span> <span class="nav-text">code-runner 输出乱码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81"><span class="nav-number">2.5.</span> <span class="nav-text">验证</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
