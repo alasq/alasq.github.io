@@ -442,6 +442,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>JSON Stream 用于JSON数据的解析</title>
+    <url>/2021/09/25/JSON-Stream-%E7%94%A8%E4%BA%8EJSON%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A7%A3%E6%9E%90/</url>
+    <content><![CDATA[<p>JSON Stream使用流的方式去解析JSON文件,即使是非常大的文件也不会造成内存卡顿</p>
+<p><a href="https://www.npmjs.com/package/JSONStream">https://www.npmjs.com/package/JSONStream</a></p>
+]]></content>
+      <tags>
+        <tag>json npm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UI框架之uikit</title>
     <url>/2021/09/13/UI%E6%A1%86%E6%9E%B6%E4%B9%8Buikit/</url>
     <content><![CDATA[<h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p><a href="https://getuikit.com/">官网</a></p>
@@ -458,12 +468,132 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>bpmn 业务流程建模与标注</title>
+    <url>/2021/09/25/bpmn-io/</url>
+    <content><![CDATA[<p><a href="https://bpmn.io/">https://bpmn.io</a> 用于绘制流程图的js库</p>
+<blockquote>
+<p>BPMN Business Process Modeling Notation 业务流程建模与标注</p>
+</blockquote>
+<p>中文文档 <a href="https://github.com/LinDaiDai/bpmn-chinese-document">https://github.com/LinDaiDai/bpmn-chinese-document</a></p>
+<p><em>另外还有个mermaid Markdown的流程图绘制库</em></p>
+]]></content>
+      <tags>
+        <tag>流程图</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>chrome浏览器窗口关闭后,后台进程仍在运行</title>
+    <url>/2021/09/25/chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AA%97%E5%8F%A3%E5%85%B3%E9%97%AD%E5%90%8E-%E5%90%8E%E5%8F%B0%E8%BF%9B%E7%A8%8B%E4%BB%8D%E5%9C%A8%E8%BF%90%E8%A1%8C/</url>
+    <content><![CDATA[<p><code>chrome://settings/system</code> 里面有一个<code>关闭 Google Chrome 后继续运行后台应用</code> 默认是打开的,需要手动关闭。<br>如果项目中用到了sessionStorage的话,可能会影响到正常的逻辑。<br><img src="../images/2021-09-25-20-54-05.png"></p>
+]]></content>
+      <tags>
+        <tag>chrome</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>defer async的区别</title>
+    <url>/2021/09/25/defer-async%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<p><img src="http://segmentfault.com/img/bVcQV0" alt="图片"></p>
+<ol>
+<li><code>defer</code> 能确保脚本加载的顺序,会在dom解析完成后执行</li>
+<li><code>async</code> 是先请求到先加载,会中断dom解析</li>
+<li>ES6 Module 有 <code>type=module</code> 默认defer模式</li>
+<li><code>async</code>适合完全独立的脚本</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>js获取路径上的参数</title>
+    <url>/2021/09/25/js%E8%8E%B7%E5%8F%96%E8%B7%AF%E5%BE%84%E4%B8%8A%E7%9A%84%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<p>加入有如下请求js的路径,怎么在some.js中获取这个参数?<br><code>base_url/path/to/some.js?username=bob</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> url=<span class="keyword">new</span> <span class="built_in">Error</span>().stack.match(<span class="regexp">/at\s(.*)\s/</span>)[<span class="number">1</span>];</span><br></pre></td></tr></table></figure>
+<p>通过错误对象的堆栈信息,拿到报错的URL。我是真的佩服这个大神的脑洞。</p>
+]]></content>
+      <tags>
+        <tag>代码片段</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>npm install 命令报错的情况下 显示详细log用于排查问题</title>
+    <url>/2021/09/25/npm-install-%E5%91%BD%E4%BB%A4%E6%8A%A5%E9%94%99%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B-%E6%98%BE%E7%A4%BA%E8%AF%A6%E7%BB%86log%E7%94%A8%E4%BA%8E%E6%8E%92%E6%9F%A5%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p><code>npm install ionic --loglevel verbose</code> 修改日志级别即可</p>
+]]></content>
+      <tags>
+        <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>webpack-dev-server代理host配置</title>
+    <url>/2021/09/25/webpack-dev-server%E4%BB%A3%E7%90%86host%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="让同事可以访问本地服务"><a href="#让同事可以访问本地服务" class="headerlink" title="让同事可以访问本地服务"></a>让同事可以访问本地服务</h1><p><code>devServer.host</code>配置成 <code>0.0.0.0</code>或者是本机的IP,host默认值是<code>localhost</code>,只能自己访问</p>
+<h1 id="登录的问题"><a href="#登录的问题" class="headerlink" title="登录的问题"></a>登录的问题</h1><p>访问接口需要鉴权,通过IP访问的话 huawei.com 的cookie不能携带,导致要求登录。我们可以修改本机的DNS解析<code>C:\Windows\System32\drivers\etc</code>，将<code>127.0.0.1</code>解析到 <code>localhost.huawei.com</code>  。然后通过<code>localhost.huawei.com</code>去访问本地调试地址。</p>
+<h1 id="Invalid-Host-Header"><a href="#Invalid-Host-Header" class="headerlink" title="Invalid Host Header"></a>Invalid Host Header</h1><p>如果页面出现这个报错，需要修改webpack配置  <code>devServer.disableHostCheck</code>为<code>true</code></p>
+<blockquote>
+<p>cmd  <code>ipconfig</code>可以查看自己的ip</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>webpack</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>win10小技巧之剪切板</title>
     <url>/2021/09/13/win10%E5%B0%8F%E6%8A%80%E5%B7%A7%E4%B9%8B%E5%89%AA%E5%88%87%E6%9D%BF/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-059a726b92b331b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>windows10开启剪贴板历史后，使用 <code>win+v</code>可以看到剪贴板历史，从历史中选择。非常好用<br><img src="https://upload-images.jianshu.io/upload_images/8156292-b343ce64720df903.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 ]]></content>
       <tags>
         <tag>windows10</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一个10年工程师的感慨</title>
+    <url>/2021/09/25/%E4%B8%80%E4%B8%AA10%E5%B9%B4%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%84%9F%E6%85%A8/</url>
+    <content><![CDATA[<p>原文 <a href="https://old.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/">https://old.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>一个在线压缩图片的大小的网站</title>
+    <url>/2021/09/25/%E4%B8%80%E4%B8%AA%E5%9C%A8%E7%BA%BF%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87%E7%9A%84%E5%A4%A7%E5%B0%8F%E7%9A%84%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<p><a href="https://tinypng.com/">https://tinypng.com/</a> </p>
+]]></content>
+      <tags>
+        <tag>图片处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>产品生命周期</title>
+    <url>/2021/09/25/%E4%BA%A7%E5%93%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
+    <content><![CDATA[<ol>
+<li>GA 可全球发布</li>
+<li>EOP 停止生产</li>
+<li>EOM 停止销售</li>
+<li>EOS 停止服务</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>项目管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>几个chrome插件</title>
+    <url>/2021/09/25/%E5%87%A0%E4%B8%AAchrome%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<p>yet-another-rest-client 用于restful接口测试  </p>
+<p>xswitch 用于拦截浏览器发送出去的请求(跨域的也能处理),可以把生产环境的请求拦截到本地用于调试,非常好用</p>
+<p>json-handle 美化JSON显示</p>
+]]></content>
+      <tags>
+        <tag>chrome</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>几款基于Ai的智能补全vscode插件</title>
+    <url>/2021/09/25/%E5%87%A0%E6%AC%BE%E5%9F%BA%E4%BA%8EAi%E7%9A%84%E6%99%BA%E8%83%BD%E8%A1%A5%E5%85%A8vscode%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="Github-Copilot"><a href="#Github-Copilot" class="headerlink" title="Github Copilot"></a>Github Copilot</h2><p>基于GitHub上的代码,训练出来的AI补全,需要准确描述函数的作用,它去找相似的</p>
+<h2 id="tabnine"><a href="#tabnine" class="headerlink" title="tabnine"></a>tabnine</h2><p>基于自己写过的代码做自动补全</p>
+<h2 id="HicodeAI"><a href="#HicodeAI" class="headerlink" title="HicodeAI"></a>HicodeAI</h2><p>华为自研的,不知道借鉴的哪一种</p>
+]]></content>
+      <tags>
+        <tag>vscode</tag>
       </tags>
   </entry>
   <entry>
@@ -501,6 +631,32 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>右击电脑屏幕右下角状态栏chrome小图标，测底关闭浏览器后台程序。</p>
 <p>一劳永逸法，chrome://settings 界面去勾选退出后在后台运行的设置<br><img src="%5Bhttps://%5D(https://upload-images.jianshu.io/upload_images/8156292-157357cdc6edd678.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)" alt="alt"><br>根本解决法，修改判断登录的机制，适配浏览器更新</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>极致简洁的微前端框架-京东MicroApp开源了</title>
+    <url>/2021/09/25/%E6%9E%81%E8%87%B4%E7%AE%80%E6%B4%81%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6-%E4%BA%AC%E4%B8%9CMicroApp%E5%BC%80%E6%BA%90%E4%BA%86/</url>
+    <content><![CDATA[<p>原文地址 <a href="https://article.itxueyuan.com/ylqMxp">https://article.itxueyuan.com/ylqMxp</a></p>
+<ul>
+<li>基于自定义元素，影子节点。web-components实现。</li>
+<li>自定义元素属性不支持对象，这里重写set方法,用数据中心传递数据<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dataCenter=&#123;</span><br><span class="line">  people:&#123;</span><br><span class="line">    name:<span class="string">&#x27;Bob&#x27;</span>,</span><br><span class="line">    age:<span class="number">18</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">setAttribute</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> setOld=setAttribute;</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">&quot;myPeople&quot;</span>).setAttribute=<span class="function"><span class="keyword">function</span> (<span class="params">attrName,attrValue</span>) </span>&#123;</span><br><span class="line">    setOld(attrName,attrValue);</span><br><span class="line">    <span class="built_in">this</span>.attrName=dataCenter[attrValue]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)(<span class="built_in">document</span>.getElementById(<span class="string">&quot;myPeople&quot;</span>).setAttribute)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>使用微前端会导致各个子项目技术栈完全不一致,各玩各的真的好吗?难道统一技术栈不是更好的选择,这样玩用人成本不是更高了么?</li>
+<li>微前端本身也是有学习成本的,这种各玩各的问题定位起来更难了,想组织技术培训的话,卧槽!!!各个子项目用的技术都不一样,无形提高了沟通成本</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>读后感</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>树形数据的广度优先与深度优先</title>
+    <url>/2021/09/25/%E6%A0%91%E5%BD%A2%E6%95%B0%E6%8D%AE%E7%9A%84%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E4%B8%8E%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88/</url>
+    <content><![CDATA[<p>这里只是做一个笔记,解释的话可以自行百度</p>
+<h2 id="广度优先"><a href="#广度优先" class="headerlink" title="广度优先"></a>广度优先</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foreach</span>(<span class="params">data,callback</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> nodes=[];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> data) &#123;</span><br><span class="line">    <span class="keyword">if</span>(item.childrens)&#123;</span><br><span class="line">      node=node.concat(item.childrens)</span><br><span class="line">    &#125;</span><br><span class="line">    callback(item)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(nodes.length==<span class="number">0</span>)<span class="keyword">return</span> </span><br><span class="line">  foreach(nodes)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="深度优先"><a href="#深度优先" class="headerlink" title="深度优先"></a>深度优先</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foreach</span>(<span class="params">data,callback</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> data) &#123;</span><br><span class="line">    <span class="keyword">if</span>(item.childrens)&#123;</span><br><span class="line">      foreach(item.childrens)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      callback(item)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
   </entry>
   <entry>
     <title>2021-3-24 Chrome Devtools Tip： 1. Port Forwarding 允许localhost URL 在移动设备调试</title>
@@ -1133,7 +1289,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
   </entry>
   <entry>
     <title>git常见问题</title>
-    <url>/2021/09/18/git/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
+    <url>/2021/09/25/git/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="使用git提交到github-每次都要输入用户名和密码的解决方法"><a href="#使用git提交到github-每次都要输入用户名和密码的解决方法" class="headerlink" title="使用git提交到github,每次都要输入用户名和密码的解决方法"></a>使用git提交到github,每次都要输入用户名和密码的解决方法</h1><p><a href="https://www.cnblogs.com/sky6862/p/7992736.html">https://www.cnblogs.com/sky6862/p/7992736.html</a></p>
 <h1 id="使用ssh协议提交github代码"><a href="#使用ssh协议提交github代码" class="headerlink" title="使用ssh协议提交github代码"></a>使用ssh协议提交github代码</h1><p><a href="https://blog.csdn.net/u013778905/article/details/83501204">https://blog.csdn.net/u013778905/article/details/83501204</a></p>
 <h1 id="git-记住密码"><a href="#git-记住密码" class="headerlink" title="git 记住密码"></a>git 记住密码</h1><p><code>git config --global credential.helper store</code></p>
@@ -1288,13 +1444,13 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
   </entry>
   <entry>
     <title>hexo github pages 域名设置</title>
-    <url>/2021/09/18/%E5%8D%9A%E5%AE%A2/2021-5-6-%20hexo%20cname%20github%20pages%20%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</url>
+    <url>/2021/09/25/%E5%8D%9A%E5%AE%A2/2021-5-6-%20hexo%20cname%20github%20pages%20%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</url>
     <content><![CDATA[<p>将<code>CNAME</code>文件放在 <code>/source/</code>目录下即可</p>
 ]]></content>
   </entry>
   <entry>
     <title>小工具集合</title>
-    <url>/2021/09/18/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/</url>
+    <url>/2021/09/25/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/</url>
     <content><![CDATA[<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://gitee.com/alasq/tools.git">https://gitee.com/alasq/tools.git</a> </p>
 <p>请原谅我把gitee当网盘用☺️</p>
 <h1 id="开发用的小工具"><a href="#开发用的小工具" class="headerlink" title="开发用的小工具"></a>开发用的小工具</h1><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>前端开发用的小工具</p>
@@ -1346,7 +1502,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
   </entry>
   <entry>
     <title>主流的深度学习开源工具</title>
-    <url>/2021/09/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2021-4-21-%20%E4%B8%BB%E6%B5%81%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/</url>
+    <url>/2021/09/25/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2021-4-21-%20%E4%B8%BB%E6%B5%81%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<table>
 <thead>
 <tr>
@@ -1864,7 +2020,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
   </entry>
   <entry>
     <title>tensorflow环境搭建</title>
-    <url>/2021/09/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/2021-4-24-tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    <url>/2021/09/25/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/2021-4-24-tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h2 id="TensorFlow-的两个依赖"><a href="#TensorFlow-的两个依赖" class="headerlink" title="TensorFlow 的两个依赖"></a>TensorFlow 的两个依赖</h2><h3 id="Protocol-Buffer"><a href="#Protocol-Buffer" class="headerlink" title="Protocol Buffer"></a>Protocol Buffer</h3><p>结构化处理工具,比json,xml更小,解析更快</p>
 <h3 id="Bazel-自动化构建工具-类似于maven"><a href="#Bazel-自动化构建工具-类似于maven" class="headerlink" title="Bazel 自动化构建工具,类似于maven"></a>Bazel 自动化构建工具,类似于maven</h3><ul>
 <li>BUILD  文件用于表示构建目标</li>
