@@ -482,6 +482,17 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>chrome几个有用的带参数启动项</title>
+    <url>/2021/09/26/chrome%E5%87%A0%E4%B8%AA%E6%9C%89%E7%94%A8%E7%9A%84%E5%B8%A6%E5%8F%82%E6%95%B0%E5%90%AF%E5%8A%A8%E9%A1%B9/</url>
+    <content><![CDATA[<h2 id="打开新页签的时候自动打开devtools"><a href="#打开新页签的时候自动打开devtools" class="headerlink" title="打开新页签的时候自动打开devtools"></a>打开新页签的时候自动打开devtools</h2><p><code>--auto-open-devtools-for-tabs</code></p>
+<h2 id="去除安全井盖-打开没有证书的https页面的时候就不会有告警"><a href="#去除安全井盖-打开没有证书的https页面的时候就不会有告警" class="headerlink" title="去除安全井盖,打开没有证书的https页面的时候就不会有告警"></a>去除安全井盖,打开没有证书的https页面的时候就不会有告警</h2><p><code>--ignore-certificate-errors</code></p>
+<h2 id="关闭安全验证-同源策略会被关闭-方便口语调试-新版本的chrome后面的用户目录也是必须设置的"><a href="#关闭安全验证-同源策略会被关闭-方便口语调试-新版本的chrome后面的用户目录也是必须设置的" class="headerlink" title="关闭安全验证,同源策略会被关闭,方便口语调试,新版本的chrome后面的用户目录也是必须设置的"></a>关闭安全验证,同源策略会被关闭,方便口语调试,新版本的chrome后面的用户目录也是必须设置的</h2><p><code>--disable-web-securty --user-data-dir=C:\chromeData</code></p>
+]]></content>
+      <tags>
+        <tag>chrome</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>chrome浏览器窗口关闭后,后台进程仍在运行</title>
     <url>/2021/09/25/chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AA%97%E5%8F%A3%E5%85%B3%E9%97%AD%E5%90%8E-%E5%90%8E%E5%8F%B0%E8%BF%9B%E7%A8%8B%E4%BB%8D%E5%9C%A8%E8%BF%90%E8%A1%8C/</url>
     <content><![CDATA[<p><code>chrome://settings/system</code> 里面有一个<code>关闭 Google Chrome 后继续运行后台应用</code> 默认是打开的,需要手动关闭。<br>如果项目中用到了sessionStorage的话,可能会影响到正常的逻辑。<br><img src="../images/2021-09-25-20-54-05.png"></p>
@@ -512,6 +523,20 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       <tags>
         <tag>代码片段</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>node打包成可执行文件exe</title>
+    <url>/2021/09/26/node%E6%89%93%E5%8C%85%E6%88%90%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6exe/</url>
+    <content><![CDATA[<h2 id="使用pkg这个npm工具打包"><a href="#使用pkg这个npm工具打包" class="headerlink" title="使用pkg这个npm工具打包"></a>使用pkg这个npm工具打包</h2><ol>
+<li>安装<code>npm i -g pkg</code></li>
+<li>配置<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;bin&quot;</span>:<span class="string">&quot;main.js&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;pkg&quot;</span>:&#123;</span><br><span class="line">    <span class="attr">&quot;target&quot;</span>:<span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;outputPath&quot;</span>:<span class="string">&quot;&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>执行 执行的时候可能会报错,因为要从GitHub下载一些依赖,需要能连上github才行</li>
+</ol>
+<h3 id="无法从github下载解决方案"><a href="#无法从github下载解决方案" class="headerlink" title="无法从github下载解决方案"></a>无法从github下载解决方案</h3><ol>
+<li>从pkg-fetch仓库的release文件中找到自己要打包的target编译版本,例如<code>node-v14.4.0-win-x64</code>,下载后修改名字,修改成<code>fetched-v14.4.0-win-x64</code></li>
+<li>将下载的文件放到<code>~/.pkg-cache/v3.0</code>目录下,如果目录中有 <code>.downloading</code>的文件记得删除掉<h2 id="deno可以直接打包成exe-有兴趣的尝试下"><a href="#deno可以直接打包成exe-有兴趣的尝试下" class="headerlink" title="deno可以直接打包成exe,有兴趣的尝试下"></a>deno可以直接打包成exe,有兴趣的尝试下</h2></li>
+</ol>
+]]></content>
   </entry>
   <entry>
     <title>npm install 命令报错的情况下 显示详细log用于排查问题</title>
@@ -603,6 +628,14 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <p>如果是我的话，可能会开发一个Chrome插件，用于替换Chrome的欢迎页面，然后把我收藏的所有开发文档做成一个欢迎页。</p>
 <p>真是个好想法，行动起来。<br>先给你们一个仓库地址 <a href="https://github.com/alasq/web.devdocs.chrome.welcome">web.devdocs.chrome.welcome</a> 大家可以贡献代码</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>图片base64转文件</title>
+    <url>/2021/09/26/%E5%9B%BE%E7%89%87base64%E8%BD%AC%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * base64格式图片转二进制文件</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> </span>base64str </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns  </span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">base64ToFile</span>(<span class="params">base64str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> mimeType=base64str.match(<span class="regexp">/:(.*?);/</span>)[<span class="number">1</span>];</span><br><span class="line">  <span class="keyword">let</span> base64=base64str.slice(base64str.indexOf(<span class="string">&#x27;;&#x27;</span>)+<span class="number">1</span>)</span><br><span class="line">  <span class="keyword">let</span> bstr=atob(base64),</span><br><span class="line">  n=bstr.length,</span><br><span class="line">  u8Arr=<span class="keyword">new</span> <span class="built_in">Uint8Array</span>(n);</span><br><span class="line">  <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">    u8Arr[n]=bstr.charCodeAt(n);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> file=<span class="keyword">new</span> Blob([u8Arr],&#123;<span class="attr">type</span>:mimeType&#125;)</span><br><span class="line">  <span class="keyword">return</span> file</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>代码片段</tag>
+      </tags>
   </entry>
   <entry>
     <title>基于strapi gridsome技术架构的内容管理系统(CMS)</title>
@@ -1089,6 +1122,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 29. 自定义Network面板的显示列，展示我们关心的响应头</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2029.%20%E8%87%AA%E5%AE%9A%E4%B9%89Network%E9%9D%A2%E6%9D%BF%E7%9A%84%E6%98%BE%E7%A4%BA%E5%88%97%EF%BC%8C%E5%B1%95%E7%A4%BA%E6%88%91%E4%BB%AC%E5%85%B3%E5%BF%83%E7%9A%84%E5%93%8D%E5%BA%94%E5%A4%B4/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-73a4ae427d244218.gif?imageMogr2/auto-orient/strip" alt="manage-network-response-headers.gif"><br>正常情况下我们需要查看详情才能看到具体的信息，<br>通过自定义Network面板的显示列就可以在列表中展示我们关心的内容。</p>
+<h1 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h1><p>我暂时没想到开发中的实际用途，老铁们有妙用可以在评论区告诉在下</p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 28. Chrome带参数启动</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2028.%20Chrome%E5%B8%A6%E5%8F%82%E6%95%B0%E5%90%AF%E5%8A%A8/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-cbfad927c7427d7f.gif?imageMogr2/auto-orient/strip" alt="auto-open-devtools.gif"></p>
@@ -1103,10 +1146,10 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 29. 自定义Network面板的显示列，展示我们关心的响应头</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2029.%20%E8%87%AA%E5%AE%9A%E4%B9%89Network%E9%9D%A2%E6%9D%BF%E7%9A%84%E6%98%BE%E7%A4%BA%E5%88%97%EF%BC%8C%E5%B1%95%E7%A4%BA%E6%88%91%E4%BB%AC%E5%85%B3%E5%BF%83%E7%9A%84%E5%93%8D%E5%BA%94%E5%A4%B4/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-73a4ae427d244218.gif?imageMogr2/auto-orient/strip" alt="manage-network-response-headers.gif"><br>正常情况下我们需要查看详情才能看到具体的信息，<br>通过自定义Network面板的显示列就可以在列表中展示我们关心的内容。</p>
-<h1 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h1><p>我暂时没想到开发中的实际用途，老铁们有妙用可以在评论区告诉在下</p>
+    <title>2021-4-7- Chrome Devtools Tip： 31. Blackboxing 获得更好的调试会话</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2031.%20Blackboxing%20%E8%8E%B7%E5%BE%97%E6%9B%B4%E5%A5%BD%E7%9A%84%E8%B0%83%E8%AF%95%E4%BC%9A%E8%AF%9D/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-f08a9ae48aa2fb3e.gif?imageMogr2/auto-orient/strip" alt="blackboxing.gif"><br>比如我们自己封装了一个 log.js,里面调用了console.log()。<br>所有打印出来的日志都定位到这个log.js文件,这不是我们想要。我们可以把 log.js设置成 Blackboxing Script。<br>这样就能定位到上一个调用栈的方法上了。</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>真心很实用的功能，以前不知道可以这么玩，我是在打印的位置设置断点，看调用栈，再设置断点。把断点取消掉。</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1121,16 +1164,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>Node debugger 已经不是实验功能了,可以直接使用</li>
 </ol>
 <h1 id="另一种链接到nodejs的方式"><a href="#另一种链接到nodejs的方式" class="headerlink" title="另一种链接到nodejs的方式"></a>另一种链接到nodejs的方式</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-575d26b4b49712c2.gif?imageMogr2/auto-orient/strip" alt="improved-node-debugging.gif"></p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 31. Blackboxing 获得更好的调试会话</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2031.%20Blackboxing%20%E8%8E%B7%E5%BE%97%E6%9B%B4%E5%A5%BD%E7%9A%84%E8%B0%83%E8%AF%95%E4%BC%9A%E8%AF%9D/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-f08a9ae48aa2fb3e.gif?imageMogr2/auto-orient/strip" alt="blackboxing.gif"><br>比如我们自己封装了一个 log.js,里面调用了console.log()。<br>所有打印出来的日志都定位到这个log.js文件,这不是我们想要。我们可以把 log.js设置成 Blackboxing Script。<br>这样就能定位到上一个调用栈的方法上了。</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>真心很实用的功能，以前不知道可以这么玩，我是在打印的位置设置断点，看调用栈，再设置断点。把断点取消掉。</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1289,7 +1322,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
   </entry>
   <entry>
     <title>git常见问题</title>
-    <url>/2021/09/25/git/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
+    <url>/2021/09/26/git/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="使用git提交到github-每次都要输入用户名和密码的解决方法"><a href="#使用git提交到github-每次都要输入用户名和密码的解决方法" class="headerlink" title="使用git提交到github,每次都要输入用户名和密码的解决方法"></a>使用git提交到github,每次都要输入用户名和密码的解决方法</h1><p><a href="https://www.cnblogs.com/sky6862/p/7992736.html">https://www.cnblogs.com/sky6862/p/7992736.html</a></p>
 <h1 id="使用ssh协议提交github代码"><a href="#使用ssh协议提交github代码" class="headerlink" title="使用ssh协议提交github代码"></a>使用ssh协议提交github代码</h1><p><a href="https://blog.csdn.net/u013778905/article/details/83501204">https://blog.csdn.net/u013778905/article/details/83501204</a></p>
 <h1 id="git-记住密码"><a href="#git-记住密码" class="headerlink" title="git 记住密码"></a>git 记住密码</h1><p><code>git config --global credential.helper store</code></p>
@@ -1444,13 +1477,13 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
   </entry>
   <entry>
     <title>hexo github pages 域名设置</title>
-    <url>/2021/09/25/%E5%8D%9A%E5%AE%A2/2021-5-6-%20hexo%20cname%20github%20pages%20%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</url>
+    <url>/2021/09/26/%E5%8D%9A%E5%AE%A2/2021-5-6-%20hexo%20cname%20github%20pages%20%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</url>
     <content><![CDATA[<p>将<code>CNAME</code>文件放在 <code>/source/</code>目录下即可</p>
 ]]></content>
   </entry>
   <entry>
     <title>小工具集合</title>
-    <url>/2021/09/25/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/</url>
+    <url>/2021/09/26/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/</url>
     <content><![CDATA[<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://gitee.com/alasq/tools.git">https://gitee.com/alasq/tools.git</a> </p>
 <p>请原谅我把gitee当网盘用☺️</p>
 <h1 id="开发用的小工具"><a href="#开发用的小工具" class="headerlink" title="开发用的小工具"></a>开发用的小工具</h1><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>前端开发用的小工具</p>
@@ -1502,7 +1535,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
   </entry>
   <entry>
     <title>主流的深度学习开源工具</title>
-    <url>/2021/09/25/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2021-4-21-%20%E4%B8%BB%E6%B5%81%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/</url>
+    <url>/2021/09/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2021-4-21-%20%E4%B8%BB%E6%B5%81%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<table>
 <thead>
 <tr>
@@ -1572,6 +1605,17 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <h2 id="时间管理6步骤——做正确的事"><a href="#时间管理6步骤——做正确的事" class="headerlink" title="时间管理6步骤——做正确的事"></a>时间管理6步骤——做正确的事</h2><p><img src="https://upload-images.jianshu.io/upload_images/8156292-7efb944b9c0b0b7a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="时间管理6步骤"></p>
 <h3 id="四象限原则"><a href="#四象限原则" class="headerlink" title="四象限原则"></a>四象限原则</h3><p><img src="https://upload-images.jianshu.io/upload_images/8156292-779dfccb034b172c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="四象限"></p>
 <h3 id="每天时间安排-9宫格"><a href="#每天时间安排-9宫格" class="headerlink" title="每天时间安排(9宫格)"></a>每天时间安排(9宫格)</h3><p><img src="https://upload-images.jianshu.io/upload_images/8156292-7844c69c9478bc4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="每天时间安排"></p>
+]]></content>
+      <tags>
+        <tag>项目管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>版本火车</title>
+    <url>/2021/09/16/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E7%89%88%E6%9C%AC%E7%81%AB%E8%BD%A6/</url>
+    <content><![CDATA[<h1 id="版本火车"><a href="#版本火车" class="headerlink" title="版本火车"></a>版本火车</h1><p>一个比较成熟的软件系统，发版本的时间基本都是固定的，就像列车的时刻表。需求就是需要乘车的人。在进行版本计划的时候。就把相关需求列在版本火车的区间内。如果需求能够按时完成，赶上车就上线。如果测试不够充分，或者需求有变更，就敢下一趟上线的火车。</p>
+<p>版本火车适合需求之间没有依赖。成熟度比较高的软件。</p>
+<h1 id="敏捷开发"><a href="#敏捷开发" class="headerlink" title="敏捷开发"></a>敏捷开发</h1><p>与版本火车相对的就是敏捷开发。<br>敏捷开发对开发人员的素质要求比较高。因为测试时间短，主要依靠开发人员的水平。适合需求频繁变更，需求间高度依赖的启动阶段的项目。</p>
 ]]></content>
       <tags>
         <tag>项目管理</tag>
@@ -1844,17 +1888,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>版本火车</title>
-    <url>/2021/09/16/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E7%89%88%E6%9C%AC%E7%81%AB%E8%BD%A6/</url>
-    <content><![CDATA[<h1 id="版本火车"><a href="#版本火车" class="headerlink" title="版本火车"></a>版本火车</h1><p>一个比较成熟的软件系统，发版本的时间基本都是固定的，就像列车的时刻表。需求就是需要乘车的人。在进行版本计划的时候。就把相关需求列在版本火车的区间内。如果需求能够按时完成，赶上车就上线。如果测试不够充分，或者需求有变更，就敢下一趟上线的火车。</p>
-<p>版本火车适合需求之间没有依赖。成熟度比较高的软件。</p>
-<h1 id="敏捷开发"><a href="#敏捷开发" class="headerlink" title="敏捷开发"></a>敏捷开发</h1><p>与版本火车相对的就是敏捷开发。<br>敏捷开发对开发人员的素质要求比较高。因为测试时间短，主要依靠开发人员的水平。适合需求频繁变更，需求间高度依赖的启动阶段的项目。</p>
-]]></content>
-      <tags>
-        <tag>项目管理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>范围管理</title>
     <url>/2021/09/16/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E8%8C%83%E5%9B%B4%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<p>范围管理分两部分，第一是需求管理，项目组单位时间的产出是固定的。哪些需求可以砍，哪些需求可以延期，都是范围管理的内容。<br>范围管理的另外一部分，是标识项目交付与验收标准。</p>
@@ -2020,7 +2053,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
   </entry>
   <entry>
     <title>tensorflow环境搭建</title>
-    <url>/2021/09/25/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/2021-4-24-tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    <url>/2021/09/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/2021-4-24-tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h2 id="TensorFlow-的两个依赖"><a href="#TensorFlow-的两个依赖" class="headerlink" title="TensorFlow 的两个依赖"></a>TensorFlow 的两个依赖</h2><h3 id="Protocol-Buffer"><a href="#Protocol-Buffer" class="headerlink" title="Protocol Buffer"></a>Protocol Buffer</h3><p>结构化处理工具,比json,xml更小,解析更快</p>
 <h3 id="Bazel-自动化构建工具-类似于maven"><a href="#Bazel-自动化构建工具-类似于maven" class="headerlink" title="Bazel 自动化构建工具,类似于maven"></a>Bazel 自动化构建工具,类似于maven</h3><ul>
 <li>BUILD  文件用于表示构建目标</li>
