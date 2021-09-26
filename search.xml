@@ -1122,16 +1122,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 29. 自定义Network面板的显示列，展示我们关心的响应头</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2029.%20%E8%87%AA%E5%AE%9A%E4%B9%89Network%E9%9D%A2%E6%9D%BF%E7%9A%84%E6%98%BE%E7%A4%BA%E5%88%97%EF%BC%8C%E5%B1%95%E7%A4%BA%E6%88%91%E4%BB%AC%E5%85%B3%E5%BF%83%E7%9A%84%E5%93%8D%E5%BA%94%E5%A4%B4/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-73a4ae427d244218.gif?imageMogr2/auto-orient/strip" alt="manage-network-response-headers.gif"><br>正常情况下我们需要查看详情才能看到具体的信息，<br>通过自定义Network面板的显示列就可以在列表中展示我们关心的内容。</p>
-<h1 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h1><p>我暂时没想到开发中的实际用途，老铁们有妙用可以在评论区告诉在下</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 28. Chrome带参数启动</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2028.%20Chrome%E5%B8%A6%E5%8F%82%E6%95%B0%E5%90%AF%E5%8A%A8/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-cbfad927c7427d7f.gif?imageMogr2/auto-orient/strip" alt="auto-open-devtools.gif"></p>
@@ -1146,10 +1136,10 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 31. Blackboxing 获得更好的调试会话</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2031.%20Blackboxing%20%E8%8E%B7%E5%BE%97%E6%9B%B4%E5%A5%BD%E7%9A%84%E8%B0%83%E8%AF%95%E4%BC%9A%E8%AF%9D/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-f08a9ae48aa2fb3e.gif?imageMogr2/auto-orient/strip" alt="blackboxing.gif"><br>比如我们自己封装了一个 log.js,里面调用了console.log()。<br>所有打印出来的日志都定位到这个log.js文件,这不是我们想要。我们可以把 log.js设置成 Blackboxing Script。<br>这样就能定位到上一个调用栈的方法上了。</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>真心很实用的功能，以前不知道可以这么玩，我是在打印的位置设置断点，看调用栈，再设置断点。把断点取消掉。</p>
+    <title>2021-4-7- Chrome Devtools Tip： 29. 自定义Network面板的显示列，展示我们关心的响应头</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2029.%20%E8%87%AA%E5%AE%9A%E4%B9%89Network%E9%9D%A2%E6%9D%BF%E7%9A%84%E6%98%BE%E7%A4%BA%E5%88%97%EF%BC%8C%E5%B1%95%E7%A4%BA%E6%88%91%E4%BB%AC%E5%85%B3%E5%BF%83%E7%9A%84%E5%93%8D%E5%BA%94%E5%A4%B4/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-73a4ae427d244218.gif?imageMogr2/auto-orient/strip" alt="manage-network-response-headers.gif"><br>正常情况下我们需要查看详情才能看到具体的信息，<br>通过自定义Network面板的显示列就可以在列表中展示我们关心的内容。</p>
+<h1 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h1><p>我暂时没想到开发中的实际用途，老铁们有妙用可以在评论区告诉在下</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1164,6 +1154,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>Node debugger 已经不是实验功能了,可以直接使用</li>
 </ol>
 <h1 id="另一种链接到nodejs的方式"><a href="#另一种链接到nodejs的方式" class="headerlink" title="另一种链接到nodejs的方式"></a>另一种链接到nodejs的方式</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-575d26b4b49712c2.gif?imageMogr2/auto-orient/strip" alt="improved-node-debugging.gif"></p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 31. Blackboxing 获得更好的调试会话</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2031.%20Blackboxing%20%E8%8E%B7%E5%BE%97%E6%9B%B4%E5%A5%BD%E7%9A%84%E8%B0%83%E8%AF%95%E4%BC%9A%E8%AF%9D/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-f08a9ae48aa2fb3e.gif?imageMogr2/auto-orient/strip" alt="blackboxing.gif"><br>比如我们自己封装了一个 log.js,里面调用了console.log()。<br>所有打印出来的日志都定位到这个log.js文件,这不是我们想要。我们可以把 log.js设置成 Blackboxing Script。<br>这样就能定位到上一个调用栈的方法上了。</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>真心很实用的功能，以前不知道可以这么玩，我是在打印的位置设置断点，看调用栈，再设置断点。把断点取消掉。</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1386,16 +1386,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
   </entry>
   <entry>
-    <title>开发灵异事件之浏览器变卡</title>
-    <url>/2021/09/09/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%98%E5%8D%A1/</url>
-    <content><![CDATA[<h3 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h3><p>使用window.open 开一个页签后，回到原本的页面，动画啥的变卡了。开的页面越多越卡</p>
-<p>当新开的页签崩溃，原有页面也会一起崩溃。</p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>window.open 新开的页面跟原有页面用的是同一个渲染器。另外 超链接  target=_blank也是一样的。</p>
-<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>使用超链接打开新页面，并使用<code>&lt;a href=&quot;&quot; rel=&quot;noopener&quot;&gt;&lt;/a&gt;</code>属性</p>
-<p>也能使用 <code>window.open(URL,_blank,&#39;noopener&#39;)</code></p>
-]]></content>
-  </entry>
-  <entry>
     <title>为博客添加 Gitalk 评论插件</title>
     <url>/2017/12/19/%E5%8D%9A%E5%AE%A2/2017-12-19-%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0-Gitalk-%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于 <strong>Disqus</strong> 对于国内网路的支持十分糟糕，很多人反映 Disqus 评论插件一直加载不出来。而我一直是处于翻墙状态的~（话说你们做程序员的都不翻墙用Google的吗😅，哈哈，吐嘈下）</p>
@@ -1605,17 +1595,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <h2 id="时间管理6步骤——做正确的事"><a href="#时间管理6步骤——做正确的事" class="headerlink" title="时间管理6步骤——做正确的事"></a>时间管理6步骤——做正确的事</h2><p><img src="https://upload-images.jianshu.io/upload_images/8156292-7efb944b9c0b0b7a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="时间管理6步骤"></p>
 <h3 id="四象限原则"><a href="#四象限原则" class="headerlink" title="四象限原则"></a>四象限原则</h3><p><img src="https://upload-images.jianshu.io/upload_images/8156292-779dfccb034b172c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="四象限"></p>
 <h3 id="每天时间安排-9宫格"><a href="#每天时间安排-9宫格" class="headerlink" title="每天时间安排(9宫格)"></a>每天时间安排(9宫格)</h3><p><img src="https://upload-images.jianshu.io/upload_images/8156292-7844c69c9478bc4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="每天时间安排"></p>
-]]></content>
-      <tags>
-        <tag>项目管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>版本火车</title>
-    <url>/2021/09/16/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E7%89%88%E6%9C%AC%E7%81%AB%E8%BD%A6/</url>
-    <content><![CDATA[<h1 id="版本火车"><a href="#版本火车" class="headerlink" title="版本火车"></a>版本火车</h1><p>一个比较成熟的软件系统，发版本的时间基本都是固定的，就像列车的时刻表。需求就是需要乘车的人。在进行版本计划的时候。就把相关需求列在版本火车的区间内。如果需求能够按时完成，赶上车就上线。如果测试不够充分，或者需求有变更，就敢下一趟上线的火车。</p>
-<p>版本火车适合需求之间没有依赖。成熟度比较高的软件。</p>
-<h1 id="敏捷开发"><a href="#敏捷开发" class="headerlink" title="敏捷开发"></a>敏捷开发</h1><p>与版本火车相对的就是敏捷开发。<br>敏捷开发对开发人员的素质要求比较高。因为测试时间短，主要依靠开发人员的水平。适合需求频繁变更，需求间高度依赖的启动阶段的项目。</p>
 ]]></content>
       <tags>
         <tag>项目管理</tag>
@@ -1888,6 +1867,17 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>版本火车</title>
+    <url>/2021/09/16/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E7%89%88%E6%9C%AC%E7%81%AB%E8%BD%A6/</url>
+    <content><![CDATA[<h1 id="版本火车"><a href="#版本火车" class="headerlink" title="版本火车"></a>版本火车</h1><p>一个比较成熟的软件系统，发版本的时间基本都是固定的，就像列车的时刻表。需求就是需要乘车的人。在进行版本计划的时候。就把相关需求列在版本火车的区间内。如果需求能够按时完成，赶上车就上线。如果测试不够充分，或者需求有变更，就敢下一趟上线的火车。</p>
+<p>版本火车适合需求之间没有依赖。成熟度比较高的软件。</p>
+<h1 id="敏捷开发"><a href="#敏捷开发" class="headerlink" title="敏捷开发"></a>敏捷开发</h1><p>与版本火车相对的就是敏捷开发。<br>敏捷开发对开发人员的素质要求比较高。因为测试时间短，主要依靠开发人员的水平。适合需求频繁变更，需求间高度依赖的启动阶段的项目。</p>
+]]></content>
+      <tags>
+        <tag>项目管理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>范围管理</title>
     <url>/2021/09/16/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E8%8C%83%E5%9B%B4%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<p>范围管理分两部分，第一是需求管理，项目组单位时间的产出是固定的。哪些需求可以砍，哪些需求可以延期，都是范围管理的内容。<br>范围管理的另外一部分，是标识项目交付与验收标准。</p>
@@ -2050,6 +2040,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       <tags>
         <tag>项目管理</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>开发灵异事件之浏览器变卡</title>
+    <url>/2021/09/09/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%98%E5%8D%A1/</url>
+    <content><![CDATA[<h3 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h3><p>使用window.open 开一个页签后，回到原本的页面，动画啥的变卡了。开的页面越多越卡</p>
+<p>当新开的页签崩溃，原有页面也会一起崩溃。</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>window.open 新开的页面跟原有页面用的是同一个渲染器。另外 超链接  target=_blank也是一样的。</p>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>使用超链接打开新页面，并使用<code>&lt;a href=&quot;&quot; rel=&quot;noopener&quot;&gt;&lt;/a&gt;</code>属性</p>
+<p>也能使用 <code>window.open(URL,_blank,&#39;noopener&#39;)</code></p>
+]]></content>
   </entry>
   <entry>
     <title>tensorflow环境搭建</title>
