@@ -619,6 +619,50 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>tailwindcss 简介</title>
+    <url>/2021/10/09/tailwindcss-%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<p><a href="https://www.tailwindcss.cn/">中文文档</a></p>
+<p>tailwindcss 是一个原子化的样式库,提供原子化的class,一个class只对应一条css属性</p>
+<h3 id="原子化的好处"><a href="#原子化的好处" class="headerlink" title="原子化的好处"></a>原子化的好处</h3><ul>
+<li>不用费脑子想类名了</li>
+<li>css文件大小可控</li>
+<li>css更安全不用担心样式冲突</li>
+</ul>
+<h3 id="原子化的缺点"><a href="#原子化的缺点" class="headerlink" title="原子化的缺点"></a>原子化的缺点</h3><p>html里面会有一堆类名,不过tailwindcss认为可以通过组件化来规避这个问题,所以也不是缺点</p>
+<h3 id="分层设计"><a href="#分层设计" class="headerlink" title="分层设计"></a>分层设计</h3><p>样式共分为四层,使用 <code>@layer</code>可以将我们的代码放到不同的位置,用来调整样式的优先级</p>
+<ol>
+<li>base 主要定义全局样式,字体等</li>
+<li>components 定义class,比如按钮,卡片</li>
+<li>utilities 定义原子化的class</li>
+<li>screens 定义媒体查询的class</li>
+</ol>
+<h3 id="支持响应式设计"><a href="#支持响应式设计" class="headerlink" title="支持响应式设计"></a>支持响应式设计</h3><p>sm md lg xl 2xl 大部分基础样式提供响应式前缀</p>
+<ul>
+<li><code>sm</code> 640px 手机</li>
+<li><code>md</code> 768px 平板</li>
+<li><code>lg</code> 1024px 1080P显示器</li>
+<li><code>xl</code> 1280px 2K显示器  </li>
+<li><code>2xl</code> 1536px 4K 显示器<br>例如 <code>w-full</code> <code>md:w-full</code></li>
+</ul>
+<p><img src="https://iknow-pic.cdn.bcebos.com/f7246b600c33874427696bc25c0fd9f9d62aa0e4?x-bce-process=image/resize,m_lfit,w_600,h_800,limit_1/quality,q_85/format,f_jpg" alt="alt"></p>
+<h3 id="支持状态类前缀"><a href="#支持状态类前缀" class="headerlink" title="支持状态类前缀"></a>支持状态类前缀</h3><p>hover focus 等,不是全部的</p>
+<h3 id="不够用"><a href="#不够用" class="headerlink" title="不够用"></a>不够用</h3><p>tailwindcss只提供了最常用的样式对应的class,如果这些还不够用的话,我们可以通过指令自定义</p>
+<ul>
+<li>@layer 样式放的层级 <code> @layer components&#123;...&#125;</code></li>
+<li>@variants 定义状态前缀 <code>@variants hover&#123;...&#125;</code></li>
+<li>@screen 定义媒体查询 <code>@screen sm&#123;...&#125;</code></li>
+<li>@apply 现有的类打散组合  <code>@apply w-full py-2 px-4</code></li>
+<li>@reponsive 是<code>@variants reponsive &#123;...&#125;</code>的别名</li>
+<li>screen() 与 @screen 类似 <code>@media screen(sm)&#123;...&#125;</code></li>
+<li>theme() 或者主题参数 <code>theme(&#39;colors.blue.500&#39;)</code></li>
+</ul>
+<p>以上是css中的写法,tailwindcss也支持在配置文件中使用js的写法配置。具体就不赘述了。</p>
+]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>webpack-dev-server代理host配置</title>
     <url>/2021/09/25/webpack-dev-server%E4%BB%A3%E7%90%86host%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h1 id="让同事可以访问本地服务"><a href="#让同事可以访问本地服务" class="headerlink" title="让同事可以访问本地服务"></a>让同事可以访问本地服务</h1><p><code>devServer.host</code>配置成 <code>0.0.0.0</code>或者是本机的IP,host默认值是<code>localhost</code>,只能自己访问</p>
@@ -894,6 +938,23 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>这两篇应该是最好的js 微任务 宏任务讲解了</title>
+    <url>/2021/10/09/%E8%BF%99%E4%B8%A4%E7%AF%87%E5%BA%94%E8%AF%A5%E6%98%AF%E6%9C%80%E5%A5%BD%E7%9A%84js-%E5%BE%AE%E4%BB%BB%E5%8A%A1-%E5%AE%8F%E4%BB%BB%E5%8A%A1%E8%AE%B2%E8%A7%A3%E4%BA%86/</url>
+    <content><![CDATA[<p><a href="https://www.cnblogs.com/jiasm/p/9482443.html">https://www.cnblogs.com/jiasm/p/9482443.html</a></p>
+<p><a href="https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/">https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>微任务,宏任务都是一个队列</li>
+<li>宏任务产生的宏任务,追加在宏任务队列尾部</li>
+<li>微任务产生的微任务,追加在微任务队列尾部</li>
+<li>微任务队列空了才会执行下一个宏任务,自己新产生的也会执行完</li>
+<li>不同浏览器也是有差异的,chrome跟W3C是一致的</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>js基础</tag>
       </tags>
   </entry>
   <entry>
@@ -1554,7 +1615,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
   </entry>
   <entry>
     <title>git常见问题</title>
-    <url>/2021/09/26/git/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
+    <url>/2021/10/09/git/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="使用git提交到github-每次都要输入用户名和密码的解决方法"><a href="#使用git提交到github-每次都要输入用户名和密码的解决方法" class="headerlink" title="使用git提交到github,每次都要输入用户名和密码的解决方法"></a>使用git提交到github,每次都要输入用户名和密码的解决方法</h1><p><a href="https://www.cnblogs.com/sky6862/p/7992736.html">https://www.cnblogs.com/sky6862/p/7992736.html</a></p>
 <h1 id="使用ssh协议提交github代码"><a href="#使用ssh协议提交github代码" class="headerlink" title="使用ssh协议提交github代码"></a>使用ssh协议提交github代码</h1><p><a href="https://blog.csdn.net/u013778905/article/details/83501204">https://blog.csdn.net/u013778905/article/details/83501204</a></p>
 <h1 id="git-记住密码"><a href="#git-记住密码" class="headerlink" title="git 记住密码"></a>git 记住密码</h1><p><code>git config --global credential.helper store</code></p>
@@ -1709,13 +1770,13 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
   </entry>
   <entry>
     <title>hexo github pages 域名设置</title>
-    <url>/2021/09/26/%E5%8D%9A%E5%AE%A2/2021-5-6-%20hexo%20cname%20github%20pages%20%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</url>
+    <url>/2021/10/09/%E5%8D%9A%E5%AE%A2/2021-5-6-%20hexo%20cname%20github%20pages%20%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</url>
     <content><![CDATA[<p>将<code>CNAME</code>文件放在 <code>/source/</code>目录下即可</p>
 ]]></content>
   </entry>
   <entry>
     <title>小工具集合</title>
-    <url>/2021/09/26/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/</url>
+    <url>/2021/10/09/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/</url>
     <content><![CDATA[<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://gitee.com/alasq/tools.git">https://gitee.com/alasq/tools.git</a> </p>
 <p>请原谅我把gitee当网盘用☺️</p>
 <h1 id="开发用的小工具"><a href="#开发用的小工具" class="headerlink" title="开发用的小工具"></a>开发用的小工具</h1><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>前端开发用的小工具</p>
@@ -1767,7 +1828,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
   </entry>
   <entry>
     <title>主流的深度学习开源工具</title>
-    <url>/2021/09/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2021-4-21-%20%E4%B8%BB%E6%B5%81%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/</url>
+    <url>/2021/10/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2021-4-21-%20%E4%B8%BB%E6%B5%81%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<table>
 <thead>
 <tr>
@@ -2285,7 +2346,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
   </entry>
   <entry>
     <title>tensorflow环境搭建</title>
-    <url>/2021/09/26/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/2021-4-24-tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    <url>/2021/10/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/2021-4-24-tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h2 id="TensorFlow-的两个依赖"><a href="#TensorFlow-的两个依赖" class="headerlink" title="TensorFlow 的两个依赖"></a>TensorFlow 的两个依赖</h2><h3 id="Protocol-Buffer"><a href="#Protocol-Buffer" class="headerlink" title="Protocol Buffer"></a>Protocol Buffer</h3><p>结构化处理工具,比json,xml更小,解析更快</p>
 <h3 id="Bazel-自动化构建工具-类似于maven"><a href="#Bazel-自动化构建工具-类似于maven" class="headerlink" title="Bazel 自动化构建工具,类似于maven"></a>Bazel 自动化构建工具,类似于maven</h3><ul>
 <li>BUILD  文件用于表示构建目标</li>
