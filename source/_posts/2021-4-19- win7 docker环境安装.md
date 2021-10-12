@@ -2,7 +2,7 @@
 layout:     post
 title:      2021-4-19- win7 docker环境安装
 date:       2021-4-19
-author:    陈诗樵
+author:    Alasq
 catalog: true
 tags:
     - docker

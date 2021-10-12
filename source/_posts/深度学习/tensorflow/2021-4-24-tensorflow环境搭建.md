@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      tensorflow环境搭建
-author:     陈诗樵
+author:     Alasq
 header-img: img/post-bg-re-vs-ng2.jpg
 catalog: true
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "npm ls --depth 0" 报错 "cb.apply is not a function"
 date: 2021-05-06 22:10:35
-tags:
+tags: npm
 ---
 我是安装nvm 切换node版本后报错的
 

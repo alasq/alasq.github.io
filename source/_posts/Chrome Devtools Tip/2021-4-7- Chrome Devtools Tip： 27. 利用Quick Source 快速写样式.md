@@ -2,7 +2,7 @@
 layout:     post
 title:      2021-4-7- Chrome Devtools Tip： 27. 利用Quick Source 快速写样式
 date:       2021-4-7
-author:    陈诗樵
+author:    Alasq
 catalog: true
 tags:
     - Chrome Devtools Tip

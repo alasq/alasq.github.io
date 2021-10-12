@@ -2,7 +2,7 @@
 layout:     post
 title:      2021-4-19-《使用 MonoRepo 管理前端项目》读后感
 date:       2021-4-19
-author:    陈诗樵
+author:    Alasq
 catalog: true
 tags:
     - 读后感

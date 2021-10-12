@@ -1,7 +1,7 @@
 ---
 title: defer async的区别
 date: 2021-09-25 20:57:20
-tags:
+tags: html
 ---
 
 ![图片](http://segmentfault.com/img/bVcQV0)

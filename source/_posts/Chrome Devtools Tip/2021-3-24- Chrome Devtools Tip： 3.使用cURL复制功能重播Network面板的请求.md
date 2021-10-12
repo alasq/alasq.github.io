@@ -2,7 +2,7 @@
 layout:     post
 title:      2021-3-24 Chrome Devtools Tip： 3.使用cURL复制功能重播Network面板的请求
 date:       2021-3-24
-author:    陈诗樵
+author:    Alasq
 catalog: true
 tags:
     - Chrome Devtools Tip

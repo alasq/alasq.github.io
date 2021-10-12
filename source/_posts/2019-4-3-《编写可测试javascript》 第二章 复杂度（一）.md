@@ -2,7 +2,7 @@
 layout:     post
 title:     《编写可测试javascript》 第二章 复杂度（一）
 date:       2019-4-3
-author:     陈诗樵
+author:     Alasq
 header-img: img/post-bg-universe.jpg
 catalog: true
 tags:

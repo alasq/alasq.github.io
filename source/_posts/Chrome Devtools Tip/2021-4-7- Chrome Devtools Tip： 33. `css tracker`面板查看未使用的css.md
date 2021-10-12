@@ -2,7 +2,7 @@
 layout:     post
 title:      2021-4-7- Chrome Devtools Tip： 33. `css tracker`面板查看未使用的css
 date:       2021-4-7
-author:    陈诗樵
+author:    Alasq
 catalog: true
 tags:
     - Chrome Devtools Tip

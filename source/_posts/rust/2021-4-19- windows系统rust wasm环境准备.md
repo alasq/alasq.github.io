@@ -2,7 +2,7 @@
 layout:     post
 title:      2021-4-19- windows系统rust wasm环境准备 
 date:       2021-4-19
-author:    陈诗樵
+author:    Alasq
 catalog: true
 tags:
     - rust

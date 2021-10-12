@@ -1,7 +1,7 @@
 ---
 title: node打包成可执行文件exe
 date: 2021-09-26 08:31:09
-tags:
+tags: [node,npm]
 ---
 ## 使用pkg这个npm工具打包
 1. 安装`npm i -g pkg`

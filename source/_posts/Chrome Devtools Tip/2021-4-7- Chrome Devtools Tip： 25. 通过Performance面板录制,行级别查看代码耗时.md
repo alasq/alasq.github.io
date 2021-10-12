@@ -2,7 +2,7 @@
 layout:     post
 title:      2021-4-7- Chrome Devtools Tip： 25. 通过Performance面板录制,行级别查看代码耗时
 date:       2021-4-7
-author:    陈诗樵
+author:    Alasq
 catalog: true
 tags:
     - Chrome Devtools Tip

@@ -2,7 +2,7 @@
 layout:     post
 title:      2021-3-24 Chrome Devtools Tip： 2.如何使用DevTools触发CSS伪类
 date:       2021-3-24
-author:    陈诗樵
+author:    Alasq
 catalog: true
 tags:
     - Chrome Devtools Tip

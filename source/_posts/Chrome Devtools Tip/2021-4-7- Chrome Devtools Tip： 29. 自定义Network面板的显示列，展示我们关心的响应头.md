@@ -2,7 +2,7 @@
 layout:     post
 title:      2021-4-7- Chrome Devtools Tip： 29. 自定义Network面板的显示列，展示我们关心的响应头
 date:       2021-4-7
-author:    陈诗樵
+author:    Alasq
 catalog: true
 tags:
     - Chrome Devtools Tip

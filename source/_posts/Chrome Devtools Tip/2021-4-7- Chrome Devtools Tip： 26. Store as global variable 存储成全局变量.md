@@ -2,7 +2,7 @@
 layout:     post
 title:      2021-4-7- Chrome Devtools Tip： 26. Store as global variable 存储成全局变量
 date:       2021-4-7
-author:    陈诗樵
+author:    Alasq
 catalog: true
 tags:
     - Chrome Devtools Tip

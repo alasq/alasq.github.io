@@ -2,7 +2,7 @@
 layout:     post
 title:      2021-3-24 Chrome Devtools Tip： 4.在任何网页上运行预定义的代码段
 date:       2021-3-24
-author:    陈诗樵
+author:    Alasq
 catalog: true
 tags:
     - Chrome Devtools Tip

@@ -2,7 +2,7 @@
 layout:     post
 title:      2021-3-24 Chrome Devtools Tip： 5.通过本地修改查看您的更改
 date:       2021-3-24
-author:    陈诗樵
+author:    Alasq
 catalog: true
 tags:
     - Chrome Devtools Tip

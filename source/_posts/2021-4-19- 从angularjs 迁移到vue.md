@@ -2,7 +2,7 @@
 layout:     post
 title:      2021-4-19- 从angularjs 迁移到vue 
 date:       2021-4-19
-author:    陈诗樵
+author:    Alasq
 catalog: true
 tags:
     - 项目笔记

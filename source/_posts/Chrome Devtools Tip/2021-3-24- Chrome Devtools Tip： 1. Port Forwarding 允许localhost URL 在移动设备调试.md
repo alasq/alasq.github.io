@@ -2,7 +2,7 @@
 layout:     post
 title:      2021-3-24 Chrome Devtools Tip： 1. Port Forwarding 允许localhost URL 在移动设备调试
 date:       2021-3-24
-author:    陈诗樵
+author:    Alasq
 catalog: true
 categories: Chrome Devtools Tip
 tags:
