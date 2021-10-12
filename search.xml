@@ -533,6 +533,9 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li><code>async</code>适合完全独立的脚本</li>
 </ol>
 ]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
   </entry>
   <entry>
     <title>eclipse开启自动完成</title>
@@ -581,6 +584,10 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>将下载的文件放到<code>~/.pkg-cache/v3.0</code>目录下,如果目录中有 <code>.downloading</code>的文件记得删除掉</li>
 </ol>
 <h2 id="deno可以直接打包成exe-有兴趣的尝试下"><a href="#deno可以直接打包成exe-有兴趣的尝试下" class="headerlink" title="deno可以直接打包成exe,有兴趣的尝试下"></a>deno可以直接打包成exe,有兴趣的尝试下</h2>]]></content>
+      <tags>
+        <tag>node</tag>
+        <tag>npm</tag>
+      </tags>
   </entry>
   <entry>
     <title>npm install 命令报错的情况下 显示详细log用于排查问题</title>
@@ -690,6 +697,9 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
     <url>/2021/09/25/%E4%B8%80%E4%B8%AA10%E5%B9%B4%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%84%9F%E6%85%A8/</url>
     <content><![CDATA[<p>原文 <a href="https://old.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/">https://old.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/</a></p>
 ]]></content>
+      <tags>
+        <tag>好文</tag>
+      </tags>
   </entry>
   <entry>
     <title>一个在线压缩图片的大小的网站</title>
@@ -768,6 +778,9 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <p>如果是我的话，可能会开发一个Chrome插件，用于替换Chrome的欢迎页面，然后把我收藏的所有开发文档做成一个欢迎页。</p>
 <p>真是个好想法，行动起来。<br>先给你们一个仓库地址 <a href="https://github.com/alasq/web.devdocs.chrome.welcome">web.devdocs.chrome.welcome</a> 大家可以贡献代码</p>
 ]]></content>
+      <tags>
+        <tag>dev</tag>
+      </tags>
   </entry>
   <entry>
     <title>启动tomcat时,log出现淇℃伅</title>
@@ -856,7 +869,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 
 <h2 id="深度优先"><a href="#深度优先" class="headerlink" title="深度优先"></a>深度优先</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foreach</span>(<span class="params">data,callback</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> data) &#123;</span><br><span class="line">    <span class="keyword">if</span>(item.childrens)&#123;</span><br><span class="line">      foreach(item.childrens)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      callback(item)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
-        <tag>js</tag>
+        <tag>代码片段</tag>
       </tags>
   </entry>
   <entry>
@@ -954,7 +967,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 </ul>
 ]]></content>
       <tags>
-        <tag>js基础</tag>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -1615,7 +1628,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
   </entry>
   <entry>
     <title>git常见问题</title>
-    <url>/2021/10/09/git/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
+    <url>/2021/10/12/git/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="使用git提交到github-每次都要输入用户名和密码的解决方法"><a href="#使用git提交到github-每次都要输入用户名和密码的解决方法" class="headerlink" title="使用git提交到github,每次都要输入用户名和密码的解决方法"></a>使用git提交到github,每次都要输入用户名和密码的解决方法</h1><p><a href="https://www.cnblogs.com/sky6862/p/7992736.html">https://www.cnblogs.com/sky6862/p/7992736.html</a></p>
 <h1 id="使用ssh协议提交github代码"><a href="#使用ssh协议提交github代码" class="headerlink" title="使用ssh协议提交github代码"></a>使用ssh协议提交github代码</h1><p><a href="https://blog.csdn.net/u013778905/article/details/83501204">https://blog.csdn.net/u013778905/article/details/83501204</a></p>
 <h1 id="git-记住密码"><a href="#git-记住密码" class="headerlink" title="git 记住密码"></a>git 记住密码</h1><p><code>git config --global credential.helper store</code></p>
@@ -1770,13 +1783,13 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
   </entry>
   <entry>
     <title>hexo github pages 域名设置</title>
-    <url>/2021/10/09/%E5%8D%9A%E5%AE%A2/2021-5-6-%20hexo%20cname%20github%20pages%20%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</url>
+    <url>/2021/05/06/%E5%8D%9A%E5%AE%A2/2021-5-6-%20hexo%20cname%20github%20pages%20%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</url>
     <content><![CDATA[<p>将<code>CNAME</code>文件放在 <code>/source/</code>目录下即可</p>
 ]]></content>
   </entry>
   <entry>
     <title>小工具集合</title>
-    <url>/2021/10/09/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/</url>
+    <url>/2021/04/19/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/</url>
     <content><![CDATA[<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://gitee.com/alasq/tools.git">https://gitee.com/alasq/tools.git</a> </p>
 <p>请原谅我把gitee当网盘用☺️</p>
 <h1 id="开发用的小工具"><a href="#开发用的小工具" class="headerlink" title="开发用的小工具"></a>开发用的小工具</h1><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>前端开发用的小工具</p>
@@ -1828,7 +1841,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
   </entry>
   <entry>
     <title>主流的深度学习开源工具</title>
-    <url>/2021/10/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2021-4-21-%20%E4%B8%BB%E6%B5%81%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/</url>
+    <url>/2021/04/21/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2021-4-21-%20%E4%B8%BB%E6%B5%81%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<table>
 <thead>
 <tr>
@@ -2346,7 +2359,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
   </entry>
   <entry>
     <title>tensorflow环境搭建</title>
-    <url>/2021/10/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/2021-4-24-tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    <url>/2021/10/12/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/2021-4-24-tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h2 id="TensorFlow-的两个依赖"><a href="#TensorFlow-的两个依赖" class="headerlink" title="TensorFlow 的两个依赖"></a>TensorFlow 的两个依赖</h2><h3 id="Protocol-Buffer"><a href="#Protocol-Buffer" class="headerlink" title="Protocol Buffer"></a>Protocol Buffer</h3><p>结构化处理工具,比json,xml更小,解析更快</p>
 <h3 id="Bazel-自动化构建工具-类似于maven"><a href="#Bazel-自动化构建工具-类似于maven" class="headerlink" title="Bazel 自动化构建工具,类似于maven"></a>Bazel 自动化构建工具,类似于maven</h3><ul>
 <li>BUILD  文件用于表示构建目标</li>
