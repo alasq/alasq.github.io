@@ -3,6 +3,7 @@ layout:     post
 title:      tensorflow环境搭建
 author:     Alasq
 header-img: img/post-bg-re-vs-ng2.jpg
+date:       2021-4-24
 catalog: true
 tags:
     - TensorFlow
