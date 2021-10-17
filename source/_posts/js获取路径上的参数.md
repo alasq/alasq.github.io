@@ -3,7 +3,7 @@ title: js获取路径上的参数
 date: 2021-09-25 22:19:18
 tags: 代码片段
 ---
-加入有如下请求js的路径,怎么在some.js中获取这个参数?
+假如有如下请求js的路径,怎么在some.js中获取这个参数?
 `base_url/path/to/some.js?username=bob`
 
 ```js
