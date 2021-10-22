@@ -842,6 +842,20 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>如何查看emoji表情的Unicode编码</title>
+    <url>/2021/10/22/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Bemoji%E8%A1%A8%E6%83%85%E7%9A%84Unicode%E7%BC%96%E7%A0%81/</url>
+    <content><![CDATA[<h2 id="可以在下面这个网站复制粘贴emoji"><a href="#可以在下面这个网站复制粘贴emoji" class="headerlink" title="可以在下面这个网站复制粘贴emoji"></a>可以在下面这个网站复制粘贴emoji</h2><p><a href="https://getemoji.com/">https://getemoji.com/</a></p>
+<h2 id="👶🏻-这个除了复制粘贴怎么打印呢"><a href="#👶🏻-这个除了复制粘贴怎么打印呢" class="headerlink" title="👶🏻 这个除了复制粘贴怎么打印呢?"></a>👶🏻 这个除了复制粘贴怎么打印呢?</h2><p>我们js中的字符串编码是<code>utf-8</code><br><img src="images/2021-10-22-19-19-17.png"></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">escape</span>(<span class="string">&#x27;👶🏻&#x27;</span>)</span><br><span class="line"><span class="comment">// &#x27;%uD83D%uDC76%uD83C%uDFFB&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;\uD83D\uDC76\uD83c\uDFFB&#x27;</span>)</span><br><span class="line"><span class="comment">//  👶🏻</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="emoji-regex"><a href="#emoji-regex" class="headerlink" title="emoji-regex"></a>emoji-regex</h2><p><a href="https://www.npmjs.com/package/emoji-regex">https://www.npmjs.com/package/emoji-regex</a></p>
+<p>这个仓库用来匹配字符串中的emoji表情,可以用来做富文本的图片替换</p>
+]]></content>
+      <tags>
+        <tag>emoji</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>开发灵异事件之登录失效</title>
     <url>/2021/09/13/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E7%99%BB%E5%BD%95%E5%A4%B1%E6%95%88/</url>
     <content><![CDATA[<h1 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h1><p>登录界面多次重定向到自己。退出浏览器，清理缓存，无痕模式，都不行。</p>
