@@ -69,16 +69,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>JSON Stream 用于JSON数据的解析</title>
-    <url>/2021/09/25/JSON-Stream-%E7%94%A8%E4%BA%8EJSON%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A7%A3%E6%9E%90/</url>
-    <content><![CDATA[<p>JSON Stream使用流的方式去解析JSON文件,即使是非常大的文件也不会造成内存卡顿</p>
-<p><a href="https://www.npmjs.com/package/JSONStream">https://www.npmjs.com/package/JSONStream</a></p>
-]]></content>
-      <tags>
-        <tag>json npm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>burp suite</title>
     <url>/2021/09/26/burp-suite/</url>
     <content><![CDATA[<p>集成化的渗透测试工具<br><a href="https://t0data.gitbooks.io/burpsuite/content/">Burp Suite 实战指南</a></p>
@@ -241,24 +231,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
   </entry>
   <entry>
-    <title>开源项目推荐 &amp; 好文推荐</title>
-    <url>/2021/09/26/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8E%A8%E8%8D%90/</url>
-    <content><![CDATA[<h1 id="JeecgBoot"><a href="#JeecgBoot" class="headerlink" title="JeecgBoot"></a>JeecgBoot</h1><p><a href="http://www.jeecg.com/">http://www.jeecg.com/</a> 官网  </p>
-<p><a href="http://boot.jeecg.com/">http://boot.jeecg.com</a> demo</p>
-<p>JeecgBoot是一款基于BPM的低代码平台！前后端分离架构 SpringBoot 2.x，SpringCloud，Ant Design&amp;Vue，Mybatis-plus，Shiro，JWT，支持微服务。强大的代码生成器让前后端代码一键生成，实现低代码开发！ JeecgBoot引领新低代码开发模式 OnlineCoding-&gt; 代码生成器-&gt; 手工MERGE， 帮助Java项目解决70%的重复工作，让开发更多关注业务，既能快速提高效率，节省研发成本，同时又不失灵活性！一系列低代码能力：Online表单、Online报表、Online图表、表单设计、流程设计、报表设计、大屏设计 等等…</p>
-<p>里面的积木报表还是很方便的</p>
-<h1 id="KodExplorer-可道云"><a href="#KodExplorer-可道云" class="headerlink" title="KodExplorer 可道云"></a>KodExplorer 可道云</h1><p>看着就是个跳板机,说是企业网盘,我记得那个vscode彩虹屁插件的资源界面有点像啊 </p>
-<h1 id="wordart-词云在线生成"><a href="#wordart-词云在线生成" class="headerlink" title="wordart 词云在线生成"></a>wordart 词云在线生成</h1><p><a href="https://wordart.com/">https://wordart.com</a> 无广告 支持图片轮廓 随机颜色 自定义字体</p>
-<h1 id="好文推荐"><a href="#好文推荐" class="headerlink" title="好文推荐"></a>好文推荐</h1><ul>
-<li><a href="https://juejin.cn/post/6892886272377880583">这些高阶的函数技术,你掌握了么</a></li>
-<li><a href="https://my.oschina.net/u/4585038/blog/4869304">从前端性能优化引申出来的5道经典面试题</a></li>
-<li><a href="https://segmentfault.com/a/1190000023066043?sort=newest">JavaScript ES6代理的实际用例</a></li>
-<li><a href="https://developer.aliyun.com/article/778120">如何打造一款标准的 JS SDK ？</a></li>
-<li><a href="https://juejin.cn/post/6844903927100473357">前后端常见的几种鉴权方式</a></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>极致简洁的微前端框架-京东MicroApp开源了</title>
     <url>/2021/09/25/%E6%9E%81%E8%87%B4%E7%AE%80%E6%B4%81%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6-%E4%BA%AC%E4%B8%9CMicroApp%E5%BC%80%E6%BA%90%E4%BA%86/</url>
     <content><![CDATA[<p>原文地址 <a href="https://article.itxueyuan.com/ylqMxp">https://article.itxueyuan.com/ylqMxp</a></p>
@@ -282,34 +254,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <h2 id="深度优先"><a href="#深度优先" class="headerlink" title="深度优先"></a>深度优先</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foreach</span>(<span class="params">data,callback</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> data) &#123;</span><br><span class="line">    <span class="keyword">if</span>(item.childrens)&#123;</span><br><span class="line">      foreach(item.childrens)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      callback(item)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>代码片段</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>盘点几个js库</title>
-    <url>/2021/09/26/%E7%9B%98%E7%82%B9%E5%87%A0%E4%B8%AAjs%E5%BA%93/</url>
-    <content><![CDATA[<h1 id="p5-js"><a href="#p5-js" class="headerlink" title="p5.js"></a>p5.js</h1><p>把整个浏览器当做一个画板进行创意创作的绘图库<br>官网: https:p5js.org</p>
-<h1 id="SpriteJS"><a href="#SpriteJS" class="headerlink" title="SpriteJS"></a>SpriteJS</h1><p>SpriteJS是一款由360奇舞团开源的跨终端 canvas/webgl绘图库,我看了下API非常友好<br>官网: https:gitee.com/qihoo360/SpriteJS</p>
-<h1 id="Annie2x"><a href="#Annie2x" class="headerlink" title="Annie2x"></a>Annie2x</h1><p>Annie2x是一款Adobe Flash的插件,支持Flash CC 2015及以上 和 Adobe Animate全线版本。<br>官网： <a href="http://annie2x.com/">http://annie2x.com/</a></p>
-<h1 id="flatfile"><a href="#flatfile" class="headerlink" title="flatfile"></a>flatfile</h1><p>超强的数据导入js库,可以将Excel PDF CSV 导出成廷议的符合规则的结构化数据,强大的UI界面支持,非常适合集成到大数据采集的项目</p>
-<h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><p><a href="https://flatfile.io/">https://flatfile.io</a></p>
-<h2 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h2><ol>
-<li>前端数据导入,校验,格式化</li>
-<li>无须构建CSV解析器</li>
-<li>强大的API可以将结构化数据发布到任意端点</li>
-</ol>
-<h2 id="flatfile库的设计思路"><a href="#flatfile库的设计思路" class="headerlink" title="flatfile库的设计思路"></a>flatfile库的设计思路</h2><ol>
-<li>定义JSONschema用于数据自身的校验</li>
-<li>提供导入校验的钩子 用于数据行字段之间的的校验,以及数据处理能力</li>
-<li>点击导入按钮,解析Excel,将Excel列与JSONschema列进行自动映射</li>
-<li>提供映射交互页面,给用户修改自动映射的结果</li>
-<li>生成数据处理后的结果,让用户填充校验失败的字段</li>
-<li>提供导出的API 提供平台能力使用这些结构化数据</li>
-</ol>
-<h1 id="handsontable-强大的表格-数据再多都不会卡"><a href="#handsontable-强大的表格-数据再多都不会卡" class="headerlink" title="handsontable 强大的表格,数据再多都不会卡"></a>handsontable 强大的表格,数据再多都不会卡</h1><p><a href="https://handsontable.com/">https://handsontable.com/</a></p>
-<h1 id="ag-grid-The-Best-JavaScript-Grid-in-the-World"><a href="#ag-grid-The-Best-JavaScript-Grid-in-the-World" class="headerlink" title="ag-grid The Best JavaScript Grid in the World"></a>ag-grid The Best JavaScript Grid in the World</h1><p><a href="https://www.ag-grid.com/">https://www.ag-grid.com</a></p>
-]]></content>
-      <tags>
-        <tag>npm</tag>
       </tags>
   </entry>
   <entry>
@@ -1350,6 +1294,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>JSON Stream 用于JSON数据的解析</title>
+    <url>/2021/09/25/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/JSON-Stream-%E7%94%A8%E4%BA%8EJSON%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A7%A3%E6%9E%90/</url>
+    <content><![CDATA[<p>JSON Stream使用流的方式去解析JSON文件,即使是非常大的文件也不会造成内存卡顿</p>
+<p><a href="https://www.npmjs.com/package/JSONStream">https://www.npmjs.com/package/JSONStream</a></p>
+]]></content>
+      <tags>
+        <tag>json npm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UI框架之uikit</title>
     <url>/2021/09/13/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/UI%E6%A1%86%E6%9E%B6%E4%B9%8Buikit/</url>
     <content><![CDATA[<h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p><a href="https://getuikit.com/">官网</a></p>
@@ -1444,6 +1398,52 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>开源项目推荐 &amp; 好文推荐</title>
+    <url>/2021/09/26/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8E%A8%E8%8D%90/</url>
+    <content><![CDATA[<h1 id="JeecgBoot"><a href="#JeecgBoot" class="headerlink" title="JeecgBoot"></a>JeecgBoot</h1><p><a href="http://www.jeecg.com/">http://www.jeecg.com/</a> 官网  </p>
+<p><a href="http://boot.jeecg.com/">http://boot.jeecg.com</a> demo</p>
+<p>JeecgBoot是一款基于BPM的低代码平台！前后端分离架构 SpringBoot 2.x，SpringCloud，Ant Design&amp;Vue，Mybatis-plus，Shiro，JWT，支持微服务。强大的代码生成器让前后端代码一键生成，实现低代码开发！ JeecgBoot引领新低代码开发模式 OnlineCoding-&gt; 代码生成器-&gt; 手工MERGE， 帮助Java项目解决70%的重复工作，让开发更多关注业务，既能快速提高效率，节省研发成本，同时又不失灵活性！一系列低代码能力：Online表单、Online报表、Online图表、表单设计、流程设计、报表设计、大屏设计 等等…</p>
+<p>里面的积木报表还是很方便的</p>
+<h1 id="KodExplorer-可道云"><a href="#KodExplorer-可道云" class="headerlink" title="KodExplorer 可道云"></a>KodExplorer 可道云</h1><p>看着就是个跳板机,说是企业网盘,我记得那个vscode彩虹屁插件的资源界面有点像啊 </p>
+<h1 id="wordart-词云在线生成"><a href="#wordart-词云在线生成" class="headerlink" title="wordart 词云在线生成"></a>wordart 词云在线生成</h1><p><a href="https://wordart.com/">https://wordart.com</a> 无广告 支持图片轮廓 随机颜色 自定义字体</p>
+<h1 id="好文推荐"><a href="#好文推荐" class="headerlink" title="好文推荐"></a>好文推荐</h1><ul>
+<li><a href="https://juejin.cn/post/6892886272377880583">这些高阶的函数技术,你掌握了么</a></li>
+<li><a href="https://my.oschina.net/u/4585038/blog/4869304">从前端性能优化引申出来的5道经典面试题</a></li>
+<li><a href="https://segmentfault.com/a/1190000023066043?sort=newest">JavaScript ES6代理的实际用例</a></li>
+<li><a href="https://developer.aliyun.com/article/778120">如何打造一款标准的 JS SDK ？</a></li>
+<li><a href="https://juejin.cn/post/6844903927100473357">前后端常见的几种鉴权方式</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>盘点几个js库</title>
+    <url>/2021/09/26/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/%E7%9B%98%E7%82%B9%E5%87%A0%E4%B8%AAjs%E5%BA%93/</url>
+    <content><![CDATA[<h1 id="p5-js"><a href="#p5-js" class="headerlink" title="p5.js"></a>p5.js</h1><p>把整个浏览器当做一个画板进行创意创作的绘图库<br>官网: https:p5js.org</p>
+<h1 id="SpriteJS"><a href="#SpriteJS" class="headerlink" title="SpriteJS"></a>SpriteJS</h1><p>SpriteJS是一款由360奇舞团开源的跨终端 canvas/webgl绘图库,我看了下API非常友好<br>官网: https:gitee.com/qihoo360/SpriteJS</p>
+<h1 id="Annie2x"><a href="#Annie2x" class="headerlink" title="Annie2x"></a>Annie2x</h1><p>Annie2x是一款Adobe Flash的插件,支持Flash CC 2015及以上 和 Adobe Animate全线版本。<br>官网： <a href="http://annie2x.com/">http://annie2x.com/</a></p>
+<h1 id="flatfile"><a href="#flatfile" class="headerlink" title="flatfile"></a>flatfile</h1><p>超强的数据导入js库,可以将Excel PDF CSV 导出成廷议的符合规则的结构化数据,强大的UI界面支持,非常适合集成到大数据采集的项目</p>
+<h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><p><a href="https://flatfile.io/">https://flatfile.io</a></p>
+<h2 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h2><ol>
+<li>前端数据导入,校验,格式化</li>
+<li>无须构建CSV解析器</li>
+<li>强大的API可以将结构化数据发布到任意端点</li>
+</ol>
+<h2 id="flatfile库的设计思路"><a href="#flatfile库的设计思路" class="headerlink" title="flatfile库的设计思路"></a>flatfile库的设计思路</h2><ol>
+<li>定义JSONschema用于数据自身的校验</li>
+<li>提供导入校验的钩子 用于数据行字段之间的的校验,以及数据处理能力</li>
+<li>点击导入按钮,解析Excel,将Excel列与JSONschema列进行自动映射</li>
+<li>提供映射交互页面,给用户修改自动映射的结果</li>
+<li>生成数据处理后的结果,让用户填充校验失败的字段</li>
+<li>提供导出的API 提供平台能力使用这些结构化数据</li>
+</ol>
+<h1 id="handsontable-强大的表格-数据再多都不会卡"><a href="#handsontable-强大的表格-数据再多都不会卡" class="headerlink" title="handsontable 强大的表格,数据再多都不会卡"></a>handsontable 强大的表格,数据再多都不会卡</h1><p><a href="https://handsontable.com/">https://handsontable.com/</a></p>
+<h1 id="ag-grid-The-Best-JavaScript-Grid-in-the-World"><a href="#ag-grid-The-Best-JavaScript-Grid-in-the-World" class="headerlink" title="ag-grid The Best JavaScript Grid in the World"></a>ag-grid The Best JavaScript Grid in the World</h1><p><a href="https://www.ag-grid.com/">https://www.ag-grid.com</a></p>
+]]></content>
+      <tags>
+        <tag>npm</tag>
       </tags>
   </entry>
   <entry>
@@ -1891,6 +1891,45 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>腾讯初面</title>
+    <url>/2021/10/18/%E9%9D%A2%E8%AF%95/%E8%85%BE%E8%AE%AF%E5%88%9D%E9%9D%A2/</url>
+    <content><![CDATA[<h3 id="基础题"><a href="#基础题" class="headerlink" title="基础题"></a>基础题</h3><ol>
+<li>TCP三次握手</li>
+<li>http2.0相对于http1.1有哪些变化</li>
+<li>https为什么更安全</li>
+<li>301与304的区别</li>
+<li>vue双向绑定原理</li>
+<li>事件循环</li>
+<li>重绘与回流</li>
+<li>script标签是否按照顺序执行</li>
+<li>从浏览器地址栏输入一个地址,发生了什么</li>
+</ol>
+<h3 id="实操题"><a href="#实操题" class="headerlink" title="实操题"></a>实操题</h3><p>随便打开一个网页,提出三点优化建议</p>
+<h3 id="编码题"><a href="#编码题" class="headerlink" title="编码题"></a>编码题</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> list = [</span><br><span class="line">  &#123;</span><br><span class="line">    id: <span class="string">&#x27;ab&#x27;</span>,</span><br><span class="line">    children: [</span><br><span class="line">      &#123;</span><br><span class="line">        id: <span class="string">&#x27;cd&#x27;</span>,</span><br><span class="line">        children: [&#123;</span><br><span class="line">          id: <span class="string">&#x27;ef&#x27;</span>,</span><br><span class="line">          children: []</span><br><span class="line">        &#125;]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 输入:&#x27;ef&#x27;</span></span><br><span class="line"><span class="comment">// 输出:ab--&gt;cd--&gt;ef</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getResult</span>(<span class="params">list,target</span>) </span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>整个面试采用视频面试，面试官还是很友好的，可惜我没咋准备，有些东西几年前看过都忘记了，答不上来。</p>
+<p>大厂面试还是喜欢搞前端八股文，面试偏理论，不像我面试别人，都直接问人家常用的API入参出参，什么场景会用到，典型的包工头思维，能干活就是好码农。</p>
+<p>我等码农如果不提前准备背诵点这些基础原理,还是不行的。</p>
+<p>编码题我做的时候一开始没有思路，浪费了些时间，面试官又催，更是有点紧张，还好最后写出来了，不过已经无关大局，败局已定。</p>
+<p>最后面试官要了我博客地址，算是加分项吧，主要我前面基础部分确实答的太差了，我也不抱任何希望。</p>
+<p>今晚在想是否找个小厂更好，就算进了大厂始终就是个螺丝钉，找个小厂掌控全局，虽然累点，但是应该更有成就感吧！！！</p>
+<h2 id="基础题目参考文章"><a href="#基础题目参考文章" class="headerlink" title="基础题目参考文章"></a>基础题目参考文章</h2><ol>
+<li>TCP <a href="https://blog.csdn.net/jun2016425/article/details/81506353">https://blog.csdn.net/jun2016425/article/details/81506353</a></li>
+<li>http2.0 <a href="https://zhuanlan.zhihu.com/p/26559480">https://zhuanlan.zhihu.com/p/26559480</a></li>
+<li>https相关 <a href="https://mp.weixin.qq.com/s/qPwgKpCv6IJgBRotIzBrUw">https://mp.weixin.qq.com/s/qPwgKpCv6IJgBRotIzBrUw</a></li>
+<li>301永久重定向,304代表命中缓存,这个是我自己17年看的东西,4年了,确实记不住 <a href="https://www.jianshu.com/p/c0f18670f0d8">https://www.jianshu.com/p/c0f18670f0d8</a></li>
+<li>vue 2.0采用<code>Object.defineProperties</code>定义<code>get</code> <code>set</code>方法,vue3.0采用<code>Proxy</code>对象实现</li>
+<li>事假循环的  <a href="https://www.cnblogs.com/jiasm/p/9482443.html">https://www.cnblogs.com/jiasm/p/9482443.html</a></li>
+<li>回流必定触发重绘,回流更消耗性能 <a href="https://zhuanlan.zhihu.com/p/52076790">https://zhuanlan.zhihu.com/p/52076790</a></li>
+<li>script标签 <a href="https://lifemi.cn/2021/09/25/defer-async%E7%9A%84%E5%8C%BA%E5%88%AB/">https://lifemi.cn/2021/09/25/defer-async%E7%9A%84%E5%8C%BA%E5%88%AB/</a></li>
+<li>上面的看完就知道这个了</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>《编写可测试javascript》 第三章</title>
     <url>/2019/04/06/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/2019-4-6-%E3%80%8A%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95javascript%E3%80%8B%20%E7%AC%AC%E4%B8%89%E7%AB%A0/</url>
     <content><![CDATA[<p>通过事件解耦和隔离代码是javascript的一个原生特性,参考浏览器的DOM事件模型</p>
@@ -1937,45 +1976,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>读书笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>腾讯初面</title>
-    <url>/2021/10/18/%E9%9D%A2%E8%AF%95/%E8%85%BE%E8%AE%AF%E5%88%9D%E9%9D%A2/</url>
-    <content><![CDATA[<h3 id="基础题"><a href="#基础题" class="headerlink" title="基础题"></a>基础题</h3><ol>
-<li>TCP三次握手</li>
-<li>http2.0相对于http1.1有哪些变化</li>
-<li>https为什么更安全</li>
-<li>301与304的区别</li>
-<li>vue双向绑定原理</li>
-<li>事件循环</li>
-<li>重绘与回流</li>
-<li>script标签是否按照顺序执行</li>
-<li>从浏览器地址栏输入一个地址,发生了什么</li>
-</ol>
-<h3 id="实操题"><a href="#实操题" class="headerlink" title="实操题"></a>实操题</h3><p>随便打开一个网页,提出三点优化建议</p>
-<h3 id="编码题"><a href="#编码题" class="headerlink" title="编码题"></a>编码题</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> list = [</span><br><span class="line">  &#123;</span><br><span class="line">    id: <span class="string">&#x27;ab&#x27;</span>,</span><br><span class="line">    children: [</span><br><span class="line">      &#123;</span><br><span class="line">        id: <span class="string">&#x27;cd&#x27;</span>,</span><br><span class="line">        children: [&#123;</span><br><span class="line">          id: <span class="string">&#x27;ef&#x27;</span>,</span><br><span class="line">          children: []</span><br><span class="line">        &#125;]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 输入:&#x27;ef&#x27;</span></span><br><span class="line"><span class="comment">// 输出:ab--&gt;cd--&gt;ef</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getResult</span>(<span class="params">list,target</span>) </span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>整个面试采用视频面试，面试官还是很友好的，可惜我没咋准备，有些东西几年前看过都忘记了，答不上来。</p>
-<p>大厂面试还是喜欢搞前端八股文，面试偏理论，不像我面试别人，都直接问人家常用的API入参出参，什么场景会用到，典型的包工头思维，能干活就是好码农。</p>
-<p>我等码农如果不提前准备背诵点这些基础原理,还是不行的。</p>
-<p>编码题我做的时候一开始没有思路，浪费了些时间，面试官又催，更是有点紧张，还好最后写出来了，不过已经无关大局，败局已定。</p>
-<p>最后面试官要了我博客地址，算是加分项吧，主要我前面基础部分确实答的太差了，我也不抱任何希望。</p>
-<p>今晚在想是否找个小厂更好，就算进了大厂始终就是个螺丝钉，找个小厂掌控全局，虽然累点，但是应该更有成就感吧！！！</p>
-<h2 id="基础题目参考文章"><a href="#基础题目参考文章" class="headerlink" title="基础题目参考文章"></a>基础题目参考文章</h2><ol>
-<li>TCP <a href="https://blog.csdn.net/jun2016425/article/details/81506353">https://blog.csdn.net/jun2016425/article/details/81506353</a></li>
-<li>http2.0 <a href="https://zhuanlan.zhihu.com/p/26559480">https://zhuanlan.zhihu.com/p/26559480</a></li>
-<li>https相关 <a href="https://mp.weixin.qq.com/s/qPwgKpCv6IJgBRotIzBrUw">https://mp.weixin.qq.com/s/qPwgKpCv6IJgBRotIzBrUw</a></li>
-<li>301永久重定向,304代表命中缓存,这个是我自己17年看的东西,4年了,确实记不住 <a href="https://www.jianshu.com/p/c0f18670f0d8">https://www.jianshu.com/p/c0f18670f0d8</a></li>
-<li>vue 2.0采用<code>Object.defineProperties</code>定义<code>get</code> <code>set</code>方法,vue3.0采用<code>Proxy</code>对象实现</li>
-<li>事假循环的  <a href="https://www.cnblogs.com/jiasm/p/9482443.html">https://www.cnblogs.com/jiasm/p/9482443.html</a></li>
-<li>回流必定触发重绘,回流更消耗性能 <a href="https://zhuanlan.zhihu.com/p/52076790">https://zhuanlan.zhihu.com/p/52076790</a></li>
-<li>script标签 <a href="https://lifemi.cn/2021/09/25/defer-async%E7%9A%84%E5%8C%BA%E5%88%AB/">https://lifemi.cn/2021/09/25/defer-async%E7%9A%84%E5%8C%BA%E5%88%AB/</a></li>
-<li>上面的看完就知道这个了</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>面试</tag>
       </tags>
   </entry>
   <entry>
