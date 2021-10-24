@@ -186,6 +186,129 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/19/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/2021-4-29-%20rxjs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/19/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/2021-4-29-%20rxjs/" class="post-title-link" itemprop="url">rxjs</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-19 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-19T00:00:00+00:00">2021-04-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-24 14:11:42" itemprop="dateModified" datetime="2021-10-24T14:11:42+00:00">2021-10-24</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/19/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/2021-4-29-%20rxjs/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/19/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/2021-4-29-%20rxjs/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="rxjs"><a href="#rxjs" class="headerlink" title="rxjs"></a>rxjs</h1><p>rxjs是一个响应式编程的js实现,angular工程里面经常会用到</p>
+<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><p>主要是实现了设计模式中的<code>观察者模式</code>。<br>观察者模式主要实现对象间一对多的行为模式。</p>
+<ul>
+<li>可观察对象 Observable</li>
+<li>观察者 Observer</li>
+</ul>
+<p>完整的Observer观察者需要需要3个处理器</p>
+<ul>
+<li>消息处理器Next (必选的)</li>
+<li>错误处理器Error</li>
+<li>观察结束处理器 complete<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> observer = &#123;</span><br><span class="line">  next: <span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;Observer got a next value: &#x27;</span> + x),</span><br><span class="line">  error: <span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.error(<span class="string">&#x27;Observer got an error: &#x27;</span> + err),</span><br><span class="line">  complete: <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;Observer got a complete notification&#x27;</span>),</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+可观察对象Observable能够向观察者发射这三种类型的消息给观察者<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里我简单的模拟下Observable对象的结构</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Observable</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">fn</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.fn=fn</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">subscribe</span>(<span class="params">observer</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.fn(observer)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> observable=<span class="keyword">new</span> Observable(<span class="function"><span class="params">subscriber</span> =&gt;</span> &#123;</span><br><span class="line">  subscriber.next(<span class="number">1</span>);</span><br><span class="line">  <span class="comment">//加了这句后面就不执行了,直接走错误处理器</span></span><br><span class="line">  <span class="comment">// throw &#x27;报错了&#x27; </span></span><br><span class="line">  subscriber.next(<span class="number">2</span>);</span><br><span class="line">  subscriber.next(<span class="number">3</span>);</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    subscriber.next(<span class="number">4</span>);</span><br><span class="line">    subscriber.complete();</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+加上<code>observable.subscribe(observer)</code>这句代码,就可以让观察者执行被观察对象发出的消息了。</li>
+</ul>
+<h2 id="实现观察者模式"><a href="#实现观察者模式" class="headerlink" title="实现观察者模式"></a>实现观察者模式</h2><p>上面的实现，是一对一的观察（单播）。观察者模式是一对多（多播），跟事件增加处理器一样的道理。rxjs增加了一个中间人<code>Subject</code>做分发。</p>
+<p>就像有个山洞，只能进去一个人，但是有一堆人想知道里面的消息。那么派一个人观察，然后告诉大家里面发生了什么就可以了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模拟一个 Subject 类做消息分发</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Subject</span></span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.observerList=[]</span><br><span class="line">  <span class="function"><span class="title">subscribe</span>(<span class="params">observer</span>)</span>&#123;</span><br><span class="line">    observerList.push(observer)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">unsubscribe</span>(<span class="params">observer</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> index=<span class="built_in">this</span>.observerList.findIndex(observer)</span><br><span class="line">    <span class="built_in">this</span>.observerList=[]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">complete</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.observerList.forEach(<span class="function"><span class="params">observer</span> =&gt;</span> &#123;</span><br><span class="line">      observer.complete()</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">error</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.observerList.forEach(<span class="function"><span class="params">observer</span> =&gt;</span> &#123;</span><br><span class="line">      observer.error(err)</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">next</span>(<span class="params">arg</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.observerList.forEach(<span class="function"><span class="params">observer</span> =&gt;</span> &#123;</span><br><span class="line">      observer.next(arg)</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> subject=<span class="keyword">new</span> Subject() <span class="comment">//找个中间人</span></span><br><span class="line"><span class="keyword">let</span> observer1=<span class="function">()=&gt;</span>&#123;<span class="built_in">console</span>.log(<span class="string">&#x27;观察者1&#x27;</span>)&#125;</span><br><span class="line"><span class="keyword">let</span> observer2=<span class="function">()=&gt;</span>&#123;<span class="built_in">console</span>.log(<span class="string">&#x27;观察者2&#x27;</span>)&#125;</span><br><span class="line">subject.subscribe(observer1)<span class="comment">//观察者1订阅中间人的消息</span></span><br><span class="line">subject.subscribe(observer2)<span class="comment">//观察者2订阅中间人的消息</span></span><br><span class="line">observable.subscribe(subject) <span class="comment">// 中间人订阅可观察对象</span></span><br></pre></td></tr></table></figure>
+<h2 id="取消订阅"><a href="#取消订阅" class="headerlink" title="取消订阅"></a>取消订阅</h2><p>订阅会产生订阅信息<code>subscription</code>,订阅信息可以做从属关系,主订阅信息取消,从订阅信息也会被取消</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> subscription1=subject.subscribe(observer1)</span><br><span class="line"><span class="keyword">let</span> subscription2=subject.subscribe(observer2)</span><br><span class="line">subscription1.add(subscription2)<span class="comment">//建立从属关系</span></span><br><span class="line">subscription1.unsubscribe()<span class="comment">//这时候subscription2也跟着一起取消了</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="中间人还有几个变体"><a href="#中间人还有几个变体" class="headerlink" title="中间人还有几个变体"></a>中间人还有几个变体</h2><ul>
+<li>BehaviorSubject 这个中间人会把你订阅时候前一次消息告知观察者(比如我打开电视去看足球赛,旁边一个老铁跟我说了句,现在中国队0:7落后。我拿到这个消息，可能会立马砸掉电视，而不会继续观看。)</li>
+<li>ReplaySubject 这个中间人有一个缓冲区,和一个缓冲时间。他会把观察者订阅之前出于缓冲区内且在缓冲时间内的消息，告知观察者。</li>
+<li>AsyncSubject 这个中间人只会等待complete后通知最后的结果（比如观测者不关心过程，只关心结果的情况）</li>
+</ul>
+<h2 id="分离订阅时间点"><a href="#分离订阅时间点" class="headerlink" title="分离订阅时间点"></a>分离订阅时间点</h2><p>目前观察者跟可观察对象，是在建立联系的那一刻。可观察对象就产生消息。我们需要控制联系的时间。比如一个在线视频，我需要等前面的广告播放完再看。<br>rxjs是怎么做的呢?  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; interval, Subject &#125; <span class="keyword">from</span> <span class="string">&#x27;rxjs&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; multicast &#125; <span class="keyword">from</span> <span class="string">&#x27;rxjs/operators&#x27;</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">const</span> source = interval(<span class="number">500</span>);</span><br><span class="line"><span class="keyword">const</span> subject = <span class="keyword">new</span> Subject();</span><br><span class="line"><span class="keyword">const</span> multicasted = source.pipe(multicast(subject));</span><br><span class="line"><span class="keyword">let</span> subscription1, subscription2, subscriptionConnect;</span><br><span class="line"> </span><br><span class="line">subscription1 = multicasted.subscribe(&#123;</span><br><span class="line">  next: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">`observerA: <span class="subst">$&#123;v&#125;</span>`</span>)</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// We should call `connect()` here, because the first</span></span><br><span class="line"><span class="comment">// subscriber to `multicasted` is interested in consuming values</span></span><br><span class="line">subscriptionConnect = multicasted.connect();</span><br><span class="line"> </span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  subscription2 = multicasted.subscribe(&#123;</span><br><span class="line">    next: <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">`observerB: <span class="subst">$&#123;v&#125;</span>`</span>)</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;, <span class="number">600</span>);</span><br><span class="line"> </span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  subscription1.unsubscribe();</span><br><span class="line">&#125;, <span class="number">1200</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// We should unsubscribe the shared Observable execution here,</span></span><br><span class="line"><span class="comment">// because `multicasted` would have no more subscribers after this</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  subscription2.unsubscribe();</span><br><span class="line">  subscriptionConnect.unsubscribe(); <span class="comment">// for the shared Observable execution</span></span><br><span class="line">&#125;, <span class="number">2000</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="运算符-Operators"><a href="#运算符-Operators" class="headerlink" title="运算符 Operators"></a>运算符 Operators</h2><p>我们在上述例子中使用了不少rxjs的<code>运算符</code>。运算符包含两种：  </p>
+<ul>
+<li>一种是<code>创建运算符</code>，这种运算符的返回值都是一个<code>可观察对象</code>。它能从集合，定时任务，DOM事件创建可观察对象。</li>
+<li>另一种是<code>管道运算符</code>,这种运算符用于对<code>可观测对象</code>发出的消息进行处理,比如做消息内容的整合,消息时间的调整。</li>
+</ul>
+<h2 id="调度器-Scheduler"><a href="#调度器-Scheduler" class="headerlink" title="调度器 Scheduler"></a>调度器 Scheduler</h2><h3 id="调度器分类"><a href="#调度器分类" class="headerlink" title="调度器分类"></a>调度器分类</h3><ul>
+<li>null 同步传递消息</li>
+<li>queueScheduler 队列调度器,事件宏任务</li>
+<li>asapScheduler     微任务调度器,在两次宏任务之间执行,用于promise</li>
+<li>asyncScheduler 异步调度器,用于定时器</li>
+<li>animationFrameScheduler 动画调度器</li>
+</ul>
+<h3 id="调度器用处"><a href="#调度器用处" class="headerlink" title="调度器用处"></a>调度器用处</h3><ul>
+<li>作为静态操作符的参数</li>
+<li><code>subscribeOn(scheduler)</code> 在调用<code>subscribe()</code>函数的时候,作为执行的上下文</li>
+<li><code>observeOn(scheduler)</code> 当可观察对象执行<code>next()</code>函数的时候,作为执行上下文<h3 id="来个例子"><a href="#来个例子" class="headerlink" title="来个例子"></a>来个例子</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//调度器枚举值,实际上是调度器对象,还能配置,这里简化处理</span></span><br><span class="line"><span class="keyword">const</span> schedulerType=&#123;</span><br><span class="line">  asyncScheduler:<span class="string">&#x27;asyncScheduler&#x27;</span>,</span><br><span class="line">  queueScheduler:<span class="string">&#x27;queueScheduler&#x27;</span>,</span><br><span class="line">  asapScheduler:<span class="string">&#x27;asapScheduler&#x27;</span>,</span><br><span class="line">  animationFrameScheduler:<span class="string">&#x27;animationFrameScheduler&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 模拟个from运算符</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">from</span>(<span class="params">array, scheduler</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> observe;</span><br><span class="line">  <span class="keyword">let</span> observe=<span class="function"><span class="params">subscriber</span> =&gt;</span> &#123;</span><br><span class="line">    array.forEach(<span class="function"><span class="params">element</span> =&gt;</span> &#123;</span><br><span class="line">      subscriber.next(element)</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(scheduler==schedulerType.asyncScheduler)&#123;</span><br><span class="line">    observe=<span class="function"><span class="params">subscriber</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        array.forEach(<span class="function"><span class="params">element</span> =&gt;</span> &#123;</span><br><span class="line">          subscriber.next(element)</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> Observable(observe);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;start&#x27;</span>)</span><br><span class="line"><span class="keyword">from</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]).subscribe(<span class="function"><span class="params">x</span>=&gt;</span><span class="built_in">console</span>.log(x))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;end&#x27;</span>)</span><br><span class="line"><span class="comment">//logs打印如下</span></span><br><span class="line"><span class="comment">//start </span></span><br><span class="line"><span class="comment">//1 </span></span><br><span class="line"><span class="comment">//2 </span></span><br><span class="line"><span class="comment">//3 </span></span><br><span class="line"><span class="comment">//end </span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;start&#x27;</span>)</span><br><span class="line"><span class="keyword">from</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],schedulerType.asyncScheduler).subscribe(<span class="function"><span class="params">x</span>=&gt;</span><span class="built_in">console</span>.log(x))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;end&#x27;</span>)</span><br><span class="line"><span class="comment">//logs打印如下</span></span><br><span class="line"><span class="comment">//start </span></span><br><span class="line"><span class="comment">//end </span></span><br><span class="line"><span class="comment">//1 </span></span><br><span class="line"><span class="comment">//2 </span></span><br><span class="line"><span class="comment">//3 </span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-%20docker%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -217,7 +340,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-22 11:44:54" itemprop="dateModified" datetime="2021-10-22T11:44:54+00:00">2021-10-22</time>
+                <time title="修改时间：2021-10-24 14:11:42" itemprop="dateModified" datetime="2021-10-24T14:11:42+00:00">2021-10-24</time>
               </span>
 
           
@@ -298,7 +421,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-22 11:44:54" itemprop="dateModified" datetime="2021-10-22T11:44:54+00:00">2021-10-22</time>
+                <time title="修改时间：2021-10-24 14:11:42" itemprop="dateModified" datetime="2021-10-24T14:11:42+00:00">2021-10-24</time>
               </span>
 
           
@@ -406,7 +529,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-22 11:44:54" itemprop="dateModified" datetime="2021-10-22T11:44:54+00:00">2021-10-22</time>
+                <time title="修改时间：2021-10-24 14:11:42" itemprop="dateModified" datetime="2021-10-24T14:11:42+00:00">2021-10-24</time>
               </span>
 
           
@@ -491,7 +614,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-22 11:44:54" itemprop="dateModified" datetime="2021-10-22T11:44:54+00:00">2021-10-22</time>
+                <time title="修改时间：2021-10-24 14:11:42" itemprop="dateModified" datetime="2021-10-24T14:11:42+00:00">2021-10-24</time>
               </span>
 
           
@@ -576,7 +699,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-22 11:44:54" itemprop="dateModified" datetime="2021-10-22T11:44:54+00:00">2021-10-22</time>
+                <time title="修改时间：2021-10-24 14:11:42" itemprop="dateModified" datetime="2021-10-24T14:11:42+00:00">2021-10-24</time>
               </span>
 
           
@@ -701,7 +824,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-22 11:44:54" itemprop="dateModified" datetime="2021-10-22T11:44:54+00:00">2021-10-22</time>
+                <time title="修改时间：2021-10-24 14:11:42" itemprop="dateModified" datetime="2021-10-24T14:11:42+00:00">2021-10-24</time>
               </span>
 
           
@@ -788,7 +911,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-22 11:44:54" itemprop="dateModified" datetime="2021-10-22T11:44:54+00:00">2021-10-22</time>
+                <time title="修改时间：2021-10-24 14:11:42" itemprop="dateModified" datetime="2021-10-24T14:11:42+00:00">2021-10-24</time>
               </span>
 
           
@@ -892,7 +1015,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-22 11:44:54" itemprop="dateModified" datetime="2021-10-22T11:44:54+00:00">2021-10-22</time>
+                <time title="修改时间：2021-10-24 14:11:42" itemprop="dateModified" datetime="2021-10-24T14:11:42+00:00">2021-10-24</time>
               </span>
 
           
@@ -978,7 +1101,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-22 11:44:54" itemprop="dateModified" datetime="2021-10-22T11:44:54+00:00">2021-10-22</time>
+                <time title="修改时间：2021-10-24 14:11:42" itemprop="dateModified" datetime="2021-10-24T14:11:42+00:00">2021-10-24</time>
               </span>
 
           
@@ -1008,91 +1131,6 @@
       
           <p><code>Ctrl + Shift + D</code><br><img src="https://upload-images.jianshu.io/upload_images/8156292-1429d3fb31add89d.gif?imageMogr2/auto-orient/strip" alt="dock-undock-shortcut.gif"></p>
 <h1 id="调试chrome-devtools面板自身"><a href="#调试chrome-devtools面板自身" class="headerlink" title="调试chrome devtools面板自身"></a>调试chrome devtools面板自身</h1><p>chrome devtools 可以检查我们的htnl页面，而devtools自身也是一个html页面，可以通过 <code>Ctrl shift I </code>快捷键调试检查面板自己，适用场景为devtools插件开发</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2014.%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E7%9B%B8%E5%85%B3%E7%9A%84%E6%8A%80%E5%B7%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2014.%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E7%9B%B8%E5%85%B3%E7%9A%84%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 14.断点调试相关的技巧</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-22 11:44:54" itemprop="dateModified" datetime="2021-10-22T11:44:54+00:00">2021-10-22</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2014.%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E7%9B%B8%E5%85%B3%E7%9A%84%E6%8A%80%E5%B7%A7/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2014.%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E7%9B%B8%E5%85%B3%E7%9A%84%E6%8A%80%E5%B7%A7/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://upload-images.jianshu.io/upload_images/8156292-b182b48798fc84b5.gif?imageMogr2/auto-orient/strip" alt="highlight-paused-statement.gif"><br>调试器暂停后，您现在可以看到正在执行的代码的确切部分。它以高亮显示较深的蓝色阴影。这在调试精简代码时很有用。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/8156292-f5fdd4026a918fda.gif?imageMogr2/auto-orient/strip" alt="debugger-shortcuts.gif"></p>
-<p>Toggle a breakpoint while on a line: <code>Cmd + B</code> （切换当前行的断点）<br>Select the next call frame: Ctrl + . (下一个调用栈)<br>Select the previous call frame: Ctrl + , (上一个调用栈)</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>动图上点击的按钮是当遇到报错的时候，自动触发断点调试。<br>我们可以在源代码中添加 <code>debugger</code> 设置断点<br>可以在source面板中文件的行号前面单击设置断点 <code>Cmd + B</code></p>
-<h3 id="通过DOM被修改，被移除命中断点"><a href="#通过DOM被修改，被移除命中断点" class="headerlink" title="通过DOM被修改，被移除命中断点"></a>通过DOM被修改，被移除命中断点</h3><p><img src="https://upload-images.jianshu.io/upload_images/8156292-a07045fdf96cc168.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h3 id="通过触发网络请求命中断点"><a href="#通过触发网络请求命中断点" class="headerlink" title="通过触发网络请求命中断点"></a>通过触发网络请求命中断点</h3><p><img src="https://upload-images.jianshu.io/upload_images/8156292-f9c5980598e753fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h3 id="断点触发后，按住Ctrl-能跳转到的地方会被高亮"><a href="#断点触发后，按住Ctrl-能跳转到的地方会被高亮" class="headerlink" title="断点触发后，按住Ctrl 能跳转到的地方会被高亮"></a>断点触发后，按住Ctrl 能跳转到的地方会被高亮</h3><p><img src="https://upload-images.jianshu.io/upload_images/8156292-371da7a472f180de.gif?imageMogr2/auto-orient/strip" alt="js-jump-to-destination.gif"></p>
 
       
     </div>
@@ -1177,7 +1215,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-count">114</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

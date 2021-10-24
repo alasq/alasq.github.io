@@ -1891,45 +1891,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>腾讯初面</title>
-    <url>/2021/10/18/%E9%9D%A2%E8%AF%95/%E8%85%BE%E8%AE%AF%E5%88%9D%E9%9D%A2/</url>
-    <content><![CDATA[<h3 id="基础题"><a href="#基础题" class="headerlink" title="基础题"></a>基础题</h3><ol>
-<li>TCP三次握手</li>
-<li>http2.0相对于http1.1有哪些变化</li>
-<li>https为什么更安全</li>
-<li>301与304的区别</li>
-<li>vue双向绑定原理</li>
-<li>事件循环</li>
-<li>重绘与回流</li>
-<li>script标签是否按照顺序执行</li>
-<li>从浏览器地址栏输入一个地址,发生了什么</li>
-</ol>
-<h3 id="实操题"><a href="#实操题" class="headerlink" title="实操题"></a>实操题</h3><p>随便打开一个网页,提出三点优化建议</p>
-<h3 id="编码题"><a href="#编码题" class="headerlink" title="编码题"></a>编码题</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> list = [</span><br><span class="line">  &#123;</span><br><span class="line">    id: <span class="string">&#x27;ab&#x27;</span>,</span><br><span class="line">    children: [</span><br><span class="line">      &#123;</span><br><span class="line">        id: <span class="string">&#x27;cd&#x27;</span>,</span><br><span class="line">        children: [&#123;</span><br><span class="line">          id: <span class="string">&#x27;ef&#x27;</span>,</span><br><span class="line">          children: []</span><br><span class="line">        &#125;]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 输入:&#x27;ef&#x27;</span></span><br><span class="line"><span class="comment">// 输出:ab--&gt;cd--&gt;ef</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getResult</span>(<span class="params">list,target</span>) </span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>整个面试采用视频面试，面试官还是很友好的，可惜我没咋准备，有些东西几年前看过都忘记了，答不上来。</p>
-<p>大厂面试还是喜欢搞前端八股文，面试偏理论，不像我面试别人，都直接问人家常用的API入参出参，什么场景会用到，典型的包工头思维，能干活就是好码农。</p>
-<p>我等码农如果不提前准备背诵点这些基础原理,还是不行的。</p>
-<p>编码题我做的时候一开始没有思路，浪费了些时间，面试官又催，更是有点紧张，还好最后写出来了，不过已经无关大局，败局已定。</p>
-<p>最后面试官要了我博客地址，算是加分项吧，主要我前面基础部分确实答的太差了，我也不抱任何希望。</p>
-<p>今晚在想是否找个小厂更好，就算进了大厂始终就是个螺丝钉，找个小厂掌控全局，虽然累点，但是应该更有成就感吧！！！</p>
-<h2 id="基础题目参考文章"><a href="#基础题目参考文章" class="headerlink" title="基础题目参考文章"></a>基础题目参考文章</h2><ol>
-<li>TCP <a href="https://blog.csdn.net/jun2016425/article/details/81506353">https://blog.csdn.net/jun2016425/article/details/81506353</a></li>
-<li>http2.0 <a href="https://zhuanlan.zhihu.com/p/26559480">https://zhuanlan.zhihu.com/p/26559480</a></li>
-<li>https相关 <a href="https://mp.weixin.qq.com/s/qPwgKpCv6IJgBRotIzBrUw">https://mp.weixin.qq.com/s/qPwgKpCv6IJgBRotIzBrUw</a></li>
-<li>301永久重定向,304代表命中缓存,这个是我自己17年看的东西,4年了,确实记不住 <a href="https://www.jianshu.com/p/c0f18670f0d8">https://www.jianshu.com/p/c0f18670f0d8</a></li>
-<li>vue 2.0采用<code>Object.defineProperties</code>定义<code>get</code> <code>set</code>方法,vue3.0采用<code>Proxy</code>对象实现</li>
-<li>事假循环的  <a href="https://www.cnblogs.com/jiasm/p/9482443.html">https://www.cnblogs.com/jiasm/p/9482443.html</a></li>
-<li>回流必定触发重绘,回流更消耗性能 <a href="https://zhuanlan.zhihu.com/p/52076790">https://zhuanlan.zhihu.com/p/52076790</a></li>
-<li>script标签 <a href="https://lifemi.cn/2021/09/25/defer-async%E7%9A%84%E5%8C%BA%E5%88%AB/">https://lifemi.cn/2021/09/25/defer-async%E7%9A%84%E5%8C%BA%E5%88%AB/</a></li>
-<li>上面的看完就知道这个了</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>《编写可测试javascript》 第三章</title>
     <url>/2019/04/06/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/2019-4-6-%E3%80%8A%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95javascript%E3%80%8B%20%E7%AC%AC%E4%B8%89%E7%AB%A0/</url>
     <content><![CDATA[<p>通过事件解耦和隔离代码是javascript的一个原生特性,参考浏览器的DOM事件模型</p>
@@ -1976,6 +1937,73 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>读书笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>腾讯二面</title>
+    <url>/2021/10/24/%E9%9D%A2%E8%AF%95/%E8%85%BE%E8%AE%AF%E4%BA%8C%E9%9D%A2/</url>
+    <content><![CDATA[<p>一面出乎意外的过了，难道是因为博客写的好？</p>
+<p>二面也是技术面，跟一面的流程基本一致,但是不用做题了。</p>
+<p>面试官主要关注点是项目与能力，不怎么问技术细节</p>
+<ol>
+<li>项目流程与技术栈</li>
+<li>在之前的项目中担任的角色</li>
+<li>自己在项目中使用的技术亮点</li>
+<li>对前端新技术的了解,知识面的广度</li>
+<li>前端的模块化发展历史</li>
+</ol>
+<h3 id="这里我说了一些具体的事例"><a href="#这里我说了一些具体的事例" class="headerlink" title="这里我说了一些具体的事例"></a>这里我说了一些具体的事例</h3><h4 id="前端扛把子"><a href="#前端扛把子" class="headerlink" title="前端扛把子"></a>前端扛把子</h4><p>我做过的所有项目我都是最最最核心的开发人员。记得之前我们连续加班了一个月，每天10点以后，偶尔凌晨1点。那天项目上线,我看兄弟们都扛不住了，我就跟领导说，让兄弟们走，我一个人留下来，然后我第二天再调休，这样轮换下，没必要都熬着。然后弟兄们就都下班了，我就是能Hold住全场的那个仔，一个人顶整个前端团队…..</p>
+<h4 id="金字招牌"><a href="#金字招牌" class="headerlink" title="金字招牌"></a>金字招牌</h4><p>易宝作为外包公司，新招聘的员工流失率很高，很多来个参观一下，不满意就走了。其实人家入职看重的无非两点，一是钱，而是能力提升。自从我接了带新员工参观这个活儿，一些不怎么想干外包的都被我说服了，因为他们觉得能从我身上学到东西，能提升，这点我真是特别骄傲，算是给东家争脸了</p>
+<h4 id="技术雷达"><a href="#技术雷达" class="headerlink" title="技术雷达"></a>技术雷达</h4><p>其实我闲着就会看各种文档，文章，github topic这些,比如阮一峰的网络日志,京东的凹凸实验室,腾讯的AlloyTeam,奇舞360的周刊,前端大全,掘金等。今年我就看了 tailwindcss async rxjs quilljs 等的文档,vue3  vite storybook strapi 微前端 这些都有关注</p>
+<h4 id="运筹帷幄"><a href="#运筹帷幄" class="headerlink" title="运筹帷幄"></a>运筹帷幄</h4><p>其实大多数人只会在Jira系统中关注自己的任务,而我首页上设置的模块有SE的看板,原始需求下来的时候,我就在关注了,就想好了设计与实施方案。真正需求落地的时候,我的代码基本上都写完了,剩下的就是把自己的方案拿出来,细化,联调.未雨绸缪,才能运筹帷幄。</p>
+<h4 id="攻坚先锋"><a href="#攻坚先锋" class="headerlink" title="攻坚先锋"></a>攻坚先锋</h4><p>面试官问我项目中的技术亮点，我觉得我没答好。我真心觉得我啥都能解决呀，这就是我的亮点。事后想想，我确实解决了很多棘手的问题，比如rem布局,突破chrome最小字体12px的限制。开发chrome extension，完成了一键合并merge request，云龙流水线关键信息提取，拉起Espace聊天框，等等一系列提高开发效率的功能。OSM地图瓦片自定义样式问题。百度地图火星坐标系转换问题。window.open 新页签,同源网页共享进程的问题。空页面，多开一些，内存溢出的问题。还有页面的性能优化，etag缓存等等。怎么说呢？解决疑难杂症就是我的日常工作啊！没觉得多了不起，一时之间忘掉了，唉！！！</p>
+<h4 id="细节身法"><a href="#细节身法" class="headerlink" title="细节身法"></a>细节身法</h4><p>我认为前端做的好不好，就跟打LOL一样，基础分段，能不能拿人头就要拼细节。我做点击滚动事件的时候，会把滚轮事件加上去。图标不能够直观的展示意图的时候我会加上title tip。暂停与播放按钮不能表达服务器状态的时候，我做上流水动效来区分。下拉框的数据都20来条了，肯定把搜索安排上。接口都1s多了,肯定要加上loading动画。防抖节流加不加？笔记本展示效果怎么样？弱网环境效果怎么样？高保真还原度怎么样？</p>
+<h3 id="不稳的点"><a href="#不稳的点" class="headerlink" title="不稳的点"></a>不稳的点</h3><ol>
+<li>面试官比较关注我16年以前做啥的，主要做天猫电商，长城宽带，千米电脑快修。刚毕业确实没想清楚想做什么，也尝试过好多行业，这有问题吗？反正我觉得没问题</li>
+<li>外包仔的经历面试官也有点在乎，但愿面试官唯才是举，英雄不问出处吧。刘邦泗水亭长出身，刘备买鞋，朱元璋放牛出身，我至少也是个本科对吧。</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>腾讯初面</title>
+    <url>/2021/10/18/%E9%9D%A2%E8%AF%95/%E8%85%BE%E8%AE%AF%E5%88%9D%E9%9D%A2/</url>
+    <content><![CDATA[<h3 id="基础题"><a href="#基础题" class="headerlink" title="基础题"></a>基础题</h3><ol>
+<li>TCP三次握手</li>
+<li>http2.0相对于http1.1有哪些变化</li>
+<li>https为什么更安全</li>
+<li>301与304的区别</li>
+<li>vue双向绑定原理</li>
+<li>事件循环</li>
+<li>重绘与回流</li>
+<li>script标签是否按照顺序执行</li>
+<li>从浏览器地址栏输入一个地址,发生了什么</li>
+</ol>
+<h3 id="实操题"><a href="#实操题" class="headerlink" title="实操题"></a>实操题</h3><p>随便打开一个网页,提出三点优化建议</p>
+<h3 id="编码题"><a href="#编码题" class="headerlink" title="编码题"></a>编码题</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> list = [</span><br><span class="line">  &#123;</span><br><span class="line">    id: <span class="string">&#x27;ab&#x27;</span>,</span><br><span class="line">    children: [</span><br><span class="line">      &#123;</span><br><span class="line">        id: <span class="string">&#x27;cd&#x27;</span>,</span><br><span class="line">        children: [&#123;</span><br><span class="line">          id: <span class="string">&#x27;ef&#x27;</span>,</span><br><span class="line">          children: []</span><br><span class="line">        &#125;]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 输入:&#x27;ef&#x27;</span></span><br><span class="line"><span class="comment">// 输出:ab--&gt;cd--&gt;ef</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getResult</span>(<span class="params">list,target</span>) </span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>整个面试采用视频面试，面试官还是很友好的，可惜我没咋准备，有些东西几年前看过都忘记了，答不上来。</p>
+<p>大厂面试还是喜欢搞前端八股文，面试偏理论，不像我面试别人，都直接问人家常用的API入参出参，什么场景会用到，典型的包工头思维，能干活就是好码农。</p>
+<p>我等码农如果不提前准备背诵点这些基础原理,还是不行的。</p>
+<p>编码题我做的时候一开始没有思路，浪费了些时间，面试官又催，更是有点紧张，还好最后写出来了，不过已经无关大局，败局已定。</p>
+<p>最后面试官要了我博客地址，算是加分项吧，主要我前面基础部分确实答的太差了，我也不抱任何希望。</p>
+<p>今晚在想是否找个小厂更好，就算进了大厂始终就是个螺丝钉，找个小厂掌控全局，虽然累点，但是应该更有成就感吧！！！</p>
+<h2 id="基础题目参考文章"><a href="#基础题目参考文章" class="headerlink" title="基础题目参考文章"></a>基础题目参考文章</h2><ol>
+<li>TCP <a href="https://blog.csdn.net/jun2016425/article/details/81506353">https://blog.csdn.net/jun2016425/article/details/81506353</a></li>
+<li>http2.0 <a href="https://zhuanlan.zhihu.com/p/26559480">https://zhuanlan.zhihu.com/p/26559480</a></li>
+<li>https相关 <a href="https://mp.weixin.qq.com/s/qPwgKpCv6IJgBRotIzBrUw">https://mp.weixin.qq.com/s/qPwgKpCv6IJgBRotIzBrUw</a></li>
+<li>301永久重定向,304代表命中缓存,这个是我自己17年看的东西,4年了,确实记不住 <a href="https://www.jianshu.com/p/c0f18670f0d8">https://www.jianshu.com/p/c0f18670f0d8</a></li>
+<li>vue 2.0采用<code>Object.defineProperties</code>定义<code>get</code> <code>set</code>方法,vue3.0采用<code>Proxy</code>对象实现</li>
+<li>事假循环的  <a href="https://www.cnblogs.com/jiasm/p/9482443.html">https://www.cnblogs.com/jiasm/p/9482443.html</a></li>
+<li>回流必定触发重绘,回流更消耗性能 <a href="https://zhuanlan.zhihu.com/p/52076790">https://zhuanlan.zhihu.com/p/52076790</a></li>
+<li>script标签 <a href="https://lifemi.cn/2021/09/25/defer-async%E7%9A%84%E5%8C%BA%E5%88%AB/">https://lifemi.cn/2021/09/25/defer-async%E7%9A%84%E5%8C%BA%E5%88%AB/</a></li>
+<li>上面的看完就知道这个了</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>面试</tag>
       </tags>
   </entry>
   <entry>
