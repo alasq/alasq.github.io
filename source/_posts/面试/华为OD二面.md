@@ -43,3 +43,45 @@ tags: 面试
 **进阶要求**
 
 不使用 for 循环实现
+
+------------------------------
+### 使用循环解题
+```js
+function test(str) {
+  let i = 0, start, end = str.length, len = 0;
+  let chars = new Set();
+  while (str[i]) {
+    start = start || i
+    let char = str[i]
+    end = i
+    if (chars.has(char)) {
+      if (chars.size > len) {
+        len = chars.size
+      }
+      i = ++start
+      chars.clear()
+    } else {
+      chars.add(char)
+    }
+    i++
+  }
+
+  if (chars.size > len) {
+    len = chars.size
+  }
+  if (!len) {
+    len = str.length
+  }
+  console.log(len)
+}
+
+test('abcfabcde')//6
+test('abcde')//5
+test('abcaab')//3
+test('aaa')//1
+
+```
+
+### 不使用循环解题??
+
+用正则?有解法的兄弟评论区见
