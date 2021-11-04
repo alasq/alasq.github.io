@@ -1840,6 +1840,9 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 </tr>
 </tbody></table>
 ]]></content>
+      <tags>
+        <tag>深度学习</tag>
+      </tags>
   </entry>
   <entry>
     <title>《编写可测试javascript》 第二章 复杂度（一）</title>
@@ -2322,6 +2325,23 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>人力资源管理 采购管理 财务管理 风险管理</li>
 <li>整体管理（沟通管理）</li>
 </ul>
+]]></content>
+      <tags>
+        <tag>项目管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>模块设计工程师(MDE)</title>
+    <url>/2021/11/04/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1%E5%B7%A5%E7%A8%8B%E5%B8%88/</url>
+    <content><![CDATA[<p>最近在做项目组MDE关键角色认证评审的工作,记录下</p>
+<h2 id="模块设计工程师"><a href="#模块设计工程师" class="headerlink" title="模块设计工程师"></a>模块设计工程师</h2><p>MDE 是 Module Design Engineer 的缩写。</p>
+<h2 id="MDE-任职要求"><a href="#MDE-任职要求" class="headerlink" title="MDE 任职要求"></a>MDE 任职要求</h2><ol>
+<li>（需求处理）完成需求对齐,分解,输出概要设计(这个有些是SE出),详细设计</li>
+<li>（模块设计）考虑模块复用,梳理内部外部依赖,确定目录结构,数据流向,对代码安全,代码质量负责</li>
+<li> (持续优化) 技术攻关,代码重构,废弃功能管理,历史需求整理,文档优化</li>
+<li> (知识分享) 能总结提供开发文档，提供技术培训</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>MDE 除了编码能力外,还需要良好的理解能力,沟通能力,以及协助他人的一个意愿。不再局限于完成自己的开发任务，需要对项目中的某个模块负责。</p>
 ]]></content>
       <tags>
         <tag>项目管理</tag>
