@@ -107,9 +107,7 @@ deploy:
 # feed
 feed:
   enable: true
-  type: 
-    - atom
-    - rss2
+  type: atom
   limit: 20
   hub:
   content:
