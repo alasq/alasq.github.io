@@ -69,6 +69,21 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>2021年度最佳开源软件</title>
+    <url>/2021/11/09/2021%E5%B9%B4%E5%BA%A6%E6%9C%80%E4%BD%B3%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/</url>
+    <content><![CDATA[<p><a href="https://baijiahao.baidu.com/s?id=1714115486438973511&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1714115486438973511&amp;wfr=spider&amp;for=pc</a></p>
+<h2 id="前端能用到的"><a href="#前端能用到的" class="headerlink" title="前端能用到的"></a>前端能用到的</h2><h3 id="Svelte"><a href="#Svelte" class="headerlink" title="Svelte"></a>Svelte</h3><p>编译时前端框架，拥有SSR的性能，但是不需要服务器,编译结果仍然是纯粹的静态资源。</p>
+<p>vue的<code>petite-vue</code>项目也值得关注下，我觉得也够用了。由于web component 标准慢慢被主流浏览器支持，后面的趋势应该是各种框架都编译成 web component，进行发布。</p>
+<h3 id="FastAPI"><a href="#FastAPI" class="headerlink" title="FastAPI"></a>FastAPI</h3><p>用于快速构建API，完全兼容 openAPI  Python项目</p>
+<h3 id="Apache-Superset"><a href="#Apache-Superset" class="headerlink" title="Apache Superset"></a>Apache Superset</h3><p>作为企业数据收集与展示仓库，支持很多图表，开箱即用。突然发现里面的功能很多跟三朵云里面数据集的功能一致呀！我们SE在这上面找设计灵感？？</p>
+<h3 id="PostHog"><a href="#PostHog" class="headerlink" title="PostHog"></a>PostHog</h3><p>监控软件，应该跟打点埋码相关吧，另外推荐个异常监控系统 <a href="https://sentry.io/welcome/">哨兵 sentry</a></p>
+<p>剩下的都是些  AI  深度学习 集群 分布式 数据管理相关的开源项目了。</p>
+]]></content>
+      <tags>
+        <tag>新闻</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>burp suite</title>
     <url>/2021/09/26/burp-suite/</url>
     <content><![CDATA[<p>集成化的渗透测试工具<br><a href="https://t0data.gitbooks.io/burpsuite/content/">Burp Suite 实战指南</a></p>
@@ -331,6 +346,19 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>webpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>音乐处理</title>
+    <url>/2021/11/09/%E9%9F%B3%E4%B9%90%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<p>妹妹经常外出做音乐表演，需要伴奏，但是从酷狗下载的音乐很多都没有纯伴奏版本，全民K歌这种软件也没有这种伴奏下载的功能。</p>
+<p>作为一个程序员哥哥，妹妹的请求总不能说不会搞吧！！也不想花钱买，于是找了下资源。</p>
+<p>网上找了这两个可以用来分离原声与伴奏。</p>
+<p>开源音频分轨 Python <a href="https://github.com/deezer/spleeter">https://github.com/deezer/spleeter</a></p>
+<p>在线分轨网站（推荐） <a href="https://ezstems.com/">https://ezstems.com/</a> 这个应该是用上面的技术搞得，本来还有个网站的，收藏夹没找到，下次找到了再分享出来！！</p>
+]]></content>
+      <tags>
+        <tag>音乐</tag>
       </tags>
   </entry>
   <entry>
