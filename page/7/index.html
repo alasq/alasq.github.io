@@ -187,6 +187,105 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/24/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/2021-4-24-tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/24/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/2021-4-24-tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">tensorflow环境搭建</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-24 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-24T00:00:00+00:00">2021-04-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-09 13:41:38" itemprop="dateModified" datetime="2021-11-09T13:41:38+00:00">2021-11-09</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/24/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/2021-4-24-tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/24/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tensorflow/2021-4-24-tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="TensorFlow-的两个依赖"><a href="#TensorFlow-的两个依赖" class="headerlink" title="TensorFlow 的两个依赖"></a>TensorFlow 的两个依赖</h2><h3 id="Protocol-Buffer"><a href="#Protocol-Buffer" class="headerlink" title="Protocol Buffer"></a>Protocol Buffer</h3><p>结构化处理工具,比json,xml更小,解析更快</p>
+<h3 id="Bazel-自动化构建工具-类似于maven"><a href="#Bazel-自动化构建工具-类似于maven" class="headerlink" title="Bazel 自动化构建工具,类似于maven"></a>Bazel 自动化构建工具,类似于maven</h3><ul>
+<li>BUILD  文件用于表示构建目标</li>
+<li>WORKSPACE 文件用于标记外部依赖</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>三种方式安装: docker  pip 源码<br>我们使用pip来安装</p>
+<h3 id="安装-Anaconda"><a href="#安装-Anaconda" class="headerlink" title="安装 Anaconda"></a>安装 Anaconda</h3><p>python的发行版,除了python,还包含了很多常用的关于科学计算的库<br>我参考这篇文章安装成功的 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/ljysy/p/10660885.html">https://www.cnblogs.com/ljysy/p/10660885.html</a></p>
+<p>我这里下载的是 Anaconda 版本是 Anaconda3-5.3.1-Windows-x86_64.exe 对应的 python3.7.0</p>
+<ol>
+<li><code>conda create -n tensorflow python=3.7.0</code> 创建了一个独立的tensorflow的工作空间,在这个空间内使用的python版本为3.7.0</li>
+<li><code>conda activate tensorflow</code> 激活这个名为tensorflow空间</li>
+<li><code>pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</code>  在空间内配置pip的镜像源</li>
+<li><code>pip install tensorflow</code></li>
+</ol>
+<h3 id="Anaconda-vscode-配置"><a href="#Anaconda-vscode-配置" class="headerlink" title="Anaconda + vscode 配置"></a>Anaconda + vscode 配置</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ef1ae10ba950">https://www.jianshu.com/p/ef1ae10ba950</a></p>
+<h3 id="如果提示pip的版本过低-就使用下面的命令升级pip"><a href="#如果提示pip的版本过低-就使用下面的命令升级pip" class="headerlink" title="如果提示pip的版本过低,就使用下面的命令升级pip"></a>如果提示pip的版本过低,就使用下面的命令升级pip</h3><p><code>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U</code></p>
+<h3 id="code-runner-输出乱码"><a href="#code-runner-输出乱码" class="headerlink" title="code-runner 输出乱码"></a>code-runner 输出乱码</h3><p>参考这个文章解决  <a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhaoshizi/p/9050768.html">https://www.cnblogs.com/zhaoshizi/p/9050768.html</a>  </p>
+<p>在项目下 <code>.vscode/settings.json</code> 配置python的路径以及 code-runner的执行路径,设置成全局的也行吧</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;python.pythonPath&quot;</span>: <span class="string">&quot;F:\\ProgramData\\Anaconda3\\envs\\tensorflow&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;code-runner.executorMap&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;python&quot;</span>: <span class="string">&quot;set PYTHONIOENCODING=utf8 &amp;&amp; F:\\ProgramData\\Anaconda3\\envs\\tensorflow\\python.exe&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>试下tensorflow官网的例子,能跑起来就是成功了。有时候下载测试数据集的时候会失败，多试几次就好了</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/21/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2021-4-21-%20%E4%B8%BB%E6%B5%81%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -218,7 +317,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-09 13:20:33" itemprop="dateModified" datetime="2021-11-09T13:20:33+00:00">2021-11-09</time>
+                <time title="修改时间：2021-11-09 13:41:38" itemprop="dateModified" datetime="2021-11-09T13:41:38+00:00">2021-11-09</time>
               </span>
 
           
@@ -350,7 +449,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-09 13:20:33" itemprop="dateModified" datetime="2021-11-09T13:20:33+00:00">2021-11-09</time>
+                <time title="修改时间：2021-11-09 13:41:38" itemprop="dateModified" datetime="2021-11-09T13:41:38+00:00">2021-11-09</time>
               </span>
 
           
@@ -446,7 +545,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-09 13:20:33" itemprop="dateModified" datetime="2021-11-09T13:20:33+00:00">2021-11-09</time>
+                <time title="修改时间：2021-11-09 13:41:38" itemprop="dateModified" datetime="2021-11-09T13:41:38+00:00">2021-11-09</time>
               </span>
 
           
@@ -545,7 +644,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-09 13:20:33" itemprop="dateModified" datetime="2021-11-09T13:20:33+00:00">2021-11-09</time>
+                <time title="修改时间：2021-11-09 13:41:38" itemprop="dateModified" datetime="2021-11-09T13:41:38+00:00">2021-11-09</time>
               </span>
 
           
@@ -647,7 +746,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-09 13:20:33" itemprop="dateModified" datetime="2021-11-09T13:20:33+00:00">2021-11-09</time>
+                <time title="修改时间：2021-11-09 13:41:38" itemprop="dateModified" datetime="2021-11-09T13:41:38+00:00">2021-11-09</time>
               </span>
 
           
@@ -875,7 +974,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-09 13:20:33" itemprop="dateModified" datetime="2021-11-09T13:20:33+00:00">2021-11-09</time>
+                <time title="修改时间：2021-11-09 13:41:38" itemprop="dateModified" datetime="2021-11-09T13:41:38+00:00">2021-11-09</time>
               </span>
 
           
@@ -998,7 +1097,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-09 13:20:33" itemprop="dateModified" datetime="2021-11-09T13:20:33+00:00">2021-11-09</time>
+                <time title="修改时间：2021-11-09 13:41:38" itemprop="dateModified" datetime="2021-11-09T13:41:38+00:00">2021-11-09</time>
               </span>
 
           
@@ -1079,7 +1178,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-09 13:20:33" itemprop="dateModified" datetime="2021-11-09T13:20:33+00:00">2021-11-09</time>
+                <time title="修改时间：2021-11-09 13:41:38" itemprop="dateModified" datetime="2021-11-09T13:41:38+00:00">2021-11-09</time>
               </span>
 
           
@@ -1187,7 +1286,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-09 13:20:33" itemprop="dateModified" datetime="2021-11-09T13:20:33+00:00">2021-11-09</time>
+                <time title="修改时间：2021-11-09 13:41:38" itemprop="dateModified" datetime="2021-11-09T13:41:38+00:00">2021-11-09</time>
               </span>
 
           
@@ -1222,91 +1321,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>把提前下载好的 docker2boot镜像丢到缓存里面,否则启动的时候找不到会自动下载比较慢<br><img src="https://upload-images.jianshu.io/upload_images/8156292-06cb26f3eeb4ada1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
 <li>我们运行第一个Docker Quickstart Terminal ,出现下面的界面就ok了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-35392cc5cc1dcd05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
 </ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">git常见问题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-19 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-19T00:00:00+00:00">2021-04-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-09 13:20:33" itemprop="dateModified" datetime="2021-11-09T13:20:33+00:00">2021-11-09</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="使用git提交到github-每次都要输入用户名和密码的解决方法"><a href="#使用git提交到github-每次都要输入用户名和密码的解决方法" class="headerlink" title="使用git提交到github,每次都要输入用户名和密码的解决方法"></a>使用git提交到github,每次都要输入用户名和密码的解决方法</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sky6862/p/7992736.html">https://www.cnblogs.com/sky6862/p/7992736.html</a></p>
-<h1 id="使用ssh协议提交github代码"><a href="#使用ssh协议提交github代码" class="headerlink" title="使用ssh协议提交github代码"></a>使用ssh协议提交github代码</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013778905/article/details/83501204">https://blog.csdn.net/u013778905/article/details/83501204</a></p>
-<h1 id="git-记住密码"><a href="#git-记住密码" class="headerlink" title="git 记住密码"></a>git 记住密码</h1><p><code>git config --global credential.helper store</code></p>
-<h1 id="git-密码错误"><a href="#git-密码错误" class="headerlink" title="git 密码错误"></a>git 密码错误</h1><p>控制面板\用户帐户和家庭安全\凭据管理器  把网站的凭证删除掉</p>
-<h1 id="git-pull-冲突"><a href="#git-pull-冲突" class="headerlink" title="git pull 冲突"></a>git pull 冲突</h1><p>如果不想解决的话,可以直接 <code>git reset --hard HEAD</code></p>
-<h1 id="一次提交需要提交到多个分支的时候-使用摘取命令"><a href="#一次提交需要提交到多个分支的时候-使用摘取命令" class="headerlink" title="一次提交需要提交到多个分支的时候,使用摘取命令"></a>一次提交需要提交到多个分支的时候,使用摘取命令</h1><p><code>git cherry-pick &lt;commitID&gt;</code></p>
-<h1 id="git-从本地clone"><a href="#git-从本地clone" class="headerlink" title="git 从本地clone"></a>git 从本地clone</h1><p>git clone 除了从远程地址clone，还能从本地clone。<br>有时候方便开发我们需要不同的分支在不同的文件夹下同步开发，避免频繁的编译重构。<br>直接复制文件夹，里面的node_modules  target 等被gitignore的文件会非常慢.<br><img src="https://upload-images.jianshu.io/upload_images/8156292-9a607263a9ddbf2c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 
       
     </div>
@@ -1391,7 +1405,7 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">120</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
