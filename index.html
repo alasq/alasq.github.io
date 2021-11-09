@@ -187,6 +187,90 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/09/%E5%8D%9A%E5%AE%A2/%E7%BB%99hexo-next%E6%8D%A2%E4%B8%AA%E8%89%B2%E8%B0%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/09/%E5%8D%9A%E5%AE%A2/%E7%BB%99hexo-next%E6%8D%A2%E4%B8%AA%E8%89%B2%E8%B0%83/" class="post-title-link" itemprop="url">给hexo next换个色调</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-11-09 21:41:59 / 修改时间：14:26:57" itemprop="dateCreated datePublished" datetime="2021-11-09T21:41:59+00:00">2021-11-09</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/11/09/%E5%8D%9A%E5%AE%A2/%E7%BB%99hexo-next%E6%8D%A2%E4%B8%AA%E8%89%B2%E8%B0%83/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/11/09/%E5%8D%9A%E5%AE%A2/%E7%BB%99hexo-next%E6%8D%A2%E4%B8%AA%E8%89%B2%E8%B0%83/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>next的极简风我还是挺喜欢的，但是不喜欢这个黑白主题，死气沉沉的，我想给他换个色调。</p>
+<ol>
+<li>首先找到喜欢的色调图片</li>
+<li><a target="_blank" rel="noopener" href="https://coolors.co/">https://coolors.co/</a> 打开调色网站</li>
+<li>修改主题配置<figure class="highlight yml"><figcaption><span>source/_data/next.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="comment">#head: source/_data/head.njk</span></span><br><span class="line">  <span class="comment">#header: source/_data/header.njk</span></span><br><span class="line">  <span class="comment">#sidebar: source/_data/sidebar.njk</span></span><br><span class="line">  <span class="comment">#postMeta: source/_data/post-meta.njk</span></span><br><span class="line">  <span class="comment">#postBodyEnd: source/_data/post-body-end.njk</span></span><br><span class="line">  <span class="comment">#footer: source/_data/footer.njk</span></span><br><span class="line">  <span class="comment">#bodyEnd: source/_data/body-end.njk</span></span><br><span class="line">  <span class="attr">variable:</span> <span class="string">source/_data/variables.styl</span></span><br><span class="line">  <span class="comment">#mixin: source/_data/mixins.styl</span></span><br><span class="line">  <span class="comment">#style: source/_data/styles.styl  </span></span><br></pre></td></tr></table></figure></li>
+<li>新建文件 <code>source/_data/variables.styl</code></li>
+<li>下面是默认色<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  --<span class="selector-tag">body</span>-bg-<span class="attribute">color</span>: <span class="number">#f5f5d5</span>;</span><br><span class="line">  --<span class="attribute">content</span>-bg-<span class="attribute">color</span>: <span class="number">#f5f5d5</span>;</span><br><span class="line">  --card-bg-<span class="attribute">color</span>: <span class="number">#f5f5f5</span>;</span><br><span class="line">  --text-<span class="attribute">color</span>: <span class="number">#555</span>;</span><br><span class="line">  --<span class="selector-tag">blockquote</span>-<span class="attribute">color</span>: <span class="number">#666</span>;</span><br><span class="line">  --link-<span class="attribute">color</span>: <span class="number">#555</span>;</span><br><span class="line">  --link-hover-<span class="attribute">color</span>: <span class="number">#222</span>;</span><br><span class="line">  --brand-<span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  --brand-hover-<span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  --<span class="selector-tag">table</span>-row-odd-bg-<span class="attribute">color</span>: <span class="number">#f9f9f9</span>;</span><br><span class="line">  --<span class="selector-tag">table</span>-row-hover-bg-<span class="attribute">color</span>: <span class="number">#f5f5f5</span>;</span><br><span class="line">  --<span class="selector-tag">menu</span>-item-bg-<span class="attribute">color</span>: <span class="number">#f5f5f5</span>;</span><br><span class="line">  --btn-default-bg: <span class="number">#fff</span>;</span><br><span class="line">  --btn-default-<span class="attribute">color</span>: <span class="number">#555</span>;</span><br><span class="line">  --btn-default-<span class="attribute">border-color</span>: <span class="number">#555</span>;</span><br><span class="line">  --btn-default-hover-bg: <span class="number">#222</span>;</span><br><span class="line">  --btn-default-hover-<span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  --btn-default-hover-<span class="attribute">border-color</span>: <span class="number">#222</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>修改后面这个文件就行了,但是我还没想好合适的颜色  </p>
+<figure class="highlight less"><figcaption><span>source/_data/variables.styl</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$body-bg-color   = #BEE7E9 </span><br><span class="line">$content-bg-color   = #a1e6e9  </span><br><span class="line"><span class="comment">// $card-bg-color   = #</span></span><br><span class="line"><span class="comment">// $text-color   = #</span></span><br><span class="line"><span class="comment">// $blockquote-color   = #</span></span><br><span class="line"><span class="comment">// $link-color   = #</span></span><br><span class="line"><span class="comment">// $link-hover-color   = #e4393c</span></span><br><span class="line"><span class="comment">// $brand-color   = #</span></span><br><span class="line"><span class="comment">// $brand-hover-color   = #</span></span><br><span class="line"><span class="comment">// $table-row-odd-bg-color   = #</span></span><br><span class="line"><span class="comment">// $table-row-hover-bg-color   = #</span></span><br><span class="line"><span class="comment">// $menu-item-bg-color   = #</span></span><br><span class="line"><span class="comment">// $btn-default-bg   = #</span></span><br><span class="line"><span class="comment">// $btn-default-color   = #</span></span><br><span class="line"><span class="comment">// $btn-default-border-color   = #</span></span><br><span class="line"><span class="comment">// $btn-default-hover-bg   = #</span></span><br><span class="line"><span class="comment">// $btn-default-hover-color   = #</span></span><br><span class="line"><span class="comment">// $btn-default-hover-border-color   = #</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/09/%E9%9D%A2%E8%AF%95/%E5%8D%8E%E4%B8%BAOD%E4%B8%89%E9%9D%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -212,7 +296,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-11-09 21:20:52 / 修改时间：13:41:38" itemprop="dateCreated datePublished" datetime="2021-11-09T21:20:52+00:00">2021-11-09</time>
+              <time title="创建时间：2021-11-09 21:20:52 / 修改时间：14:26:57" itemprop="dateCreated datePublished" datetime="2021-11-09T21:20:52+00:00">2021-11-09</time>
             </span>
 
           
@@ -295,7 +379,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-11-09 21:02:42 / 修改时间：13:41:38" itemprop="dateCreated datePublished" datetime="2021-11-09T21:02:42+00:00">2021-11-09</time>
+              <time title="创建时间：2021-11-09 21:02:42 / 修改时间：14:26:57" itemprop="dateCreated datePublished" datetime="2021-11-09T21:02:42+00:00">2021-11-09</time>
             </span>
 
           
@@ -372,7 +456,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-11-09 20:43:44 / 修改时间：13:41:38" itemprop="dateCreated datePublished" datetime="2021-11-09T20:43:44+00:00">2021-11-09</time>
+              <time title="创建时间：2021-11-09 20:43:44 / 修改时间：14:26:57" itemprop="dateCreated datePublished" datetime="2021-11-09T20:43:44+00:00">2021-11-09</time>
             </span>
 
           
@@ -457,7 +541,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-09 13:41:38" itemprop="dateModified" datetime="2021-11-09T13:41:38+00:00">2021-11-09</time>
+                <time title="修改时间：2021-11-09 14:26:57" itemprop="dateModified" datetime="2021-11-09T14:26:57+00:00">2021-11-09</time>
               </span>
 
           
@@ -565,7 +649,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-09 13:41:38" itemprop="dateModified" datetime="2021-11-09T13:41:38+00:00">2021-11-09</time>
+                <time title="修改时间：2021-11-09 14:26:57" itemprop="dateModified" datetime="2021-11-09T14:26:57+00:00">2021-11-09</time>
               </span>
 
           
@@ -652,7 +736,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-09 13:41:38" itemprop="dateModified" datetime="2021-11-09T13:41:38+00:00">2021-11-09</time>
+                <time title="修改时间：2021-11-09 14:26:57" itemprop="dateModified" datetime="2021-11-09T14:26:57+00:00">2021-11-09</time>
               </span>
 
           
@@ -745,7 +829,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-09 13:41:38" itemprop="dateModified" datetime="2021-11-09T13:41:38+00:00">2021-11-09</time>
+                <time title="修改时间：2021-11-09 14:26:57" itemprop="dateModified" datetime="2021-11-09T14:26:57+00:00">2021-11-09</time>
               </span>
 
           
@@ -843,7 +927,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-09 13:41:38" itemprop="dateModified" datetime="2021-11-09T13:41:38+00:00">2021-11-09</time>
+                <time title="修改时间：2021-11-09 14:26:57" itemprop="dateModified" datetime="2021-11-09T14:26:57+00:00">2021-11-09</time>
               </span>
 
           
@@ -932,7 +1016,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-09 13:41:38" itemprop="dateModified" datetime="2021-11-09T13:41:38+00:00">2021-11-09</time>
+                <time title="修改时间：2021-11-09 14:26:57" itemprop="dateModified" datetime="2021-11-09T14:26:57+00:00">2021-11-09</time>
               </span>
 
           
@@ -981,119 +1065,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/18/%E9%9D%A2%E8%AF%95/%E8%85%BE%E8%AE%AF%E5%88%9D%E9%9D%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/18/%E9%9D%A2%E8%AF%95/%E8%85%BE%E8%AE%AF%E5%88%9D%E9%9D%A2/" class="post-title-link" itemprop="url">腾讯初面</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-10-18 21:25:40" itemprop="dateCreated datePublished" datetime="2021-10-18T21:25:40+00:00">2021-10-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-09 13:41:38" itemprop="dateModified" datetime="2021-11-09T13:41:38+00:00">2021-11-09</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/10/18/%E9%9D%A2%E8%AF%95/%E8%85%BE%E8%AE%AF%E5%88%9D%E9%9D%A2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/10/18/%E9%9D%A2%E8%AF%95/%E8%85%BE%E8%AE%AF%E5%88%9D%E9%9D%A2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="基础题"><a href="#基础题" class="headerlink" title="基础题"></a>基础题</h3><ol>
-<li>TCP三次握手</li>
-<li>http2.0相对于http1.1有哪些变化</li>
-<li>https为什么更安全</li>
-<li>301与304的区别</li>
-<li>vue双向绑定原理</li>
-<li>事件循环</li>
-<li>重绘与回流</li>
-<li>script标签是否按照顺序执行</li>
-<li>从浏览器地址栏输入一个地址,发生了什么</li>
-</ol>
-<h3 id="实操题"><a href="#实操题" class="headerlink" title="实操题"></a>实操题</h3><p>随便打开一个网页,提出三点优化建议</p>
-<h3 id="编码题"><a href="#编码题" class="headerlink" title="编码题"></a>编码题</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list = [</span><br><span class="line">  &#123;</span><br><span class="line">    id: <span class="string">&#x27;ab&#x27;</span>,</span><br><span class="line">    children: [</span><br><span class="line">      &#123;</span><br><span class="line">        id: <span class="string">&#x27;cd&#x27;</span>,</span><br><span class="line">        children: [&#123;</span><br><span class="line">          id: <span class="string">&#x27;ef&#x27;</span>,</span><br><span class="line">          children: []</span><br><span class="line">        &#125;]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 输入:&#x27;ef&#x27;</span></span><br><span class="line"><span class="comment">// 输出:ab--&gt;cd--&gt;ef</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getResult</span>(<span class="params">list,target</span>) </span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>整个面试采用视频面试，面试官还是很友好的，可惜我没咋准备，有些东西几年前看过都忘记了，答不上来。</p>
-<p>大厂面试还是喜欢搞前端八股文，面试偏理论，不像我面试别人，都直接问人家常用的API入参出参，什么场景会用到，典型的包工头思维，能干活就是好码农。</p>
-<p>我等码农如果不提前准备背诵点这些基础原理,还是不行的。</p>
-<p>编码题我做的时候一开始没有思路，浪费了些时间，面试官又催，更是有点紧张，还好最后写出来了，不过已经无关大局，败局已定。</p>
-<p>最后面试官要了我博客地址，算是加分项吧，主要我前面基础部分确实答的太差了，我也不抱任何希望。</p>
-<p>今晚在想是否找个小厂更好，就算进了大厂始终就是个螺丝钉，找个小厂掌控全局，虽然累点，但是应该更有成就感吧！！！</p>
-<h2 id="基础题目参考文章"><a href="#基础题目参考文章" class="headerlink" title="基础题目参考文章"></a>基础题目参考文章</h2><ol>
-<li>TCP <a target="_blank" rel="noopener" href="https://blog.csdn.net/jun2016425/article/details/81506353">https://blog.csdn.net/jun2016425/article/details/81506353</a></li>
-<li>http2.0 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26559480">https://zhuanlan.zhihu.com/p/26559480</a></li>
-<li>https相关 <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/qPwgKpCv6IJgBRotIzBrUw">https://mp.weixin.qq.com/s/qPwgKpCv6IJgBRotIzBrUw</a></li>
-<li>301永久重定向,304代表命中缓存,这个是我自己17年看的东西,4年了,确实记不住 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c0f18670f0d8">https://www.jianshu.com/p/c0f18670f0d8</a></li>
-<li>vue 2.0采用<code>Object.defineProperties</code>定义<code>get</code> <code>set</code>方法,vue3.0采用<code>Proxy</code>对象实现</li>
-<li>事假循环的  <a target="_blank" rel="noopener" href="https://www.cnblogs.com/jiasm/p/9482443.html">https://www.cnblogs.com/jiasm/p/9482443.html</a></li>
-<li>回流必定触发重绘,回流更消耗性能 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/52076790">https://zhuanlan.zhihu.com/p/52076790</a></li>
-<li>script标签 <a target="_blank" rel="noopener" href="https://lifemi.cn/2021/09/25/defer-async%E7%9A%84%E5%8C%BA%E5%88%AB/">https://lifemi.cn/2021/09/25/defer-async%E7%9A%84%E5%8C%BA%E5%88%AB/</a></li>
-<li>上面的看完就知道这个了</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1159,7 +1134,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
