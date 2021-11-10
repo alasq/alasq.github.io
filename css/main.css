@@ -1,6 +1,6 @@
 :root {
-  --body-bg-color: #f5f7f9;
-  --content-bg-color: #fff;
+  --body-bg-color: linear-gradient(to right, rgba(187,49,62,0.145), rgba(187,49,62,0.145), rgba(215,34,41,0.145), rgba(221,74,22,0.145), rgba(228,118,21,0.145), rgba(245,197,0,0.145), rgba(240,233,39,0.145), rgba(177,206,36,0.145), rgba(72,169,53,0.145), rgba(3,148,69,0.145), rgba(21,124,79,0.145), rgba(23,106,88,0.145), rgba(27,85,99,0.145), rgba(29,56,111,0.145), rgba(29,56,111,0.145), rgba(32,39,120,0.145), rgba(82,38,99,0.145), rgba(138,36,75,0.145));
+  --content-bg-color: #faf9de;
   --card-bg-color: #f5f5f5;
   --text-color: #555;
   --blockquote-color: #666;
@@ -10,7 +10,7 @@
   --brand-hover-color: #fff;
   --table-row-odd-bg-color: #f9f9f9;
   --table-row-hover-bg-color: #f5f5f5;
-  --menu-item-bg-color: #f5f5f5;
+  --menu-item-bg-color: linear-gradient(to right, rgba(187,49,62,0.145), rgba(187,49,62,0.145), rgba(215,34,41,0.145), rgba(221,74,22,0.145), rgba(228,118,21,0.145), rgba(245,197,0,0.145), rgba(240,233,39,0.145), rgba(177,206,36,0.145), rgba(72,169,53,0.145), rgba(3,148,69,0.145), rgba(21,124,79,0.145), rgba(23,106,88,0.145), rgba(27,85,99,0.145), rgba(29,56,111,0.145), rgba(29,56,111,0.145), rgba(32,39,120,0.145), rgba(82,38,99,0.145), rgba(138,36,75,0.145));
   --btn-default-bg: #fff;
   --btn-default-color: #555;
   --btn-default-border-color: #555;
@@ -1239,7 +1239,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #4a7de2;
+  background: #2df649;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2647,4 +2647,19 @@ ul.breadcrumb li + li:last-child {
 }
 .links-of-blogroll-item {
   padding: 0;
+}
+.footer {
+  color: #000;
+}
+.posts-collapse::before {
+  background: #faf9de;
+}
+a {
+  border-bottom: 3px solid #0dd;
+}
+a:hover {
+  border-bottom: 5px solid #0ff;
+}
+blockquote {
+  border-left: 4px solid #3ac057;
 }
