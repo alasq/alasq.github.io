@@ -1239,7 +1239,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #2df649;
+  background: #3bdf9c;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2659,6 +2659,9 @@ a {
 }
 a:hover {
   border-bottom: 5px solid #0ff;
+}
+.menu .menu-item a:hover {
+  border-bottom: 0px solid #0ff;
 }
 blockquote {
   border-left: 4px solid #3ac057;

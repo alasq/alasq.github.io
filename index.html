@@ -187,6 +187,165 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/23/2021%E5%B9%B4web%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98Top10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/23/2021%E5%B9%B4web%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98Top10/" class="post-title-link" itemprop="url">2021年web安全问题Top10</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-11-23 20:46:45 / 修改时间：13:53:22" itemprop="dateCreated datePublished" datetime="2021-11-23T20:46:45+00:00">2021-11-23</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/11/23/2021%E5%B9%B4web%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98Top10/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/11/23/2021%E5%B9%B4web%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98Top10/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>原文: <a target="_blank" rel="noopener" href="https://owasp.org/Top10/zh_TW/">https://owasp.org/Top10/zh_TW/</a></p>
+<h2 id="1-权限失效"><a href="#1-权限失效" class="headerlink" title="1. 权限失效"></a>1. 权限失效</h2><ul>
+<li>横向越权 A用户能查看,编辑B用户的数据</li>
+<li>纵向越权,特权提升 租户能看到管理员的数据,普通用户能看到租户的数据,未登录的用户能看到登录用户的功能</li>
+<li>通过修改URL,应用状态,不应该访问到的页面可以被访问到,通过API攻击工具,绕过页面鉴权</li>
+<li>CROS配置错误,可以让未经授权的API存取</li>
+</ul>
+<h2 id="2-加密机制失效"><a href="#2-加密机制失效" class="headerlink" title="2. 加密机制失效"></a>2. 加密机制失效</h2><ul>
+<li>使用了老旧的加密算法</li>
+<li>密码多系统重复使用</li>
+<li>明文存储密码</li>
+<li>以http smtp fpt 等协议明文传输</li>
+<li>使用默认密码</li>
+<li>密码过期机制</li>
+<li>密码没有被加盐加密存储</li>
+</ul>
+<h2 id="3-注入攻击"><a href="#3-注入攻击" class="headerlink" title="3. 注入攻击"></a>3. 注入攻击</h2><ul>
+<li>使用者提供的数据应该被处理,验证,过滤后保存</li>
+<li>查询参数没有被转义,尽量做到无参数调用</li>
+<li>ORM 对象查询参数注入</li>
+<li>SQL注入</li>
+</ul>
+<h2 id="4-不安全设计"><a href="#4-不安全设计" class="headerlink" title="4. 不安全设计"></a>4. 不安全设计</h2><ul>
+<li>使用安全问题找回密码,可能问题不止本人一个人知道</li>
+<li>预定团体票折扣,没有设置最大人数限制，而且押金只需要支付15人。被人恶意一次性订购了600张电影票，或者全部的电影票</li>
+<li>订票软件没有防机器人抢票，票都被黄牛抢了</li>
+</ul>
+<h2 id="5-安全配置错误"><a href="#5-安全配置错误" class="headerlink" title="5. 安全配置错误"></a>5. 安全配置错误</h2><ul>
+<li>启用或安装了不必要的功能（例如，不必要的端口、服务、页面、帐户或权限）。</li>
+<li>启用了默认账户密码，且未被修改</li>
+<li>云服务配置错误</li>
+<li>错误堆栈直接暴露到客户端，比如默认的500返回</li>
+<li>对于已升级的新系统，最新的安全功能处于禁用状态或未安全配置。</li>
+<li>应用程序服务器、应用程序框架（例如，Struts、Spring、ASP.NET）、库、数据库等中的安全性设置未设置为安全值。</li>
+<li>服务器不发送安全标头或指令，或者它们未设置为安全值。</li>
+</ul>
+<h2 id="6-危险或过时的组件"><a href="#6-危险或过时的组件" class="headerlink" title="6. 危险或过时的组件"></a>6. 危险或过时的组件</h2><ul>
+<li>定期升级，维护软件依赖</li>
+<li>删除未使用的依赖项</li>
+<li>测试软件升级后的兼容性</li>
+<li>使用官方安全来源获取组件</li>
+<li>订阅使用组件的安全漏洞的邮件警报</li>
+</ul>
+<h2 id="7-认证和验证机制失效"><a href="#7-认证和验证机制失效" class="headerlink" title="7. 认证和验证机制失效"></a>7. 认证和验证机制失效</h2><ul>
+<li>密码被暴力破解,自动攻击</li>
+<li>默认密码、弱密码、</li>
+<li>在url中公开会话标识符</li>
+<li>成功登录后重用会话标识符</li>
+<li>会话失效后,SSO没有注销登录</li>
+</ul>
+<h2 id="8-软件及数据完整性失效"><a href="#8-软件及数据完整性失效" class="headerlink" title="8. 软件及数据完整性失效"></a>8. 软件及数据完整性失效</h2><ul>
+<li><p>使用三方CDN,不安全的CI/CD管道,但是三方依赖被修改了,使用数字签名来避免</p>
+</li>
+<li><p>npm  Maven 使用受信赖的源</p>
+</li>
+<li><p>使用软件供应链安全工具 OWASP CycloneDX</p>
+</li>
+<li><p>代码检查</p>
+</li>
+<li><p>CI/CD过程的权限控制,隔离控制,比如特定程序才有执行权限,目录权限</p>
+</li>
+<li><p>未被签名或者未被加密的序列化数据发送到不受信任的客户端(比如使用了云服务的静态资源托管,上传完成后应该把文件签名保存下来,下载之前应该比对签名后,再发送到客户端)</p>
+<h2 id="9-安全日志记录及监控失效"><a href="#9-安全日志记录及监控失效" class="headerlink" title="9. 安全日志记录及监控失效"></a>9. 安全日志记录及监控失效</h2></li>
+<li><p>确保所有登录、访问控制和服务器端输入验证失败都可以使用足够的用户上下文进行记录，以识别可疑或恶意帐户，并保留足够的时间以允许延迟取证分析。</p>
+</li>
+<li><p>确保以日志管理解决方案可以轻松使用的格式生成日志。</p>
+</li>
+<li><p>确保对日志数据进行正确编码，以防止对日志记录或监视系统进行注入或攻击。</p>
+</li>
+<li><p>确保高价值事务具有具有完整性控制的审计跟踪，以防止篡改或删除，例如仅追加数据库表或类似内容。</p>
+</li>
+<li><p>DevSecOps 团队应建立有效的监视和警报，以便快速检测和响应可疑活动。</p>
+</li>
+<li><p>建立或采用事件响应和恢复计划，例如美国国家标准与技术研究院 （NIST） 800-61r2 或更高版本。</p>
+</li>
+</ul>
+<h2 id="10-服务器端请求伪造-SSRF"><a href="#10-服务器端请求伪造-SSRF" class="headerlink" title="10.服务器端请求伪造(SSRF)"></a>10.服务器端请求伪造(SSRF)</h2><p>服务器A与服务器B在内网连接,服务器A对外提供服务,且有SSRF漏洞,攻击者通过服务器A获取服务器B的相关信息。</p>
+<ul>
+<li><p>file协议： 只能读取当前被攻击机的文件，内网机器文件不能读取</p>
+</li>
+<li><p> dict协议：泄露安装软件版本信息，查看端口，操作内网redis服务等</p>
+</li>
+<li><p>gopher协议：gopher支持发出GET、POST请求。可以先截获get请求包和post请求包，再构造成符合gopher协议的请求。gopher协议是ssrf利用中一个最强大的协议(俗称万能协议)。可用于反弹shell</p>
+</li>
+<li><p>http/s协议：探测内网主机存活</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/09/%E5%8D%9A%E5%AE%A2/%E7%BB%99hexo-next%E6%8D%A2%E4%B8%AA%E8%89%B2%E8%B0%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -218,7 +377,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
               </span>
 
           
@@ -308,7 +467,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
               </span>
 
           
@@ -397,7 +556,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
               </span>
 
           
@@ -480,7 +639,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
               </span>
 
           
@@ -565,7 +724,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
               </span>
 
           
@@ -673,7 +832,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
               </span>
 
           
@@ -760,7 +919,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
               </span>
 
           
@@ -853,7 +1012,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
               </span>
 
           
@@ -951,7 +1110,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
               </span>
 
           
@@ -990,90 +1149,6 @@
 <li><code>&amp;</code> 转 <code>&amp;amp;</code> </li>
 </ul>
 <h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><p>直接使用雅虎的xss-filters<br><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/xss-filters">https://www.npmjs.com/package/xss-filters</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/22/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Bemoji%E8%A1%A8%E6%83%85%E7%9A%84Unicode%E7%BC%96%E7%A0%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/22/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Bemoji%E8%A1%A8%E6%83%85%E7%9A%84Unicode%E7%BC%96%E7%A0%81/" class="post-title-link" itemprop="url">如何查看emoji表情的Unicode编码</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-10-22 19:13:48" itemprop="dateCreated datePublished" datetime="2021-10-22T19:13:48+00:00">2021-10-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/10/22/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Bemoji%E8%A1%A8%E6%83%85%E7%9A%84Unicode%E7%BC%96%E7%A0%81/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/10/22/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Bemoji%E8%A1%A8%E6%83%85%E7%9A%84Unicode%E7%BC%96%E7%A0%81/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="可以在下面这个网站复制粘贴emoji"><a href="#可以在下面这个网站复制粘贴emoji" class="headerlink" title="可以在下面这个网站复制粘贴emoji"></a>可以在下面这个网站复制粘贴emoji</h2><p><a target="_blank" rel="noopener" href="https://getemoji.com/">https://getemoji.com/</a></p>
-<h2 id="👶🏻-这个除了复制粘贴怎么打印呢"><a href="#👶🏻-这个除了复制粘贴怎么打印呢" class="headerlink" title="👶🏻 这个除了复制粘贴怎么打印呢?"></a>👶🏻 这个除了复制粘贴怎么打印呢?</h2><p>我们js中的字符串编码是<code>utf-8</code><br><img src="images/2021-10-22-19-19-17.png"></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">escape</span>(<span class="string">&#x27;👶🏻&#x27;</span>)</span><br><span class="line"><span class="comment">// &#x27;%uD83D%uDC76%uD83C%uDFFB&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;\uD83D\uDC76\uD83c\uDFFB&#x27;</span>)</span><br><span class="line"><span class="comment">//  👶🏻</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="emoji-regex"><a href="#emoji-regex" class="headerlink" title="emoji-regex"></a>emoji-regex</h2><p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/emoji-regex">https://www.npmjs.com/package/emoji-regex</a></p>
-<p>这个仓库用来匹配字符串中的emoji表情,可以用来做富文本的图片替换</p>
 
       
     </div>
@@ -1158,7 +1233,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">121</span>
+          <span class="site-state-item-count">122</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

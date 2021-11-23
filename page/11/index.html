@@ -187,6 +187,98 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2036.%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%B6%E9%97%B4%E6%B5%8B%E9%87%8FAPI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2036.%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%B6%E9%97%B4%E6%B5%8B%E9%87%8FAPI/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 36. 自定义时间测量API</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2036.%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%B6%E9%97%B4%E6%B5%8B%E9%87%8FAPI/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2036.%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%B6%E9%97%B4%E6%B5%8B%E9%87%8FAPI/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Performance 面板就是以前的timeline面板。用于可视化分析代码性能。js提供了对应的API用于分析<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/User_Timing_API">https://developer.mozilla.org/zh-CN/docs/Web/API/User_Timing_API</a></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8156292-b83d2a537e1aeee8.gif?imageMogr2/auto-orient/strip" alt="user-timing-performance.gif"><br>您可以使用User Timing API查找缓慢的JavaScript代码。</p>
+<p>尝试包装可能缓慢的代码，如下所示：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">performance.mark(<span class="string">&#x27;costlyFunction Start&#x27;</span>) <span class="comment">// 起始标记</span></span><br><span class="line"></span><br><span class="line">costlyFunction()</span><br><span class="line"></span><br><span class="line">performance.mark(<span class="string">&#x27;costlyFunction End&#x27;</span>) <span class="comment">// 终止标记</span></span><br><span class="line"></span><br><span class="line">performance.measure(</span><br><span class="line">    <span class="string">&#x27;costlyFunction&#x27;</span>, <span class="comment">// 性能测量名称,会在时间线显示</span></span><br><span class="line">    <span class="string">&#x27;costlyFunction Start&#x27;</span>,  起始标记</span><br><span class="line">    <span class="string">&#x27;costlyFunction End&#x27;</span> 终止标记</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="使用性能API有以下好处"><a href="#使用性能API有以下好处" class="headerlink" title="使用性能API有以下好处"></a>使用性能API有以下好处</h3><ul>
+<li>将性能指标注入您不熟悉的应用程序中(上图的例子)</li>
+<li>以编程方式读取JavaScript中记录的所有性能指标。<code>performance.getEntries()</code> <code>performance.getEntriesByType(entryType)</code><br><code>performance.getEntriesByName(name, entryType)</code></li>
+<li>performance将性能捕获代码部署到最终用户，以便您可以收集实际用户指标。</li>
+<li>了解真实用户监视的好处，以及它与综合监视的比较。</li>
+<li>使用<a target="_blank" rel="noopener" href="https://github.com/SOASTA/boomerang">Boomerang</a>和Node.js之类的工具组合，从您的真实用户直接接收服务器的性能指标。</li>
+<li>Dev在DevTools中可视化用户计时指标，并将其与现有的火焰图相关联。</li>
+<li>使用外部服务和插件可视化您的性能指标。</li>
+</ul>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>我们做性能录制的时候,系统获取资源,事件触发的时候,内部就是调用的这个API。Chrome选择暴露给我们，让我们在录制的时候，可以更快的找到我们想分析的部分，有针对性的分析我们想分析的代码段。我们还能做监控，当代码执行达不到我们预期的效率的时候，触发上报机制，上报到监控系统。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2038.%20%E5%A4%8D%E5%88%B6%E5%AE%8C%E6%95%B4%E7%9A%84%E8%B0%83%E7%94%A8%E6%A0%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -218,7 +310,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
               </span>
 
           
@@ -298,7 +390,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
               </span>
 
           
@@ -384,7 +476,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
               </span>
 
           
@@ -469,7 +561,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
               </span>
 
           
@@ -558,7 +650,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
               </span>
 
           
@@ -639,7 +731,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
               </span>
 
           
@@ -726,7 +818,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
               </span>
 
           
@@ -805,7 +897,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -909,7 +1001,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
               </span>
 
           
@@ -941,90 +1033,6 @@
 <p>当一个元素应用了某种状态时，您将在节点的开始标签左侧看到一个视觉指示器，在某些情况下，也将在关闭标签左侧（如果它们相距很远）。</p>
 <p>我们可以触发：活动类（:active），焦点类(:focus)，悬停类(:hover)和访问过的（:visited）伪类。</p>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>一般伪类是<code>:PseudoClass</code>,伪元素是<code>::PseudoElement</code>,虽然伪元素也能写一个冒号，但是最好区分开来</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%203.%E4%BD%BF%E7%94%A8cURL%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E9%87%8D%E6%92%ADNetwork%E9%9D%A2%E6%9D%BF%E7%9A%84%E8%AF%B7%E6%B1%82/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%203.%E4%BD%BF%E7%94%A8cURL%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E9%87%8D%E6%92%ADNetwork%E9%9D%A2%E6%9D%BF%E7%9A%84%E8%AF%B7%E6%B1%82/" class="post-title-link" itemprop="url">2021-3-24 Chrome Devtools Tip： 3.使用cURL复制功能重播Network面板的请求</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-24 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-24T00:00:00+00:00">2021-03-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%203.%E4%BD%BF%E7%94%A8cURL%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E9%87%8D%E6%92%ADNetwork%E9%9D%A2%E6%9D%BF%E7%9A%84%E8%AF%B7%E6%B1%82/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%203.%E4%BD%BF%E7%94%A8cURL%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E9%87%8D%E6%92%ADNetwork%E9%9D%A2%E6%9D%BF%E7%9A%84%E8%AF%B7%E6%B1%82/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://upload-images.jianshu.io/upload_images/8156292-2361d35d4917df7e.gif?imageMogr2/auto-orient/strip" alt="copy-as-curl.gif"><br>网络面板中显示的资源有一个上下文菜单，该菜单允许您复制为cURL，这将进入剪贴板，此时您可以将其粘贴到命令行中，必要时进行修改，然后查看响应。请求标头也包括在内。</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ol>
-<li><code>Numbers API</code>给个数字，会返回这个数字相关的信息。其实有很多免费的API很有趣，可以自行收集下，比如天气的，历史上的今天，新冠疫情数据，这样我们没有自己的服务器也能做出有意思的应用。</li>
-<li>Windows 系统没有<code>curl</code>命令行工具（除非自己安装），可以使用<code>Copy as PowerShell</code>进行请求重播，复制成fetch代码也不错，做接口测试的时候就省代码了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-bb4bd22c59eaa1f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-</ol>
-<h1 id="将网络回复复制到剪贴板"><a href="#将网络回复复制到剪贴板" class="headerlink" title="将网络回复复制到剪贴板"></a>将网络回复复制到剪贴板</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-6eb17dca94cc97df.gif?imageMogr2/auto-orient/strip" alt="copy-response.gif"></p>
 
       
     </div>
@@ -1109,7 +1117,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">121</span>
+          <span class="site-state-item-count">122</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -187,6 +187,118 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2017/12/19/%E5%8D%9A%E5%AE%A2/2017-12-19-%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0-Gitalk-%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/12/19/%E5%8D%9A%E5%AE%A2/2017-12-19-%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0-Gitalk-%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/" class="post-title-link" itemprop="url">为博客添加 Gitalk 评论插件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-12-19 00:00:00" itemprop="dateCreated datePublished" datetime="2017-12-19T00:00:00+00:00">2017-12-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2017/12/19/%E5%8D%9A%E5%AE%A2/2017-12-19-%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0-Gitalk-%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2017/12/19/%E5%8D%9A%E5%AE%A2/2017-12-19-%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0-Gitalk-%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于 <strong>Disqus</strong> 对于国内网路的支持十分糟糕，很多人反映 Disqus 评论插件一直加载不出来。而我一直是处于翻墙状态的~（话说你们做程序员的都不翻墙用Google的吗😅，哈哈，吐嘈下）</p>
+<p>针对这个问题，我添加了<a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk">Gitalk</a> 评论插件。在此，非常感谢 <a target="_blank" rel="noopener" href="https://github.com/FeDemo">@FeDemo</a> 的推荐 。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="Gitalk-评论插件"><a href="#Gitalk-评论插件" class="headerlink" title="Gitalk 评论插件"></a>Gitalk 评论插件</h3><p>首先来看看 Gitalk 的界面和功能：</p>
+<p><a target="_blank" rel="noopener" href="https://gitalk.github.io/"><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1fmm4u3j0lmj30nk0kl40i.jpg"></a></p>
+<p>gitalk 使用 Github 帐号登录，界面干净整洁，最喜欢的一点是支持 <code>MarkDown语法</code>。</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>Gitalk 是一个利用 Github API,基于 Github issue 和 Preact 开发的评论插件，在 Gitalk 之前还有一个 <a target="_blank" rel="noopener" href="https://github.com/imsun/gitment">gitment</a> 插件也是基于这个原理开发的,不过 gitment 已经很久没人维护了。</p>
+<p>可以看到在 gitalk 的评论框进行评论时，其实就是在对应的 issue 上提问题。</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1fmm5916av1j30i209rab7.jpg" alt="gitalk评论框"></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1fmm596ggkfj30mx0gfjuk.jpg" alt="Github issue"></p>
+<h3 id="集成-Gitalk"><a href="#集成-Gitalk" class="headerlink" title="集成 Gitalk"></a>集成 Gitalk</h3><p>到这里，你应该对 Gitalk 有个大致的了解了，现在，开始集成 gitalk 插件吧。</p>
+<p>将这段代码插入到你的网站：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Gitalk 评论 start  --&gt;</span><br><span class="line">&#123;% <span class="keyword">if</span> site.gitalk.enable %&#125;</span><br><span class="line">&lt;!-- Link Gitalk 的支持文件  --&gt;</span><br><span class="line">&lt;link rel=<span class="string">&quot;stylesheet&quot;</span> href=<span class="string">&quot;https://unpkg.com/gitalk/dist/gitalk.css&quot;</span>&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;https://unpkg.com/gitalk@latest/dist/gitalk.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id=<span class="string">&quot;gitalk-container&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">    &lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">    <span class="keyword">var</span> gitalk = <span class="keyword">new</span> Gitalk(&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// gitalk的主要参数</span></span><br><span class="line">		clientID: <span class="string">`Github Application clientID`</span>,</span><br><span class="line">		clientSecret: <span class="string">`Github Application clientSecret`</span>,</span><br><span class="line">		repo: <span class="string">`存储你评论 issue 的 Github 仓库名`</span>,</span><br><span class="line">		owner: <span class="string">&#x27;Github 用户名&#x27;</span>,</span><br><span class="line">		admin: [<span class="string">&#x27;Github 用户名&#x27;</span>],</span><br><span class="line">		id: <span class="string">&#x27;页面的唯一标识，gitalk会根据这个标识自动创建的issue的标签&#x27;</span>,</span><br><span class="line">    </span><br><span class="line">    &#125;);</span><br><span class="line">    gitalk.render(<span class="string">&#x27;gitalk-container&#x27;</span>);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line">&lt;!-- Gitalk end --&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们需要关心的就是配置下面几个参数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">clientID: <span class="string">`Github Application clientID`</span>,</span><br><span class="line">clientSecret: <span class="string">`Github Application clientSecret`</span>,</span><br><span class="line">repo: <span class="string">`Github 仓库名`</span>,<span class="comment">//存储你评论 issue 的 Github 仓库名（建议直接用 GitHub Page 的仓库名）</span></span><br><span class="line">owner: <span class="string">&#x27;Github 用户名&#x27;</span>,</span><br><span class="line">admin: [<span class="string">&#x27;Github 用户名&#x27;</span>], <span class="comment">//这个仓库的管理员，可以有多个，用数组表示，一般写自己,</span></span><br><span class="line">id: <span class="string">&#x27;window.location.pathname&#x27;</span>, <span class="comment">//页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识</span></span><br></pre></td></tr></table></figure>
+<p>当然，还有其他很多参数，有兴趣的话可以 <a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk#options"> 点这里</a>。</p>
+<p>比如我就增加了这个全屏遮罩的参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">distractionFreeMode: true,</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建-Github-Application"><a href="#创建-Github-Application" class="headerlink" title="创建 Github Application"></a>创建 Github Application</h3><p>Gitalk 需要一个 <strong>Github Application</strong>，<a target="_blank" rel="noopener" href="https://github.com/settings/applications/new">点击这里申请</a>。</p>
+<p>填写下面参数：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1fmm7jaib6fj30jo0gaacs.jpg"></p>
+<p>点击创建</p>
+<p>获取 <code>Client ID</code> 和 <code>Client Secret</code> 填入你的我们 Gitalk 参数中</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1fmm7jrzff6j30lc0budhp.jpg"></p>
+<p>当你参数都设置好，将代码推送到 Github 仓库后，没什么问题的话，当你点击进入你的博客页面后就会出现评论框了。</p>
+<p>当你用 github 帐号登录（管理员），并且第一次加载该会比较慢，因为第一次加载会自动在你 <code>repo</code> 的仓库下创建对应 issue。</p>
+<p>比如说这样：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1fmm867n88cj30l809mjse.jpg"></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1fmm8a0i0jkj30rr0ct42t.jpg"></p>
+<p>当然，你也可以手动创建issue作为 gitalk评论容器。只要有 <code>Gitalk</code> 标签 和 <code>id</code> 对应标签就可以。比我我自己创建的 <a target="_blank" rel="noopener" href="https://github.com/qiubaiying/qiubaiying.github.io/issues/38">About issue</a> 。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>最后说几句吐嘈几句， Gitalk 需要你点开每篇文章的页面才会创建对应的 issue,对我来说真是个糟糕的体验（文章有点多~）。</p>
+<p>当然，也有解决办法，这篇 <a target="_blank" rel="noopener" href="https://draveness.me/git-comments-initialize">自动初始化 Gitalk 和 Gitment 评论</a>，就解决了这个问题。</p>
+<p>最后，<a target="_blank" rel="noopener" href="https://github.com/qiubaiying/qiubaiying.github.io">给个 star 吧</a>~</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2017/02/06/%E5%8D%9A%E5%AE%A2/2017-02-06-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -218,7 +330,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 00:17:03" itemprop="dateModified" datetime="2021-11-10T00:17:03+00:00">2021-11-10</time>
+                <time title="修改时间：2021-11-23 13:53:22" itemprop="dateModified" datetime="2021-11-23T13:53:22+00:00">2021-11-23</time>
               </span>
 
           
@@ -602,7 +714,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">121</span>
+          <span class="site-state-item-count">122</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
