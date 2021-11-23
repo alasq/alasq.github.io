@@ -187,438 +187,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2036.%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%B6%E9%97%B4%E6%B5%8B%E9%87%8FAPI/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2036.%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%B6%E9%97%B4%E6%B5%8B%E9%87%8FAPI/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 36. 自定义时间测量API</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 13:57:00" itemprop="dateModified" datetime="2021-11-23T13:57:00+00:00">2021-11-23</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2036.%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%B6%E9%97%B4%E6%B5%8B%E9%87%8FAPI/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2036.%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%B6%E9%97%B4%E6%B5%8B%E9%87%8FAPI/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Performance 面板就是以前的timeline面板。用于可视化分析代码性能。js提供了对应的API用于分析<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/User_Timing_API">https://developer.mozilla.org/zh-CN/docs/Web/API/User_Timing_API</a></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/8156292-b83d2a537e1aeee8.gif?imageMogr2/auto-orient/strip" alt="user-timing-performance.gif"><br>您可以使用User Timing API查找缓慢的JavaScript代码。</p>
-<p>尝试包装可能缓慢的代码，如下所示：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">performance.mark(<span class="string">&#x27;costlyFunction Start&#x27;</span>) <span class="comment">// 起始标记</span></span><br><span class="line"></span><br><span class="line">costlyFunction()</span><br><span class="line"></span><br><span class="line">performance.mark(<span class="string">&#x27;costlyFunction End&#x27;</span>) <span class="comment">// 终止标记</span></span><br><span class="line"></span><br><span class="line">performance.measure(</span><br><span class="line">    <span class="string">&#x27;costlyFunction&#x27;</span>, <span class="comment">// 性能测量名称,会在时间线显示</span></span><br><span class="line">    <span class="string">&#x27;costlyFunction Start&#x27;</span>,  起始标记</span><br><span class="line">    <span class="string">&#x27;costlyFunction End&#x27;</span> 终止标记</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<h3 id="使用性能API有以下好处"><a href="#使用性能API有以下好处" class="headerlink" title="使用性能API有以下好处"></a>使用性能API有以下好处</h3><ul>
-<li>将性能指标注入您不熟悉的应用程序中(上图的例子)</li>
-<li>以编程方式读取JavaScript中记录的所有性能指标。<code>performance.getEntries()</code> <code>performance.getEntriesByType(entryType)</code><br><code>performance.getEntriesByName(name, entryType)</code></li>
-<li>performance将性能捕获代码部署到最终用户，以便您可以收集实际用户指标。</li>
-<li>了解真实用户监视的好处，以及它与综合监视的比较。</li>
-<li>使用<a target="_blank" rel="noopener" href="https://github.com/SOASTA/boomerang">Boomerang</a>和Node.js之类的工具组合，从您的真实用户直接接收服务器的性能指标。</li>
-<li>Dev在DevTools中可视化用户计时指标，并将其与现有的火焰图相关联。</li>
-<li>使用外部服务和插件可视化您的性能指标。</li>
-</ul>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>我们做性能录制的时候,系统获取资源,事件触发的时候,内部就是调用的这个API。Chrome选择暴露给我们，让我们在录制的时候，可以更快的找到我们想分析的部分，有针对性的分析我们想分析的代码段。我们还能做监控，当代码执行达不到我们预期的效率的时候，触发上报机制，上报到监控系统。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2038.%20%E5%A4%8D%E5%88%B6%E5%AE%8C%E6%95%B4%E7%9A%84%E8%B0%83%E7%94%A8%E6%A0%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2038.%20%E5%A4%8D%E5%88%B6%E5%AE%8C%E6%95%B4%E7%9A%84%E8%B0%83%E7%94%A8%E6%A0%88/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 38. 复制完整的调用栈</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 13:57:00" itemprop="dateModified" datetime="2021-11-23T13:57:00+00:00">2021-11-23</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2038.%20%E5%A4%8D%E5%88%B6%E5%AE%8C%E6%95%B4%E7%9A%84%E8%B0%83%E7%94%A8%E6%A0%88/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2038.%20%E5%A4%8D%E5%88%B6%E5%AE%8C%E6%95%B4%E7%9A%84%E8%B0%83%E7%94%A8%E6%A0%88/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>当打断点的时候,可以在如下图进行调用栈的复制,复制到剪贴板!!<br><img src="https://upload-images.jianshu.io/upload_images/8156292-369ec63c02f61443.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h1 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h1><p>这个鸡肋功能到底有啥用啊?? 发stackOverflow帖子的时候用吗?</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2039.%20%E7%BD%91%E9%A1%B5%E5%85%A8%E9%A1%B5%E6%88%AA%E5%9B%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2039.%20%E7%BD%91%E9%A1%B5%E5%85%A8%E9%A1%B5%E6%88%AA%E5%9B%BE/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 39. 网页全页截图</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 13:57:00" itemprop="dateModified" datetime="2021-11-23T13:57:00+00:00">2021-11-23</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2039.%20%E7%BD%91%E9%A1%B5%E5%85%A8%E9%A1%B5%E6%88%AA%E5%9B%BE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2039.%20%E7%BD%91%E9%A1%B5%E5%85%A8%E9%A1%B5%E6%88%AA%E5%9B%BE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这个真心不错,以前都是装插件使用滚动截图的功能弄得</p>
-<ol>
-<li>F12 打开</li>
-<li><code>ctrl shift p</code>打开 goto anywhere 命令栏</li>
-<li>输入 <code>full</code>找到对应的命令回车<br><img src="https://upload-images.jianshu.io/upload_images/8156292-07c9b096e0015d2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-</ol>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>如果觉得每次找这个命令麻烦,可以把该功能设置成快捷键<br>除了全页截图,还有<br>Capture node screenshot - 截取正在检查的节点<br>Capture screenshot - 只截取可视区域的页面<br>Capture full size screenshot - 整个页面的截图,即使没有呈现在可视区域内的<br>Capture area screenshot - 跟QQ截图一样,自己划定区域</p>
-<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>这个截图功能在做自动化测试时候非常有用,不知道 webDriver是不是用这种内置API去实现的,还是说用的c++调用操作系统能力去实现的?有知道的老铁留言讨论下</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%207.%20%E5%B0%86%E5%9B%BE%E7%89%87%E5%A4%8D%E5%88%B6%E4%B8%BAbase64%E7%BC%96%E7%A0%81data%20URI/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%207.%20%E5%B0%86%E5%9B%BE%E7%89%87%E5%A4%8D%E5%88%B6%E4%B8%BAbase64%E7%BC%96%E7%A0%81data%20URI/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 7.将图片复制为base64编码data URI</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 13:57:00" itemprop="dateModified" datetime="2021-11-23T13:57:00+00:00">2021-11-23</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%207.%20%E5%B0%86%E5%9B%BE%E7%89%87%E5%A4%8D%E5%88%B6%E4%B8%BAbase64%E7%BC%96%E7%A0%81data%20URI/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%207.%20%E5%B0%86%E5%9B%BE%E7%89%87%E5%A4%8D%E5%88%B6%E4%B8%BAbase64%E7%BC%96%E7%A0%81data%20URI/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://upload-images.jianshu.io/upload_images/8156292-10bdf710d15689c8.gif?imageMogr2/auto-orient/strip" alt="copy-as-data-uri.gif"></p>
-<h1 id="通过“Element”面板中的CSS选择器搜索HTML元素"><a href="#通过“Element”面板中的CSS选择器搜索HTML元素" class="headerlink" title="通过“Element”面板中的CSS选择器搜索HTML元素"></a>通过“Element”面板中的CSS选择器搜索HTML元素</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-4b8101a88b72ca11.gif?imageMogr2/auto-orient/strip" alt="dom-search-by-selector.gif"></p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ol>
-<li>js可以通过canvas 的drawImage() 然后再 toDataURL()转换成base64   </li>
-<li>webpack的url-loader 也能转base64</li>
-<li>css selector 可以查找元素，Xpath也是可以的</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%208.%20%E8%B5%84%E6%BA%90%E9%9D%A2%E6%9D%BFSource%E4%B8%AD%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%208.%20%E8%B5%84%E6%BA%90%E9%9D%A2%E6%9D%BFSource%E4%B8%AD%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 8.资源面板Source中的快捷键</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 13:57:00" itemprop="dateModified" datetime="2021-11-23T13:57:00+00:00">2021-11-23</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%208.%20%E8%B5%84%E6%BA%90%E9%9D%A2%E6%9D%BFSource%E4%B8%AD%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%208.%20%E8%B5%84%E6%BA%90%E9%9D%A2%E6%9D%BFSource%E4%B8%AD%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://upload-images.jianshu.io/upload_images/8156292-293c6c7a656174ab.gif?imageMogr2/auto-orient/strip" alt="go-to-column.gif"></p>
-<ol>
-<li>Ctrl + O 或者是 Ctrl + P 可以用于查找文件，这个跟vscode是一致的</li>
-<li>打开查找工具栏 @开头查找函数 ：开头跳转行好 &gt; 开头查找命令</li>
-</ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/8156292-8f0a42c8c47ca12c.gif?imageMogr2/auto-orient/strip" alt="editing-locations.gif"></p>
-<ol>
-<li>ALT+ ←  ALT+ → 可以跳转光标的历史位置，vscode中也是一样的，方便查看定义，再回到原来的位置</li>
-<li><code>ctrl shift o</code> 查找文件中的方法定义,不在source面板中使用会跳转到书签管理器界面。这个vscode快捷键是一样的。<br><img src="https://upload-images.jianshu.io/upload_images/8156292-cee42ec6605207cf.gif?imageMogr2/auto-orient/strip" alt="go-to-member.gif"></li>
-</ol>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>资源面板里面编辑文件是有智能提示和代码检测的呢</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%209.%E5%A4%9A%E5%85%89%E6%A0%87%E7%BC%96%E8%BE%91%20%E6%A1%86%E9%80%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -650,7 +218,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 13:57:00" itemprop="dateModified" datetime="2021-11-23T13:57:00+00:00">2021-11-23</time>
+                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
               </span>
 
           
@@ -731,7 +299,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 13:57:00" itemprop="dateModified" datetime="2021-11-23T13:57:00+00:00">2021-11-23</time>
+                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
               </span>
 
           
@@ -818,7 +386,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 13:57:00" itemprop="dateModified" datetime="2021-11-23T13:57:00+00:00">2021-11-23</time>
+                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
               </span>
 
           
@@ -897,7 +465,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 13:57:00" itemprop="dateModified" datetime="2021-11-23T13:57:00+00:00">2021-11-23</time>
+                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1001,7 +569,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 13:57:00" itemprop="dateModified" datetime="2021-11-23T13:57:00+00:00">2021-11-23</time>
+                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
               </span>
 
           
@@ -1048,10 +616,492 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%203.%E4%BD%BF%E7%94%A8cURL%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E9%87%8D%E6%92%ADNetwork%E9%9D%A2%E6%9D%BF%E7%9A%84%E8%AF%B7%E6%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%203.%E4%BD%BF%E7%94%A8cURL%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E9%87%8D%E6%92%ADNetwork%E9%9D%A2%E6%9D%BF%E7%9A%84%E8%AF%B7%E6%B1%82/" class="post-title-link" itemprop="url">2021-3-24 Chrome Devtools Tip： 3.使用cURL复制功能重播Network面板的请求</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-24 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-24T00:00:00+00:00">2021-03-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%203.%E4%BD%BF%E7%94%A8cURL%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E9%87%8D%E6%92%ADNetwork%E9%9D%A2%E6%9D%BF%E7%9A%84%E8%AF%B7%E6%B1%82/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%203.%E4%BD%BF%E7%94%A8cURL%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E9%87%8D%E6%92%ADNetwork%E9%9D%A2%E6%9D%BF%E7%9A%84%E8%AF%B7%E6%B1%82/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://upload-images.jianshu.io/upload_images/8156292-2361d35d4917df7e.gif?imageMogr2/auto-orient/strip" alt="copy-as-curl.gif"><br>网络面板中显示的资源有一个上下文菜单，该菜单允许您复制为cURL，这将进入剪贴板，此时您可以将其粘贴到命令行中，必要时进行修改，然后查看响应。请求标头也包括在内。</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ol>
+<li><code>Numbers API</code>给个数字，会返回这个数字相关的信息。其实有很多免费的API很有趣，可以自行收集下，比如天气的，历史上的今天，新冠疫情数据，这样我们没有自己的服务器也能做出有意思的应用。</li>
+<li>Windows 系统没有<code>curl</code>命令行工具（除非自己安装），可以使用<code>Copy as PowerShell</code>进行请求重播，复制成fetch代码也不错，做接口测试的时候就省代码了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-bb4bd22c59eaa1f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+</ol>
+<h1 id="将网络回复复制到剪贴板"><a href="#将网络回复复制到剪贴板" class="headerlink" title="将网络回复复制到剪贴板"></a>将网络回复复制到剪贴板</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-6eb17dca94cc97df.gif?imageMogr2/auto-orient/strip" alt="copy-response.gif"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%204.%E5%9C%A8%E4%BB%BB%E4%BD%95%E7%BD%91%E9%A1%B5%E4%B8%8A%E8%BF%90%E8%A1%8C%E9%A2%84%E5%AE%9A%E4%B9%89%E7%9A%84%E4%BB%A3%E7%A0%81%E6%AE%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%204.%E5%9C%A8%E4%BB%BB%E4%BD%95%E7%BD%91%E9%A1%B5%E4%B8%8A%E8%BF%90%E8%A1%8C%E9%A2%84%E5%AE%9A%E4%B9%89%E7%9A%84%E4%BB%A3%E7%A0%81%E6%AE%B5/" class="post-title-link" itemprop="url">2021-3-24 Chrome Devtools Tip： 4.在任何网页上运行预定义的代码段</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-24 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-24T00:00:00+00:00">2021-03-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%204.%E5%9C%A8%E4%BB%BB%E4%BD%95%E7%BD%91%E9%A1%B5%E4%B8%8A%E8%BF%90%E8%A1%8C%E9%A2%84%E5%AE%9A%E4%B9%89%E7%9A%84%E4%BB%A3%E7%A0%81%E6%AE%B5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%204.%E5%9C%A8%E4%BB%BB%E4%BD%95%E7%BD%91%E9%A1%B5%E4%B8%8A%E8%BF%90%E8%A1%8C%E9%A2%84%E5%AE%9A%E4%B9%89%E7%9A%84%E4%BB%A3%E7%A0%81%E6%AE%B5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://upload-images.jianshu.io/upload_images/8156292-3ab1f856b9a0a89b.gif?imageMogr2/auto-orient/strip" alt="snippets.gif"><br>DevTools中提供了一个名为Snippets的功能，使您可以注入可在网页上运行的JavaScript代码（与在控制台面板中重新键入JavaScript代码相比，这更方便）。尝试一下：</p>
+<ul>
+<li>  转到“来源”&gt;“代码段”（位于左侧边栏中）</li>
+<li>  在摘要窗口中单击鼠标右键，然后选择“新建”。</li>
+<li>  输入文件名和所需的代码段</li>
+<li>  右键点击代码段，然后选择运行（或Ctrl / Cmd + Enter）</li>
+</ul>
+<p>您还会注意到，它具有多行编辑功能，并且可以确认退出而不保存。</p>
+<p>这是大量的DevTools片段集合：<a target="_blank" rel="noopener" href="https://github.com/bgrins/devtools-snippets">https</a> : <a target="_blank" rel="noopener" href="https://github.com/bgrins/devtools-snippets">//github.com/bgrins/devtools-snippets</a></p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>代码段可以直接在 <code>Console</code>面板执行的，但是在里面不好调整格式，也没有自动完成，也不能保存。所以这种方式挺好的。</p>
+<p>总能遇到一些本地环境不能调试的代码，直接使用代码段功能在测试环境执行我们的代码，省去了打包上环境的时间，也确保了代码的正确性。</p>
+<h1 id="思考与尝试"><a href="#思考与尝试" class="headerlink" title="思考与尝试"></a>思考与尝试</h1><p>尝试下打断点，触发断点后，再执行代码段，不知道此时的变量作用域怎么样的呢？有兴趣的同学可以自己试试，评论区见答案。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%205.%E9%80%9A%E8%BF%87%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9%E6%9F%A5%E7%9C%8B%E6%82%A8%E7%9A%84%E6%9B%B4%E6%94%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%205.%E9%80%9A%E8%BF%87%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9%E6%9F%A5%E7%9C%8B%E6%82%A8%E7%9A%84%E6%9B%B4%E6%94%B9/" class="post-title-link" itemprop="url">2021-3-24 Chrome Devtools Tip： 5.通过本地修改查看您的更改</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-24 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-24T00:00:00+00:00">2021-03-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%205.%E9%80%9A%E8%BF%87%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9%E6%9F%A5%E7%9C%8B%E6%82%A8%E7%9A%84%E6%9B%B4%E6%94%B9/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%205.%E9%80%9A%E8%BF%87%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9%E6%9F%A5%E7%9C%8B%E6%82%A8%E7%9A%84%E6%9B%B4%E6%94%B9/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://upload-images.jianshu.io/upload_images/8156292-d122d3505663c200.gif?imageMogr2/auto-orient/strip" alt="local-mods.gif"></p>
+<p>本地修改使您可以查看（通过DevTools）对某些源文件进行了哪些更改。</p>
+<p>进行更改并保存后，右键单击“源代码”面板中的文件，然后选择“本地修改”。每个修改都将列为新的更改，并且每个修改都可以单独还原。</p>
+<p>本地修改有助于跟踪，进行了哪些更改，何时进行了这些更改以及对哪些文件进行了更改。</p>
+<p>您可能还对较新的<a target="_blank" rel="noopener" href="https://umaar.com/dev-tips/137-changes-panel/">DevTools更改面板</a>感兴趣。</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ol>
+<li>一般IDE（IDEA，VSCODE）自带的diff比较工具都挺好用的，但是如果去比较两个文件夹，还是建议使用<strong>Beyond Compare 4</strong></li>
+<li>git 自身的diff工具如果用的不舒服,可以改成vscode呢！这个文章是写怎么设置的，其他工具设置方法类似<a target="_blank" rel="noopener" href="https://blog.csdn.net/LeonBec/article/details/78989149">https://blog.csdn.net/LeonBec/article/details/78989149</a></li>
+<li>可视化的git工具，小乌龟我用的还是很习惯的，建议下载一个。<a target="_blank" rel="noopener" href="https://tortoisegit.org/">https://tortoisegit.org/</a></li>
+<li>真的很讨厌用命令行装B，骗骗外行还行，这里怼一下那些天天 <code>git add .</code> 提交所有文件，也不<code>diff</code>一下的菜鸡<h1 id="思考与尝试"><a href="#思考与尝试" class="headerlink" title="思考与尝试"></a>思考与尝试</h1>devtools自带的diff工具，不知道git 命令行能不能设置成这个工具，知道的小伙伴评论区见哈！</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%206.%E8%BD%BB%E6%9D%BE%E7%9A%84%E4%BD%BF%E7%94%A8%E6%80%A7%E8%83%BD%E9%9D%A2%E6%9D%BF%E5%BD%95%E5%88%B6%E6%97%B6%E9%97%B4%E7%BA%BF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%206.%E8%BD%BB%E6%9D%BE%E7%9A%84%E4%BD%BF%E7%94%A8%E6%80%A7%E8%83%BD%E9%9D%A2%E6%9D%BF%E5%BD%95%E5%88%B6%E6%97%B6%E9%97%B4%E7%BA%BF/" class="post-title-link" itemprop="url">2021-3-24 Chrome Devtools Tip： 6.轻松的使用性能面板录制时间线</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-24 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-24T00:00:00+00:00">2021-03-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%206.%E8%BD%BB%E6%9D%BE%E7%9A%84%E4%BD%BF%E7%94%A8%E6%80%A7%E8%83%BD%E9%9D%A2%E6%9D%BF%E5%BD%95%E5%88%B6%E6%97%B6%E9%97%B4%E7%BA%BF/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%206.%E8%BD%BB%E6%9D%BE%E7%9A%84%E4%BD%BF%E7%94%A8%E6%80%A7%E8%83%BD%E9%9D%A2%E6%9D%BF%E5%BD%95%E5%88%B6%E6%97%B6%E9%97%B4%E7%BA%BF/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://upload-images.jianshu.io/upload_images/8156292-6bc177b57bdb952e.gif?imageMogr2/auto-orient/strip" alt="record-timeline-undocked.gif"><br>当您需要在Mac上执行时间线录制时，请尝试将DevTools停靠到一个单独的窗口中，以便将录制按钮放在需要执行操作的页面部分附近。</p>
+<p>或者，使用快捷键Cmd + E启动和停止录制。</p>
+<p>通过这种方式进行录制，可以使录制的内容简短而甜美，并且可以减少录制时的“杂音”，因为您无需长时间在页面上移动鼠标。</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ol>
+<li>录制时间线的重点就是，缩短录制时间，仅仅录制要分析的操作，这样大大减少了分析成本。这个小技巧就是干这个的。</li>
+<li>有时候输入法的快捷键会跟我们的IDE快捷键冲突，比如 <code>ctrl shift f</code>在vscode中是聚焦到搜索面板，搜狗输入法是繁简体切换，Hotkey Commander<a target="_blank" rel="noopener" href="https://gitee.com/alasq/tools/raw/master/Hotkey%20Commander/hkcmdr_inst.exe"> [ 下载 ]</a>这个工具可以检测快捷键的冲突<br><img src="https://upload-images.jianshu.io/upload_images/8156292-b3ec75b5e13a6402.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1>假如我们写一个vscode 插件，怎么尽可能的不与现有的快捷键冲突</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%20%E7%9B%AE%E5%BD%95%E6%80%BB%E8%A7%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%20%E7%9B%AE%E5%BD%95%E6%80%BB%E8%A7%88/" class="post-title-link" itemprop="url">2021-3-24 Chrome Devtools Tip： 目录总览</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-24 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-24T00:00:00+00:00">2021-03-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%20%E7%9B%AE%E5%BD%95%E6%80%BB%E8%A7%88/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%20%E7%9B%AE%E5%BD%95%E6%80%BB%E8%A7%88/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="目标读者"><a href="#目标读者" class="headerlink" title="目标读者"></a>目标读者</h1><p>WEB 应用 <strong>设计&amp; 开发 &amp; 测试 &amp; 重度用户</strong></p>
+<h1 id="关于调试"><a href="#关于调试" class="headerlink" title="关于调试"></a>关于调试</h1><p>WEB应用开发者中，设计=》开发=》测试=》BUG修复=》回归测试=》发布=》部署。Chrome Devtool 都是必须要掌握的知识。在项目中，发现很多同事写代码还行，遇到问题就解决的很慢，或者无从下手。玩转调试可以：</p>
+<ol>
+<li>增加开发效率</li>
+<li>快速定位问题</li>
+<li>降低沟通成本</li>
+</ol>
+<h1 id="阅读前"><a href="#阅读前" class="headerlink" title="阅读前"></a>阅读前</h1><p>请先阅读 Google Chrome DevTools 官方文档(<a target="_blank" rel="noopener" href="https://developers.google.cn/web/tools/chrome-devtools/">https://developers.google.cn/web/tools/chrome-devtools/</a>) </p>
+<h1 id="来源与改进"><a href="#来源与改进" class="headerlink" title="来源与改进"></a>来源与改进</h1><p>文章主要来源于（<a target="_blank" rel="noopener" href="https://umaar.com/dev-tips/%EF%BC%89">https://umaar.com/dev-tips/）</a> ，并做以下改进</p>
+<ol>
+<li>汉化</li>
+<li>部分过时的gif重录</li>
+<li>加上自己的理解</li>
+</ol>
+<h1 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h1><p>三月底完成！</p>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ol>
+<li>Port Forwarding 允许localhost URL 在移动设备调试</li>
+<li>如何使用DevTools触发CSS伪类</li>
+<li>使用cURL复制功能重播Network面板的请求</li>
+<li>在任何网页上运行预定义的代码段</li>
+<li>通过本地修改查看您的更改</li>
+<li>轻松的使用性能面板录制时间线</li>
+<li>将图片复制为base64编码data URI</li>
+<li>资源面板Source中的快捷键</li>
+<li>多光标编辑 框选</li>
+<li>Console面板的一些API</li>
+<li>Network 网络面板过滤器</li>
+<li>Element面板</li>
+<li>通过快捷键快速切换 devtools 附着状态</li>
+<li>断点调试相关的技巧</li>
+<li>颜色拾取器增强</li>
+<li>动画调试</li>
+<li>调试jquery 事件监听</li>
+<li>隐藏网络请求报错的console.error</li>
+<li>使用console.table 更好的展示对象 数组信息</li>
+<li>Element面板快速切换class查看效果</li>
+<li>降低CPU的性能与网络速度来观测性能</li>
+<li>使用 Sources 面板 Threads 调试</li>
+<li>使用sourceMap 调试ESNext语法</li>
+<li>在“Network”中查看来自其他应用程序的网络流量</li>
+<li>通过Performance面板录制,行级别查看代码耗时</li>
+<li>Store as global variable 存储成全局变量</li>
+<li>利用Quick Source 快速写样式</li>
+<li>Chrome带参数启动</li>
+<li>自定义Network面板的显示列，展示我们关心的响应头</li>
+<li>devtools支持热更新调试Nodejs</li>
+<li>Blackboxing 获得更好的调试会话</li>
+<li>lighthouse 面板检查网页状态</li>
+<li><code>css tracker</code>面板查看未使用的css</li>
+<li>通过服务器增加 Server-Timing 响应头展示时间信息</li>
+<li>Network 查看实际访问的IP</li>
+<li>自定义时间测量API</li>
+<li>查看帧率FPS</li>
+<li>复制完整的调用栈</li>
+<li>网页全页截图</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1117,7 +1167,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-count">117</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1130,7 +1180,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

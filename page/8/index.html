@@ -187,496 +187,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-%20docker%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-%20docker%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">2021-4-19- docker的一些命令</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-19 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-19T00:00:00+00:00">2021-04-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 13:57:00" itemprop="dateModified" datetime="2021-11-23T13:57:00+00:00">2021-11-23</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-%20docker%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-%20docker%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>承接上一篇的 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/8ac09895933c">win7 docker环境安装</a><br><code>docker info</code> 查看当前虚拟机的docker信息<br><img src="https://upload-images.jianshu.io/upload_images/8156292-5eb649af529413be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p><code>docker help</code>  查看命令的帮助文档<br><img src="https://upload-images.jianshu.io/upload_images/8156292-62a65b9f3fc65cad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/8156292-7f6a4d45057a544b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/8156292-748199cb9f11bba6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/8156292-921ccef7c8b1887a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>一共40来个命令,每个命令后面有解释,一看就明白干嘛的</p>
-<h1 id="第一类命令-镜像相关的命令跟git-命令可以类比着记忆"><a href="#第一类命令-镜像相关的命令跟git-命令可以类比着记忆" class="headerlink" title="第一类命令 镜像相关的命令跟git 命令可以类比着记忆"></a>第一类命令 镜像相关的命令跟git 命令可以类比着记忆</h1><ul>
-<li>build==init  初始化镜像</li>
-<li>commit==commit  提交镜像</li>
-<li>diff 比较文件系统</li>
-<li>tag 给镜像打标签</li>
-<li>history 查看镜像历史</li>
-<li> save 将镜像保存成 tar包</li>
-<li>load 从tar中读取镜像</li>
-<li>rmi 删除镜像</li>
-</ul>
-<h1 id="第二类命令-容器相关的命令-每个容器可以理解成系统中的一个运行的进程"><a href="#第二类命令-容器相关的命令-每个容器可以理解成系统中的一个运行的进程" class="headerlink" title="第二类命令 容器相关的命令,每个容器可以理解成系统中的一个运行的进程"></a>第二类命令 容器相关的命令,每个容器可以理解成系统中的一个运行的进程</h1><ul>
-<li>create ,rm 创建容器</li>
-<li>attach 给容器附加个什么东西</li>
-<li>exec 在容器里执行什么东西</li>
-<li>restart 重启容器</li>
-<li>export 导出容器成tar压缩包</li>
-<li>pause ,unpause  取消暂停</li>
-<li>run,kill 启动容器</li>
-<li>stop,start 杀容器,停止运行,并不会删除,容器有三种状态,运行的,暂停的,停止的,看这状态是不是更像虚拟机了</li>
-<li>rename 重命名</li>
-<li>ps ,port,logs,top,stats 容器列表,容器的接口映射关系,容器的日志,容器内的进程,容器资源使用情况,这几个都是看容器状态的</li>
-<li>update 更新容器的配置<h1 id="第三类命令-dockerHub相关的"><a href="#第三类命令-dockerHub相关的" class="headerlink" title="第三类命令 dockerHub相关的"></a>第三类命令 dockerHub相关的</h1></li>
-<li>login ,logout 登录,登出</li>
-<li>pull,push dockerHub 拉取 推送 镜像</li>
-</ul>
-<h1 id="stop与kill的区别"><a href="#stop与kill的区别" class="headerlink" title="stop与kill的区别"></a>stop与kill的区别</h1><p>stop 会等10秒后再kill容器,并会告知容器内的程序<br>详情请参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34414196/article/details/86428138">https://blog.csdn.net/weixin_34414196/article/details/86428138</a></p>
-<h1 id="run-跟-start的区别"><a href="#run-跟-start的区别" class="headerlink" title="run 跟 start的区别"></a>run 跟 start的区别</h1><p>run =create + start<br>所以咱们第一次用run  后面用start就好了</p>
-<p>当我们具体用哪个命令的时候,<code>docker COMMAND --help</code> 查看某个命令的帮助文档<br><img src="https://upload-images.jianshu.io/upload_images/8156292-42e1a0d65a8641d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>[OPTIONS] 上图中的这种参数就是可有可无,大写代表变量,不要直接抄哦<br>NAME|ID  容器的名称或者ID 必选<br>[NAME|ID…] 表示可以填多个</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-%20win7%20docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-%20win7%20docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">2021-4-19- win7 docker环境安装</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-19 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-19T00:00:00+00:00">2021-04-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 13:57:00" itemprop="dateModified" datetime="2021-11-23T13:57:00+00:00">2021-11-23</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-%20win7%20docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-%20win7%20docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ol>
-<li>本人win7,先下载DockerToolBox,win10的可以下载docker desktop for windows<br>下载地址 <a target="_blank" rel="noopener" href="https://docs.docker.com/toolbox/overview/">https://docs.docker.com/toolbox/overview/</a><br>双击运行 一路下一步就好了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-f83cd8976a133c8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-<li>然后报错,手按太快,询问是否安装虚拟机的时候直接点了回车,不安装,这里要注意下<br><img src="https://upload-images.jianshu.io/upload_images/8156292-bf7c186d1f902ae6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-<li>正常安装后桌面应该出现这三个小图标,第一个是docker的命令行工具,第二个是联网查看dockerhub的镜像,第三个是虚拟机<br><img src="https://upload-images.jianshu.io/upload_images/8156292-5424787ab9e6b89d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-<li>把提前下载好的 docker2boot镜像丢到缓存里面,否则启动的时候找不到会自动下载比较慢<br><img src="https://upload-images.jianshu.io/upload_images/8156292-06cb26f3eeb4ada1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-<li>我们运行第一个Docker Quickstart Terminal ,出现下面的界面就ok了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-35392cc5cc1dcd05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">git常见问题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-19 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-19T00:00:00+00:00">2021-04-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 13:57:00" itemprop="dateModified" datetime="2021-11-23T13:57:00+00:00">2021-11-23</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="使用git提交到github-每次都要输入用户名和密码的解决方法"><a href="#使用git提交到github-每次都要输入用户名和密码的解决方法" class="headerlink" title="使用git提交到github,每次都要输入用户名和密码的解决方法"></a>使用git提交到github,每次都要输入用户名和密码的解决方法</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sky6862/p/7992736.html">https://www.cnblogs.com/sky6862/p/7992736.html</a></p>
-<h1 id="使用ssh协议提交github代码"><a href="#使用ssh协议提交github代码" class="headerlink" title="使用ssh协议提交github代码"></a>使用ssh协议提交github代码</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013778905/article/details/83501204">https://blog.csdn.net/u013778905/article/details/83501204</a></p>
-<h1 id="git-记住密码"><a href="#git-记住密码" class="headerlink" title="git 记住密码"></a>git 记住密码</h1><p><code>git config --global credential.helper store</code></p>
-<h1 id="git-密码错误"><a href="#git-密码错误" class="headerlink" title="git 密码错误"></a>git 密码错误</h1><p>控制面板\用户帐户和家庭安全\凭据管理器  把网站的凭证删除掉</p>
-<h1 id="git-pull-冲突"><a href="#git-pull-冲突" class="headerlink" title="git pull 冲突"></a>git pull 冲突</h1><p>如果不想解决的话,可以直接 <code>git reset --hard HEAD</code></p>
-<h1 id="一次提交需要提交到多个分支的时候-使用摘取命令"><a href="#一次提交需要提交到多个分支的时候-使用摘取命令" class="headerlink" title="一次提交需要提交到多个分支的时候,使用摘取命令"></a>一次提交需要提交到多个分支的时候,使用摘取命令</h1><p><code>git cherry-pick &lt;commitID&gt;</code></p>
-<h1 id="git-从本地clone"><a href="#git-从本地clone" class="headerlink" title="git 从本地clone"></a>git 从本地clone</h1><p>git clone 除了从远程地址clone，还能从本地clone。<br>有时候方便开发我们需要不同的分支在不同的文件夹下同步开发，避免频繁的编译重构。<br>直接复制文件夹，里面的node_modules  target 等被gitignore的文件会非常慢.<br><img src="https://upload-images.jianshu.io/upload_images/8156292-9a607263a9ddbf2c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/19/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/19/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/" class="post-title-link" itemprop="url">小工具集合</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-19 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-19T00:00:00+00:00">2021-04-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 13:57:00" itemprop="dateModified" datetime="2021-11-23T13:57:00+00:00">2021-11-23</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/04/19/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/19/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a target="_blank" rel="noopener" href="https://gitee.com/alasq/tools.git">https://gitee.com/alasq/tools.git</a> </p>
-<p>请原谅我把gitee当网盘用☺️</p>
-<h1 id="开发用的小工具"><a href="#开发用的小工具" class="headerlink" title="开发用的小工具"></a>开发用的小工具</h1><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>前端开发用的小工具</p>
-<h4 id="工具列表-该仓库有安装包的工具"><a href="#工具列表-该仓库有安装包的工具" class="headerlink" title="工具列表(该仓库有安装包的工具)"></a>工具列表(该仓库有安装包的工具)</h4><ul>
-<li>Hotkey Commander 检测快捷键冲突</li>
-<li>小书匠 写作工具,可直接同步到多个平台</li>
-<li>licecap 录屏</li>
-<li>ScreenToGif 录Gif还能编辑 gif</li>
-<li>fscupture 截屏,测距,取色,录屏(视频),滚动录屏</li>
-<li>Snipaste 截屏,粘贴到桌面</li>
-<li>everything 文件系统快速搜索</li>
-<li>Q-dir 分屏资源管理器</li>
-</ul>
-<h4 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h4><ul>
-<li>chrome &amp; firefox &amp; ie &amp; edge &amp; 360浏览器</li>
-<li>Git &amp; Git tortoise 版本管理工具</li>
-<li>Node 跑Node代码用</li>
-<li>nvm node版本管理工具</li>
-<li>Oracle JDK / Open JDK 跑java代码用的</li>
-<li>Postman 接口测试工具</li>
-<li>XAMPP（Apache+MySQL+PHP+PERL）跑PHP用,还白送一个comcat 一个mysql数据库</li>
-<li>Beyond Compare 比较文件夹很好用</li>
-<li>WinSCP sftp工具</li>
-<li>xShell / mabaxterm ssh远程连接工具</li>
-<li>docker windows上不建议装,能用的镜像太少</li>
-</ul>
-<h3 id="Chrome-插件"><a href="#Chrome-插件" class="headerlink" title="Chrome 插件"></a>Chrome 插件</h3><ul>
-<li>RSS 订阅</li>
-<li>划词翻译</li>
-<li>Vue DevTools</li>
-</ul>
-<h4 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h4><ul>
-<li>Vscode/WebStorm</li>
-<li>HBuilder</li>
-<li>微信开发者工具</li>
-<li>nodePad++</li>
-</ul>
-<h4 id="直播三件套"><a href="#直播三件套" class="headerlink" title="直播三件套"></a>直播三件套</h4><ul>
-<li>OBS Studio 录屏</li>
-<li>Arctime Pro 字幕工具</li>
-<li>Adobe Pr 视频编辑(会声会影/拍大师/剪映/爱剪辑)</li>
-</ul>
-<h3 id="办公软件"><a href="#办公软件" class="headerlink" title="办公软件"></a>办公软件</h3><ul>
-<li>word &amp; ppt &amp; excel </li>
-<li>pdf</li>
-<li>email/foxmail</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2010.%20Console%E9%9D%A2%E6%9D%BF%E7%9A%84%E4%B8%80%E4%BA%9BAPI/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2010.%20Console%E9%9D%A2%E6%9D%BF%E7%9A%84%E4%B8%80%E4%BA%9BAPI/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 10.Console面板的一些API</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 13:57:00" itemprop="dateModified" datetime="2021-11-23T13:57:00+00:00">2021-11-23</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2010.%20Console%E9%9D%A2%E6%9D%BF%E7%9A%84%E4%B8%80%E4%BA%9BAPI/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2010.%20Console%E9%9D%A2%E6%9D%BF%E7%9A%84%E4%B8%80%E4%BA%9BAPI/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="快速监控JavaScript中的事件"><a href="#快速监控JavaScript中的事件" class="headerlink" title="快速监控JavaScript中的事件"></a>快速监控JavaScript中的事件</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-b7226d2fe4dede77.gif?imageMogr2/auto-orient/strip" alt="monitor-events.gif"><br>您可以使用命令行API方法<code>monitorEvents（object [，events]）</code>记录分发给对象的所有事件。然后将事件对象记录到控制台。当您需要提醒事件对象的可用属性时很有用。</p>
-<h2 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h2><p>例如，直接在控制台面板中尝试以下代码：</p>
-<blockquote>
-<p>monitorEvents(window, ‘click’)  </p>
-</blockquote>
-<p>当您在网页中单击时，现在应该看到click事件自动记录到控制台。</p>
-<h1 id="控制台获取当前选定的DOM节点的快捷方式"><a href="#控制台获取当前选定的DOM节点的快捷方式" class="headerlink" title="控制台获取当前选定的DOM节点的快捷方式"></a>控制台获取当前选定的DOM节点的快捷方式</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-f6444ade5bf7074e.gif?imageMogr2/auto-orient/strip" alt="dollar-zero.gif"></p>
-<p>在“Element”面板中选择节点后，请在控制台面板中使用表达式<code>$0</code>进行访问。您还可以使用<code>$_</code>访问最近求值的表达式的值</p>
-<h1 id="控制台快速定位DOM位置"><a href="#控制台快速定位DOM位置" class="headerlink" title="控制台快速定位DOM位置"></a>控制台快速定位DOM位置</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-2d4c59000b3e4d31.gif?imageMogr2/auto-orient/strip" alt="reveal-in-elements.gif"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2011.%20Network%20%E7%BD%91%E7%BB%9C%E9%9D%A2%E6%9D%BF%E8%BF%87%E6%BB%A4%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -708,7 +218,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 13:57:00" itemprop="dateModified" datetime="2021-11-23T13:57:00+00:00">2021-11-23</time>
+                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
               </span>
 
           
@@ -812,7 +322,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 13:57:00" itemprop="dateModified" datetime="2021-11-23T13:57:00+00:00">2021-11-23</time>
+                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
               </span>
 
           
@@ -898,7 +408,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 13:57:00" itemprop="dateModified" datetime="2021-11-23T13:57:00+00:00">2021-11-23</time>
+                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
               </span>
 
           
@@ -978,7 +488,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 13:57:00" itemprop="dateModified" datetime="2021-11-23T13:57:00+00:00">2021-11-23</time>
+                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
               </span>
 
           
@@ -1063,7 +573,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 13:57:00" itemprop="dateModified" datetime="2021-11-23T13:57:00+00:00">2021-11-23</time>
+                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
               </span>
 
           
@@ -1114,10 +624,421 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2016.%20%E5%8A%A8%E7%94%BB%E8%B0%83%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2016.%20%E5%8A%A8%E7%94%BB%E8%B0%83%E8%AF%95/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 16. 动画调试</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2016.%20%E5%8A%A8%E7%94%BB%E8%B0%83%E8%AF%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2016.%20%E5%8A%A8%E7%94%BB%E8%B0%83%E8%AF%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://upload-images.jianshu.io/upload_images/8156292-f951ea3a660a13ac.gif?imageMogr2/auto-orient/strip" alt="easing-preview.gif"><br>如图，点击<code>ease-in</code>前面的icon可以预览渐变效果哟</p>
+<h1 id="使用动画记录器记录过渡和动画"><a href="#使用动画记录器记录过渡和动画" class="headerlink" title="使用动画记录器记录过渡和动画"></a>使用动画记录器记录过渡和动画</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-d3d63aa5eae61a81.gif?imageMogr2/auto-orient/strip" alt="animation-recorder.gif"><br>打开“动画记录器”后，将捕获所有过渡/动画，这意味着您可以方便地播放它们或在以后检查它们。</p>
+<p>将鼠标悬停在矩形块上可以播放动画。<br>单击一个矩形块以检查动画。</p>
+<h1 id="动画检查器"><a href="#动画检查器" class="headerlink" title="动画检查器"></a>动画检查器</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-19d5948d48e40fbb.gif?imageMogr2/auto-orient/strip" alt="animation-inspector.gif"></p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>炫酷的动效能让老板分分钟给你加薪，因为它能让产品卖上价格，用户一看就是大制作，高端大气上档次，这才是前端的价值所在。</p>
+<h1 id="阴影调整器"><a href="#阴影调整器" class="headerlink" title="阴影调整器"></a>阴影调整器</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-50867e7bfb721216.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2017.%20%E8%B0%83%E8%AF%95jquery%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2017.%20%E8%B0%83%E8%AF%95jquery%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 17. 调试jquery 事件监听</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2017.%20%E8%B0%83%E8%AF%95jquery%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2017.%20%E8%B0%83%E8%AF%95jquery%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://upload-images.jianshu.io/upload_images/8156292-c203c83afc13da33.gif?imageMogr2/auto-orient/strip" alt="jquery-event-listeners.gif"><br>jquery事件监听指向jquery的源代码，这对于调试没啥用，我们可以通过查看监听器方法的定义，找到事件处理函数</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2018.%20%E9%9A%90%E8%97%8F%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E6%8A%A5%E9%94%99%E7%9A%84console.error/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2018.%20%E9%9A%90%E8%97%8F%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E6%8A%A5%E9%94%99%E7%9A%84console.error/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 18. 隐藏网络请求报错的console.error</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2018.%20%E9%9A%90%E8%97%8F%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E6%8A%A5%E9%94%99%E7%9A%84console.error/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2018.%20%E9%9A%90%E8%97%8F%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E6%8A%A5%E9%94%99%E7%9A%84console.error/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://upload-images.jianshu.io/upload_images/8156292-5a09ee8fb823b683.gif?imageMogr2/auto-orient/strip" alt="hide-network-console.gif"></p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>在定位页面无限重定向,比如一直跳转登录的时候,可以勾选上 <code>Preserve log</code>复选框,查看页面信息<br>在console中执行代码的上下文是根据iframe来的,记得切换iframe来执行相应的代码</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2019.%20%E4%BD%BF%E7%94%A8console.table%20%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%B1%95%E7%A4%BA%E5%AF%B9%E8%B1%A1%20%E6%95%B0%E7%BB%84%E4%BF%A1%E6%81%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2019.%20%E4%BD%BF%E7%94%A8console.table%20%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%B1%95%E7%A4%BA%E5%AF%B9%E8%B1%A1%20%E6%95%B0%E7%BB%84%E4%BF%A1%E6%81%AF/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 19. 使用console.table 更好的展示对象 数组信息</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2019.%20%E4%BD%BF%E7%94%A8console.table%20%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%B1%95%E7%A4%BA%E5%AF%B9%E8%B1%A1%20%E6%95%B0%E7%BB%84%E4%BF%A1%E6%81%AF/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2019.%20%E4%BD%BF%E7%94%A8console.table%20%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%B1%95%E7%A4%BA%E5%AF%B9%E8%B1%A1%20%E6%95%B0%E7%BB%84%E4%BF%A1%E6%81%AF/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://upload-images.jianshu.io/upload_images/8156292-a154534659201462.gif?imageMogr2/auto-orient/strip" alt="console-table.gif"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> languages = [</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;JavaScript&quot;</span>, <span class="attr">fileExtension</span>: <span class="string">&quot;.js&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;TypeScript&quot;</span>, <span class="attr">fileExtension</span>: <span class="string">&quot;.ts&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;CoffeeScript&quot;</span>, <span class="attr">fileExtension</span>: <span class="string">&quot;.coffee&quot;</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.table(languages);</span><br></pre></td></tr></table></figure>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>属性太多还可以传第二个参数 ,只展示要某些字段 <code>console.table(languages,[&#39;name&#39;]);</code></p>
+<h1 id="使用console-time-诊断程序的运行时间"><a href="#使用console-time-诊断程序的运行时间" class="headerlink" title="使用console.time 诊断程序的运行时间"></a>使用console.time 诊断程序的运行时间</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.time(<span class="string">&#x27;My time #1&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.timeLog(<span class="string">&#x27;My time #1&#x27;</span>); <span class="comment">//打印计时器时间</span></span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">&#x27;My time #1&#x27;</span>);<span class="comment">//打印计时器时间,并终止计时器</span></span><br></pre></td></tr></table></figure>
+<h1 id="使用-console-timeStamp-可以在录制性能时间线打标记-快速定位性能问题"><a href="#使用-console-timeStamp-可以在录制性能时间线打标记-快速定位性能问题" class="headerlink" title="使用 console.timeStamp() , 可以在录制性能时间线打标记,快速定位性能问题"></a>使用 console.timeStamp() , 可以在录制性能时间线打标记,快速定位性能问题</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-64043923a748af3c.gif?imageMogr2/auto-orient/strip" alt="console-timestamp-timeline.gif"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2020.%20Element%E9%9D%A2%E6%9D%BF%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2class%E6%9F%A5%E7%9C%8B%E6%95%88%E6%9E%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2020.%20Element%E9%9D%A2%E6%9D%BF%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2class%E6%9F%A5%E7%9C%8B%E6%95%88%E6%9E%9C/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 20. Element面板快速切换class查看效果</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2020.%20Element%E9%9D%A2%E6%9D%BF%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2class%E6%9F%A5%E7%9C%8B%E6%95%88%E6%9E%9C/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2020.%20Element%E9%9D%A2%E6%9D%BF%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2class%E6%9F%A5%E7%9C%8B%E6%95%88%E6%9E%9C/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://upload-images.jianshu.io/upload_images/8156292-b89e5a5150f31bd9.gif?imageMogr2/auto-orient/strip" alt="toggle-element-classes.gif"></p>
+<ol>
+<li>选定元素</li>
+<li>点击 .cls 按钮,出现class list</li>
+<li>点击前面的复选框,进行切换</li>
+<li>还能添加class</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1183,7 +1104,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-count">117</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1196,7 +1117,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
