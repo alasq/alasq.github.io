@@ -187,6 +187,93 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2010.%20Console%E9%9D%A2%E6%9D%BF%E7%9A%84%E4%B8%80%E4%BA%9BAPI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2010.%20Console%E9%9D%A2%E6%9D%BF%E7%9A%84%E4%B8%80%E4%BA%9BAPI/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 10.Console面板的一些API</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-25 12:21:37" itemprop="dateModified" datetime="2021-11-25T12:21:37+00:00">2021-11-25</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2010.%20Console%E9%9D%A2%E6%9D%BF%E7%9A%84%E4%B8%80%E4%BA%9BAPI/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2010.%20Console%E9%9D%A2%E6%9D%BF%E7%9A%84%E4%B8%80%E4%BA%9BAPI/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="快速监控JavaScript中的事件"><a href="#快速监控JavaScript中的事件" class="headerlink" title="快速监控JavaScript中的事件"></a>快速监控JavaScript中的事件</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-b7226d2fe4dede77.gif?imageMogr2/auto-orient/strip" alt="monitor-events.gif"><br>您可以使用命令行API方法<code>monitorEvents（object [，events]）</code>记录分发给对象的所有事件。然后将事件对象记录到控制台。当您需要提醒事件对象的可用属性时很有用。</p>
+<h2 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h2><p>例如，直接在控制台面板中尝试以下代码：</p>
+<blockquote>
+<p>monitorEvents(window, ‘click’)  </p>
+</blockquote>
+<p>当您在网页中单击时，现在应该看到click事件自动记录到控制台。</p>
+<h1 id="控制台获取当前选定的DOM节点的快捷方式"><a href="#控制台获取当前选定的DOM节点的快捷方式" class="headerlink" title="控制台获取当前选定的DOM节点的快捷方式"></a>控制台获取当前选定的DOM节点的快捷方式</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-f6444ade5bf7074e.gif?imageMogr2/auto-orient/strip" alt="dollar-zero.gif"></p>
+<p>在“Element”面板中选择节点后，请在控制台面板中使用表达式<code>$0</code>进行访问。您还可以使用<code>$_</code>访问最近求值的表达式的值</p>
+<h1 id="控制台快速定位DOM位置"><a href="#控制台快速定位DOM位置" class="headerlink" title="控制台快速定位DOM位置"></a>控制台快速定位DOM位置</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-2d4c59000b3e4d31.gif?imageMogr2/auto-orient/strip" alt="reveal-in-elements.gif"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2011.%20Network%20%E7%BD%91%E7%BB%9C%E9%9D%A2%E6%9D%BF%E8%BF%87%E6%BB%A4%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -218,7 +305,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
+                <time title="修改时间：2021-11-25 12:21:37" itemprop="dateModified" datetime="2021-11-25T12:21:37+00:00">2021-11-25</time>
               </span>
 
           
@@ -322,7 +409,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
+                <time title="修改时间：2021-11-25 12:21:37" itemprop="dateModified" datetime="2021-11-25T12:21:37+00:00">2021-11-25</time>
               </span>
 
           
@@ -408,7 +495,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
+                <time title="修改时间：2021-11-25 12:21:37" itemprop="dateModified" datetime="2021-11-25T12:21:37+00:00">2021-11-25</time>
               </span>
 
           
@@ -488,7 +575,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
+                <time title="修改时间：2021-11-25 12:21:37" itemprop="dateModified" datetime="2021-11-25T12:21:37+00:00">2021-11-25</time>
               </span>
 
           
@@ -573,7 +660,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
+                <time title="修改时间：2021-11-25 12:21:37" itemprop="dateModified" datetime="2021-11-25T12:21:37+00:00">2021-11-25</time>
               </span>
 
           
@@ -659,7 +746,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
+                <time title="修改时间：2021-11-25 12:21:37" itemprop="dateModified" datetime="2021-11-25T12:21:37+00:00">2021-11-25</time>
               </span>
 
           
@@ -743,7 +830,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
+                <time title="修改时间：2021-11-25 12:21:37" itemprop="dateModified" datetime="2021-11-25T12:21:37+00:00">2021-11-25</time>
               </span>
 
           
@@ -822,7 +909,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
+                <time title="修改时间：2021-11-25 12:21:37" itemprop="dateModified" datetime="2021-11-25T12:21:37+00:00">2021-11-25</time>
               </span>
 
           
@@ -902,7 +989,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
+                <time title="修改时间：2021-11-25 12:21:37" itemprop="dateModified" datetime="2021-11-25T12:21:37+00:00">2021-11-25</time>
               </span>
 
           
@@ -935,91 +1022,6 @@
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>属性太多还可以传第二个参数 ,只展示要某些字段 <code>console.table(languages,[&#39;name&#39;]);</code></p>
 <h1 id="使用console-time-诊断程序的运行时间"><a href="#使用console-time-诊断程序的运行时间" class="headerlink" title="使用console.time 诊断程序的运行时间"></a>使用console.time 诊断程序的运行时间</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.time(<span class="string">&#x27;My time #1&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.timeLog(<span class="string">&#x27;My time #1&#x27;</span>); <span class="comment">//打印计时器时间</span></span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">&#x27;My time #1&#x27;</span>);<span class="comment">//打印计时器时间,并终止计时器</span></span><br></pre></td></tr></table></figure>
 <h1 id="使用-console-timeStamp-可以在录制性能时间线打标记-快速定位性能问题"><a href="#使用-console-timeStamp-可以在录制性能时间线打标记-快速定位性能问题" class="headerlink" title="使用 console.timeStamp() , 可以在录制性能时间线打标记,快速定位性能问题"></a>使用 console.timeStamp() , 可以在录制性能时间线打标记,快速定位性能问题</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-64043923a748af3c.gif?imageMogr2/auto-orient/strip" alt="console-timestamp-timeline.gif"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2020.%20Element%E9%9D%A2%E6%9D%BF%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2class%E6%9F%A5%E7%9C%8B%E6%95%88%E6%9E%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2020.%20Element%E9%9D%A2%E6%9D%BF%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2class%E6%9F%A5%E7%9C%8B%E6%95%88%E6%9E%9C/" class="post-title-link" itemprop="url">2021-4-7- Chrome Devtools Tip： 20. Element面板快速切换class查看效果</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-07T00:00:00+00:00">2021-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 14:01:43" itemprop="dateModified" datetime="2021-11-23T14:01:43+00:00">2021-11-23</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2020.%20Element%E9%9D%A2%E6%9D%BF%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2class%E6%9F%A5%E7%9C%8B%E6%95%88%E6%9E%9C/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2020.%20Element%E9%9D%A2%E6%9D%BF%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2class%E6%9F%A5%E7%9C%8B%E6%95%88%E6%9E%9C/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://upload-images.jianshu.io/upload_images/8156292-b89e5a5150f31bd9.gif?imageMogr2/auto-orient/strip" alt="toggle-element-classes.gif"></p>
-<ol>
-<li>选定元素</li>
-<li>点击 .cls 按钮,出现class list</li>
-<li>点击前面的复选框,进行切换</li>
-<li>还能添加class</li>
-</ol>
 
       
     </div>
@@ -1104,7 +1106,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1117,7 +1119,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
