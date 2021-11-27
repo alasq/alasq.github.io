@@ -26,10 +26,12 @@ A组将UI库发布到npm仓库,B组将公共函数库作为单独的npm包发布
 3. 随着要封装暴露的entry越来越多,打包时间越来越长
 
 ## Module Federation 模块共享解决方案
-1. B组项目修改webpack配置,将公共函数库,公用的业务组件使用`ModuleFederationPlugin` 插件配置成共享模块
+### 1. B组项目修改webpack配置,将公共函数库,公用的业务组件使用`ModuleFederationPlugin` 插件配置成共享模块
 
 ```js B组项目webpack配置
 // 假设B组的页面部署到 www.baidu.com/businessB/
+
+const {ModuleFederationPlugin}=require("webpack").container
 const config = {
    ...otherConfigs
   plugins: [
@@ -44,9 +46,10 @@ const config = {
   ]
 }
 ```
-2. C组使用`ModuleFederationPlugin` 插件配置配置B组发布到环境上的远程模块
+### 2. C组使用`ModuleFederationPlugin` 插件配置配置B组发布到环境上的远程模块
 假设C组的页面部署到 www.baidu.com/businessC/
-```js A组项目webpack配置
+
+```js C组项目webpack配置
 const config = {
    ...otherConfigs
   plugins: [
@@ -54,13 +57,12 @@ const config = {
       remotes: {
         appB: "appB@//www.baidu.com/businessB/remoteEntry.js"
       }
-    }).
-    new ExternalTemplateRemotesPlugin(),
+    })
   ]
 }
 ```
 
-```html A组的主页面
+```html C组的主页面
 <head>
   <script src="/businessB/remoteEntry.js" defer></script>
   <script src="./main.js"></script>
