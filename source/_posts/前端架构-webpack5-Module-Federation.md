@@ -4,29 +4,30 @@ date: 2021-11-27 21:25:45
 tags: [前端架构,webpack]
 ---
 
-## 场景
+# 场景
 A组: 维护一个UI组件库  
 B组: 维护一个单页APP,内部有很多公共函数库,业务相关组件  
 C组: 新建一个单页APP,需要用到A组的UI组件库,B组项目的公共函数库,部分业务组件
 
-## 前端模块化的现有方案
+# 前端模块化的现有方案
 A组将UI库发布到npm仓库,B组将公共函数库作为单独的npm包发布,业务组件拷贝一份到C组的代码库
 
-#### 问题
+## 问题
 1. B组的改动量大
 2. B组每次公共函数库的改动,需要通知到C组重新发布
 3. 业务组件改动,BC两组都要进行修改
 
-#### 解决
+## 解决
 函数库与业务组件都打成umd模块放到静态资源服务器上,C组以script标签动态引入,以AMD模块的使用方式从window作用域下使用
 
-#### 继而产生的后续问题
+## 继而产生的后续问题
 1. 污染window作用域下命名空间
 2. 打出来的umd模块需要是完整的,包含全部依赖,体积很大
 3. 随着要封装暴露的entry越来越多,打包时间越来越长
 
-## Module Federation 模块共享解决方案
-### 1. B组项目修改webpack配置,将公共函数库,公用的业务组件使用`ModuleFederationPlugin` 插件配置成共享模块
+# Module Federation 模块共享解决方案
+
+## B组项目修改webpack配置,将公共函数库,公用的业务组件使用`ModuleFederationPlugin` 插件配置成共享模块
 
 ```js B组项目webpack配置
 // 假设B组的页面部署到 www.baidu.com/businessB/
@@ -46,7 +47,8 @@ const config = {
   ]
 }
 ```
-### 2. C组使用`ModuleFederationPlugin` 插件配置配置B组发布到环境上的远程模块
+
+## C组使用`ModuleFederationPlugin` 插件配置配置B组发布到环境上的远程模块
 假设C组的页面部署到 www.baidu.com/businessC/
 
 ```js C组项目webpack配置
@@ -83,7 +85,9 @@ export default {
 }
 </script>
 ```
+
 ## 完整的 DEMO
+
 https://stackblitz.com/github/webpack/webpack.js.org/tree/master/examples/module-federation?terminal=start&terminal=
 
 ### external-remotes-plugin 可以从window作用域下动态获取远程仓库的地址
