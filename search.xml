@@ -186,6 +186,32 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>babel与core-js</title>
+    <url>/2021/12/09/babel%E4%B8%8Ecore-js%E7%9A%84%E5%85%B3%E7%B3%BB/</url>
+    <content><![CDATA[<h1 id="babel-垫片是什么"><a href="#babel-垫片是什么" class="headerlink" title="babel,垫片是什么?"></a>babel,垫片是什么?</h1><ol>
+<li>babel 是用来把ES6,ESNext语法转换成ES5语法的,本身没有垫片的功能</li>
+<li>垫片就是给一些低版本的浏览器实现一些新的API,比如数组的<code>includes</code> <code>find</code>,<code>Promsie</code>等实现</li>
+<li><code>@babel/polifill</code> 这个垫片是babel官方提供的,相当于全量引入了长期支持的API,以及使用了的部分API<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;@babel/polyfill&quot;</span>;</span><br><span class="line"><span class="comment">// 等同于下面两句</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;core-js/stable&quot;</span>;<span class="comment">//长期支持的</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;regenerator-runtime/runtime&quot;</span>;<span class="comment">//部分使用的</span></span><br></pre></td></tr></table></figure></li>
+<li>目前我们一般用 <code>@babel/preset-env</code>根据使用的API动态的使用垫片,项目中没用过的就不用垫了。</li>
+<li><code>core-js</code>是一个专门的垫片仓库</li>
+<li><code>@babel/preset-env</code> 的配置项 <code>useBuiltIns</code>有<code>entry</code> 与 <code>usage</code>两个选项,默认值是<code>false</code>,全量引入，体积最大。</li>
+<li><code>entry</code>需要手动在代码入口加上 <code>import &#39;@babel/polyfill&#39;</code>,表示按照目标兼容浏览器版本全量加载，体积小一些。</li>
+<li><code>usage</code>表示根据API按需加载，体积最小。</li>
+<li><code>@babel/preset-env</code>的配置项 <code>corejs:2</code>默认是<code>2.x</code>,如果需要使用<code>core-js@3</code>需要修改这个配置项<code>corejs:3</code></li>
+<li>babel在转换语法的时候会自动生成一些辅助函数,这些辅助函数大量重复存在</li>
+<li><code>core-js</code>的垫片会直接修改API 的原型与全局方法</li>
+<li><code>@babel/plugin-transform-runtime</code>插件会做两件事,第一辅助函数一次性引入,防止重复。第二，垫片作为闭包方法调用，防止全局污染</li>
+</ol>
+<h1 id="最佳实践的babel配置"><a href="#最佳实践的babel配置" class="headerlink" title="最佳实践的babel配置"></a>最佳实践的babel配置</h1><p><code>npm i @babel/core、@babel/preset-env @babel/runtime-corejs3 @babel/plugin-transform-runtime</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;presets&quot;</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">&quot;@babel/preset-env&quot;</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">&quot;useBuiltIns&quot;</span>: <span class="string">&quot;usage&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">&quot;plugins&quot;</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">&quot;@babel/plugin-transform-runtime&quot;</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">&quot;corejs&quot;</span>: <span class="number">3</span> <span class="comment">// 指定 runtime-corejs 的版本，目前有 2 3 两个版本</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>core-js 是一个通用的垫片仓库,babel的垫片相关功能依赖core-js</p>
+<p><a href="http://www.ruanyifeng.com/blog/2016/01/babel.html">http://www.ruanyifeng.com/blog/2016/01/babel.html</a></p>
+]]></content>
+      <tags>
+        <tag>babel</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>burp suite</title>
     <url>/2021/09/26/burp-suite/</url>
     <content><![CDATA[<p>集成化的渗透测试工具<br><a href="https://t0data.gitbooks.io/burpsuite/content/">Burp Suite 实战指南</a></p>
@@ -2058,55 +2084,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>《编写可测试javascript》 第三章</title>
-    <url>/2019/04/06/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/2019-4-6-%E3%80%8A%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95javascript%E3%80%8B%20%E7%AC%AC%E4%B8%89%E7%AB%A0/</url>
-    <content><![CDATA[<p>通过事件解耦和隔离代码是javascript的一个原生特性,参考浏览器的DOM事件模型</p>
-<h1 id="3-1-基于事件的好处"><a href="#3-1-基于事件的好处" class="headerlink" title="3.1 基于事件的好处"></a>3.1 基于事件的好处</h1><ul>
-<li>应用程序都与消息传递有关</li>
-<li>拿到其他对象的消息<br>全局对象（易污染）<br>函数参数传入（参数过多）<br>函数参数注入（要维护注入列表）<br>局部初始化（紧耦合）</li>
-<li>函数是javascript的第一公民</li>
-<li>浏览器 DOM是事件模型</li>
-<li>nodejs 利用回调实现异步编程<h1 id="3-2事件集线器"><a href="#3-2事件集线器" class="headerlink" title="3.2事件集线器"></a>3.2事件集线器</h1></li>
-<li>一个中央处理器（110接警中心）</li>
-<li>向中央处理器注册事件的处理器（派出所，交警，刑警，消防，120急救中心，等）</li>
-<li>事件触发器（打110报警的用户）<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">eventHub.fire(<span class="string">&#x27;着火了&#x27;</span>，&#123;<span class="attr">address</span>:<span class="string">&#x27;南山腾讯大厦&#x27;</span>，leave:<span class="string">&#x27;烧了10层&#x27;</span>&#125;)</span><br><span class="line">eventHub.listen(<span class="string">&#x27;着火了&#x27;</span>，killFire)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">killFire</span>(<span class="params">msg</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`出动消防车到<span class="subst">$&#123;msg.address&#125;</span>去灭火，火灾等级<span class="subst">$&#123;leave&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-集线器属于<strong>公共耦合</strong>，但在集线器对象里，没有共享的状态<h2 id="3-2-1使用事件集线器"><a href="#3-2-1使用事件集线器" class="headerlink" title="3.2.1使用事件集线器"></a>3.2.1使用事件集线器</h2><h2 id="3-2-2事件的响应"><a href="#3-2-2事件的响应" class="headerlink" title="3.2.2事件的响应"></a>3.2.2事件的响应</h2><h2 id="3-2-3基于事件的架构与MVC架构-思想一致"><a href="#3-2-3基于事件的架构与MVC架构-思想一致" class="headerlink" title="3.2.3基于事件的架构与MVC架构(思想一致)"></a>3.2.3基于事件的架构与MVC架构(思想一致)</h2>MVC倡导 关注点分离与模块化，基于事件的架构都满足<br>事件集线器==Controller<br>事件传递的数据==Model数据库的行<br>事件推送的数据==View查询模型获得数据<h2 id="3-2-4基于事件架构与面向对象编程（不冲突，可以一起用）"><a href="#3-2-4基于事件架构与面向对象编程（不冲突，可以一起用）" class="headerlink" title="3.2.4基于事件架构与面向对象编程（不冲突，可以一起用）"></a>3.2.4基于事件架构与面向对象编程（不冲突，可以一起用）</h2>面向对象=》继承耦合<br>面向对象=》没有链式交互对象<br>事件架构=》数据都是私有的，仅通过事件API暴露<br>事件架构=》没有生命周期问题，对象存在于整个应用程序生命周期，不需要析构<h2 id="3-2-5-基于事件的架构与软件及服务（促进关系）"><a href="#3-2-5-基于事件的架构与软件及服务（促进关系）" class="headerlink" title="3.2.5 基于事件的架构与软件及服务（促进关系）"></a>3.2.5 基于事件的架构与软件及服务（促进关系）</h2>软件及服务（SaaS），每个独立的服务都可以加入事件集线器</li>
-</ul>
-<h1 id="3-3-web应用程序"><a href="#3-3-web应用程序" class="headerlink" title="3.3 web应用程序"></a>3.3 web应用程序</h1><p>web应用程序大多与web服务器搅合在一起<br>让事件集线器成为web应用程序的中心，而不是web服务器<br>使用socke.io可以解决http同源的问题</p>
-<h1 id="3-4测试基于事件的架构"><a href="#3-4测试基于事件的架构" class="headerlink" title="3.4测试基于事件的架构"></a>3.4测试基于事件的架构</h1><p>略……</p>
-<h1 id="3-5基于事件的架构说明"><a href="#3-5基于事件的架构说明" class="headerlink" title="3.5基于事件的架构说明"></a>3.5基于事件的架构说明</h1><ol>
-<li>可伸缩性<br>集线器宕机，则整个app宕机，所以，搞一组集线器负载匀衡</li>
-<li>广播<br>广播给所有客户端会产生大量通信流量，所以慎用</li>
-<li>运行时检查<br>函数和方法名 拼写错误，编译器能检查到，但是事件是字符串不能检查到，建议使用枚举值</li>
-<li>安全性<br>事件集线器实现“可信任”客户端身份验证<br>socket.io支持数据加密</li>
-<li>状态<br>web服务器通过会话cookie记录状态<br>事件集线器本身会将会话注入到事件中</li>
-</ol>
-<h1 id="3-6更智能的集线器，事件交换机"><a href="#3-6更智能的集线器，事件交换机" class="headerlink" title="3.6更智能的集线器，事件交换机"></a>3.6更智能的集线器，事件交换机</h1><p>事件分组：广播，单播<br>特性：节省网络带宽，自动防故障安全部署</p>
-<h2 id="3-6-1部署"><a href="#3-6-1部署" class="headerlink" title="3.6.1部署"></a>3.6.1部署</h2><p>新版本部署=重启web服务（一般的web应用）<br>目标：模块完全独立于web服务的部署（跟微服务的架构很像啊）<br>条件：停用事件监听而不删除事件<br>方式：事件交换机</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">eventSwitch.on(<span class="string">&#x27;depositMoney&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">  cash+=data.depositAmount;</span><br><span class="line">  eventSwitch.emit(<span class="string">&#x27;depositMoney&#x27;</span>,cash)</span><br><span class="line">&#125;,&#123;<span class="attr">type</span>:<span class="string">&#x27;unicast&#x27;</span>&#125;)<span class="comment">//告知注册的是单播事件</span></span><br><span class="line"><span class="comment">//eventClient:done 这个事件不能由已连接的客户端触发</span></span><br><span class="line"><span class="comment">//单播</span></span><br><span class="line">eventHub.on(<span class="string">&#x27;eventClient:done&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">  process.exit(<span class="number">0</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//广播</span></span><br><span class="line">eventHub.on(<span class="string">&#x27;eventClient:done&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">  eventHub.removeAllListeers(event)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="3-6-2一种实现"><a href="#3-6-2一种实现" class="headerlink" title="3.6.2一种实现"></a>3.6.2一种实现</h2><p><a href="https://github.com/zzo/EventHub">https://github.com/zzo/EventHub</a><br><code>npm install EventHub</code>安装<br><code>npm start EventHub</code>启动 默认监听5883端口</p>
-<h2 id="3-6-3-会话"><a href="#3-6-3-会话" class="headerlink" title="3.6.3 会话"></a>3.6.3 会话</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">eventHub=<span class="built_in">require</span>(<span class="string">&#x27;EventHub/clients/server/eventClient.js&#x27;</span>)</span><br><span class="line">.getClientHub(<span class="string">&#x27;http://localhost:5886?token=secret&#x27;</span>)</span><br><span class="line">eventHub.on(<span class="string">&#x27;user&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line"> <span class="keyword">var</span> sessionID=obj[<span class="string">&#x27;eventHub:session&#x27;</span>]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="3-6-4-可拓展性"><a href="#3-6-4-可拓展性" class="headerlink" title="3.6.4 可拓展性"></a>3.6.4 可拓展性</h2><p>socket.io 支持多种客户端，多种语言，不仅仅是javascript<br>一个例子<a href="https://github.com/zzo/BidSilent">https:github.com/zzo/BidSilent </a></p>
-<h2 id="3-7-小结"><a href="#3-7-小结" class="headerlink" title="3.7 小结"></a>3.7 小结</h2><ul>
-<li><p>基于事件的架构<br>高度模块化<br>松耦合<br>小依赖<br>高可重用性<br>便于创建可测试javascript</p>
-</li>
-<li><p>事件集线器构建在 socket.io 上</p>
-</li>
-<li><p>MVC实际上是用事件进行了增强</p>
-</li>
-<li><p>基于事件的架构开启了软件即服务,根据需要对小而独立的功能进行动态增删</p>
-</li>
-<li><p>使用事件交换机部署基于事件的模块非常容易,允许单独关闭旧模块,而不丢任何事件</p>
-</li>
-<li><p>测试已经隔离的模块更简单</p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>读书笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>《编写可测试javascript》 第二章 复杂度（一）</title>
     <url>/2019/04/03/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/2019-4-3-%E3%80%8A%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95javascript%E3%80%8B%20%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%88%E4%B8%80%EF%BC%89/</url>
     <content><![CDATA[<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
@@ -2149,6 +2126,55 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>*扇出计算公式**：扇出=内部流程数量（指挥别人做的）+所更新数据结构数量（自己做的）</li>
 <li>*最佳实践<strong>：函数的</strong>扇出应该小于等于4**，绝对不要大于7，超过的话就需要重构<br>解决方式：拆分模块，依赖注入<br>例子：requirejs定义一个模块，下面的就需要拆分了<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//拆分前</span></span><br><span class="line">define([a,b,c,d,e,f,g,h],<span class="function"><span class="keyword">function</span>(<span class="params">a,b,c,d,e,f,g,h</span>)</span>&#123;<span class="comment">//定义一个模块，依赖了7个小模块</span></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">module</span>=&#123;</span><br><span class="line">    a,b,c,d,e,f,g,h</span><br><span class="line">  &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">module</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//拆分后</span></span><br><span class="line">define([],<span class="function"><span class="keyword">function</span>(<span class="params">a,b,c,d</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">SubModule</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.a=<span class="keyword">new</span> a()</span><br><span class="line">        <span class="built_in">this</span>.b=<span class="keyword">new</span> b()</span><br><span class="line">        <span class="built_in">this</span>.c=<span class="keyword">new</span> c()</span><br><span class="line">        <span class="built_in">this</span>.d=<span class="keyword">new</span> d()</span><br><span class="line">    &#125;</span><br><span class="line">    subModule.prototype.getA=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">this</span>.a&#125;</span><br><span class="line">    subModule.prototype.getB=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">this</span>.b&#125;</span><br><span class="line">    subModule.prototype.getC=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">this</span>.c&#125;</span><br><span class="line">    subModule.prototype.getD=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">this</span>.d&#125;</span><br><span class="line">    <span class="keyword">return</span> subModule</span><br><span class="line">&#125;)</span><br><span class="line">define([subModule,e,f,g,h],<span class="function"><span class="keyword">function</span>(<span class="params">subModule,e,f,g,h</span>)</span>&#123;<span class="comment">//仅仅减小扇出，但无实际意义</span></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">module</span>=&#123;</span><br><span class="line">    a:subModule.getA(),</span><br><span class="line">    b:subModule.getB(),</span><br><span class="line">    c:subModule.getC(),</span><br><span class="line">    d:subModule.getD(),</span><br><span class="line">    e,f,g,h</span><br><span class="line">  &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">module</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h3 id="6-扇入（入参？）"><a href="#6-扇入（入参？）" class="headerlink" title="6.扇入（入参？）"></a>6.扇入（入参？）</h3>定义：过程A的扇入是  过程A的内部流程数量 与 欲从过程A中获取信息的数据结构总和<br>高扇入复用程度越高，底层函数应该扇入高，扇出低。上层函数应该扇入低，扇出高。这样能保证函数的复杂度都比较低。<h3 id="7-耦合"><a href="#7-耦合" class="headerlink" title="7.耦合"></a>7.耦合</h3><a href="https://www.jianshu.com/p/33faf9d810f0">《编写可测试javascript》 第二章 复杂度（二）</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>读书笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《编写可测试javascript》 第三章</title>
+    <url>/2019/04/06/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/2019-4-6-%E3%80%8A%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95javascript%E3%80%8B%20%E7%AC%AC%E4%B8%89%E7%AB%A0/</url>
+    <content><![CDATA[<p>通过事件解耦和隔离代码是javascript的一个原生特性,参考浏览器的DOM事件模型</p>
+<h1 id="3-1-基于事件的好处"><a href="#3-1-基于事件的好处" class="headerlink" title="3.1 基于事件的好处"></a>3.1 基于事件的好处</h1><ul>
+<li>应用程序都与消息传递有关</li>
+<li>拿到其他对象的消息<br>全局对象（易污染）<br>函数参数传入（参数过多）<br>函数参数注入（要维护注入列表）<br>局部初始化（紧耦合）</li>
+<li>函数是javascript的第一公民</li>
+<li>浏览器 DOM是事件模型</li>
+<li>nodejs 利用回调实现异步编程<h1 id="3-2事件集线器"><a href="#3-2事件集线器" class="headerlink" title="3.2事件集线器"></a>3.2事件集线器</h1></li>
+<li>一个中央处理器（110接警中心）</li>
+<li>向中央处理器注册事件的处理器（派出所，交警，刑警，消防，120急救中心，等）</li>
+<li>事件触发器（打110报警的用户）<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">eventHub.fire(<span class="string">&#x27;着火了&#x27;</span>，&#123;<span class="attr">address</span>:<span class="string">&#x27;南山腾讯大厦&#x27;</span>，leave:<span class="string">&#x27;烧了10层&#x27;</span>&#125;)</span><br><span class="line">eventHub.listen(<span class="string">&#x27;着火了&#x27;</span>，killFire)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">killFire</span>(<span class="params">msg</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`出动消防车到<span class="subst">$&#123;msg.address&#125;</span>去灭火，火灾等级<span class="subst">$&#123;leave&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+集线器属于<strong>公共耦合</strong>，但在集线器对象里，没有共享的状态<h2 id="3-2-1使用事件集线器"><a href="#3-2-1使用事件集线器" class="headerlink" title="3.2.1使用事件集线器"></a>3.2.1使用事件集线器</h2><h2 id="3-2-2事件的响应"><a href="#3-2-2事件的响应" class="headerlink" title="3.2.2事件的响应"></a>3.2.2事件的响应</h2><h2 id="3-2-3基于事件的架构与MVC架构-思想一致"><a href="#3-2-3基于事件的架构与MVC架构-思想一致" class="headerlink" title="3.2.3基于事件的架构与MVC架构(思想一致)"></a>3.2.3基于事件的架构与MVC架构(思想一致)</h2>MVC倡导 关注点分离与模块化，基于事件的架构都满足<br>事件集线器==Controller<br>事件传递的数据==Model数据库的行<br>事件推送的数据==View查询模型获得数据<h2 id="3-2-4基于事件架构与面向对象编程（不冲突，可以一起用）"><a href="#3-2-4基于事件架构与面向对象编程（不冲突，可以一起用）" class="headerlink" title="3.2.4基于事件架构与面向对象编程（不冲突，可以一起用）"></a>3.2.4基于事件架构与面向对象编程（不冲突，可以一起用）</h2>面向对象=》继承耦合<br>面向对象=》没有链式交互对象<br>事件架构=》数据都是私有的，仅通过事件API暴露<br>事件架构=》没有生命周期问题，对象存在于整个应用程序生命周期，不需要析构<h2 id="3-2-5-基于事件的架构与软件及服务（促进关系）"><a href="#3-2-5-基于事件的架构与软件及服务（促进关系）" class="headerlink" title="3.2.5 基于事件的架构与软件及服务（促进关系）"></a>3.2.5 基于事件的架构与软件及服务（促进关系）</h2>软件及服务（SaaS），每个独立的服务都可以加入事件集线器</li>
+</ul>
+<h1 id="3-3-web应用程序"><a href="#3-3-web应用程序" class="headerlink" title="3.3 web应用程序"></a>3.3 web应用程序</h1><p>web应用程序大多与web服务器搅合在一起<br>让事件集线器成为web应用程序的中心，而不是web服务器<br>使用socke.io可以解决http同源的问题</p>
+<h1 id="3-4测试基于事件的架构"><a href="#3-4测试基于事件的架构" class="headerlink" title="3.4测试基于事件的架构"></a>3.4测试基于事件的架构</h1><p>略……</p>
+<h1 id="3-5基于事件的架构说明"><a href="#3-5基于事件的架构说明" class="headerlink" title="3.5基于事件的架构说明"></a>3.5基于事件的架构说明</h1><ol>
+<li>可伸缩性<br>集线器宕机，则整个app宕机，所以，搞一组集线器负载匀衡</li>
+<li>广播<br>广播给所有客户端会产生大量通信流量，所以慎用</li>
+<li>运行时检查<br>函数和方法名 拼写错误，编译器能检查到，但是事件是字符串不能检查到，建议使用枚举值</li>
+<li>安全性<br>事件集线器实现“可信任”客户端身份验证<br>socket.io支持数据加密</li>
+<li>状态<br>web服务器通过会话cookie记录状态<br>事件集线器本身会将会话注入到事件中</li>
+</ol>
+<h1 id="3-6更智能的集线器，事件交换机"><a href="#3-6更智能的集线器，事件交换机" class="headerlink" title="3.6更智能的集线器，事件交换机"></a>3.6更智能的集线器，事件交换机</h1><p>事件分组：广播，单播<br>特性：节省网络带宽，自动防故障安全部署</p>
+<h2 id="3-6-1部署"><a href="#3-6-1部署" class="headerlink" title="3.6.1部署"></a>3.6.1部署</h2><p>新版本部署=重启web服务（一般的web应用）<br>目标：模块完全独立于web服务的部署（跟微服务的架构很像啊）<br>条件：停用事件监听而不删除事件<br>方式：事件交换机</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">eventSwitch.on(<span class="string">&#x27;depositMoney&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">  cash+=data.depositAmount;</span><br><span class="line">  eventSwitch.emit(<span class="string">&#x27;depositMoney&#x27;</span>,cash)</span><br><span class="line">&#125;,&#123;<span class="attr">type</span>:<span class="string">&#x27;unicast&#x27;</span>&#125;)<span class="comment">//告知注册的是单播事件</span></span><br><span class="line"><span class="comment">//eventClient:done 这个事件不能由已连接的客户端触发</span></span><br><span class="line"><span class="comment">//单播</span></span><br><span class="line">eventHub.on(<span class="string">&#x27;eventClient:done&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">  process.exit(<span class="number">0</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//广播</span></span><br><span class="line">eventHub.on(<span class="string">&#x27;eventClient:done&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">  eventHub.removeAllListeers(event)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="3-6-2一种实现"><a href="#3-6-2一种实现" class="headerlink" title="3.6.2一种实现"></a>3.6.2一种实现</h2><p><a href="https://github.com/zzo/EventHub">https://github.com/zzo/EventHub</a><br><code>npm install EventHub</code>安装<br><code>npm start EventHub</code>启动 默认监听5883端口</p>
+<h2 id="3-6-3-会话"><a href="#3-6-3-会话" class="headerlink" title="3.6.3 会话"></a>3.6.3 会话</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">eventHub=<span class="built_in">require</span>(<span class="string">&#x27;EventHub/clients/server/eventClient.js&#x27;</span>)</span><br><span class="line">.getClientHub(<span class="string">&#x27;http://localhost:5886?token=secret&#x27;</span>)</span><br><span class="line">eventHub.on(<span class="string">&#x27;user&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line"> <span class="keyword">var</span> sessionID=obj[<span class="string">&#x27;eventHub:session&#x27;</span>]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="3-6-4-可拓展性"><a href="#3-6-4-可拓展性" class="headerlink" title="3.6.4 可拓展性"></a>3.6.4 可拓展性</h2><p>socket.io 支持多种客户端，多种语言，不仅仅是javascript<br>一个例子<a href="https://github.com/zzo/BidSilent">https:github.com/zzo/BidSilent </a></p>
+<h2 id="3-7-小结"><a href="#3-7-小结" class="headerlink" title="3.7 小结"></a>3.7 小结</h2><ul>
+<li><p>基于事件的架构<br>高度模块化<br>松耦合<br>小依赖<br>高可重用性<br>便于创建可测试javascript</p>
+</li>
+<li><p>事件集线器构建在 socket.io 上</p>
+</li>
+<li><p>MVC实际上是用事件进行了增强</p>
+</li>
+<li><p>基于事件的架构开启了软件即服务,根据需要对小而独立的功能进行动态增删</p>
+</li>
+<li><p>使用事件交换机部署基于事件的模块非常容易,允许单独关闭旧模块,而不丢任何事件</p>
+</li>
+<li><p>测试已经隔离的模块更简单</p>
+</li>
 </ul>
 ]]></content>
       <tags>
