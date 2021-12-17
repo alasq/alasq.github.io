@@ -1,8 +1,9 @@
 ---
-title: "npm ls --depth 0" 报错 "cb.apply is not a function"
+title: npm ls 报错
 date: 2021-05-06 22:10:35
 tags: npm
 ---
+> "npm ls --depth 0" 报错 "cb.apply is not a function" 
 我是安装nvm 切换node版本后报错的
 
 1. `win + r` 打开运行，输入`%appdata%`
