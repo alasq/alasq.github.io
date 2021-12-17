@@ -1752,6 +1752,26 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
   </entry>
   <entry>
+    <title>netlify介绍</title>
+    <url>/2021/12/17/%E5%8D%9A%E5%AE%A2/netlify%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<h1 id="目前博客存在的问题"><a href="#目前博客存在的问题" class="headerlink" title="目前博客存在的问题"></a>目前博客存在的问题</h1><p>github pages服务部署,国内访问很慢,github防止百度爬虫不收录</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>使用netlify可以做静态网站的cdn部署</p>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><ol>
+<li>使用github账号登录netlify</li>
+<li>授权netlify访问需要部署的仓库与分支</li>
+</ol>
+<hr>
+<ol start="3">
+<li>如果有自己的域名,在DNS解析服务器上,CNAME解析到netlify提供的域名即可</li>
+</ol>
+<h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><p>ping 一下自己的域名,看下真实地址对不对就可以的<br><img src="images/2021-12-17-22-27-52.png"></p>
+<h1 id="netlify官网"><a href="#netlify官网" class="headerlink" title="netlify官网"></a>netlify官网</h1><p><a href="https://www.netlify.com/">https://www.netlify.com/</a></p>
+]]></content>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>给hexo next换个色调</title>
     <url>/2021/11/09/%E5%8D%9A%E5%AE%A2/%E7%BB%99hexo-next%E6%8D%A2%E4%B8%AA%E8%89%B2%E8%B0%83/</url>
     <content><![CDATA[<p>next的极简风我还是挺喜欢的，但是不喜欢这个黑白主题，死气沉沉的，我想给他换个色调。</p>
@@ -1857,6 +1877,23 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>IDEA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>npm ls 报错</title>
+    <url>/2021/05/06/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/cb-apply-is-not-a-function/</url>
+    <content><![CDATA[<blockquote>
+<p>“npm ls –depth 0” 报错 “cb.apply is not a function”<br>我是安装nvm 切换node版本后报错的</p>
+</blockquote>
+<ol>
+<li><code>win + r</code> 打开运行，输入<code>%appdata%</code></li>
+<li>删除 <code>npm</code> 和 <code>npm-cache</code> 文件夹</li>
+<li>执行<code>npm cache clean --force</code>命令</li>
+</ol>
+<p>此时应该就可以了。如果还不行，就执行卸载Node.js重新安装。</p>
+]]></content>
+      <tags>
+        <tag>npm</tag>
       </tags>
   </entry>
   <entry>

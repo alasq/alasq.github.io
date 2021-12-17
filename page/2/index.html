@@ -187,6 +187,95 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/22/%E9%98%B2%E6%AD%A2xss%E6%B3%A8%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/22/%E9%98%B2%E6%AD%A2xss%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">防止xss注入</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-10-22 19:25:57" itemprop="dateCreated datePublished" datetime="2021-10-22T19:25:57+00:00">2021-10-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-12-17 14:52:45" itemprop="dateModified" datetime="2021-12-17T14:52:45+00:00">2021-12-17</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/10/22/%E9%98%B2%E6%AD%A2xss%E6%B3%A8%E5%85%A5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/10/22/%E9%98%B2%E6%AD%A2xss%E6%B3%A8%E5%85%A5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="谁是-OWASP-®基金会"><a href="#谁是-OWASP-®基金会" class="headerlink" title="谁是 OWASP ®基金会"></a>谁是 OWASP ®基金会</h2><p>Open Web Application Security Project</p>
+<h2 id="web安全理论基础"><a href="#web安全理论基础" class="headerlink" title="web安全理论基础"></a>web安全理论基础</h2><p><a target="_blank" rel="noopener" href="https://cheatsheetseries.owasp.org/">https://cheatsheetseries.owasp.org/</a></p>
+<h2 id="xss注入"><a href="#xss注入" class="headerlink" title="xss注入"></a>xss注入</h2><p>主要是需要转义html <code>&lt; &gt; &quot; &#39; &amp;</code> 这5个字符</p>
+<ul>
+<li><code>&gt;</code> 转 <code>&amp;gt;</code> </li>
+<li><code>&lt;</code> 转 <code>&amp;lt;</code> </li>
+<li><code>&quot;</code> 转 <code>&amp;quot;</code> </li>
+<li><code>&#39;</code> 转 <code>&amp;#39;</code> </li>
+<li><code>&amp;</code> 转 <code>&amp;amp;</code> </li>
+</ul>
+<h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><p>直接使用雅虎的xss-filters<br><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/xss-filters">https://www.npmjs.com/package/xss-filters</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/22/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Bemoji%E8%A1%A8%E6%83%85%E7%9A%84Unicode%E7%BC%96%E7%A0%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -218,7 +307,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 06:51:02" itemprop="dateModified" datetime="2021-12-17T06:51:02+00:00">2021-12-17</time>
+                <time title="修改时间：2021-12-17 14:52:45" itemprop="dateModified" datetime="2021-12-17T14:52:45+00:00">2021-12-17</time>
               </span>
 
           
@@ -302,7 +391,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 06:51:02" itemprop="dateModified" datetime="2021-12-17T06:51:02+00:00">2021-12-17</time>
+                <time title="修改时间：2021-12-17 14:52:45" itemprop="dateModified" datetime="2021-12-17T14:52:45+00:00">2021-12-17</time>
               </span>
 
           
@@ -394,7 +483,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 06:51:02" itemprop="dateModified" datetime="2021-12-17T06:51:02+00:00">2021-12-17</time>
+                <time title="修改时间：2021-12-17 14:52:45" itemprop="dateModified" datetime="2021-12-17T14:52:45+00:00">2021-12-17</time>
               </span>
 
           
@@ -481,7 +570,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 06:51:02" itemprop="dateModified" datetime="2021-12-17T06:51:02+00:00">2021-12-17</time>
+                <time title="修改时间：2021-12-17 14:52:45" itemprop="dateModified" datetime="2021-12-17T14:52:45+00:00">2021-12-17</time>
               </span>
 
           
@@ -595,7 +684,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 06:51:02" itemprop="dateModified" datetime="2021-12-17T06:51:02+00:00">2021-12-17</time>
+                <time title="修改时间：2021-12-17 14:52:45" itemprop="dateModified" datetime="2021-12-17T14:52:45+00:00">2021-12-17</time>
               </span>
 
           
@@ -674,7 +763,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 06:51:02" itemprop="dateModified" datetime="2021-12-17T06:51:02+00:00">2021-12-17</time>
+                <time title="修改时间：2021-12-17 14:52:45" itemprop="dateModified" datetime="2021-12-17T14:52:45+00:00">2021-12-17</time>
               </span>
 
           
@@ -754,7 +843,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 06:51:02" itemprop="dateModified" datetime="2021-12-17T06:51:02+00:00">2021-12-17</time>
+                <time title="修改时间：2021-12-17 14:52:45" itemprop="dateModified" datetime="2021-12-17T14:52:45+00:00">2021-12-17</time>
               </span>
 
           
@@ -834,7 +923,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 06:51:02" itemprop="dateModified" datetime="2021-12-17T06:51:02+00:00">2021-12-17</time>
+                <time title="修改时间：2021-12-17 14:52:45" itemprop="dateModified" datetime="2021-12-17T14:52:45+00:00">2021-12-17</time>
               </span>
 
           
@@ -925,7 +1014,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 06:51:02" itemprop="dateModified" datetime="2021-12-17T06:51:02+00:00">2021-12-17</time>
+                <time title="修改时间：2021-12-17 14:52:45" itemprop="dateModified" datetime="2021-12-17T14:52:45+00:00">2021-12-17</time>
               </span>
 
           
@@ -957,104 +1046,6 @@
 <p>抓包功能也是吊打fiddler,真心好用</p>
 <p>Burp Suite 配合 AWVS web网络漏洞扫描工具使用</p>
 <p>DFNRecorder用来模拟登录的,类似于webDriver 是IBM Security APPScan Standard的一部分</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/26/chrome/%E8%AE%A9-chrome-H5-%E6%94%AF%E6%8C%81-m3u8%E6%A0%BC%E5%BC%8F%E8%A7%86%E9%A2%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/26/chrome/%E8%AE%A9-chrome-H5-%E6%94%AF%E6%8C%81-m3u8%E6%A0%BC%E5%BC%8F%E8%A7%86%E9%A2%91/" class="post-title-link" itemprop="url">让 chrome h5 支持 m3u8格式视频</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-09-26 22:52:03" itemprop="dateCreated datePublished" datetime="2021-09-26T22:52:03+00:00">2021-09-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 06:51:02" itemprop="dateModified" datetime="2021-12-17T06:51:02+00:00">2021-12-17</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/09/26/chrome/%E8%AE%A9-chrome-H5-%E6%94%AF%E6%8C%81-m3u8%E6%A0%BC%E5%BC%8F%E8%A7%86%E9%A2%91/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/26/chrome/%E8%AE%A9-chrome-H5-%E6%94%AF%E6%8C%81-m3u8%E6%A0%BC%E5%BC%8F%E8%A7%86%E9%A2%91/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Audio_and_video_delivery">Audio_and_video_delivery</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery/Live_streaming_web_audio_and_video">Live streaming web audio and video</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e97f6555a070">m3u8 文件格式详解</a></p>
-</li>
-<li><p>HTTP live Streaming (HLS)</p>
-</li>
-<li><p>chrome 桌面版是不支持 m3u8格式视频的直接播放</p>
-</li>
-<li><p>可以通过 hls.js来支持m3u8源的播放,其他播放器也可以</p>
-</li>
-<li><p>videojs要支持hls类型视频的播放需要安装 videojs-contrib-hls</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.vdocipher.com/blog/2020/09/online-video-player-html5-website/">Top 17 Online Video Players For 2021</a></p>
-</li>
-<li><p>西瓜视频播放器值得推荐</p>
-</li>
-</ul>
 
       
     </div>
@@ -1139,7 +1130,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">121</span>
+          <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
