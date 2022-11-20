@@ -20,20 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="大老板对我讲做生意销售是最重要的。 只有供应商能挣钱  自己能挣钱 客户能挣钱的生意才是生意，三方有任何一方不挣钱，这个生意做不了。 怎么打工？进去就埋头干活，有好的想法，好的建议就提。一旦给公司创造了效益，就去跟老板谈判。 做人做生意都要有格局，没有格局成不了大生意，格局就是没钱的时候让家里过好，有钱要让社会好过。 我现在玩的是资本,也不用担心厉害的员工跳槽,在他的平台下，200+的客户能直接把">
+  <meta name="description" content="new Array(8).map(i&#x3D;&gt;[])这种声明二维数组的方式会报错 改成 new Array(8).fill().map(i&#x3D;&gt;[])即可 报错的原因是 new Array 产生的数组比较特殊 有length 但是没有内容，所以无法迭代 不过我一般用 Array.form(&amp;#123;length:8&amp;#125;,i&#x3D;&gt;[])这么初始化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大老板跟前领导对我讲">
-<meta property="og:url" content="http://example.com/2021/10/17/%E5%A4%A7%E8%80%81%E6%9D%BF%E8%B7%9F%E5%89%8D%E9%A2%86%E5%AF%BC%E5%AF%B9%E6%88%91%E8%AE%B2/index.html">
+<meta property="og:title" content="js避坑-new Array">
+<meta property="og:url" content="http://example.com/2022/08/15/js%E9%81%BF%E5%9D%91-new-Array/index.html">
 <meta property="og:site_name" content="有人在代码里下毒，啊……">
-<meta property="og:description" content="大老板对我讲做生意销售是最重要的。 只有供应商能挣钱  自己能挣钱 客户能挣钱的生意才是生意，三方有任何一方不挣钱，这个生意做不了。 怎么打工？进去就埋头干活，有好的想法，好的建议就提。一旦给公司创造了效益，就去跟老板谈判。 做人做生意都要有格局，没有格局成不了大生意，格局就是没钱的时候让家里过好，有钱要让社会好过。 我现在玩的是资本,也不用担心厉害的员工跳槽,在他的平台下，200+的客户能直接把">
+<meta property="og:description" content="new Array(8).map(i&#x3D;&gt;[])这种声明二维数组的方式会报错 改成 new Array(8).fill().map(i&#x3D;&gt;[])即可 报错的原因是 new Array 产生的数组比较特殊 有length 但是没有内容，所以无法迭代 不过我一般用 Array.form(&amp;#123;length:8&amp;#125;,i&#x3D;&gt;[])这么初始化">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-10-17T13:24:49.000Z">
-<meta property="article:modified_time" content="2021-12-17T14:52:45.370Z">
+<meta property="article:published_time" content="2022-08-15T21:47:31.000Z">
+<meta property="article:modified_time" content="2022-11-20T02:01:41.863Z">
 <meta property="article:author" content="Alasq">
-<meta property="article:tag" content="生活">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2021/10/17/%E5%A4%A7%E8%80%81%E6%9D%BF%E8%B7%9F%E5%89%8D%E9%A2%86%E5%AF%BC%E5%AF%B9%E6%88%91%E8%AE%B2/">
+<link rel="canonical" href="http://example.com/2022/08/15/js%E9%81%BF%E5%9D%91-new-Array/">
 
 
 <script id="page-configurations">
@@ -46,7 +45,7 @@
   };
 </script>
 
-  <title>大老板跟前领导对我讲 | 有人在代码里下毒，啊……</title>
+  <title>js避坑-new Array | 有人在代码里下毒，啊……</title>
   <meta name="referrer" content="no-referrer"/>
   
 
@@ -193,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/17/%E5%A4%A7%E8%80%81%E6%9D%BF%E8%B7%9F%E5%89%8D%E9%A2%86%E5%AF%BC%E5%AF%B9%E6%88%91%E8%AE%B2/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/15/js%E9%81%BF%E5%9D%91-new-Array/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -206,7 +205,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          大老板跟前领导对我讲
+          js避坑-new Array
         </h1>
 
         <div class="post-meta">
@@ -216,14 +215,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-10-17 13:24:49" itemprop="dateCreated datePublished" datetime="2021-10-17T13:24:49+00:00">2021-10-17</time>
+              <time title="创建时间：2022-08-15 21:47:31" itemprop="dateCreated datePublished" datetime="2022-08-15T21:47:31+00:00">2022-08-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 14:52:45" itemprop="dateModified" datetime="2021-12-17T14:52:45+00:00">2021-12-17</time>
+                <time title="修改时间：2022-11-20 02:01:41" itemprop="dateModified" datetime="2022-11-20T02:01:41+00:00">2022-11-20</time>
               </span>
 
           
@@ -242,8 +241,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/10/17/%E5%A4%A7%E8%80%81%E6%9D%BF%E8%B7%9F%E5%89%8D%E9%A2%86%E5%AF%BC%E5%AF%B9%E6%88%91%E8%AE%B2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/10/17/%E5%A4%A7%E8%80%81%E6%9D%BF%E8%B7%9F%E5%89%8D%E9%A2%86%E5%AF%BC%E5%AF%B9%E6%88%91%E8%AE%B2/" itemprop="commentCount"></span>
+    <a title="valine" href="/2022/08/15/js%E9%81%BF%E5%9D%91-new-Array/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/15/js%E9%81%BF%E5%9D%91-new-Array/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -258,20 +257,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="大老板对我讲"><a href="#大老板对我讲" class="headerlink" title="大老板对我讲"></a>大老板对我讲</h2><p>做生意<strong>销售是最重要</strong>的。</p>
-<p>只有供应商能挣钱  自己能挣钱 客户能挣钱的生意才是生意，三方有任何一方不挣钱，这个生意做不了。</p>
-<p>怎么打工？进去就<strong>埋头干活</strong>，有好的想法，好的建议就提。一旦给公司<strong>创造了效益</strong>，就去<strong>跟老板谈判</strong>。</p>
-<p>做人做生意都要有格局，没有<strong>格局</strong>成不了大生意，格局就是没钱的时候让家里过好，有钱要让社会好过。</p>
-<p>我现在玩的是资本,也不用担心厉害的员工跳槽,在他的平台下，200+的客户能直接把钱打到账上再去研发相应的产品</p>
-<p>没钱累，要努力挣钱养家。有钱更累，要努力回报社会，没有这个觉悟也做不成生意。</p>
-<p>我佩服任正非这个人</p>
-<h2 id="前领导跟我讲"><a href="#前领导跟我讲" class="headerlink" title="前领导跟我讲"></a>前领导跟我讲</h2><p>最近前华为领导想找我过去帮他做事。两年不联系了，突然找我还是很感动的，还记的我走那天，他在地下车库送我的场景。</p>
-<p>他问我最近过的怎么样？   </p>
-<p>我告诉他挺好的，不会像跟着他的时候天天加班，现在项目组给的工资，给的资源都比在他手下好。现公司领导也器重我，工作上也不忙，没有什么压力。  </p>
-<p>他说：<strong>如果现在工作没有压力，就要考虑换一个赛道</strong></p>
-<h2 id="我"><a href="#我" class="headerlink" title="我"></a>我</h2><p>大老板的公司净利润每年可以在深圳买一套房，据他本人讲做到了行业老二的位置。是我的终极目标。大老板说自己玩的是资本，资本的本质我觉得是他十几年积累的信誉，以及供应链整合能力，而这些不单单是金钱可以衡量的。 </p>
-<p>大老板对员工挺好的，会给员工买车买房。</p>
-<p>前领导让我认识到安逸真的不是我现在想要的，还要继续努力才行呀。一晃就做了4年外包了，是要换个赛道了。</p>
+        <p><code>new Array(8).map(i=&gt;[])</code>这种声明二维数组的方式会报错</p>
+<p>改成 <code>new Array(8).fill().map(i=&gt;[])</code>即可</p>
+<p>报错的原因是 new Array 产生的数组比较特殊 有length 但是没有内容，所以无法迭代</p>
+<p>不过我一般用 <code>Array.form(&#123;length:8&#125;,i=&gt;[])</code>这么初始化</p>
 
     </div>
 
@@ -319,9 +308,6 @@
 
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag"># 生活</a>
-          </div>
 
         
 
@@ -329,12 +315,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/10/09/%E8%BF%99%E4%B8%A4%E7%AF%87%E5%BA%94%E8%AF%A5%E6%98%AF%E6%9C%80%E5%A5%BD%E7%9A%84js-%E5%BE%AE%E4%BB%BB%E5%8A%A1-%E5%AE%8F%E4%BB%BB%E5%8A%A1%E8%AE%B2%E8%A7%A3%E4%BA%86/" rel="prev" title="这两篇应该是最好的js 微任务 宏任务讲解了">
-      <i class="fa fa-chevron-left"></i> 这两篇应该是最好的js 微任务 宏任务讲解了
+    <a href="/2021/12/17/%E5%8D%9A%E5%AE%A2/netlify%E4%BB%8B%E7%BB%8D/" rel="prev" title="netlify介绍">
+      <i class="fa fa-chevron-left"></i> netlify介绍
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/10/22/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Bemoji%E8%A1%A8%E6%83%85%E7%9A%84Unicode%E7%BC%96%E7%A0%81/" rel="next" title="如何查看emoji表情的Unicode编码">
-      如何查看emoji表情的Unicode编码 <i class="fa fa-chevron-right"></i>
+    <a href="/2022/08/15/%E9%9C%80%E6%B1%82%E7%AE%A1%E7%90%86/" rel="next" title="需求管理">
+      需求管理 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -395,7 +381,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E8%80%81%E6%9D%BF%E5%AF%B9%E6%88%91%E8%AE%B2"><span class="nav-number">1.</span> <span class="nav-text">大老板对我讲</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E9%A2%86%E5%AF%BC%E8%B7%9F%E6%88%91%E8%AE%B2"><span class="nav-number">2.</span> <span class="nav-text">前领导跟我讲</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91"><span class="nav-number">3.</span> <span class="nav-text">我</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -409,7 +394,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">123</span>
+          <span class="site-state-item-count">130</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -422,7 +407,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -457,7 +442,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

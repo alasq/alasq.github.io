@@ -186,6 +186,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>Chrome dev Tools 打开缓慢</title>
+    <url>/2022/08/15/Chrome-dev-Tools-%E6%89%93%E5%BC%80%E7%BC%93%E6%85%A2/</url>
+    <content><![CDATA[<p>之前把开发者工具设置成中文了，然后发现还是英文用着习惯了，就切回了英文。但是切的是UK而不是US，导致打开的时候巨慢。</p>
+<p>遇到同样问题的同学一定记得语言要切回US才行</p>
+]]></content>
+      <tags>
+        <tag>devtools</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>babel与core-js</title>
     <url>/2021/12/09/babel%E4%B8%8Ecore-js%E7%9A%84%E5%85%B3%E7%B3%BB/</url>
     <content><![CDATA[<h1 id="babel-垫片是什么"><a href="#babel-垫片是什么" class="headerlink" title="babel,垫片是什么?"></a>babel,垫片是什么?</h1><ol>
@@ -237,6 +247,29 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       <tags>
         <tag>html</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>js踩坑 isNaN(null)返回的是false</title>
+    <url>/2022/08/15/js%E8%B8%A9%E5%9D%91-isNaN-null-%E8%BF%94%E5%9B%9E%E7%9A%84%E6%98%AFfalse/</url>
+    <content><![CDATA[<p><code>isNaN(null) === false</code> 按照方法名的字面意思  null不是一个数组,没毛病。<br>但是这个方法认为是一个数字，它的逻辑是先用<code>Number(null)</code>得到<code>0</code>,0是数字,所以等式成立。</p>
+<p><code>[&#39;&#39;]==false</code>这个也是成立的哟</p>
+<ul>
+<li>隐式转换规则,跟字符串比都转字符串比较,跟数字比转数字,布尔值当数字<code>0</code>跟<code>1</code>看待,对象的话用<code>valueOf</code>拿值,拿到的如果不是原始值就<code>toString</code>后比较</li>
+<li><code>[&#39;&#39;].toString()</code>得到’’ 右边是false</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js避坑-new Array</title>
+    <url>/2022/08/15/js%E9%81%BF%E5%9D%91-new-Array/</url>
+    <content><![CDATA[<p><code>new Array(8).map(i=&gt;[])</code>这种声明二维数组的方式会报错</p>
+<p>改成 <code>new Array(8).fill().map(i=&gt;[])</code>即可</p>
+<p>报错的原因是 new Array 产生的数组比较特殊 有length 但是没有内容，所以无法迭代</p>
+<p>不过我一般用 <code>Array.form(&#123;length:8&#125;,i=&gt;[])</code>这么初始化</p>
+]]></content>
   </entry>
   <entry>
     <title>promise分步请求接口</title>
@@ -360,6 +393,26 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>图片打包优化</title>
+    <url>/2022/08/15/%E5%9B%BE%E7%89%87%E6%89%93%E5%8C%85%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<p>UI设计师给的图片（Icon）有时候出奇的大</p>
+<p>有两种方案解决，精灵图（雪碧图），不过这种要输出css文件，还要改代码。不想动代码的情况下，我们直接使用另一种 无损压缩下图片再替换掉原图提交到代码仓库即可</p>
+<h1 id="使用PS批处理图片"><a href="#使用PS批处理图片" class="headerlink" title="使用PS批处理图片"></a>使用PS批处理图片</h1><ol>
+<li>录制动作-》打开图片-》储存为web格式-》保存动作</li>
+<li>文件-》自动-》批处理-》选中文件夹-》选中刚保存的动作</li>
+</ol>
+<h1 id="使用npm图片压缩工具-imgmin"><a href="#使用npm图片压缩工具-imgmin" class="headerlink" title="使用npm图片压缩工具 imgmin"></a>使用npm图片压缩工具 imgmin</h1><p>imgmin包含了下面的模块，分别用于gif jpg png svg格式压缩</p>
+<ul>
+<li>gifsicle</li>
+<li>mozjpeg</li>
+<li>optipng</li>
+<li>svgo</li>
+</ul>
+<p>这几个工具都用到了C模块</p>
+<h1 id="webpack-img-loader-不推荐"><a href="#webpack-img-loader-不推荐" class="headerlink" title="webpack img-loader(不推荐)"></a>webpack img-loader(不推荐)</h1><p>不推荐的原因是压缩图片一般是一次性的动作，而且耗时较长，另外原图提交到仓库，别的同学下载也麻烦</p>
+]]></content>
+  </entry>
+  <entry>
     <title>基于strapi gridsome技术架构的内容管理系统(CMS)</title>
     <url>/2021/09/09/%E5%9F%BA%E4%BA%8Estrapi-gridsome%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84%E7%9A%84%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F-CMS/</url>
     <content><![CDATA[<p><a href="https://strapi.io/">strapi</a>是目前github上最流行的基于nodejs 的Handless CMS项目。</p>
@@ -377,28 +430,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <p>最基础的站点，大概首次投入7000元。后续1000/年。就可以长期运行下去了。</p>
 <p>有需要做网站的可以留言联系我(微信号:sq88sq)</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>大老板跟前领导对我讲</title>
-    <url>/2021/10/17/%E5%A4%A7%E8%80%81%E6%9D%BF%E8%B7%9F%E5%89%8D%E9%A2%86%E5%AF%BC%E5%AF%B9%E6%88%91%E8%AE%B2/</url>
-    <content><![CDATA[<h2 id="大老板对我讲"><a href="#大老板对我讲" class="headerlink" title="大老板对我讲"></a>大老板对我讲</h2><p>做生意<strong>销售是最重要</strong>的。</p>
-<p>只有供应商能挣钱  自己能挣钱 客户能挣钱的生意才是生意，三方有任何一方不挣钱，这个生意做不了。</p>
-<p>怎么打工？进去就<strong>埋头干活</strong>，有好的想法，好的建议就提。一旦给公司<strong>创造了效益</strong>，就去<strong>跟老板谈判</strong>。</p>
-<p>做人做生意都要有格局，没有<strong>格局</strong>成不了大生意，格局就是没钱的时候让家里过好，有钱要让社会好过。</p>
-<p>我现在玩的是资本,也不用担心厉害的员工跳槽,在他的平台下，200+的客户能直接把钱打到账上再去研发相应的产品</p>
-<p>没钱累，要努力挣钱养家。有钱更累，要努力回报社会，没有这个觉悟也做不成生意。</p>
-<p>我佩服任正非这个人</p>
-<h2 id="前领导跟我讲"><a href="#前领导跟我讲" class="headerlink" title="前领导跟我讲"></a>前领导跟我讲</h2><p>最近前华为领导想找我过去帮他做事。两年不联系了，突然找我还是很感动的，还记的我走那天，他在地下车库送我的场景。</p>
-<p>他问我最近过的怎么样？   </p>
-<p>我告诉他挺好的，不会像跟着他的时候天天加班，现在项目组给的工资，给的资源都比在他手下好。现公司领导也器重我，工作上也不忙，没有什么压力。  </p>
-<p>他说：<strong>如果现在工作没有压力，就要考虑换一个赛道</strong></p>
-<h2 id="我"><a href="#我" class="headerlink" title="我"></a>我</h2><p>大老板的公司净利润每年可以在深圳买一套房，据他本人讲做到了行业老二的位置。是我的终极目标。大老板说自己玩的是资本，资本的本质我觉得是他十几年积累的信誉，以及供应链整合能力，而这些不单单是金钱可以衡量的。 </p>
-<p>大老板对员工挺好的，会给员工买车买房。</p>
-<p>前领导让我认识到安逸真的不是我现在想要的，还要继续努力才行呀。一晃就做了4年外包了，是要换个赛道了。</p>
-]]></content>
-      <tags>
-        <tag>生活</tag>
-      </tags>
   </entry>
   <entry>
     <title>如何查看emoji表情的Unicode编码</title>
@@ -424,6 +455,20 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
   </entry>
   <entry>
+    <title>无js的菜单栏收缩与折叠动画</title>
+    <url>/2022/08/15/%E6%97%A0js%E7%9A%84tab%E6%A0%8F%E6%94%B6%E7%BC%A9%E4%B8%8E%E6%8A%98%E5%8F%A0%E5%8A%A8%E7%94%BB/</url>
+    <content><![CDATA[<p>菜单栏收缩主要使用下面的样式实现</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">nav</span><span class="selector-pseudo">:hover</span>,<span class="selector-tag">nav</span><span class="selector-pseudo">:focus</span>-within&#123;</span><br><span class="line">   <span class="attribute">transform</span>:<span class="built_in">translateX</span>(<span class="number">100%</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>折叠面板动画</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">details</span><span class="selector-attr">[open]</span> <span class="selector-tag">summary</span> ~ *&#123;</span><br><span class="line">  <span class="attribute">animation</span>:sweep .<span class="number">5s</span> ease-in-out</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@keyframs</span> sweep&#123;</span><br><span class="line">  <span class="number">0%</span> &#123;opcity:<span class="number">0</span>;<span class="attribute">margin-left</span>:-<span class="number">10px</span>&#125;</span><br><span class="line">  <span class="number">100%</span> &#123;opcity:<span class="number">100</span>;<span class="attribute">margin-left</span>:<span class="number">0px</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>html</tag>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>极致简洁的微前端框架-京东MicroApp开源了</title>
     <url>/2021/09/25/%E6%9E%81%E8%87%B4%E7%AE%80%E6%B4%81%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6-%E4%BA%AC%E4%B8%9CMicroApp%E5%BC%80%E6%BA%90%E4%BA%86/</url>
     <content><![CDATA[<p>原文地址 <a href="https://article.itxueyuan.com/ylqMxp">https://article.itxueyuan.com/ylqMxp</a></p>
@@ -447,6 +492,20 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <h2 id="深度优先"><a href="#深度优先" class="headerlink" title="深度优先"></a>深度优先</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foreach</span>(<span class="params">data,callback</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> data) &#123;</span><br><span class="line">    <span class="keyword">if</span>(item.childrens)&#123;</span><br><span class="line">      foreach(item.childrens)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      callback(item)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>代码片段</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>水印样式处理</title>
+    <url>/2022/08/15/%E6%B0%B4%E5%8D%B0%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<p>水印一般要求zIndex层级特别高，但是又不能影响到点击事件</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;height:0;width:100%;pointer-events:none&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;height:50px;width:50px:position:absolute;top:50px;z-index:100000000;transform:rotate(45deg)&quot;</span>&gt;</span></span><br><span class="line">    LOGO</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>外层声明一个高度0的容器，并给上<code>pointer-events:none</code>取消鼠标事件</li>
+<li>内层水印给上很高的z-Index也不会影响到用户操作咯</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -527,6 +586,19 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>web安全</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>需求管理</title>
+    <url>/2022/08/15/%E9%9C%80%E6%B1%82%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<ul>
+<li>OR 原始需求，可能会涉及到多个系统 SE输出</li>
+<li>SR 系统需求，单系统，开发PL输出，原始需求分解到单系统的大颗粒需求</li>
+<li>DR 开发需求，单系统的具体模块，需要拆解成可编码的模块</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>项目管理</tag>
       </tags>
   </entry>
   <entry>
@@ -1271,6 +1343,20 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>rust</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>wa-lang windows踩坑指南</title>
+    <url>/2022/11/20/wa-lang/wa%20windows%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<h1 id="wa-lang-windows系统初体验"><a href="#wa-lang-windows系统初体验" class="headerlink" title="wa-lang windows系统初体验"></a>wa-lang windows系统初体验</h1><p><img src="images/2022-11-19-15-49-38.png"><br>按照官网的执行的install，嗯安装不上，应该是被墙了？<br>不过翻墙后仍然报错!!</p>
+<p>于是从gitee上下载了源代码,执行了<code>go install .</code>，报错如下</p>
+<p><img src="images/2022-11-19-15-51-50.png"></p>
+<p>于是网上找了下国内的镜像仓库，安装成功，但是 <code>wa 不是内部或外部命令</code><br><img src="images/2022-11-19-15-53-20.png"></p>
+<p>在项目目录下创建一个<code>wa.cmd</code>来执行下<code>go run main.go %*</code>,这样也能愉快的执行wa命令咯,效果如下<br><img src="images/2022-11-19-16-02-13.png"></p>
+<p>后来检查了下 install 的时候会在 $home/go/bin目录创建 wa.exe的,配置下这个目录的地址到path就行了,最根本的原因是系统中的 $GO_PATH没有设置对。</p>
+]]></content>
+      <tags>
+        <tag>wa-lang</tag>
       </tags>
   </entry>
   <entry>

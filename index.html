@@ -187,6 +187,673 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/20/wa-lang/wa%20windows%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/20/wa-lang/wa%20windows%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">wa-lang windows踩坑指南</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-11-20 00:00:00 / 修改时间：02:01:41" itemprop="dateCreated datePublished" datetime="2022-11-20T00:00:00+00:00">2022-11-20</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/11/20/wa-lang/wa%20windows%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/11/20/wa-lang/wa%20windows%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="wa-lang-windows系统初体验"><a href="#wa-lang-windows系统初体验" class="headerlink" title="wa-lang windows系统初体验"></a>wa-lang windows系统初体验</h1><p><img src="images/2022-11-19-15-49-38.png"><br>按照官网的执行的install，嗯安装不上，应该是被墙了？<br>不过翻墙后仍然报错!!</p>
+<p>于是从gitee上下载了源代码,执行了<code>go install .</code>，报错如下</p>
+<p><img src="images/2022-11-19-15-51-50.png"></p>
+<p>于是网上找了下国内的镜像仓库，安装成功，但是 <code>wa 不是内部或外部命令</code><br><img src="images/2022-11-19-15-53-20.png"></p>
+<p>在项目目录下创建一个<code>wa.cmd</code>来执行下<code>go run main.go %*</code>,这样也能愉快的执行wa命令咯,效果如下<br><img src="images/2022-11-19-16-02-13.png"></p>
+<p>后来检查了下 install 的时候会在 $home/go/bin目录创建 wa.exe的,配置下这个目录的地址到path就行了,最根本的原因是系统中的 $GO_PATH没有设置对。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/15/%E6%97%A0js%E7%9A%84tab%E6%A0%8F%E6%94%B6%E7%BC%A9%E4%B8%8E%E6%8A%98%E5%8F%A0%E5%8A%A8%E7%94%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/15/%E6%97%A0js%E7%9A%84tab%E6%A0%8F%E6%94%B6%E7%BC%A9%E4%B8%8E%E6%8A%98%E5%8F%A0%E5%8A%A8%E7%94%BB/" class="post-title-link" itemprop="url">无js的菜单栏收缩与折叠动画</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-08-15 22:33:37" itemprop="dateCreated datePublished" datetime="2022-08-15T22:33:37+00:00">2022-08-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-20 02:01:41" itemprop="dateModified" datetime="2022-11-20T02:01:41+00:00">2022-11-20</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/08/15/%E6%97%A0js%E7%9A%84tab%E6%A0%8F%E6%94%B6%E7%BC%A9%E4%B8%8E%E6%8A%98%E5%8F%A0%E5%8A%A8%E7%94%BB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/15/%E6%97%A0js%E7%9A%84tab%E6%A0%8F%E6%94%B6%E7%BC%A9%E4%B8%8E%E6%8A%98%E5%8F%A0%E5%8A%A8%E7%94%BB/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>菜单栏收缩主要使用下面的样式实现</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">nav</span><span class="selector-pseudo">:hover</span>,<span class="selector-tag">nav</span><span class="selector-pseudo">:focus</span>-within&#123;</span><br><span class="line">   <span class="attribute">transform</span>:<span class="built_in">translateX</span>(<span class="number">100%</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>折叠面板动画</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">details</span><span class="selector-attr">[open]</span> <span class="selector-tag">summary</span> ~ *&#123;</span><br><span class="line">  <span class="attribute">animation</span>:sweep .<span class="number">5s</span> ease-in-out</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@keyframs</span> sweep&#123;</span><br><span class="line">  <span class="number">0%</span> &#123;opcity:<span class="number">0</span>;<span class="attribute">margin-left</span>:-<span class="number">10px</span>&#125;</span><br><span class="line">  <span class="number">100%</span> &#123;opcity:<span class="number">100</span>;<span class="attribute">margin-left</span>:<span class="number">0px</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/15/js%E8%B8%A9%E5%9D%91-isNaN-null-%E8%BF%94%E5%9B%9E%E7%9A%84%E6%98%AFfalse/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/15/js%E8%B8%A9%E5%9D%91-isNaN-null-%E8%BF%94%E5%9B%9E%E7%9A%84%E6%98%AFfalse/" class="post-title-link" itemprop="url">js踩坑 isNaN(null)返回的是false</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-08-15 22:13:56" itemprop="dateCreated datePublished" datetime="2022-08-15T22:13:56+00:00">2022-08-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-20 02:01:41" itemprop="dateModified" datetime="2022-11-20T02:01:41+00:00">2022-11-20</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/08/15/js%E8%B8%A9%E5%9D%91-isNaN-null-%E8%BF%94%E5%9B%9E%E7%9A%84%E6%98%AFfalse/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/15/js%E8%B8%A9%E5%9D%91-isNaN-null-%E8%BF%94%E5%9B%9E%E7%9A%84%E6%98%AFfalse/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><code>isNaN(null) === false</code> 按照方法名的字面意思  null不是一个数组,没毛病。<br>但是这个方法认为是一个数字，它的逻辑是先用<code>Number(null)</code>得到<code>0</code>,0是数字,所以等式成立。</p>
+<p><code>[&#39;&#39;]==false</code>这个也是成立的哟</p>
+<ul>
+<li>隐式转换规则,跟字符串比都转字符串比较,跟数字比转数字,布尔值当数字<code>0</code>跟<code>1</code>看待,对象的话用<code>valueOf</code>拿值,拿到的如果不是原始值就<code>toString</code>后比较</li>
+<li><code>[&#39;&#39;].toString()</code>得到’’ 右边是false</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/15/Chrome-dev-Tools-%E6%89%93%E5%BC%80%E7%BC%93%E6%85%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/15/Chrome-dev-Tools-%E6%89%93%E5%BC%80%E7%BC%93%E6%85%A2/" class="post-title-link" itemprop="url">Chrome dev Tools 打开缓慢</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-08-15 22:09:47" itemprop="dateCreated datePublished" datetime="2022-08-15T22:09:47+00:00">2022-08-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-20 02:01:41" itemprop="dateModified" datetime="2022-11-20T02:01:41+00:00">2022-11-20</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/08/15/Chrome-dev-Tools-%E6%89%93%E5%BC%80%E7%BC%93%E6%85%A2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/15/Chrome-dev-Tools-%E6%89%93%E5%BC%80%E7%BC%93%E6%85%A2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>之前把开发者工具设置成中文了，然后发现还是英文用着习惯了，就切回了英文。但是切的是UK而不是US，导致打开的时候巨慢。</p>
+<p>遇到同样问题的同学一定记得语言要切回US才行</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/15/%E6%B0%B4%E5%8D%B0%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/15/%E6%B0%B4%E5%8D%B0%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">水印样式处理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-08-15 22:01:22" itemprop="dateCreated datePublished" datetime="2022-08-15T22:01:22+00:00">2022-08-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-20 02:01:41" itemprop="dateModified" datetime="2022-11-20T02:01:41+00:00">2022-11-20</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/08/15/%E6%B0%B4%E5%8D%B0%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/15/%E6%B0%B4%E5%8D%B0%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>水印一般要求zIndex层级特别高，但是又不能影响到点击事件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;height:0;width:100%;pointer-events:none&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;height:50px;width:50px:position:absolute;top:50px;z-index:100000000;transform:rotate(45deg)&quot;</span>&gt;</span></span><br><span class="line">    LOGO</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>外层声明一个高度0的容器，并给上<code>pointer-events:none</code>取消鼠标事件</li>
+<li>内层水印给上很高的z-Index也不会影响到用户操作咯</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/15/%E5%9B%BE%E7%89%87%E6%89%93%E5%8C%85%E4%BC%98%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/15/%E5%9B%BE%E7%89%87%E6%89%93%E5%8C%85%E4%BC%98%E5%8C%96/" class="post-title-link" itemprop="url">图片打包优化</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-08-15 21:53:52" itemprop="dateCreated datePublished" datetime="2022-08-15T21:53:52+00:00">2022-08-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-20 02:01:41" itemprop="dateModified" datetime="2022-11-20T02:01:41+00:00">2022-11-20</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/08/15/%E5%9B%BE%E7%89%87%E6%89%93%E5%8C%85%E4%BC%98%E5%8C%96/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/15/%E5%9B%BE%E7%89%87%E6%89%93%E5%8C%85%E4%BC%98%E5%8C%96/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>UI设计师给的图片（Icon）有时候出奇的大</p>
+<p>有两种方案解决，精灵图（雪碧图），不过这种要输出css文件，还要改代码。不想动代码的情况下，我们直接使用另一种 无损压缩下图片再替换掉原图提交到代码仓库即可</p>
+<h1 id="使用PS批处理图片"><a href="#使用PS批处理图片" class="headerlink" title="使用PS批处理图片"></a>使用PS批处理图片</h1><ol>
+<li>录制动作-》打开图片-》储存为web格式-》保存动作</li>
+<li>文件-》自动-》批处理-》选中文件夹-》选中刚保存的动作</li>
+</ol>
+<h1 id="使用npm图片压缩工具-imgmin"><a href="#使用npm图片压缩工具-imgmin" class="headerlink" title="使用npm图片压缩工具 imgmin"></a>使用npm图片压缩工具 imgmin</h1><p>imgmin包含了下面的模块，分别用于gif jpg png svg格式压缩</p>
+<ul>
+<li>gifsicle</li>
+<li>mozjpeg</li>
+<li>optipng</li>
+<li>svgo</li>
+</ul>
+<p>这几个工具都用到了C模块</p>
+<h1 id="webpack-img-loader-不推荐"><a href="#webpack-img-loader-不推荐" class="headerlink" title="webpack img-loader(不推荐)"></a>webpack img-loader(不推荐)</h1><p>不推荐的原因是压缩图片一般是一次性的动作，而且耗时较长，另外原图提交到仓库，别的同学下载也麻烦</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/15/%E9%9C%80%E6%B1%82%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/15/%E9%9C%80%E6%B1%82%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">需求管理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-08-15 21:51:06" itemprop="dateCreated datePublished" datetime="2022-08-15T21:51:06+00:00">2022-08-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-20 02:01:41" itemprop="dateModified" datetime="2022-11-20T02:01:41+00:00">2022-11-20</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/08/15/%E9%9C%80%E6%B1%82%E7%AE%A1%E7%90%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/15/%E9%9C%80%E6%B1%82%E7%AE%A1%E7%90%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li>OR 原始需求，可能会涉及到多个系统 SE输出</li>
+<li>SR 系统需求，单系统，开发PL输出，原始需求分解到单系统的大颗粒需求</li>
+<li>DR 开发需求，单系统的具体模块，需要拆解成可编码的模块</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/15/js%E9%81%BF%E5%9D%91-new-Array/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/15/js%E9%81%BF%E5%9D%91-new-Array/" class="post-title-link" itemprop="url">js避坑-new Array</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-08-15 21:47:31" itemprop="dateCreated datePublished" datetime="2022-08-15T21:47:31+00:00">2022-08-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-20 02:01:41" itemprop="dateModified" datetime="2022-11-20T02:01:41+00:00">2022-11-20</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/08/15/js%E9%81%BF%E5%9D%91-new-Array/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/15/js%E9%81%BF%E5%9D%91-new-Array/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><code>new Array(8).map(i=&gt;[])</code>这种声明二维数组的方式会报错</p>
+<p>改成 <code>new Array(8).fill().map(i=&gt;[])</code>即可</p>
+<p>报错的原因是 new Array 产生的数组比较特殊 有length 但是没有内容，所以无法迭代</p>
+<p>不过我一般用 <code>Array.form(&#123;length:8&#125;,i=&gt;[])</code>这么初始化</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/17/%E5%8D%9A%E5%AE%A2/netlify%E4%BB%8B%E7%BB%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -210,10 +877,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-12-17 22:20:04 / 修改时间：14:52:45" itemprop="dateCreated datePublished" datetime="2021-12-17T22:20:04+00:00">2021-12-17</time>
+              <time title="创建时间：2021-12-17 22:20:04" itemprop="dateCreated datePublished" datetime="2021-12-17T22:20:04+00:00">2021-12-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-20 02:01:41" itemprop="dateModified" datetime="2022-11-20T02:01:41+00:00">2022-11-20</time>
+              </span>
 
           
   
@@ -302,7 +975,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 14:52:45" itemprop="dateModified" datetime="2021-12-17T14:52:45+00:00">2021-12-17</time>
+                <time title="修改时间：2022-11-20 02:01:41" itemprop="dateModified" datetime="2022-11-20T02:01:41+00:00">2022-11-20</time>
               </span>
 
           
@@ -348,795 +1021,6 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;presets&quot;</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">&quot;@babel/preset-env&quot;</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">&quot;useBuiltIns&quot;</span>: <span class="string">&quot;usage&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">&quot;plugins&quot;</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">&quot;@babel/plugin-transform-runtime&quot;</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">&quot;corejs&quot;</span>: <span class="number">3</span> <span class="comment">// 指定 runtime-corejs 的版本，目前有 2 3 两个版本</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>core-js 是一个通用的垫片仓库,babel的垫片相关功能依赖core-js</p>
 <p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/01/babel.html">http://www.ruanyifeng.com/blog/2016/01/babel.html</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/09/%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E4%B8%BB%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/12/09/%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E4%B8%BB%E9%A2%98/" class="post-title-link" itemprop="url">css冷门知识-获取windows系统主题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-09 21:55:11" itemprop="dateCreated datePublished" datetime="2021-12-09T21:55:11+00:00">2021-12-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 14:52:45" itemprop="dateModified" datetime="2021-12-17T14:52:45+00:00">2021-12-17</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/12/09/%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E4%B8%BB%E9%A2%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/12/09/%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E4%B8%BB%E9%A2%98/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="使用-matchMedia-API找到-MediaQueryList-对象"><a href="#使用-matchMedia-API找到-MediaQueryList-对象" class="headerlink" title="使用 matchMedia API找到 MediaQueryList 对象"></a>使用 <code>matchMedia</code> API找到 <code>MediaQueryList</code> 对象</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span>  mqList = <span class="built_in">window</span>.matchMedia(<span class="string">&quot;(prefers-color-scheme:dark)&quot;</span>)</span><br><span class="line"><span class="keyword">if</span>(mqList.matches)&#123;<span class="comment">//匹配上了,说明windows使用的是黑暗主题模式</span></span><br><span class="line">  <span class="comment">// <span class="doctag">TODO:</span> 将我们网页的主题设置成暗黑模式</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li>媒体查询的类型 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">https://developer.mozilla.org/en-US/docs/Web/CSS/@media</a> </li>
-<li> <code>matchMedia</code>API介绍 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia">https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia</a> </li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/27/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84-webpack5-Module-Federation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/27/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84-webpack5-Module-Federation/" class="post-title-link" itemprop="url">前端架构 webpack5 Module Federation</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-27 21:25:45" itemprop="dateCreated datePublished" datetime="2021-11-27T21:25:45+00:00">2021-11-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 14:52:45" itemprop="dateModified" datetime="2021-12-17T14:52:45+00:00">2021-12-17</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/11/27/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84-webpack5-Module-Federation/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/11/27/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84-webpack5-Module-Federation/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h1><p>A组: 维护一个UI组件库<br>B组: 维护一个单页APP,内部有很多公共函数库,业务相关组件<br>C组: 新建一个单页APP,需要用到A组的UI组件库,B组项目的公共函数库,部分业务组件</p>
-<h1 id="前端模块化的现有方案"><a href="#前端模块化的现有方案" class="headerlink" title="前端模块化的现有方案"></a>前端模块化的现有方案</h1><p>A组将UI库发布到npm仓库,B组将公共函数库作为单独的npm包发布,业务组件拷贝一份到C组的代码库</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
-<li>B组的改动量大</li>
-<li>B组每次公共函数库的改动,需要通知到C组重新发布</li>
-<li>业务组件改动,BC两组都要进行修改</li>
-</ol>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>函数库与业务组件都打成umd模块放到静态资源服务器上,C组以script标签动态引入,以AMD模块的使用方式从window作用域下使用</p>
-<h2 id="继而产生的后续问题"><a href="#继而产生的后续问题" class="headerlink" title="继而产生的后续问题"></a>继而产生的后续问题</h2><ol>
-<li>污染window作用域下命名空间</li>
-<li>打出来的umd模块需要是完整的,包含全部依赖,体积很大</li>
-<li>随着要封装暴露的entry越来越多,打包时间越来越长</li>
-</ol>
-<h1 id="Module-Federation-模块共享解决方案"><a href="#Module-Federation-模块共享解决方案" class="headerlink" title="Module Federation 模块共享解决方案"></a>Module Federation 模块共享解决方案</h1><h2 id="B组项目修改webpack配置-将公共函数库-公用的业务组件使用ModuleFederationPlugin-插件配置成共享模块"><a href="#B组项目修改webpack配置-将公共函数库-公用的业务组件使用ModuleFederationPlugin-插件配置成共享模块" class="headerlink" title="B组项目修改webpack配置,将公共函数库,公用的业务组件使用ModuleFederationPlugin 插件配置成共享模块"></a>B组项目修改webpack配置,将公共函数库,公用的业务组件使用<code>ModuleFederationPlugin</code> 插件配置成共享模块</h2><figure class="highlight js"><figcaption><span>B组项目webpack配置</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 假设B组的页面部署到 www.baidu.com/businessB/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123;ModuleFederationPlugin&#125;=<span class="built_in">require</span>(<span class="string">&quot;webpack&quot;</span>).container</span><br><span class="line"><span class="keyword">const</span> config = &#123;</span><br><span class="line">   ...otherConfigs</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> ModuleFederationPlugin(&#123;</span><br><span class="line">      name: <span class="string">&quot;appB&quot;</span>,</span><br><span class="line">      filename:<span class="string">&quot;remoteEntry.js&quot;</span>,</span><br><span class="line">      exposes: &#123;</span><br><span class="line">        <span class="string">&#x27;./util&#x27;</span>: <span class="string">&#x27;./src/util&#x27;</span>, <span class="comment">//需要共享的公共函数库 </span></span><br><span class="line">        <span class="string">&#x27;./hero-list&#x27;</span>: <span class="string">&#x27;./src/components/hero-list&#x27;</span>,<span class="comment">//需要共享的业务组件 英雄列表</span></span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="C组使用ModuleFederationPlugin-插件配置配置B组发布到环境上的远程模块"><a href="#C组使用ModuleFederationPlugin-插件配置配置B组发布到环境上的远程模块" class="headerlink" title="C组使用ModuleFederationPlugin 插件配置配置B组发布到环境上的远程模块"></a>C组使用<code>ModuleFederationPlugin</code> 插件配置配置B组发布到环境上的远程模块</h2><p>假设C组的页面部署到 <a target="_blank" rel="noopener" href="http://www.baidu.com/businessC/">www.baidu.com/businessC/</a></p>
-<figure class="highlight js"><figcaption><span>C组项目webpack配置</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> config = &#123;</span><br><span class="line">   ...otherConfigs</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> ModuleFederationPlugin(&#123;</span><br><span class="line">      remotes: &#123;</span><br><span class="line">        appB: <span class="string">&quot;appB@//www.baidu.com/businessB/remoteEntry.js&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight html"><figcaption><span>C组的主页面</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/businessB/remoteEntry.js&quot;</span> <span class="attr">defer</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./main.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span> </span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> util = <span class="keyword">await</span> <span class="keyword">import</span>(<span class="string">&#x27;appB/util&#x27;</span>)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight html"><figcaption><span>component.vue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line">  components:&#123;</span><br><span class="line"><span class="javascript">    heroList:<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&quot;appB/hero-list&quot;</span>)</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="完整的-DEMO"><a href="#完整的-DEMO" class="headerlink" title="完整的 DEMO"></a>完整的 DEMO</h2><p><a target="_blank" rel="noopener" href="https://stackblitz.com/github/webpack/webpack.js.org/tree/master/examples/module-federation?terminal=start&amp;terminal=">https://stackblitz.com/github/webpack/webpack.js.org/tree/master/examples/module-federation?terminal=start&amp;terminal=</a></p>
-<h3 id="external-remotes-plugin-可以从window作用域下动态获取远程仓库的地址"><a href="#external-remotes-plugin-可以从window作用域下动态获取远程仓库的地址" class="headerlink" title="external-remotes-plugin 可以从window作用域下动态获取远程仓库的地址"></a>external-remotes-plugin 可以从window作用域下动态获取远程仓库的地址</h3><p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/external-remotes-plugin">https://www.npmjs.com/package/external-remotes-plugin</a></p>
-<figure class="highlight js"><figcaption><span>host config</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> config = &#123;</span><br><span class="line">   ...otherConfigs</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> ModuleFederationPlugin(&#123;</span><br><span class="line">      name: <span class="string">&quot;app1&quot;</span>,</span><br><span class="line">      remotes: &#123;</span><br><span class="line">        app2: <span class="string">&quot;app2@[window.app2Url]/remoteEntry.js&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;).</span><br><span class="line">    <span class="keyword">new</span> ExternalTemplateRemotesPlugin(),</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><figcaption><span>host main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.app2Url = <span class="string">&quot;//localhost:3002&quot;</span>; <span class="comment">// Whatever the url/logic to determine your remote module is</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span>(<span class="string">&quot;./bootstrap&quot;</span>);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/25/%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%E8%B7%AF%E7%94%B1%E5%88%87%E6%8D%A2%E6%8E%A5%E5%8F%A3%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/25/%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%E8%B7%AF%E7%94%B1%E5%88%87%E6%8D%A2%E6%8E%A5%E5%8F%A3%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">单页应用路由切换接口问题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-25 08:25:17" itemprop="dateCreated datePublished" datetime="2021-11-25T08:25:17+00:00">2021-11-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 14:52:45" itemprop="dateModified" datetime="2021-12-17T14:52:45+00:00">2021-12-17</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/11/25/%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%E8%B7%AF%E7%94%B1%E5%88%87%E6%8D%A2%E6%8E%A5%E5%8F%A3%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/11/25/%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%E8%B7%AF%E7%94%B1%E5%88%87%E6%8D%A2%E6%8E%A5%E5%8F%A3%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>页面跳转的时候,处于异步请求的接口会自动被去取消掉，但是单页应用没有这种机制。我们需要手动实现。<br>axios是基于Promise的。本身对外暴露了一个 cancelToken的配置项用于取消,实际开发中需要在路由跳转的钩子中使用。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> CancelToken = axios.CancelToken;</span><br><span class="line"><span class="keyword">const</span> source = CancelToken.source();</span><br><span class="line"></span><br><span class="line">axios.get(<span class="string">&#x27;/user/12345&#x27;</span>, &#123;</span><br><span class="line">  cancelToken: source.token</span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">thrown</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (axios.isCancel(thrown)) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Request canceled&#x27;</span>, thrown.message);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     <span class="comment">// 处理错误</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">axios.post(<span class="string">&#x27;/user/12345&#x27;</span>, &#123;</span><br><span class="line">  name: <span class="string">&#x27;new name&#x27;</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  cancelToken: source.token</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取消请求（message 参数是可选的）</span></span><br><span class="line">source.cancel(<span class="string">&#x27;Operation canceled by the user.&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>底层实现主要依靠  </p>
-<p><code>xhr abort</code><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/abort">https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/abort</a></p>
-<p><code>AbortController</code>与<code>fetch</code><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController">https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/23/2021%E5%B9%B4web%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98Top10/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/23/2021%E5%B9%B4web%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98Top10/" class="post-title-link" itemprop="url">2021年web安全问题Top10</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-23 20:46:45" itemprop="dateCreated datePublished" datetime="2021-11-23T20:46:45+00:00">2021-11-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 14:52:45" itemprop="dateModified" datetime="2021-12-17T14:52:45+00:00">2021-12-17</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/11/23/2021%E5%B9%B4web%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98Top10/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/11/23/2021%E5%B9%B4web%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98Top10/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>原文: <a target="_blank" rel="noopener" href="https://owasp.org/Top10/zh_TW/">https://owasp.org/Top10/zh_TW/</a></p>
-<h2 id="1-权限失效"><a href="#1-权限失效" class="headerlink" title="1. 权限失效"></a>1. 权限失效</h2><ul>
-<li>横向越权 A用户能查看,编辑B用户的数据</li>
-<li>纵向越权,特权提升 租户能看到管理员的数据,普通用户能看到租户的数据,未登录的用户能看到登录用户的功能</li>
-<li>通过修改URL,应用状态,不应该访问到的页面可以被访问到,通过API攻击工具,绕过页面鉴权</li>
-<li>CROS配置错误,可以让未经授权的API存取</li>
-</ul>
-<h2 id="2-加密机制失效"><a href="#2-加密机制失效" class="headerlink" title="2. 加密机制失效"></a>2. 加密机制失效</h2><ul>
-<li>使用了老旧的加密算法</li>
-<li>密码多系统重复使用</li>
-<li>明文存储密码</li>
-<li>以http smtp fpt 等协议明文传输</li>
-<li>使用默认密码</li>
-<li>密码过期机制</li>
-<li>密码没有被加盐加密存储</li>
-</ul>
-<h2 id="3-注入攻击"><a href="#3-注入攻击" class="headerlink" title="3. 注入攻击"></a>3. 注入攻击</h2><ul>
-<li>使用者提供的数据应该被处理,验证,过滤后保存</li>
-<li>查询参数没有被转义,尽量做到无参数调用</li>
-<li>ORM 对象查询参数注入</li>
-<li>SQL注入</li>
-</ul>
-<h2 id="4-不安全设计"><a href="#4-不安全设计" class="headerlink" title="4. 不安全设计"></a>4. 不安全设计</h2><ul>
-<li>使用安全问题找回密码,可能问题不止本人一个人知道</li>
-<li>预定团体票折扣,没有设置最大人数限制，而且押金只需要支付15人。被人恶意一次性订购了600张电影票，或者全部的电影票</li>
-<li>订票软件没有防机器人抢票，票都被黄牛抢了</li>
-</ul>
-<h2 id="5-安全配置错误"><a href="#5-安全配置错误" class="headerlink" title="5. 安全配置错误"></a>5. 安全配置错误</h2><ul>
-<li>启用或安装了不必要的功能（例如，不必要的端口、服务、页面、帐户或权限）。</li>
-<li>启用了默认账户密码，且未被修改</li>
-<li>云服务配置错误</li>
-<li>错误堆栈直接暴露到客户端，比如默认的500返回</li>
-<li>对于已升级的新系统，最新的安全功能处于禁用状态或未安全配置。</li>
-<li>应用程序服务器、应用程序框架（例如，Struts、Spring、ASP.NET）、库、数据库等中的安全性设置未设置为安全值。</li>
-<li>服务器不发送安全标头或指令，或者它们未设置为安全值。</li>
-</ul>
-<h2 id="6-危险或过时的组件"><a href="#6-危险或过时的组件" class="headerlink" title="6. 危险或过时的组件"></a>6. 危险或过时的组件</h2><ul>
-<li>定期升级，维护软件依赖</li>
-<li>删除未使用的依赖项</li>
-<li>测试软件升级后的兼容性</li>
-<li>使用官方安全来源获取组件</li>
-<li>订阅使用组件的安全漏洞的邮件警报</li>
-</ul>
-<h2 id="7-认证和验证机制失效"><a href="#7-认证和验证机制失效" class="headerlink" title="7. 认证和验证机制失效"></a>7. 认证和验证机制失效</h2><ul>
-<li>密码被暴力破解,自动攻击</li>
-<li>默认密码、弱密码、</li>
-<li>在url中公开会话标识符</li>
-<li>成功登录后重用会话标识符</li>
-<li>会话失效后,SSO没有注销登录</li>
-</ul>
-<h2 id="8-软件及数据完整性失效"><a href="#8-软件及数据完整性失效" class="headerlink" title="8. 软件及数据完整性失效"></a>8. 软件及数据完整性失效</h2><ul>
-<li><p>使用三方CDN,不安全的CI/CD管道,但是三方依赖被修改了,使用数字签名来避免</p>
-</li>
-<li><p>npm  Maven 使用受信赖的源</p>
-</li>
-<li><p>使用软件供应链安全工具 OWASP CycloneDX</p>
-</li>
-<li><p>代码检查</p>
-</li>
-<li><p>CI/CD过程的权限控制,隔离控制,比如特定程序才有执行权限,目录权限</p>
-</li>
-<li><p>未被签名或者未被加密的序列化数据发送到不受信任的客户端(比如使用了云服务的静态资源托管,上传完成后应该把文件签名保存下来,下载之前应该比对签名后,再发送到客户端)</p>
-<h2 id="9-安全日志记录及监控失效"><a href="#9-安全日志记录及监控失效" class="headerlink" title="9. 安全日志记录及监控失效"></a>9. 安全日志记录及监控失效</h2></li>
-<li><p>确保所有登录、访问控制和服务器端输入验证失败都可以使用足够的用户上下文进行记录，以识别可疑或恶意帐户，并保留足够的时间以允许延迟取证分析。</p>
-</li>
-<li><p>确保以日志管理解决方案可以轻松使用的格式生成日志。</p>
-</li>
-<li><p>确保对日志数据进行正确编码，以防止对日志记录或监视系统进行注入或攻击。</p>
-</li>
-<li><p>确保高价值事务具有具有完整性控制的审计跟踪，以防止篡改或删除，例如仅追加数据库表或类似内容。</p>
-</li>
-<li><p>DevSecOps 团队应建立有效的监视和警报，以便快速检测和响应可疑活动。</p>
-</li>
-<li><p>建立或采用事件响应和恢复计划，例如美国国家标准与技术研究院 （NIST） 800-61r2 或更高版本。</p>
-</li>
-</ul>
-<h2 id="10-服务器端请求伪造-SSRF"><a href="#10-服务器端请求伪造-SSRF" class="headerlink" title="10.服务器端请求伪造(SSRF)"></a>10.服务器端请求伪造(SSRF)</h2><p>服务器A与服务器B在内网连接,服务器A对外提供服务,且有SSRF漏洞,攻击者通过服务器A获取服务器B的相关信息。</p>
-<h3 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h3><ul>
-<li>利用file协议读取本地文件</li>
-<li>对服务器所在内网、本地进行端口扫描，获取一些服务的banner信息</li>
-<li>攻击运行在内网或本地的应用程序</li>
-<li>对内网web应用进行指纹识别，识别企业内部的资产信息</li>
-<li>攻击内外网的web应用，主要是使用HTTP GET请求就可以实现的攻击</li>
-</ul>
-<h3 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h3><ul>
-<li><p>file协议： 只能读取当前被攻击机的文件，内网机器文件不能读取</p>
-</li>
-<li><p>dict协议：泄露安装软件版本信息，查看端口，操作内网redis服务等</p>
-</li>
-<li><p>gopher协议：gopher支持发出GET、POST请求。可以先截获get请求包和post请求包，再构造成符合gopher协议的请求。gopher协议是ssrf利用中一个最强大的协议(俗称万能协议)。可用于反弹shell</p>
-</li>
-<li><p>http/s协议：探测内网主机存活</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/09/%E5%8D%9A%E5%AE%A2/%E7%BB%99hexo-next%E6%8D%A2%E4%B8%AA%E8%89%B2%E8%B0%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/09/%E5%8D%9A%E5%AE%A2/%E7%BB%99hexo-next%E6%8D%A2%E4%B8%AA%E8%89%B2%E8%B0%83/" class="post-title-link" itemprop="url">给hexo next换个色调</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-09 21:41:59" itemprop="dateCreated datePublished" datetime="2021-11-09T21:41:59+00:00">2021-11-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 14:52:45" itemprop="dateModified" datetime="2021-12-17T14:52:45+00:00">2021-12-17</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/11/09/%E5%8D%9A%E5%AE%A2/%E7%BB%99hexo-next%E6%8D%A2%E4%B8%AA%E8%89%B2%E8%B0%83/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/11/09/%E5%8D%9A%E5%AE%A2/%E7%BB%99hexo-next%E6%8D%A2%E4%B8%AA%E8%89%B2%E8%B0%83/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>next的极简风我还是挺喜欢的，但是不喜欢这个黑白主题，死气沉沉的，我想给他换个色调。</p>
-<ol>
-<li>首先找到喜欢的色调图片</li>
-<li><a target="_blank" rel="noopener" href="https://coolors.co/">https://coolors.co/</a> 打开调色网站</li>
-<li>修改主题配置<figure class="highlight yml"><figcaption><span>source/_data/next.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="comment">#head: source/_data/head.njk</span></span><br><span class="line">  <span class="comment">#header: source/_data/header.njk</span></span><br><span class="line">  <span class="comment">#sidebar: source/_data/sidebar.njk</span></span><br><span class="line">  <span class="comment">#postMeta: source/_data/post-meta.njk</span></span><br><span class="line">  <span class="comment">#postBodyEnd: source/_data/post-body-end.njk</span></span><br><span class="line">  <span class="comment">#footer: source/_data/footer.njk</span></span><br><span class="line">  <span class="comment">#bodyEnd: source/_data/body-end.njk</span></span><br><span class="line">  <span class="attr">variable:</span> <span class="string">source/_data/variables.styl</span></span><br><span class="line">  <span class="comment">#mixin: source/_data/mixins.styl</span></span><br><span class="line">  <span class="comment">#style: source/_data/styles.styl  </span></span><br></pre></td></tr></table></figure></li>
-<li>新建文件 <code>source/_data/variables.styl</code></li>
-<li>下面是默认色<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  --<span class="selector-tag">body</span>-bg-<span class="attribute">color</span>: <span class="number">#f5f5d5</span>;</span><br><span class="line">  --<span class="attribute">content</span>-bg-<span class="attribute">color</span>: <span class="number">#f5f5d5</span>;</span><br><span class="line">  --card-bg-<span class="attribute">color</span>: <span class="number">#f5f5f5</span>;</span><br><span class="line">  --text-<span class="attribute">color</span>: <span class="number">#555</span>;</span><br><span class="line">  --<span class="selector-tag">blockquote</span>-<span class="attribute">color</span>: <span class="number">#666</span>;</span><br><span class="line">  --link-<span class="attribute">color</span>: <span class="number">#555</span>;</span><br><span class="line">  --link-hover-<span class="attribute">color</span>: <span class="number">#222</span>;</span><br><span class="line">  --brand-<span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  --brand-hover-<span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  --<span class="selector-tag">table</span>-row-odd-bg-<span class="attribute">color</span>: <span class="number">#f9f9f9</span>;</span><br><span class="line">  --<span class="selector-tag">table</span>-row-hover-bg-<span class="attribute">color</span>: <span class="number">#f5f5f5</span>;</span><br><span class="line">  --<span class="selector-tag">menu</span>-item-bg-<span class="attribute">color</span>: <span class="number">#f5f5f5</span>;</span><br><span class="line">  --btn-default-bg: <span class="number">#fff</span>;</span><br><span class="line">  --btn-default-<span class="attribute">color</span>: <span class="number">#555</span>;</span><br><span class="line">  --btn-default-<span class="attribute">border-color</span>: <span class="number">#555</span>;</span><br><span class="line">  --btn-default-hover-bg: <span class="number">#222</span>;</span><br><span class="line">  --btn-default-hover-<span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  --btn-default-hover-<span class="attribute">border-color</span>: <span class="number">#222</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>修改后面这个文件就行了,但是我还没想好合适的颜色  </p>
-<figure class="highlight less"><figcaption><span>source/_data/variables.styl</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$body-bg-color   = #BEE7E9 </span><br><span class="line">$content-bg-color   = #a1e6e9  </span><br><span class="line"><span class="comment">// $card-bg-color   = #</span></span><br><span class="line"><span class="comment">// $text-color   = #</span></span><br><span class="line"><span class="comment">// $blockquote-color   = #</span></span><br><span class="line"><span class="comment">// $link-color   = #</span></span><br><span class="line"><span class="comment">// $link-hover-color   = #e4393c</span></span><br><span class="line"><span class="comment">// $brand-color   = #</span></span><br><span class="line"><span class="comment">// $brand-hover-color   = #</span></span><br><span class="line"><span class="comment">// $table-row-odd-bg-color   = #</span></span><br><span class="line"><span class="comment">// $table-row-hover-bg-color   = #</span></span><br><span class="line"><span class="comment">// $menu-item-bg-color   = #</span></span><br><span class="line"><span class="comment">// $btn-default-bg   = #</span></span><br><span class="line"><span class="comment">// $btn-default-color   = #</span></span><br><span class="line"><span class="comment">// $btn-default-border-color   = #</span></span><br><span class="line"><span class="comment">// $btn-default-hover-bg   = #</span></span><br><span class="line"><span class="comment">// $btn-default-hover-color   = #</span></span><br><span class="line"><span class="comment">// $btn-default-hover-border-color   = #</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/09/%E9%9F%B3%E4%B9%90%E5%A4%84%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/09/%E9%9F%B3%E4%B9%90%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">音乐分轨处理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-09 21:02:42" itemprop="dateCreated datePublished" datetime="2021-11-09T21:02:42+00:00">2021-11-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 14:52:45" itemprop="dateModified" datetime="2021-12-17T14:52:45+00:00">2021-12-17</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/11/09/%E9%9F%B3%E4%B9%90%E5%A4%84%E7%90%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/11/09/%E9%9F%B3%E4%B9%90%E5%A4%84%E7%90%86/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>妹妹经常外出做音乐表演，需要伴奏，但是从酷狗下载的音乐很多都没有纯伴奏版本，全民K歌这种软件也没有这种伴奏下载的功能。</p>
-<p>作为一个程序员哥哥，妹妹的请求总不能说不会搞吧！！也不想花钱买，于是找了下资源。</p>
-<p>网上找了这两个可以用来分离原声与伴奏。</p>
-<p>开源音频分轨 Python <a target="_blank" rel="noopener" href="https://github.com/deezer/spleeter">https://github.com/deezer/spleeter</a></p>
-<p>在线分轨网站（推荐） <a target="_blank" rel="noopener" href="https://ezstems.com/">https://ezstems.com/</a> 这个应该是用上面的技术搞得，本来还有个网站的，收藏夹没找到，下次找到了再分享出来！！</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/09/2021%E5%B9%B4%E5%BA%A6%E6%9C%80%E4%BD%B3%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/09/2021%E5%B9%B4%E5%BA%A6%E6%9C%80%E4%BD%B3%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/" class="post-title-link" itemprop="url">2021年度最佳开源软件</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-09 20:43:44" itemprop="dateCreated datePublished" datetime="2021-11-09T20:43:44+00:00">2021-11-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 14:52:45" itemprop="dateModified" datetime="2021-12-17T14:52:45+00:00">2021-12-17</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/11/09/2021%E5%B9%B4%E5%BA%A6%E6%9C%80%E4%BD%B3%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/11/09/2021%E5%B9%B4%E5%BA%A6%E6%9C%80%E4%BD%B3%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1714115486438973511&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1714115486438973511&amp;wfr=spider&amp;for=pc</a></p>
-<h2 id="前端能用到的"><a href="#前端能用到的" class="headerlink" title="前端能用到的"></a>前端能用到的</h2><h3 id="Svelte"><a href="#Svelte" class="headerlink" title="Svelte"></a>Svelte</h3><p>编译时前端框架，拥有SSR的性能，但是不需要服务器,编译结果仍然是纯粹的静态资源。</p>
-<p>vue的<code>petite-vue</code>项目也值得关注下，我觉得也够用了。由于web component 标准慢慢被主流浏览器支持，后面的趋势应该是各种框架都编译成 web component，进行发布。</p>
-<h3 id="FastAPI"><a href="#FastAPI" class="headerlink" title="FastAPI"></a>FastAPI</h3><p>用于快速构建API，完全兼容 openAPI  Python项目</p>
-<h3 id="Apache-Superset"><a href="#Apache-Superset" class="headerlink" title="Apache Superset"></a>Apache Superset</h3><p>作为企业数据收集与展示仓库，支持很多图表，开箱即用。突然发现里面的功能很多跟三朵云里面数据集的功能一致呀！我们SE在这上面找设计灵感？？</p>
-<h3 id="PostHog"><a href="#PostHog" class="headerlink" title="PostHog"></a>PostHog</h3><p>监控软件，应该跟打点埋码相关吧，另外推荐个异常监控系统 <a target="_blank" rel="noopener" href="https://sentry.io/welcome/">哨兵 sentry</a></p>
-<p>剩下的都是些  AI  深度学习 集群 分布式 数据管理相关的开源项目了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/04/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1%E5%B7%A5%E7%A8%8B%E5%B8%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/04/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1%E5%B7%A5%E7%A8%8B%E5%B8%88/" class="post-title-link" itemprop="url">模块设计工程师(MDE)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-04 21:14:35" itemprop="dateCreated datePublished" datetime="2021-11-04T21:14:35+00:00">2021-11-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 14:52:45" itemprop="dateModified" datetime="2021-12-17T14:52:45+00:00">2021-12-17</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/11/04/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1%E5%B7%A5%E7%A8%8B%E5%B8%88/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/11/04/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1%E5%B7%A5%E7%A8%8B%E5%B8%88/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近在做项目组MDE关键角色认证评审的工作,记录下</p>
-<h2 id="模块设计工程师"><a href="#模块设计工程师" class="headerlink" title="模块设计工程师"></a>模块设计工程师</h2><p>MDE 是 Module Design Engineer 的缩写。</p>
-<h2 id="MDE-任职要求"><a href="#MDE-任职要求" class="headerlink" title="MDE 任职要求"></a>MDE 任职要求</h2><ol>
-<li>（需求处理）完成需求对齐,分解,输出概要设计(这个有些是SE出),详细设计</li>
-<li>（模块设计）考虑模块复用,梳理内部外部依赖,确定目录结构,数据流向,对代码安全,代码质量负责</li>
-<li>（持续优化）技术攻关,代码重构,废弃功能管理,历史需求整理,文档优化</li>
-<li>（知识分享）能总结提供开发文档，提供技术培训</li>
-</ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>MDE 除了编码能力外,还需要良好的理解能力,沟通能力,以及协助他人的一个意愿。不再局限于完成自己的开发任务，需要对项目中的某个模块负责。</p>
 
       
     </div>
@@ -1221,7 +1105,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">123</span>
+          <span class="site-state-item-count">130</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1234,7 +1118,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1269,7 +1153,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
