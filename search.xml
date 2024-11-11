@@ -14,32 +14,6 @@
       </tags>
   </entry>
   <entry>
-    <title>2021-4-19- 从angularjs 迁移到vue</title>
-    <url>/2021/04/19/2021-4-19-%20%E4%BB%8Eangularjs%20%E8%BF%81%E7%A7%BB%E5%88%B0vue/</url>
-    <content><![CDATA[<p>由于历史原因，项目组维护的项目有 vue  angularjs  angular 多个包。招聘成本比较高，需要统一技术栈，全部使用vue重构。<br>这里记录下迁移过程，希望能帮助有需要的人。<br>本文记录从angularjs 迁移到vue ，后续angular 迁移到vue单独成文</p>
-<h1 id="路由-ui-router-To-vue-router"><a href="#路由-ui-router-To-vue-router" class="headerlink" title="路由 ui-router To vue-router"></a>路由 ui-router To vue-router</h1><p><code>main.js</code>这部分直接重写</p>
-<h1 id="多语言处理-angular-translate-To-vue-i18n"><a href="#多语言处理-angular-translate-To-vue-i18n" class="headerlink" title="多语言处理 angular-translate To vue-i18n"></a>多语言处理 angular-translate To vue-i18n</h1><h2 id="1-模板中的-translate"><a href="#1-模板中的-translate" class="headerlink" title="1. 模板中的 translate"></a>1. 模板中的 translate</h2><ol>
-<li>使用正则替换 <code>translate\s?=\s?[&quot;&#39;](.*?)[&quot;&#39;]</code> <code>v-t=&quot;&#39;$1&#39;&quot;</code> , 替换下面这三种格式成指令<br><img src="https://upload-images.jianshu.io/upload_images/8156292-61c2d902fa125889.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-<li>定义全局指令 <code>v-t</code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Vue.directive(&#39;t&#39;, function (el,binding) &#123;</span><br><span class="line">    el.innerText&#x3D;binding.value</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
-$如果有用到 filter的话就还要定义filter,我们项目没有这么用就没写 $<h2 id="2-js中的-translate-instant"><a href="#2-js中的-translate-instant" class="headerlink" title="2. js中的 $translate.instant"></a>2. js中的 $translate.instant</h2>在有注入<code>$translate</code>的地方导入 vue-i18n的实例<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> $translate <span class="keyword">from</span> <span class="string">&#x27;./i18n/&#x27;</span> <span class="comment">// 假设/i18n/index.js 默认导出的是vue-i18n的实例</span></span><br><span class="line">$translate.instant=$translate.t <span class="comment">//instant属性跟 vue-i18n的实例t是一样的</span></span><br></pre></td></tr></table></figure>
-<h1 id="scope-与-http-处理"><a href="#scope-与-http-处理" class="headerlink" title="$scope 与 $http  处理"></a>$scope 与 $http  处理</h1>首先将模块从这个样子<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports=[<span class="string">&#x27;$scope&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope,$http</span>)</span>&#123;</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
-改成下面这个样子<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params">$scope,$http</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> $scope</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-这里我写了一个通用方法<code>getVueOptions</code>处理$scope<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 这些代码写在一起是为了方便查看学习,项目中肯定会抽成模块</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> axios;<span class="comment">//使用axios代替$http</span></span><br><span class="line"><span class="keyword">const</span> instance=axios.create()</span><br><span class="line">instance.default.header.common[<span class="string">&#x27;content-type&#x27;</span>]=<span class="string">&#x27;application/json&#x27;</span></span><br><span class="line"><span class="comment">// 将$scope分解成vue组件的 methods 与 data</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getVueOptions</span>(<span class="params">$scope</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> options = &#123;</span><br><span class="line">    data: &#123;&#125;,</span><br><span class="line">    methods: &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> object) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.hasOwnProperty.call(object, key)) &#123;</span><br><span class="line">      <span class="keyword">const</span> element = object[key];</span><br><span class="line">      <span class="keyword">if</span> (element <span class="keyword">instanceof</span> <span class="built_in">Function</span>) &#123;</span><br><span class="line">        options.methods[key] = element</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        options.data[key] = element</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> options</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> scope=&#123;&#125;</span><br><span class="line"><span class="keyword">const</span> opts=getVueOptions(fn(scope,instance))</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      ...opts.data</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    ...opts.methods</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="ng-init-处理"><a href="#ng-init-处理" class="headerlink" title="ng-init 处理"></a>ng-init 处理</h1>这个放到 <code>mounted()</code>里面调用<code>this.xxx</code>即可</li>
-</ol>
-<h1 id="模板中的替换"><a href="#模板中的替换" class="headerlink" title="模板中的替换"></a>模板中的替换</h1><p>把angular组件模板<code>xx.html</code>,直接贴到vue组件的 <code>&lt;template&gt;&lt;div&gt;&lt;/div&gt;&lt;/template&gt;</code>中</p>
-<p>搜索 <code> ng-</code> ng-前面有空格,如果是方法的话(ng-cick,ng-mouseover)就换成<code>@</code> ,属性(ng-class,ng-style)就换成<code>:</code>,指令(ng-if,ng-show,ng-model)就换成<code>v-</code></p>
-<h2 id="属性绑定方式修改"><a href="#属性绑定方式修改" class="headerlink" title="属性绑定方式修改"></a>属性绑定方式修改</h2><p>正则模式搜索 <code>\s(.*?)\s?=\s?([&quot;&#39;])\&#123;\&#123;(.*?)\&#125;\&#125;\2</code> 替换成 <code>  :$1=&quot;$3&quot;</code><br><img src="https://upload-images.jianshu.io/upload_images/8156292-7eca4862d9bd6ee0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h1 id="rootScope-处理"><a href="#rootScope-处理" class="headerlink" title="rootScope 处理"></a>rootScope 处理</h1><p>我这项目没怎么用,如果有用到就 export导出下,利用provide注入到根组件,用到的地方 inject一下</p>
-<h1 id="其他依赖注入"><a href="#其他依赖注入" class="headerlink" title="其他依赖注入"></a>其他依赖注入</h1><p>用类似axios的替换模式一个一个换成你vue的替代品即可,如果使用方式有差异就用正则查询全局替换就好了</p>
-<h2 id="剩下的就是体力活儿了"><a href="#剩下的就是体力活儿了" class="headerlink" title="剩下的就是体力活儿了"></a>剩下的就是体力活儿了</h2><p><strong>组件</strong>  <strong>指令</strong>  <strong>过滤器</strong> 一个一个的重构就好了<br>组件的props有些是双向绑定的,可以使用vue的 <code>xxx.sync</code> <code>this.$emit(&#39;update:xxx&#39;)</code>的写法来搞定</p>
-<p><strong>下一篇 ：</strong>《 typescript angular7 项目迁移到 vue2.x  》等我把改完再发心得</p>
-]]></content>
-      <tags>
-        <tag>项目笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021-4-19-《使用 MonoRepo 管理前端项目》读后感</title>
     <url>/2021/04/19/2021-4-19-%E3%80%8A%E4%BD%BF%E7%94%A8%20MonoRepo%20%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E3%80%8B%E8%AF%BB%E5%90%8E%E6%84%9F/</url>
     <content><![CDATA[<p>先阅读下这个文章《使用 MonoRepo 管理前端项目》   <a href="https://blog.csdn.net/qiwoo_weekly/article/details/112000852">https://blog.csdn.net/qiwoo_weekly/article/details/112000852</a><br>文章说的是，多npm包管理是每个包对应一个git仓好,还是一个包对应一个仓库好。<br>先表明我的观点：<strong>我支持multi-repo，一个包对应一个仓库</strong></p>
@@ -66,6 +40,32 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>读后感</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-4-19- 从angularjs 迁移到vue</title>
+    <url>/2021/04/19/2021-4-19-%20%E4%BB%8Eangularjs%20%E8%BF%81%E7%A7%BB%E5%88%B0vue/</url>
+    <content><![CDATA[<p>由于历史原因，项目组维护的项目有 vue  angularjs  angular 多个包。招聘成本比较高，需要统一技术栈，全部使用vue重构。<br>这里记录下迁移过程，希望能帮助有需要的人。<br>本文记录从angularjs 迁移到vue ，后续angular 迁移到vue单独成文</p>
+<h1 id="路由-ui-router-To-vue-router"><a href="#路由-ui-router-To-vue-router" class="headerlink" title="路由 ui-router To vue-router"></a>路由 ui-router To vue-router</h1><p><code>main.js</code>这部分直接重写</p>
+<h1 id="多语言处理-angular-translate-To-vue-i18n"><a href="#多语言处理-angular-translate-To-vue-i18n" class="headerlink" title="多语言处理 angular-translate To vue-i18n"></a>多语言处理 angular-translate To vue-i18n</h1><h2 id="1-模板中的-translate"><a href="#1-模板中的-translate" class="headerlink" title="1. 模板中的 translate"></a>1. 模板中的 translate</h2><ol>
+<li>使用正则替换 <code>translate\s?=\s?[&quot;&#39;](.*?)[&quot;&#39;]</code> <code>v-t=&quot;&#39;$1&#39;&quot;</code> , 替换下面这三种格式成指令<br><img src="https://upload-images.jianshu.io/upload_images/8156292-61c2d902fa125889.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+<li>定义全局指令 <code>v-t</code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Vue.directive(&#39;t&#39;, function (el,binding) &#123;</span><br><span class="line">    el.innerText&#x3D;binding.value</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+$如果有用到 filter的话就还要定义filter,我们项目没有这么用就没写 $<h2 id="2-js中的-translate-instant"><a href="#2-js中的-translate-instant" class="headerlink" title="2. js中的 $translate.instant"></a>2. js中的 $translate.instant</h2>在有注入<code>$translate</code>的地方导入 vue-i18n的实例<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> $translate <span class="keyword">from</span> <span class="string">&#x27;./i18n/&#x27;</span> <span class="comment">// 假设/i18n/index.js 默认导出的是vue-i18n的实例</span></span><br><span class="line">$translate.instant=$translate.t <span class="comment">//instant属性跟 vue-i18n的实例t是一样的</span></span><br></pre></td></tr></table></figure>
+<h1 id="scope-与-http-处理"><a href="#scope-与-http-处理" class="headerlink" title="$scope 与 $http  处理"></a>$scope 与 $http  处理</h1>首先将模块从这个样子<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports=[<span class="string">&#x27;$scope&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope,$http</span>)</span>&#123;</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+改成下面这个样子<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params">$scope,$http</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> $scope</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+这里我写了一个通用方法<code>getVueOptions</code>处理$scope<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 这些代码写在一起是为了方便查看学习,项目中肯定会抽成模块</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> axios;<span class="comment">//使用axios代替$http</span></span><br><span class="line"><span class="keyword">const</span> instance=axios.create()</span><br><span class="line">instance.default.header.common[<span class="string">&#x27;content-type&#x27;</span>]=<span class="string">&#x27;application/json&#x27;</span></span><br><span class="line"><span class="comment">// 将$scope分解成vue组件的 methods 与 data</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getVueOptions</span>(<span class="params">$scope</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> options = &#123;</span><br><span class="line">    data: &#123;&#125;,</span><br><span class="line">    methods: &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> object) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.hasOwnProperty.call(object, key)) &#123;</span><br><span class="line">      <span class="keyword">const</span> element = object[key];</span><br><span class="line">      <span class="keyword">if</span> (element <span class="keyword">instanceof</span> <span class="built_in">Function</span>) &#123;</span><br><span class="line">        options.methods[key] = element</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        options.data[key] = element</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> options</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> scope=&#123;&#125;</span><br><span class="line"><span class="keyword">const</span> opts=getVueOptions(fn(scope,instance))</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      ...opts.data</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    ...opts.methods</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="ng-init-处理"><a href="#ng-init-处理" class="headerlink" title="ng-init 处理"></a>ng-init 处理</h1>这个放到 <code>mounted()</code>里面调用<code>this.xxx</code>即可</li>
+</ol>
+<h1 id="模板中的替换"><a href="#模板中的替换" class="headerlink" title="模板中的替换"></a>模板中的替换</h1><p>把angular组件模板<code>xx.html</code>,直接贴到vue组件的 <code>&lt;template&gt;&lt;div&gt;&lt;/div&gt;&lt;/template&gt;</code>中</p>
+<p>搜索 <code> ng-</code> ng-前面有空格,如果是方法的话(ng-cick,ng-mouseover)就换成<code>@</code> ,属性(ng-class,ng-style)就换成<code>:</code>,指令(ng-if,ng-show,ng-model)就换成<code>v-</code></p>
+<h2 id="属性绑定方式修改"><a href="#属性绑定方式修改" class="headerlink" title="属性绑定方式修改"></a>属性绑定方式修改</h2><p>正则模式搜索 <code>\s(.*?)\s?=\s?([&quot;&#39;])\&#123;\&#123;(.*?)\&#125;\&#125;\2</code> 替换成 <code>  :$1=&quot;$3&quot;</code><br><img src="https://upload-images.jianshu.io/upload_images/8156292-7eca4862d9bd6ee0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="rootScope-处理"><a href="#rootScope-处理" class="headerlink" title="rootScope 处理"></a>rootScope 处理</h1><p>我这项目没怎么用,如果有用到就 export导出下,利用provide注入到根组件,用到的地方 inject一下</p>
+<h1 id="其他依赖注入"><a href="#其他依赖注入" class="headerlink" title="其他依赖注入"></a>其他依赖注入</h1><p>用类似axios的替换模式一个一个换成你vue的替代品即可,如果使用方式有差异就用正则查询全局替换就好了</p>
+<h2 id="剩下的就是体力活儿了"><a href="#剩下的就是体力活儿了" class="headerlink" title="剩下的就是体力活儿了"></a>剩下的就是体力活儿了</h2><p><strong>组件</strong>  <strong>指令</strong>  <strong>过滤器</strong> 一个一个的重构就好了<br>组件的props有些是双向绑定的,可以使用vue的 <code>xxx.sync</code> <code>this.$emit(&#39;update:xxx&#39;)</code>的写法来搞定</p>
+<p><strong>下一篇 ：</strong>《 typescript angular7 项目迁移到 vue2.x  》等我把改完再发心得</p>
+]]></content>
+      <tags>
+        <tag>项目笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -222,18 +222,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>burp suite</title>
-    <url>/2021/09/26/burp-suite/</url>
-    <content><![CDATA[<p>集成化的渗透测试工具<br><a href="https://t0data.gitbooks.io/burpsuite/content/">Burp Suite 实战指南</a></p>
-<p>抓包功能也是吊打fiddler,真心好用</p>
-<p>Burp Suite 配合 AWVS web网络漏洞扫描工具使用</p>
-<p>DFNRecorder用来模拟登录的,类似于webDriver 是IBM Security APPScan Standard的一部分</p>
-]]></content>
-      <tags>
-        <tag>test</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>defer async的区别</title>
     <url>/2021/09/25/defer-async%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<p><img src="http://segmentfault.com/img/bVcQV0" alt="图片"></p>
@@ -246,6 +234,18 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>burp suite</title>
+    <url>/2021/09/26/burp-suite/</url>
+    <content><![CDATA[<p>集成化的渗透测试工具<br><a href="https://t0data.gitbooks.io/burpsuite/content/">Burp Suite 实战指南</a></p>
+<p>抓包功能也是吊打fiddler,真心好用</p>
+<p>Burp Suite 配合 AWVS web网络漏洞扫描工具使用</p>
+<p>DFNRecorder用来模拟登录的,类似于webDriver 是IBM Security APPScan Standard的一部分</p>
+]]></content>
+      <tags>
+        <tag>test</tag>
       </tags>
   </entry>
   <entry>
@@ -292,6 +292,36 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>webpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>web技术方向的思考</title>
+    <url>/2024/11/11/web%E6%8A%80%E6%9C%AF%E6%96%B9%E5%90%91%E7%9A%84%E6%80%9D%E8%80%83/</url>
+    <content><![CDATA[<p>好久没写文章了，适当的回顾下过去展望下未来总是好的。</p>
+<ol>
+<li>先说前端框架，jsx,SSR逐渐流行，相当于是PHP跟JSP的复兴，跟年前最大的区别是统一成nodejs技术栈了。 </li>
+<li>微前端架构主要解决的事老旧系统的集成问题，主要适用于大厂，如果是新兴创业公司，不适合盲目跟风。个人感觉直接ESM的原生解决方案更优秀。样式的话支持tailwindcss整合起来。</li>
+<li>ES标准化目前都是些语法糖，没发现很大意义的创新。</li>
+<li>低代码的维护与调试成本远远高于开发成本，所以如果是一次性的页面，比如活动页，商品展示页，增删改查管理页，强烈建议安排上。但是复杂交互的页面还是高码更好，选择低码平台的话一定要选择支持高低码结合的。</li>
+<li>AI方向的话，cursor编辑器强烈安利给大家，花钱也是值得的。最好的功能是它生成的代码能够一键给整合到现有代码中自动diff。v0/vue0 也是不错的，但是cursor用好，vue0我觉得是可有可无。</li>
+<li>鸿蒙这个方向，华为可以说是对前端开后门了，会TS就直接上吧。当然uniapp后面也会支持鸿蒙，应该这个优先级会比写原生高吗？</li>
+<li>wasm感觉适用于特定场景，比如web端边缘计算。比如nodejs诟病的读写性能问题，直接适用wasm模块，效果嘎嘎好。</li>
+<li>跨平台当然还是Electron，Tauri应该是未来，建议再看两年，毕竟QQ都没用，咱就不试了。</li>
+<li>3D渲染引擎，Three.js是主流，这个没得选真好。对有选择困难症的我真友好</li>
+<li>GIS还是老三件，Leaflet,Mapbox,OpenLayers。Leaflet是轻量级，Mapbox是商业，OpenLayers是开源。</li>
+<li>视频播放器，我就安利个西瓜播放器吧，功能齐全，支持定制。</li>
+<li>音频播放器，推荐个APlayer吧，功能齐全，支持定制。</li>
+<li>网络请求，axios是主流，但是目前感觉fetch已经足够用了，而且支持ESM，不用额外引入。</li>
+<li>前端UI框架，Vuetify是主流，Material-UI是备选，Element-Plus是备选，Ant Design Vue是备选。</li>
+<li>后端框架，Koa是主流，Express是备选，Nest.js是备选。</li>
+<li>构建的话，字节的repack,vue的vite要统一dev跟preview了，期待！</li>
+<li>容器化推荐个sealos，他们还有个fastGTP的产品很不错，有点扣子的味道，都支持私有化部署。</li>
+<li>前端团队组件分享建议用bit.dev，小团队直接用免费的，团队大了也支持私有化部署</li>
+<li>CI/CD前端建议私有化部署sealos，利用S3的桶去承载web静态资源</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>思考未来</tag>
       </tags>
   </entry>
   <entry>
@@ -371,20 +401,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>单页应用路由切换接口问题</title>
-    <url>/2021/11/25/%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%E8%B7%AF%E7%94%B1%E5%88%87%E6%8D%A2%E6%8E%A5%E5%8F%A3%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>页面跳转的时候,处于异步请求的接口会自动被去取消掉，但是单页应用没有这种机制。我们需要手动实现。<br>axios是基于Promise的。本身对外暴露了一个 cancelToken的配置项用于取消,实际开发中需要在路由跳转的钩子中使用。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> CancelToken = axios.CancelToken;</span><br><span class="line"><span class="keyword">const</span> source = CancelToken.source();</span><br><span class="line"></span><br><span class="line">axios.get(<span class="string">&#x27;/user/12345&#x27;</span>, &#123;</span><br><span class="line">  cancelToken: source.token</span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">thrown</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (axios.isCancel(thrown)) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Request canceled&#x27;</span>, thrown.message);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     <span class="comment">// 处理错误</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">axios.post(<span class="string">&#x27;/user/12345&#x27;</span>, &#123;</span><br><span class="line">  name: <span class="string">&#x27;new name&#x27;</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  cancelToken: source.token</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取消请求（message 参数是可选的）</span></span><br><span class="line">source.cancel(<span class="string">&#x27;Operation canceled by the user.&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>底层实现主要依靠  </p>
-<p><code>xhr abort</code><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/abort">https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/abort</a></p>
-<p><code>AbortController</code>与<code>fetch</code><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController">https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController</a></p>
-]]></content>
-      <tags>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>图片base64转文件</title>
     <url>/2021/09/26/%E5%9B%BE%E7%89%87base64%E8%BD%AC%E6%96%87%E4%BB%B6/</url>
     <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * base64格式图片转二进制文件</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> </span>base64str </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns  </span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">base64ToFile</span>(<span class="params">base64str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> mimeType=base64str.match(<span class="regexp">/:(.*?);/</span>)[<span class="number">1</span>];</span><br><span class="line">  <span class="keyword">let</span> base64=base64str.slice(base64str.indexOf(<span class="string">&#x27;;&#x27;</span>)+<span class="number">1</span>)</span><br><span class="line">  <span class="keyword">let</span> bstr=atob(base64),</span><br><span class="line">  n=bstr.length,</span><br><span class="line">  u8Arr=<span class="keyword">new</span> <span class="built_in">Uint8Array</span>(n);</span><br><span class="line">  <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">    u8Arr[n]=bstr.charCodeAt(n);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> file=<span class="keyword">new</span> Blob([u8Arr],&#123;<span class="attr">type</span>:mimeType&#125;)</span><br><span class="line">  <span class="keyword">return</span> file</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
@@ -432,6 +448,20 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
   </entry>
   <entry>
+    <title>单页应用路由切换接口问题</title>
+    <url>/2021/11/25/%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%E8%B7%AF%E7%94%B1%E5%88%87%E6%8D%A2%E6%8E%A5%E5%8F%A3%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>页面跳转的时候,处于异步请求的接口会自动被去取消掉，但是单页应用没有这种机制。我们需要手动实现。<br>axios是基于Promise的。本身对外暴露了一个 cancelToken的配置项用于取消,实际开发中需要在路由跳转的钩子中使用。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> CancelToken = axios.CancelToken;</span><br><span class="line"><span class="keyword">const</span> source = CancelToken.source();</span><br><span class="line"></span><br><span class="line">axios.get(<span class="string">&#x27;/user/12345&#x27;</span>, &#123;</span><br><span class="line">  cancelToken: source.token</span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">thrown</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (axios.isCancel(thrown)) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Request canceled&#x27;</span>, thrown.message);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     <span class="comment">// 处理错误</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">axios.post(<span class="string">&#x27;/user/12345&#x27;</span>, &#123;</span><br><span class="line">  name: <span class="string">&#x27;new name&#x27;</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  cancelToken: source.token</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取消请求（message 参数是可选的）</span></span><br><span class="line">source.cancel(<span class="string">&#x27;Operation canceled by the user.&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>底层实现主要依靠  </p>
+<p><code>xhr abort</code><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/abort">https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/abort</a></p>
+<p><code>AbortController</code>与<code>fetch</code><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController">https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController</a></p>
+]]></content>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何查看emoji表情的Unicode编码</title>
     <url>/2021/10/22/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Bemoji%E8%A1%A8%E6%83%85%E7%9A%84Unicode%E7%BC%96%E7%A0%81/</url>
     <content><![CDATA[<h2 id="可以在下面这个网站复制粘贴emoji"><a href="#可以在下面这个网站复制粘贴emoji" class="headerlink" title="可以在下面这个网站复制粘贴emoji"></a>可以在下面这个网站复制粘贴emoji</h2><p><a href="https://getemoji.com/">https://getemoji.com/</a></p>
@@ -469,6 +499,17 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>树形数据的广度优先与深度优先</title>
+    <url>/2021/09/25/%E6%A0%91%E5%BD%A2%E6%95%B0%E6%8D%AE%E7%9A%84%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E4%B8%8E%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88/</url>
+    <content><![CDATA[<p>这里只是做一个笔记,解释的话可以自行百度</p>
+<h2 id="广度优先"><a href="#广度优先" class="headerlink" title="广度优先"></a>广度优先</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foreach</span>(<span class="params">data,callback</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> nodes=[];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> data) &#123;</span><br><span class="line">    <span class="keyword">if</span>(item.childrens)&#123;</span><br><span class="line">      node=node.concat(item.childrens)</span><br><span class="line">    &#125;</span><br><span class="line">    callback(item)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(nodes.length==<span class="number">0</span>)<span class="keyword">return</span> </span><br><span class="line">  foreach(nodes)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="深度优先"><a href="#深度优先" class="headerlink" title="深度优先"></a>深度优先</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foreach</span>(<span class="params">data,callback</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> data) &#123;</span><br><span class="line">    <span class="keyword">if</span>(item.childrens)&#123;</span><br><span class="line">      foreach(item.childrens)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      callback(item)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>代码片段</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>极致简洁的微前端框架-京东MicroApp开源了</title>
     <url>/2021/09/25/%E6%9E%81%E8%87%B4%E7%AE%80%E6%B4%81%E7%9A%84%E5%BE%AE%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6-%E4%BA%AC%E4%B8%9CMicroApp%E5%BC%80%E6%BA%90%E4%BA%86/</url>
     <content><![CDATA[<p>原文地址 <a href="https://article.itxueyuan.com/ylqMxp">https://article.itxueyuan.com/ylqMxp</a></p>
@@ -484,14 +525,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>树形数据的广度优先与深度优先</title>
-    <url>/2021/09/25/%E6%A0%91%E5%BD%A2%E6%95%B0%E6%8D%AE%E7%9A%84%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E4%B8%8E%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88/</url>
-    <content><![CDATA[<p>这里只是做一个笔记,解释的话可以自行百度</p>
-<h2 id="广度优先"><a href="#广度优先" class="headerlink" title="广度优先"></a>广度优先</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foreach</span>(<span class="params">data,callback</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> nodes=[];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> data) &#123;</span><br><span class="line">    <span class="keyword">if</span>(item.childrens)&#123;</span><br><span class="line">      node=node.concat(item.childrens)</span><br><span class="line">    &#125;</span><br><span class="line">    callback(item)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(nodes.length==<span class="number">0</span>)<span class="keyword">return</span> </span><br><span class="line">  foreach(nodes)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="深度优先"><a href="#深度优先" class="headerlink" title="深度优先"></a>深度优先</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foreach</span>(<span class="params">data,callback</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> data) &#123;</span><br><span class="line">    <span class="keyword">if</span>(item.childrens)&#123;</span><br><span class="line">      foreach(item.childrens)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      callback(item)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <title>css冷门知识-获取windows系统主题</title>
+    <url>/2021/12/09/%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E4%B8%BB%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="使用-matchMedia-API找到-MediaQueryList-对象"><a href="#使用-matchMedia-API找到-MediaQueryList-对象" class="headerlink" title="使用 matchMedia API找到 MediaQueryList 对象"></a>使用 <code>matchMedia</code> API找到 <code>MediaQueryList</code> 对象</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span>  mqList = <span class="built_in">window</span>.matchMedia(<span class="string">&quot;(prefers-color-scheme:dark)&quot;</span>)</span><br><span class="line"><span class="keyword">if</span>(mqList.matches)&#123;<span class="comment">//匹配上了,说明windows使用的是黑暗主题模式</span></span><br><span class="line">  <span class="comment">// <span class="doctag">TODO:</span> 将我们网页的主题设置成暗黑模式</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li>媒体查询的类型 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">https://developer.mozilla.org/en-US/docs/Web/CSS/@media</a> </li>
+<li> <code>matchMedia</code>API介绍 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia">https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia</a> </li>
+</ol>
+]]></content>
       <tags>
-        <tag>代码片段</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -503,19 +546,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>外层声明一个高度0的容器，并给上<code>pointer-events:none</code>取消鼠标事件</li>
 <li>内层水印给上很高的z-Index也不会影响到用户操作咯</li>
 </ul>
-]]></content>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>css冷门知识-获取windows系统主题</title>
-    <url>/2021/12/09/%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E4%B8%BB%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="使用-matchMedia-API找到-MediaQueryList-对象"><a href="#使用-matchMedia-API找到-MediaQueryList-对象" class="headerlink" title="使用 matchMedia API找到 MediaQueryList 对象"></a>使用 <code>matchMedia</code> API找到 <code>MediaQueryList</code> 对象</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span>  mqList = <span class="built_in">window</span>.matchMedia(<span class="string">&quot;(prefers-color-scheme:dark)&quot;</span>)</span><br><span class="line"><span class="keyword">if</span>(mqList.matches)&#123;<span class="comment">//匹配上了,说明windows使用的是黑暗主题模式</span></span><br><span class="line">  <span class="comment">// <span class="doctag">TODO:</span> 将我们网页的主题设置成暗黑模式</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li>媒体查询的类型 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">https://developer.mozilla.org/en-US/docs/Web/CSS/@media</a> </li>
-<li> <code>matchMedia</code>API介绍 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia">https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia</a> </li>
-</ol>
 ]]></content>
       <tags>
         <tag>css</tag>
@@ -570,25 +600,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>防止xss注入</title>
-    <url>/2021/10/22/%E9%98%B2%E6%AD%A2xss%E6%B3%A8%E5%85%A5/</url>
-    <content><![CDATA[<h2 id="谁是-OWASP-®基金会"><a href="#谁是-OWASP-®基金会" class="headerlink" title="谁是 OWASP ®基金会"></a>谁是 OWASP ®基金会</h2><p>Open Web Application Security Project</p>
-<h2 id="web安全理论基础"><a href="#web安全理论基础" class="headerlink" title="web安全理论基础"></a>web安全理论基础</h2><p><a href="https://cheatsheetseries.owasp.org/">https://cheatsheetseries.owasp.org/</a></p>
-<h2 id="xss注入"><a href="#xss注入" class="headerlink" title="xss注入"></a>xss注入</h2><p>主要是需要转义html <code>&lt; &gt; &quot; &#39; &amp;</code> 这5个字符</p>
-<ul>
-<li><code>&gt;</code> 转 <code>&amp;gt;</code> </li>
-<li><code>&lt;</code> 转 <code>&amp;lt;</code> </li>
-<li><code>&quot;</code> 转 <code>&amp;quot;</code> </li>
-<li><code>&#39;</code> 转 <code>&amp;#39;</code> </li>
-<li><code>&amp;</code> 转 <code>&amp;amp;</code> </li>
-</ul>
-<h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><p>直接使用雅虎的xss-filters<br><a href="https://www.npmjs.com/package/xss-filters">https://www.npmjs.com/package/xss-filters</a></p>
-]]></content>
-      <tags>
-        <tag>web安全</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>需求管理</title>
     <url>/2022/08/15/%E9%9C%80%E6%B1%82%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<ul>
@@ -609,6 +620,25 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>webpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>防止xss注入</title>
+    <url>/2021/10/22/%E9%98%B2%E6%AD%A2xss%E6%B3%A8%E5%85%A5/</url>
+    <content><![CDATA[<h2 id="谁是-OWASP-®基金会"><a href="#谁是-OWASP-®基金会" class="headerlink" title="谁是 OWASP ®基金会"></a>谁是 OWASP ®基金会</h2><p>Open Web Application Security Project</p>
+<h2 id="web安全理论基础"><a href="#web安全理论基础" class="headerlink" title="web安全理论基础"></a>web安全理论基础</h2><p><a href="https://cheatsheetseries.owasp.org/">https://cheatsheetseries.owasp.org/</a></p>
+<h2 id="xss注入"><a href="#xss注入" class="headerlink" title="xss注入"></a>xss注入</h2><p>主要是需要转义html <code>&lt; &gt; &quot; &#39; &amp;</code> 这5个字符</p>
+<ul>
+<li><code>&gt;</code> 转 <code>&amp;gt;</code> </li>
+<li><code>&lt;</code> 转 <code>&amp;lt;</code> </li>
+<li><code>&quot;</code> 转 <code>&amp;quot;</code> </li>
+<li><code>&#39;</code> 转 <code>&amp;#39;</code> </li>
+<li><code>&amp;</code> 转 <code>&amp;amp;</code> </li>
+</ul>
+<h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><p>直接使用雅虎的xss-filters<br><a href="https://www.npmjs.com/package/xss-filters">https://www.npmjs.com/package/xss-filters</a></p>
+]]></content>
+      <tags>
+        <tag>web安全</tag>
       </tags>
   </entry>
   <entry>
@@ -1093,20 +1123,20 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 31. Blackboxing 获得更好的调试会话</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2031.%20Blackboxing%20%E8%8E%B7%E5%BE%97%E6%9B%B4%E5%A5%BD%E7%9A%84%E8%B0%83%E8%AF%95%E4%BC%9A%E8%AF%9D/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-f08a9ae48aa2fb3e.gif?imageMogr2/auto-orient/strip" alt="blackboxing.gif"><br>比如我们自己封装了一个 log.js,里面调用了console.log()。<br>所有打印出来的日志都定位到这个log.js文件,这不是我们想要。我们可以把 log.js设置成 Blackboxing Script。<br>这样就能定位到上一个调用栈的方法上了。</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>真心很实用的功能，以前不知道可以这么玩，我是在打印的位置设置断点，看调用栈，再设置断点。把断点取消掉。</p>
+    <title>2021-4-7- Chrome Devtools Tip： 32. lighthouse 面板检查网页状态</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2032.%20lighthouse%20%E9%9D%A2%E6%9D%BF%E6%A3%80%E6%9F%A5%E7%BD%91%E9%A1%B5%E7%8A%B6%E6%80%81/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-369c984fe07235d6.gif?imageMogr2/auto-orient/strip" alt="lighthouse-audits.gif"></p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>多维度给网页打分的工具,把里面的问题都修复了,网页绝对棒棒哒。我们可以根据生成的报告，有针对性的修复页面问题</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 32. lighthouse 面板检查网页状态</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2032.%20lighthouse%20%E9%9D%A2%E6%9D%BF%E6%A3%80%E6%9F%A5%E7%BD%91%E9%A1%B5%E7%8A%B6%E6%80%81/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-369c984fe07235d6.gif?imageMogr2/auto-orient/strip" alt="lighthouse-audits.gif"></p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>多维度给网页打分的工具,把里面的问题都修复了,网页绝对棒棒哒。我们可以根据生成的报告，有针对性的修复页面问题</p>
+    <title>2021-4-7- Chrome Devtools Tip： 31. Blackboxing 获得更好的调试会话</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2031.%20Blackboxing%20%E8%8E%B7%E5%BE%97%E6%9B%B4%E5%A5%BD%E7%9A%84%E8%B0%83%E8%AF%95%E4%BC%9A%E8%AF%9D/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-f08a9ae48aa2fb3e.gif?imageMogr2/auto-orient/strip" alt="blackboxing.gif"><br>比如我们自己封装了一个 log.js,里面调用了console.log()。<br>所有打印出来的日志都定位到这个log.js文件,这不是我们想要。我们可以把 log.js设置成 Blackboxing Script。<br>这样就能定位到上一个调用栈的方法上了。</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>真心很实用的功能，以前不知道可以这么玩，我是在打印的位置设置断点，看调用栈，再设置断点。把断点取消掉。</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1254,20 +1284,20 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>chrome几个有用的带参数启动项</title>
-    <url>/2021/09/26/chrome/chrome%E5%87%A0%E4%B8%AA%E6%9C%89%E7%94%A8%E7%9A%84%E5%B8%A6%E5%8F%82%E6%95%B0%E5%90%AF%E5%8A%A8%E9%A1%B9/</url>
-    <content><![CDATA[<h2 id="打开新页签的时候自动打开devtools"><a href="#打开新页签的时候自动打开devtools" class="headerlink" title="打开新页签的时候自动打开devtools"></a>打开新页签的时候自动打开devtools</h2><p><code>--auto-open-devtools-for-tabs</code></p>
-<h2 id="去除安全井盖-打开没有证书的https页面的时候就不会有告警"><a href="#去除安全井盖-打开没有证书的https页面的时候就不会有告警" class="headerlink" title="去除安全井盖,打开没有证书的https页面的时候就不会有告警"></a>去除安全井盖,打开没有证书的https页面的时候就不会有告警</h2><p><code>--ignore-certificate-errors</code></p>
-<h2 id="关闭安全验证-同源策略会被关闭-方便口语调试-新版本的chrome后面的用户目录也是必须设置的"><a href="#关闭安全验证-同源策略会被关闭-方便口语调试-新版本的chrome后面的用户目录也是必须设置的" class="headerlink" title="关闭安全验证,同源策略会被关闭,方便口语调试,新版本的chrome后面的用户目录也是必须设置的"></a>关闭安全验证,同源策略会被关闭,方便口语调试,新版本的chrome后面的用户目录也是必须设置的</h2><p><code>--disable-web-securty --user-data-dir=C:\chromeData</code></p>
+    <title>chrome浏览器窗口关闭后,后台进程仍在运行</title>
+    <url>/2021/09/25/chrome/chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AA%97%E5%8F%A3%E5%85%B3%E9%97%AD%E5%90%8E-%E5%90%8E%E5%8F%B0%E8%BF%9B%E7%A8%8B%E4%BB%8D%E5%9C%A8%E8%BF%90%E8%A1%8C/</url>
+    <content><![CDATA[<p><code>chrome://settings/system</code> 里面有一个<code>关闭 Google Chrome 后继续运行后台应用</code> 默认是打开的,需要手动关闭。<br>如果项目中用到了sessionStorage的话,可能会影响到正常的逻辑。<br><img src="/images/2021-09-25-20-54-05.png"></p>
 ]]></content>
       <tags>
         <tag>chrome</tag>
       </tags>
   </entry>
   <entry>
-    <title>chrome浏览器窗口关闭后,后台进程仍在运行</title>
-    <url>/2021/09/25/chrome/chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AA%97%E5%8F%A3%E5%85%B3%E9%97%AD%E5%90%8E-%E5%90%8E%E5%8F%B0%E8%BF%9B%E7%A8%8B%E4%BB%8D%E5%9C%A8%E8%BF%90%E8%A1%8C/</url>
-    <content><![CDATA[<p><code>chrome://settings/system</code> 里面有一个<code>关闭 Google Chrome 后继续运行后台应用</code> 默认是打开的,需要手动关闭。<br>如果项目中用到了sessionStorage的话,可能会影响到正常的逻辑。<br><img src="/images/2021-09-25-20-54-05.png"></p>
+    <title>chrome几个有用的带参数启动项</title>
+    <url>/2021/09/26/chrome/chrome%E5%87%A0%E4%B8%AA%E6%9C%89%E7%94%A8%E7%9A%84%E5%B8%A6%E5%8F%82%E6%95%B0%E5%90%AF%E5%8A%A8%E9%A1%B9/</url>
+    <content><![CDATA[<h2 id="打开新页签的时候自动打开devtools"><a href="#打开新页签的时候自动打开devtools" class="headerlink" title="打开新页签的时候自动打开devtools"></a>打开新页签的时候自动打开devtools</h2><p><code>--auto-open-devtools-for-tabs</code></p>
+<h2 id="去除安全井盖-打开没有证书的https页面的时候就不会有告警"><a href="#去除安全井盖-打开没有证书的https页面的时候就不会有告警" class="headerlink" title="去除安全井盖,打开没有证书的https页面的时候就不会有告警"></a>去除安全井盖,打开没有证书的https页面的时候就不会有告警</h2><p><code>--ignore-certificate-errors</code></p>
+<h2 id="关闭安全验证-同源策略会被关闭-方便口语调试-新版本的chrome后面的用户目录也是必须设置的"><a href="#关闭安全验证-同源策略会被关闭-方便口语调试-新版本的chrome后面的用户目录也是必须设置的" class="headerlink" title="关闭安全验证,同源策略会被关闭,方便口语调试,新版本的chrome后面的用户目录也是必须设置的"></a>关闭安全验证,同源策略会被关闭,方便口语调试,新版本的chrome后面的用户目录也是必须设置的</h2><p><code>--disable-web-securty --user-data-dir=C:\chromeData</code></p>
 ]]></content>
       <tags>
         <tag>chrome</tag>
@@ -1353,11 +1383,25 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <p><img src="images/2022-11-19-15-51-50.png"></p>
 <p>于是网上找了下国内的镜像仓库，安装成功，但是 <code>wa 不是内部或外部命令</code><br><img src="images/2022-11-19-15-53-20.png"></p>
 <p>在项目目录下创建一个<code>wa.cmd</code>来执行下<code>go run main.go %*</code>,这样也能愉快的执行wa命令咯,效果如下<br><img src="images/2022-11-19-16-02-13.png"></p>
-<p>后来检查了下 install 的时候会在 $home/go/bin目录创建 wa.exe的,配置下这个目录的地址到path就行了,最根本的原因是系统中的 $GO_PATH没有设置对。</p>
+<p>后来检查了下 install 的时候会在 <code>$home/go/bin</code>目录(我的电脑是这个路径C:\Users\win7\go\bin)创建 <code>wa.exe</code>的</p>
+<p>配置下这个目录的地址到path就行了,最根本的原因是安装前系统中的 <code>$GO_PATH</code>没有设置对。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>安装前检查go有没用正确安装</li>
+<li>安装前设置好go的国内的镜像仓库</li>
+<li>安装完如果出现<code>wa 不是内部或外部命令</code>,用<code>Everything</code>全盘检索<code>wa.exe</code>文件,把所在目录配置到环境变量中</li>
+</ol>
 ]]></content>
       <tags>
         <tag>wa-lang</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>开发灵异事件之base64图片传输</title>
+    <url>/2023/03/28/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bfix%E5%AE%9A%E4%BD%8D%E5%A4%B1%E8%B4%A5/</url>
+    <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>使用了 <code>position:fixed</code>定位发现弹框不能定位到页面相对位置</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>fixed默认是相对于页面的根元素的,但是有一种情况例外,就是如果父有元素做了transfrom变换的时候。此时会相对于该元素定位</p>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>fixed定位的元素建议作为body直接子元素使用</p>
+]]></content>
   </entry>
   <entry>
     <title>开发灵异事件之base64图片传输</title>
@@ -1385,6 +1429,14 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>window.open 新开的页面跟原有页面用的是同一个渲染器。另外 超链接  target=_blank也是一样的。</p>
 <h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>使用超链接打开新页面，并使用<code>&lt;a href=&quot;&quot; rel=&quot;noopener&quot;&gt;&lt;/a&gt;</code>属性</p>
 <p>也能使用 <code>window.open(URL,_blank,&#39;noopener&#39;)</code></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>开发灵异事件之显示模糊</title>
+    <url>/2023/03/28/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E6%98%BE%E7%A4%BA%E6%A8%A1%E7%B3%8A/</url>
+    <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>弹框看起来很模糊</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>弹框写了居中效果,但是用了的方式是 <code>transform:translate(-50%,-50%,);left:50%</code>,但是弹框的宽度 或者 高度使用的单位是奇数 例如 <code>501px</code> 就会模糊 因为电脑是没办法识别<code>0.5px</code>这种显示的</p>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>居中的话建议用使用 上下左右0 的写法 , <code>margin auto</code> 或者<code>flex布局</code></p>
 ]]></content>
   </entry>
   <entry>
@@ -1809,6 +1861,15 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>2021-4-7-在博客中使用简书的图片</title>
+    <url>/2021/04/07/%E5%8D%9A%E5%AE%A2/2021-4-7-%E5%9C%A8%E5%8D%9A%E5%AE%A2%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%AE%80%E4%B9%A6%E7%9A%84%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<p>正常使用简书的图片会出现403错误,需要在页面头<code>_includes\head.html</code>加入   <code>&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;</code>防止被简书安全措施(跨站请求伪造)拦截</p>
+]]></content>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>博客中使用emoji表情</title>
     <url>/2018/03/25/%E5%8D%9A%E5%AE%A2/2018-3-25-%E5%9C%A8%E5%8D%9A%E5%AE%A2%E4%B8%AD%E4%BD%BF%E7%94%A8emoji%E8%A1%A8%E6%83%85/</url>
     <content><![CDATA[<p><a href="https://github.com/guodongxiaren/README/blob/master/emoji.md">表情列表</a></p>
@@ -1818,15 +1879,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">plugins:</span><br><span class="line">  - jemoji</span><br><span class="line"></span><br><span class="line">gems:[jemoji]  </span><br></pre></td></tr></table></figure>
 <h1 id="测试显示"><a href="#测试显示" class="headerlink" title="测试显示"></a>测试显示</h1><h2 id="bowtie-blush"><a href="#bowtie-blush" class="headerlink" title=":bowtie: :blush:"></a>:bowtie: :blush:</h2>]]></content>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-4-7-在博客中使用简书的图片</title>
-    <url>/2021/04/07/%E5%8D%9A%E5%AE%A2/2021-4-7-%E5%9C%A8%E5%8D%9A%E5%AE%A2%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%AE%80%E4%B9%A6%E7%9A%84%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<p>正常使用简书的图片会出现403错误,需要在页面头<code>_includes\head.html</code>加入   <code>&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;</code>防止被简书安全措施(跨站请求伪造)拦截</p>
-]]></content>
       <tags>
         <tag>博客</tag>
       </tags>
@@ -2337,6 +2389,23 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>模块设计工程师(MDE)</title>
+    <url>/2021/11/04/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1%E5%B7%A5%E7%A8%8B%E5%B8%88/</url>
+    <content><![CDATA[<p>最近在做项目组MDE关键角色认证评审的工作,记录下</p>
+<h2 id="模块设计工程师"><a href="#模块设计工程师" class="headerlink" title="模块设计工程师"></a>模块设计工程师</h2><p>MDE 是 Module Design Engineer 的缩写。</p>
+<h2 id="MDE-任职要求"><a href="#MDE-任职要求" class="headerlink" title="MDE 任职要求"></a>MDE 任职要求</h2><ol>
+<li>（需求处理）完成需求对齐,分解,输出概要设计(这个有些是SE出),详细设计</li>
+<li>（模块设计）考虑模块复用,梳理内部外部依赖,确定目录结构,数据流向,对代码安全,代码质量负责</li>
+<li>（持续优化）技术攻关,代码重构,废弃功能管理,历史需求整理,文档优化</li>
+<li>（知识分享）能总结提供开发文档，提供技术培训</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>MDE 除了编码能力外,还需要良好的理解能力,沟通能力,以及协助他人的一个意愿。不再局限于完成自己的开发任务，需要对项目中的某个模块负责。</p>
+]]></content>
+      <tags>
+        <tag>项目管理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>华为研发项目管理（RDPM）中的术语</title>
     <url>/2021/09/09/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E5%8D%8E%E4%B8%BA%E7%A0%94%E5%8F%91%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%EF%BC%88RDPM%EF%BC%89%E4%B8%AD%E7%9A%84%E6%9C%AF%E8%AF%AD/</url>
     <content><![CDATA[<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><table>
@@ -2597,23 +2666,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>人力资源管理 采购管理 财务管理 风险管理</li>
 <li>整体管理（沟通管理）</li>
 </ul>
-]]></content>
-      <tags>
-        <tag>项目管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>模块设计工程师(MDE)</title>
-    <url>/2021/11/04/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1%E5%B7%A5%E7%A8%8B%E5%B8%88/</url>
-    <content><![CDATA[<p>最近在做项目组MDE关键角色认证评审的工作,记录下</p>
-<h2 id="模块设计工程师"><a href="#模块设计工程师" class="headerlink" title="模块设计工程师"></a>模块设计工程师</h2><p>MDE 是 Module Design Engineer 的缩写。</p>
-<h2 id="MDE-任职要求"><a href="#MDE-任职要求" class="headerlink" title="MDE 任职要求"></a>MDE 任职要求</h2><ol>
-<li>（需求处理）完成需求对齐,分解,输出概要设计(这个有些是SE出),详细设计</li>
-<li>（模块设计）考虑模块复用,梳理内部外部依赖,确定目录结构,数据流向,对代码安全,代码质量负责</li>
-<li>（持续优化）技术攻关,代码重构,废弃功能管理,历史需求整理,文档优化</li>
-<li>（知识分享）能总结提供开发文档，提供技术培训</li>
-</ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>MDE 除了编码能力外,还需要良好的理解能力,沟通能力,以及协助他人的一个意愿。不再局限于完成自己的开发任务，需要对项目中的某个模块负责。</p>
 ]]></content>
       <tags>
         <tag>项目管理</tag>

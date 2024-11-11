@@ -187,6 +187,274 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/15/js%E9%81%BF%E5%9D%91-new-Array/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/15/js%E9%81%BF%E5%9D%91-new-Array/" class="post-title-link" itemprop="url">js避坑-new Array</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-08-15 21:47:31" itemprop="dateCreated datePublished" datetime="2022-08-15T21:47:31+00:00">2022-08-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-11 14:43:53" itemprop="dateModified" datetime="2024-11-11T14:43:53+00:00">2024-11-11</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/08/15/js%E9%81%BF%E5%9D%91-new-Array/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/15/js%E9%81%BF%E5%9D%91-new-Array/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><code>new Array(8).map(i=&gt;[])</code>这种声明二维数组的方式会报错</p>
+<p>改成 <code>new Array(8).fill().map(i=&gt;[])</code>即可</p>
+<p>报错的原因是 new Array 产生的数组比较特殊 有length 但是没有内容，所以无法迭代</p>
+<p>不过我一般用 <code>Array.form(&#123;length:8&#125;,i=&gt;[])</code>这么初始化</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/17/%E5%8D%9A%E5%AE%A2/netlify%E4%BB%8B%E7%BB%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/12/17/%E5%8D%9A%E5%AE%A2/netlify%E4%BB%8B%E7%BB%8D/" class="post-title-link" itemprop="url">netlify介绍</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-17 22:20:04" itemprop="dateCreated datePublished" datetime="2021-12-17T22:20:04+00:00">2021-12-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-11 14:43:53" itemprop="dateModified" datetime="2024-11-11T14:43:53+00:00">2024-11-11</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/12/17/%E5%8D%9A%E5%AE%A2/netlify%E4%BB%8B%E7%BB%8D/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/12/17/%E5%8D%9A%E5%AE%A2/netlify%E4%BB%8B%E7%BB%8D/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="目前博客存在的问题"><a href="#目前博客存在的问题" class="headerlink" title="目前博客存在的问题"></a>目前博客存在的问题</h1><p>github pages服务部署,国内访问很慢,github防止百度爬虫不收录</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>使用netlify可以做静态网站的cdn部署</p>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><ol>
+<li>使用github账号登录netlify</li>
+<li>授权netlify访问需要部署的仓库与分支</li>
+</ol>
+<hr>
+<ol start="3">
+<li>如果有自己的域名,在DNS解析服务器上,CNAME解析到netlify提供的域名即可</li>
+</ol>
+<h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><p>ping 一下自己的域名,看下真实地址对不对就可以的<br><img src="images/2021-12-17-22-27-52.png"></p>
+<h1 id="netlify官网"><a href="#netlify官网" class="headerlink" title="netlify官网"></a>netlify官网</h1><p><a target="_blank" rel="noopener" href="https://www.netlify.com/">https://www.netlify.com/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/09/babel%E4%B8%8Ecore-js%E7%9A%84%E5%85%B3%E7%B3%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/12/09/babel%E4%B8%8Ecore-js%E7%9A%84%E5%85%B3%E7%B3%BB/" class="post-title-link" itemprop="url">babel与core-js</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-09 22:13:15" itemprop="dateCreated datePublished" datetime="2021-12-09T22:13:15+00:00">2021-12-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-11 14:43:53" itemprop="dateModified" datetime="2024-11-11T14:43:53+00:00">2024-11-11</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/12/09/babel%E4%B8%8Ecore-js%E7%9A%84%E5%85%B3%E7%B3%BB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/12/09/babel%E4%B8%8Ecore-js%E7%9A%84%E5%85%B3%E7%B3%BB/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="babel-垫片是什么"><a href="#babel-垫片是什么" class="headerlink" title="babel,垫片是什么?"></a>babel,垫片是什么?</h1><ol>
+<li>babel 是用来把ES6,ESNext语法转换成ES5语法的,本身没有垫片的功能</li>
+<li>垫片就是给一些低版本的浏览器实现一些新的API,比如数组的<code>includes</code> <code>find</code>,<code>Promsie</code>等实现</li>
+<li><code>@babel/polifill</code> 这个垫片是babel官方提供的,相当于全量引入了长期支持的API,以及使用了的部分API<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;@babel/polyfill&quot;</span>;</span><br><span class="line"><span class="comment">// 等同于下面两句</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;core-js/stable&quot;</span>;<span class="comment">//长期支持的</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;regenerator-runtime/runtime&quot;</span>;<span class="comment">//部分使用的</span></span><br></pre></td></tr></table></figure></li>
+<li>目前我们一般用 <code>@babel/preset-env</code>根据使用的API动态的使用垫片,项目中没用过的就不用垫了。</li>
+<li><code>core-js</code>是一个专门的垫片仓库</li>
+<li><code>@babel/preset-env</code> 的配置项 <code>useBuiltIns</code>有<code>entry</code> 与 <code>usage</code>两个选项,默认值是<code>false</code>,全量引入，体积最大。</li>
+<li><code>entry</code>需要手动在代码入口加上 <code>import &#39;@babel/polyfill&#39;</code>,表示按照目标兼容浏览器版本全量加载，体积小一些。</li>
+<li><code>usage</code>表示根据API按需加载，体积最小。</li>
+<li><code>@babel/preset-env</code>的配置项 <code>corejs:2</code>默认是<code>2.x</code>,如果需要使用<code>core-js@3</code>需要修改这个配置项<code>corejs:3</code></li>
+<li>babel在转换语法的时候会自动生成一些辅助函数,这些辅助函数大量重复存在</li>
+<li><code>core-js</code>的垫片会直接修改API 的原型与全局方法</li>
+<li><code>@babel/plugin-transform-runtime</code>插件会做两件事,第一辅助函数一次性引入,防止重复。第二，垫片作为闭包方法调用，防止全局污染</li>
+</ol>
+<h1 id="最佳实践的babel配置"><a href="#最佳实践的babel配置" class="headerlink" title="最佳实践的babel配置"></a>最佳实践的babel配置</h1><p><code>npm i @babel/core、@babel/preset-env @babel/runtime-corejs3 @babel/plugin-transform-runtime</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;presets&quot;</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">&quot;@babel/preset-env&quot;</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">&quot;useBuiltIns&quot;</span>: <span class="string">&quot;usage&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">&quot;plugins&quot;</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">&quot;@babel/plugin-transform-runtime&quot;</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">&quot;corejs&quot;</span>: <span class="number">3</span> <span class="comment">// 指定 runtime-corejs 的版本，目前有 2 3 两个版本</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>core-js 是一个通用的垫片仓库,babel的垫片相关功能依赖core-js</p>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/01/babel.html">http://www.ruanyifeng.com/blog/2016/01/babel.html</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/09/%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E4%B8%BB%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -218,7 +486,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-20 02:01:41" itemprop="dateModified" datetime="2022-11-20T02:01:41+00:00">2022-11-20</time>
+                <time title="修改时间：2024-11-11 14:43:53" itemprop="dateModified" datetime="2024-11-11T14:43:53+00:00">2024-11-11</time>
               </span>
 
           
@@ -301,7 +569,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-20 02:01:41" itemprop="dateModified" datetime="2022-11-20T02:01:41+00:00">2022-11-20</time>
+                <time title="修改时间：2024-11-11 14:43:53" itemprop="dateModified" datetime="2024-11-11T14:43:53+00:00">2024-11-11</time>
               </span>
 
           
@@ -406,7 +674,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-20 02:01:41" itemprop="dateModified" datetime="2022-11-20T02:01:41+00:00">2022-11-20</time>
+                <time title="修改时间：2024-11-11 14:43:53" itemprop="dateModified" datetime="2024-11-11T14:43:53+00:00">2024-11-11</time>
               </span>
 
           
@@ -490,7 +758,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-20 02:01:41" itemprop="dateModified" datetime="2022-11-20T02:01:41+00:00">2022-11-20</time>
+                <time title="修改时间：2024-11-11 14:43:53" itemprop="dateModified" datetime="2024-11-11T14:43:53+00:00">2024-11-11</time>
               </span>
 
           
@@ -662,7 +930,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-20 02:01:41" itemprop="dateModified" datetime="2022-11-20T02:01:41+00:00">2022-11-20</time>
+                <time title="修改时间：2024-11-11 14:43:53" itemprop="dateModified" datetime="2024-11-11T14:43:53+00:00">2024-11-11</time>
               </span>
 
           
@@ -752,7 +1020,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-20 02:01:41" itemprop="dateModified" datetime="2022-11-20T02:01:41+00:00">2022-11-20</time>
+                <time title="修改时间：2024-11-11 14:43:53" itemprop="dateModified" datetime="2024-11-11T14:43:53+00:00">2024-11-11</time>
               </span>
 
           
@@ -835,7 +1103,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-20 02:01:41" itemprop="dateModified" datetime="2022-11-20T02:01:41+00:00">2022-11-20</time>
+                <time title="修改时间：2024-11-11 14:43:53" itemprop="dateModified" datetime="2024-11-11T14:43:53+00:00">2024-11-11</time>
               </span>
 
           
@@ -885,270 +1153,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/04/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1%E5%B7%A5%E7%A8%8B%E5%B8%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/04/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1%E5%B7%A5%E7%A8%8B%E5%B8%88/" class="post-title-link" itemprop="url">模块设计工程师(MDE)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-04 21:14:35" itemprop="dateCreated datePublished" datetime="2021-11-04T21:14:35+00:00">2021-11-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-20 02:01:41" itemprop="dateModified" datetime="2022-11-20T02:01:41+00:00">2022-11-20</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/11/04/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1%E5%B7%A5%E7%A8%8B%E5%B8%88/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/11/04/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1%E5%B7%A5%E7%A8%8B%E5%B8%88/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近在做项目组MDE关键角色认证评审的工作,记录下</p>
-<h2 id="模块设计工程师"><a href="#模块设计工程师" class="headerlink" title="模块设计工程师"></a>模块设计工程师</h2><p>MDE 是 Module Design Engineer 的缩写。</p>
-<h2 id="MDE-任职要求"><a href="#MDE-任职要求" class="headerlink" title="MDE 任职要求"></a>MDE 任职要求</h2><ol>
-<li>（需求处理）完成需求对齐,分解,输出概要设计(这个有些是SE出),详细设计</li>
-<li>（模块设计）考虑模块复用,梳理内部外部依赖,确定目录结构,数据流向,对代码安全,代码质量负责</li>
-<li>（持续优化）技术攻关,代码重构,废弃功能管理,历史需求整理,文档优化</li>
-<li>（知识分享）能总结提供开发文档，提供技术培训</li>
-</ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>MDE 除了编码能力外,还需要良好的理解能力,沟通能力,以及协助他人的一个意愿。不再局限于完成自己的开发任务，需要对项目中的某个模块负责。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/22/%E9%98%B2%E6%AD%A2xss%E6%B3%A8%E5%85%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/22/%E9%98%B2%E6%AD%A2xss%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">防止xss注入</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-10-22 19:25:57" itemprop="dateCreated datePublished" datetime="2021-10-22T19:25:57+00:00">2021-10-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-20 02:01:41" itemprop="dateModified" datetime="2022-11-20T02:01:41+00:00">2022-11-20</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/10/22/%E9%98%B2%E6%AD%A2xss%E6%B3%A8%E5%85%A5/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/10/22/%E9%98%B2%E6%AD%A2xss%E6%B3%A8%E5%85%A5/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="谁是-OWASP-®基金会"><a href="#谁是-OWASP-®基金会" class="headerlink" title="谁是 OWASP ®基金会"></a>谁是 OWASP ®基金会</h2><p>Open Web Application Security Project</p>
-<h2 id="web安全理论基础"><a href="#web安全理论基础" class="headerlink" title="web安全理论基础"></a>web安全理论基础</h2><p><a target="_blank" rel="noopener" href="https://cheatsheetseries.owasp.org/">https://cheatsheetseries.owasp.org/</a></p>
-<h2 id="xss注入"><a href="#xss注入" class="headerlink" title="xss注入"></a>xss注入</h2><p>主要是需要转义html <code>&lt; &gt; &quot; &#39; &amp;</code> 这5个字符</p>
-<ul>
-<li><code>&gt;</code> 转 <code>&amp;gt;</code> </li>
-<li><code>&lt;</code> 转 <code>&amp;lt;</code> </li>
-<li><code>&quot;</code> 转 <code>&amp;quot;</code> </li>
-<li><code>&#39;</code> 转 <code>&amp;#39;</code> </li>
-<li><code>&amp;</code> 转 <code>&amp;amp;</code> </li>
-</ul>
-<h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><p>直接使用雅虎的xss-filters<br><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/xss-filters">https://www.npmjs.com/package/xss-filters</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/22/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Bemoji%E8%A1%A8%E6%83%85%E7%9A%84Unicode%E7%BC%96%E7%A0%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/22/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Bemoji%E8%A1%A8%E6%83%85%E7%9A%84Unicode%E7%BC%96%E7%A0%81/" class="post-title-link" itemprop="url">如何查看emoji表情的Unicode编码</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-10-22 19:13:48" itemprop="dateCreated datePublished" datetime="2021-10-22T19:13:48+00:00">2021-10-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-20 02:01:41" itemprop="dateModified" datetime="2022-11-20T02:01:41+00:00">2022-11-20</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/10/22/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Bemoji%E8%A1%A8%E6%83%85%E7%9A%84Unicode%E7%BC%96%E7%A0%81/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/10/22/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Bemoji%E8%A1%A8%E6%83%85%E7%9A%84Unicode%E7%BC%96%E7%A0%81/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="可以在下面这个网站复制粘贴emoji"><a href="#可以在下面这个网站复制粘贴emoji" class="headerlink" title="可以在下面这个网站复制粘贴emoji"></a>可以在下面这个网站复制粘贴emoji</h2><p><a target="_blank" rel="noopener" href="https://getemoji.com/">https://getemoji.com/</a></p>
-<h2 id="👶🏻-这个除了复制粘贴怎么打印呢"><a href="#👶🏻-这个除了复制粘贴怎么打印呢" class="headerlink" title="👶🏻 这个除了复制粘贴怎么打印呢?"></a>👶🏻 这个除了复制粘贴怎么打印呢?</h2><p>我们js中的字符串编码是<code>utf-8</code><br><img src="images/2021-10-22-19-19-17.png"></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">escape</span>(<span class="string">&#x27;👶🏻&#x27;</span>)</span><br><span class="line"><span class="comment">// &#x27;%uD83D%uDC76%uD83C%uDFFB&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;\uD83D\uDC76\uD83c\uDFFB&#x27;</span>)</span><br><span class="line"><span class="comment">//  👶🏻</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="emoji-regex"><a href="#emoji-regex" class="headerlink" title="emoji-regex"></a>emoji-regex</h2><p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/emoji-regex">https://www.npmjs.com/package/emoji-regex</a></p>
-<p>这个仓库用来匹配字符串中的emoji表情,可以用来做富文本的图片替换</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1214,7 +1222,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">130</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1227,7 +1235,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1262,7 +1270,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
