@@ -42,3 +42,5 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.MINIO_ACCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.MINIO_SECRET_KEY }}
+          AWS_S3_BUCKET: ${{ secrets.MINIO_BUCKET }}
+          SOURCE_DIR: ./public
