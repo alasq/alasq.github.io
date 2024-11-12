@@ -476,6 +476,15 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>开发灵异事件之登录失效</title>
+    <url>/2021/09/13/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E7%99%BB%E5%BD%95%E5%A4%B1%E6%95%88/</url>
+    <content><![CDATA[<h1 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h1><p>登录界面多次重定向到自己。退出浏览器，清理缓存，无痕模式，都不行。</p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>google chrome在90+版本后，关闭所有窗口仍然会在后台运行，右下角有个小图标。这样会导致存在session Storage里面的数据不会被清理，或者是一些缓存命中机制出现变化，原有的登录判断逻辑出现问题。</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>右击电脑屏幕右下角状态栏chrome小图标，测底关闭浏览器后台程序。</p>
+<p>一劳永逸法，chrome://settings 界面去勾选退出后在后台运行的设置<br><img src="%5Bhttps://%5D(https://upload-images.jianshu.io/upload_images/8156292-157357cdc6edd678.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)" alt="alt"><br>根本解决法，修改判断登录的机制，适配浏览器更新</p>
+]]></content>
+  </entry>
+  <entry>
     <title>无js的菜单栏收缩与折叠动画</title>
     <url>/2022/08/15/%E6%97%A0js%E7%9A%84tab%E6%A0%8F%E6%94%B6%E7%BC%A9%E4%B8%8E%E6%8A%98%E5%8F%A0%E5%8A%A8%E7%94%BB/</url>
     <content><![CDATA[<p>菜单栏收缩主要使用下面的样式实现</p>
@@ -488,15 +497,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
         <tag>html</tag>
         <tag>css</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>开发灵异事件之登录失效</title>
-    <url>/2021/09/13/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E7%99%BB%E5%BD%95%E5%A4%B1%E6%95%88/</url>
-    <content><![CDATA[<h1 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h1><p>登录界面多次重定向到自己。退出浏览器，清理缓存，无痕模式，都不行。</p>
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>google chrome在90+版本后，关闭所有窗口仍然会在后台运行，右下角有个小图标。这样会导致存在session Storage里面的数据不会被清理，或者是一些缓存命中机制出现变化，原有的登录判断逻辑出现问题。</p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>右击电脑屏幕右下角状态栏chrome小图标，测底关闭浏览器后台程序。</p>
-<p>一劳永逸法，chrome://settings 界面去勾选退出后在后台运行的设置<br><img src="%5Bhttps://%5D(https://upload-images.jianshu.io/upload_images/8156292-157357cdc6edd678.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)" alt="alt"><br>根本解决法，修改判断登录的机制，适配浏览器更新</p>
-]]></content>
   </entry>
   <entry>
     <title>极致简洁的微前端框架-京东MicroApp开源了</title>
@@ -525,6 +525,20 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>记录webpack4的两个坑</title>
+    <url>/2021/09/26/%E8%AE%B0%E5%BD%95webpack4%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%9D%91/</url>
+    <content><![CDATA[<ol>
+<li><p>mode=production 的时候会自动压缩混淆js。但是如果加上css压缩的配置后,js的会失效,需要显式声明压缩插件<code> new TenserJSPlugin()</code></p>
+</li>
+<li><p>(file-loader extract-loader html-loader) 与 html-webpack-plugin 有冲突。这时候生成的index.html模板信息会丢失掉，只有一个片段。解决方案是在 (file-loader extract-loader html-loader) 处理html导入的时候,exclude掉index.html(不一定是这个名字,主要看模板名称)</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>webpack</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>水印样式处理</title>
     <url>/2022/08/15/%E6%B0%B4%E5%8D%B0%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<p>水印一般要求zIndex层级特别高，但是又不能影响到点击事件</p>
@@ -549,20 +563,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记录webpack4的两个坑</title>
-    <url>/2021/09/26/%E8%AE%B0%E5%BD%95webpack4%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%9D%91/</url>
-    <content><![CDATA[<ol>
-<li><p>mode=production 的时候会自动压缩混淆js。但是如果加上css压缩的配置后,js的会失效,需要显式声明压缩插件<code> new TenserJSPlugin()</code></p>
-</li>
-<li><p>(file-loader extract-loader html-loader) 与 html-webpack-plugin 有冲突。这时候生成的index.html模板信息会丢失掉，只有一个片段。解决方案是在 (file-loader extract-loader html-loader) 处理html导入的时候,exclude掉index.html(不一定是这个名字,主要看模板名称)</p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>webpack</tag>
       </tags>
   </entry>
   <entry>
@@ -619,6 +619,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>非vue-cli构建的项目使用 webpack-dev-server不打印代理日志</title>
+    <url>/2021/09/26/%E9%9D%9Evue-cli%E6%9E%84%E5%BB%BA%E7%9A%84%E9%A1%B9%E7%9B%AE%E4%BD%BF%E7%94%A8-webpack-dev-server%E4%B8%8D%E6%89%93%E5%8D%B0%E4%BB%A3%E7%90%86%E6%97%A5%E5%BF%97/</url>
+    <content><![CDATA[<p>使用 webpack-dev-server打印代理日志需要使用以下配置</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">  devServer:&#123;</span><br><span class="line">    proxy:&#123;</span><br><span class="line">      <span class="string">&quot;/&quot;</span>&#123;</span><br><span class="line">        target:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        logLevel:<span class="string">&#x27;debug&#x27;</span><span class="comment">//加上这个就可以了</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>webpack</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>需求管理</title>
     <url>/2022/08/15/%E9%9C%80%E6%B1%82%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<ul>
@@ -629,16 +639,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>项目管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>非vue-cli构建的项目使用 webpack-dev-server不打印代理日志</title>
-    <url>/2021/09/26/%E9%9D%9Evue-cli%E6%9E%84%E5%BB%BA%E7%9A%84%E9%A1%B9%E7%9B%AE%E4%BD%BF%E7%94%A8-webpack-dev-server%E4%B8%8D%E6%89%93%E5%8D%B0%E4%BB%A3%E7%90%86%E6%97%A5%E5%BF%97/</url>
-    <content><![CDATA[<p>使用 webpack-dev-server打印代理日志需要使用以下配置</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">  devServer:&#123;</span><br><span class="line">    proxy:&#123;</span><br><span class="line">      <span class="string">&quot;/&quot;</span>&#123;</span><br><span class="line">        target:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        logLevel:<span class="string">&#x27;debug&#x27;</span><span class="comment">//加上这个就可以了</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>webpack</tag>
       </tags>
   </entry>
   <entry>
@@ -1034,18 +1034,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 24. 在“Network”中查看来自其他应用程序的网络流量</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2024.%20%E5%9C%A8%E2%80%9CNetwork%E2%80%9D%E4%B8%AD%E6%9F%A5%E7%9C%8B%E6%9D%A5%E8%87%AA%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BD%91%E7%BB%9C%E6%B5%81%E9%87%8F/</url>
-    <content><![CDATA[<h2 id="常用的抓包工具"><a href="#常用的抓包工具" class="headerlink" title="常用的抓包工具"></a>常用的抓包工具</h2><p>Fiddler 小巧精悍,适合http<br>Burpsuite 安全测试的时候用过,很强大<br>wireshark  抓网卡,内容没有聚合上手难度高点</p>
-<p>NetWork 面板很好用,用来拦截操作系统的网络流量<br><img src="https://upload-images.jianshu.io/upload_images/8156292-af20e8217608951b.gif?imageMogr2/auto-orient/strip" alt="os-network-proxy.gif"></p>
-<p>这里需要另外一个 工具来配合 github kdzwinel/betwixt<br>安装好了再设置下系统的代理就好了</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>其实这个不是用Chrome DevTools去抓包啦,只是betwixt这个抓包工具,长得跟NetWork面板一样</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 25. 通过Performance面板录制,行级别查看代码耗时</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2025.%20%E9%80%9A%E8%BF%87Performance%E9%9D%A2%E6%9D%BF%E5%BD%95%E5%88%B6,%E8%A1%8C%E7%BA%A7%E5%88%AB%E6%9F%A5%E7%9C%8B%E4%BB%A3%E7%A0%81%E8%80%97%E6%97%B6/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-6b1b13e4a3b65a7b.gif?imageMogr2/auto-orient/strip" alt="line-level-profiling.gif"></p>
@@ -1065,6 +1053,18 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <h2 id="打断点时候的任意一个局部变量"><a href="#打断点时候的任意一个局部变量" class="headerlink" title="打断点时候的任意一个局部变量"></a>打断点时候的任意一个局部变量</h2><p><img src="https://upload-images.jianshu.io/upload_images/8156292-1ee0184cd551f0b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h2 id="消息的响应体预览界面"><a href="#消息的响应体预览界面" class="headerlink" title="消息的响应体预览界面"></a>消息的响应体预览界面</h2><p><img src="https://upload-images.jianshu.io/upload_images/8156292-792fb8a98b463887.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h2 id="还有其他我没发现的地方"><a href="#还有其他我没发现的地方" class="headerlink" title="还有其他我没发现的地方"></a>还有其他我没发现的地方</h2><p>请大家评论区补充</p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 24. 在“Network”中查看来自其他应用程序的网络流量</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2024.%20%E5%9C%A8%E2%80%9CNetwork%E2%80%9D%E4%B8%AD%E6%9F%A5%E7%9C%8B%E6%9D%A5%E8%87%AA%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BD%91%E7%BB%9C%E6%B5%81%E9%87%8F/</url>
+    <content><![CDATA[<h2 id="常用的抓包工具"><a href="#常用的抓包工具" class="headerlink" title="常用的抓包工具"></a>常用的抓包工具</h2><p>Fiddler 小巧精悍,适合http<br>Burpsuite 安全测试的时候用过,很强大<br>wireshark  抓网卡,内容没有聚合上手难度高点</p>
+<p>NetWork 面板很好用,用来拦截操作系统的网络流量<br><img src="https://upload-images.jianshu.io/upload_images/8156292-af20e8217608951b.gif?imageMogr2/auto-orient/strip" alt="os-network-proxy.gif"></p>
+<p>这里需要另外一个 工具来配合 github kdzwinel/betwixt<br>安装好了再设置下系统的代理就好了</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>其实这个不是用Chrome DevTools去抓包啦,只是betwixt这个抓包工具,长得跟NetWork面板一样</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1703,17 +1703,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>js获取路径上的参数</title>
-    <url>/2021/09/25/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/js%E8%8E%B7%E5%8F%96%E8%B7%AF%E5%BE%84%E4%B8%8A%E7%9A%84%E5%8F%82%E6%95%B0/</url>
-    <content><![CDATA[<p>假如有如下请求js的路径,怎么在some.js中获取这个参数?<br><code>base_url/path/to/some.js?username=bob</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> url=<span class="keyword">new</span> <span class="built_in">Error</span>().stack.match(<span class="regexp">/at\s(.*)\s/</span>)[<span class="number">1</span>];</span><br></pre></td></tr></table></figure>
-<p>通过错误对象的堆栈信息,拿到报错的URL。我是真的佩服这个大神的脑洞。</p>
-]]></content>
-      <tags>
-        <tag>代码片段</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>tailwindcss 简介</title>
     <url>/2021/10/09/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/tailwindcss-%E7%AE%80%E4%BB%8B/</url>
     <content><![CDATA[<p><a href="https://www.tailwindcss.cn/">中文文档</a></p>
@@ -1755,6 +1744,17 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js获取路径上的参数</title>
+    <url>/2021/09/25/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/js%E8%8E%B7%E5%8F%96%E8%B7%AF%E5%BE%84%E4%B8%8A%E7%9A%84%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<p>假如有如下请求js的路径,怎么在some.js中获取这个参数?<br><code>base_url/path/to/some.js?username=bob</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> url=<span class="keyword">new</span> <span class="built_in">Error</span>().stack.match(<span class="regexp">/at\s(.*)\s/</span>)[<span class="number">1</span>];</span><br></pre></td></tr></table></figure>
+<p>通过错误对象的堆栈信息,拿到报错的URL。我是真的佩服这个大神的脑洞。</p>
+]]></content>
+      <tags>
+        <tag>代码片段</tag>
       </tags>
   </entry>
   <entry>
@@ -1994,21 +1994,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>git常见问题</title>
-    <url>/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="使用git提交到github-每次都要输入用户名和密码的解决方法"><a href="#使用git提交到github-每次都要输入用户名和密码的解决方法" class="headerlink" title="使用git提交到github,每次都要输入用户名和密码的解决方法"></a>使用git提交到github,每次都要输入用户名和密码的解决方法</h1><p><a href="https://www.cnblogs.com/sky6862/p/7992736.html">https://www.cnblogs.com/sky6862/p/7992736.html</a></p>
-<h1 id="使用ssh协议提交github代码"><a href="#使用ssh协议提交github代码" class="headerlink" title="使用ssh协议提交github代码"></a>使用ssh协议提交github代码</h1><p><a href="https://blog.csdn.net/u013778905/article/details/83501204">https://blog.csdn.net/u013778905/article/details/83501204</a></p>
-<h1 id="git-记住密码"><a href="#git-记住密码" class="headerlink" title="git 记住密码"></a>git 记住密码</h1><p><code>git config --global credential.helper store</code></p>
-<h1 id="git-密码错误"><a href="#git-密码错误" class="headerlink" title="git 密码错误"></a>git 密码错误</h1><p>控制面板\用户帐户和家庭安全\凭据管理器  把网站的凭证删除掉</p>
-<h1 id="git-pull-冲突"><a href="#git-pull-冲突" class="headerlink" title="git pull 冲突"></a>git pull 冲突</h1><p>如果不想解决的话,可以直接 <code>git reset --hard HEAD</code></p>
-<h1 id="一次提交需要提交到多个分支的时候-使用摘取命令"><a href="#一次提交需要提交到多个分支的时候-使用摘取命令" class="headerlink" title="一次提交需要提交到多个分支的时候,使用摘取命令"></a>一次提交需要提交到多个分支的时候,使用摘取命令</h1><p><code>git cherry-pick &lt;commitID&gt;</code></p>
-<h1 id="git-从本地clone"><a href="#git-从本地clone" class="headerlink" title="git 从本地clone"></a>git 从本地clone</h1><p>git clone 除了从远程地址clone，还能从本地clone。<br>有时候方便开发我们需要不同的分支在不同的文件夹下同步开发，避免频繁的编译重构。<br>直接复制文件夹，里面的node_modules  target 等被gitignore的文件会非常慢.<br><img src="https://upload-images.jianshu.io/upload_images/8156292-9a607263a9ddbf2c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-]]></content>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>IDEA maven helper 插件</title>
     <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA-maven-helper-%E6%8F%92%E4%BB%B6/</url>
     <content><![CDATA[<p>用于分析没有使用的jar包依赖</p>
@@ -2032,6 +2017,21 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git常见问题</title>
+    <url>/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="使用git提交到github-每次都要输入用户名和密码的解决方法"><a href="#使用git提交到github-每次都要输入用户名和密码的解决方法" class="headerlink" title="使用git提交到github,每次都要输入用户名和密码的解决方法"></a>使用git提交到github,每次都要输入用户名和密码的解决方法</h1><p><a href="https://www.cnblogs.com/sky6862/p/7992736.html">https://www.cnblogs.com/sky6862/p/7992736.html</a></p>
+<h1 id="使用ssh协议提交github代码"><a href="#使用ssh协议提交github代码" class="headerlink" title="使用ssh协议提交github代码"></a>使用ssh协议提交github代码</h1><p><a href="https://blog.csdn.net/u013778905/article/details/83501204">https://blog.csdn.net/u013778905/article/details/83501204</a></p>
+<h1 id="git-记住密码"><a href="#git-记住密码" class="headerlink" title="git 记住密码"></a>git 记住密码</h1><p><code>git config --global credential.helper store</code></p>
+<h1 id="git-密码错误"><a href="#git-密码错误" class="headerlink" title="git 密码错误"></a>git 密码错误</h1><p>控制面板\用户帐户和家庭安全\凭据管理器  把网站的凭证删除掉</p>
+<h1 id="git-pull-冲突"><a href="#git-pull-冲突" class="headerlink" title="git pull 冲突"></a>git pull 冲突</h1><p>如果不想解决的话,可以直接 <code>git reset --hard HEAD</code></p>
+<h1 id="一次提交需要提交到多个分支的时候-使用摘取命令"><a href="#一次提交需要提交到多个分支的时候-使用摘取命令" class="headerlink" title="一次提交需要提交到多个分支的时候,使用摘取命令"></a>一次提交需要提交到多个分支的时候,使用摘取命令</h1><p><code>git cherry-pick &lt;commitID&gt;</code></p>
+<h1 id="git-从本地clone"><a href="#git-从本地clone" class="headerlink" title="git 从本地clone"></a>git 从本地clone</h1><p>git clone 除了从远程地址clone，还能从本地clone。<br>有时候方便开发我们需要不同的分支在不同的文件夹下同步开发，避免频繁的编译重构。<br>直接复制文件夹，里面的node_modules  target 等被gitignore的文件会非常慢.<br><img src="https://upload-images.jianshu.io/upload_images/8156292-9a607263a9ddbf2c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+]]></content>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -2655,6 +2655,17 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>版本火车</title>
+    <url>/2021/09/16/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E7%89%88%E6%9C%AC%E7%81%AB%E8%BD%A6/</url>
+    <content><![CDATA[<h1 id="版本火车"><a href="#版本火车" class="headerlink" title="版本火车"></a>版本火车</h1><p>一个比较成熟的软件系统，发版本的时间基本都是固定的，就像列车的时刻表。需求就是需要乘车的人。在进行版本计划的时候。就把相关需求列在版本火车的区间内。如果需求能够按时完成，赶上车就上线。如果测试不够充分，或者需求有变更，就敢下一趟上线的火车。</p>
+<p>版本火车适合需求之间没有依赖。成熟度比较高的软件。</p>
+<h1 id="敏捷开发"><a href="#敏捷开发" class="headerlink" title="敏捷开发"></a>敏捷开发</h1><p>与版本火车相对的就是敏捷开发。<br>敏捷开发对开发人员的素质要求比较高。因为测试时间短，主要依靠开发人员的水平。适合需求频繁变更，需求间高度依赖的启动阶段的项目。</p>
+]]></content>
+      <tags>
+        <tag>项目管理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>模块设计工程师(MDE)</title>
     <url>/2021/11/04/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1%E5%B7%A5%E7%A8%8B%E5%B8%88/</url>
     <content><![CDATA[<p>最近在做项目组MDE关键角色认证评审的工作,记录下</p>
@@ -2666,17 +2677,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>（知识分享）能总结提供开发文档，提供技术培训</li>
 </ol>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>MDE 除了编码能力外,还需要良好的理解能力,沟通能力,以及协助他人的一个意愿。不再局限于完成自己的开发任务，需要对项目中的某个模块负责。</p>
-]]></content>
-      <tags>
-        <tag>项目管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>版本火车</title>
-    <url>/2021/09/16/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E7%89%88%E6%9C%AC%E7%81%AB%E8%BD%A6/</url>
-    <content><![CDATA[<h1 id="版本火车"><a href="#版本火车" class="headerlink" title="版本火车"></a>版本火车</h1><p>一个比较成熟的软件系统，发版本的时间基本都是固定的，就像列车的时刻表。需求就是需要乘车的人。在进行版本计划的时候。就把相关需求列在版本火车的区间内。如果需求能够按时完成，赶上车就上线。如果测试不够充分，或者需求有变更，就敢下一趟上线的火车。</p>
-<p>版本火车适合需求之间没有依赖。成熟度比较高的软件。</p>
-<h1 id="敏捷开发"><a href="#敏捷开发" class="headerlink" title="敏捷开发"></a>敏捷开发</h1><p>与版本火车相对的就是敏捷开发。<br>敏捷开发对开发人员的素质要求比较高。因为测试时间短，主要依靠开发人员的水平。适合需求频繁变更，需求间高度依赖的启动阶段的项目。</p>
 ]]></content>
       <tags>
         <tag>项目管理</tag>
