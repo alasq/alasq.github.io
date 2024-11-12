@@ -33,14 +33,10 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: master  # deploying branch
-      - name: Deploy to MinIO
-        uses: jakejarvis/s3-sync-action@master
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          args: --acl public-read --follow-symlinks --delete
-          bucket: ${{ secrets.MINIO_BUCKET }}
-          endpoint: ${{ secrets.MINIO_ENDPOINT }} 
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.MINIO_ACCESS_KEY }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.MINIO_SECRET_KEY }}
-          AWS_S3_BUCKET: ${{ secrets.MINIO_BUCKET }}
-          SOURCE_DIR: ./public
+          aws-access-key-id: ${{ secrets.MINIO_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.MINIO_SECRET_KEY }}
+      - name: Deploy to MinIO
+        run: aws s3 sync public s3://${{ secrets.MINIO_BUCKET }} --endpoint-url=${{ secrets.MINIO_ENDPOINT }} --acl public-read --follow-symlinks --delete
