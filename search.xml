@@ -69,6 +69,21 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>2021年度最佳开源软件</title>
+    <url>/2021/11/09/2021%E5%B9%B4%E5%BA%A6%E6%9C%80%E4%BD%B3%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/</url>
+    <content><![CDATA[<p><a href="https://baijiahao.baidu.com/s?id=1714115486438973511&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1714115486438973511&amp;wfr=spider&amp;for=pc</a></p>
+<h2 id="前端能用到的"><a href="#前端能用到的" class="headerlink" title="前端能用到的"></a>前端能用到的</h2><h3 id="Svelte"><a href="#Svelte" class="headerlink" title="Svelte"></a>Svelte</h3><p>编译时前端框架，拥有SSR的性能，但是不需要服务器,编译结果仍然是纯粹的静态资源。</p>
+<p>vue的<code>petite-vue</code>项目也值得关注下，我觉得也够用了。由于web component 标准慢慢被主流浏览器支持，后面的趋势应该是各种框架都编译成 web component，进行发布。</p>
+<h3 id="FastAPI"><a href="#FastAPI" class="headerlink" title="FastAPI"></a>FastAPI</h3><p>用于快速构建API，完全兼容 openAPI  Python项目</p>
+<h3 id="Apache-Superset"><a href="#Apache-Superset" class="headerlink" title="Apache Superset"></a>Apache Superset</h3><p>作为企业数据收集与展示仓库，支持很多图表，开箱即用。突然发现里面的功能很多跟三朵云里面数据集的功能一致呀！我们SE在这上面找设计灵感？？</p>
+<h3 id="PostHog"><a href="#PostHog" class="headerlink" title="PostHog"></a>PostHog</h3><p>监控软件，应该跟打点埋码相关吧，另外推荐个异常监控系统 <a href="https://sentry.io/welcome/">哨兵 sentry</a></p>
+<p>剩下的都是些  AI  深度学习 集群 分布式 数据管理相关的开源项目了。</p>
+]]></content>
+      <tags>
+        <tag>新闻</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2021年web安全问题Top10</title>
     <url>/2021/11/23/2021%E5%B9%B4web%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98Top10/</url>
     <content><![CDATA[<p>原文: <a href="https://owasp.org/Top10/zh_TW/">https://owasp.org/Top10/zh_TW/</a></p>
@@ -168,21 +183,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>web安全</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021年度最佳开源软件</title>
-    <url>/2021/11/09/2021%E5%B9%B4%E5%BA%A6%E6%9C%80%E4%BD%B3%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/</url>
-    <content><![CDATA[<p><a href="https://baijiahao.baidu.com/s?id=1714115486438973511&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1714115486438973511&amp;wfr=spider&amp;for=pc</a></p>
-<h2 id="前端能用到的"><a href="#前端能用到的" class="headerlink" title="前端能用到的"></a>前端能用到的</h2><h3 id="Svelte"><a href="#Svelte" class="headerlink" title="Svelte"></a>Svelte</h3><p>编译时前端框架，拥有SSR的性能，但是不需要服务器,编译结果仍然是纯粹的静态资源。</p>
-<p>vue的<code>petite-vue</code>项目也值得关注下，我觉得也够用了。由于web component 标准慢慢被主流浏览器支持，后面的趋势应该是各种框架都编译成 web component，进行发布。</p>
-<h3 id="FastAPI"><a href="#FastAPI" class="headerlink" title="FastAPI"></a>FastAPI</h3><p>用于快速构建API，完全兼容 openAPI  Python项目</p>
-<h3 id="Apache-Superset"><a href="#Apache-Superset" class="headerlink" title="Apache Superset"></a>Apache Superset</h3><p>作为企业数据收集与展示仓库，支持很多图表，开箱即用。突然发现里面的功能很多跟三朵云里面数据集的功能一致呀！我们SE在这上面找设计灵感？？</p>
-<h3 id="PostHog"><a href="#PostHog" class="headerlink" title="PostHog"></a>PostHog</h3><p>监控软件，应该跟打点埋码相关吧，另外推荐个异常监控系统 <a href="https://sentry.io/welcome/">哨兵 sentry</a></p>
-<p>剩下的都是些  AI  深度学习 集群 分布式 数据管理相关的开源项目了。</p>
-]]></content>
-      <tags>
-        <tag>新闻</tag>
       </tags>
   </entry>
   <entry>
@@ -343,17 +343,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>前端开发文档之devdocs</title>
-    <url>/2021/09/13/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3%E4%B9%8Bdevdocs/</url>
-    <content><![CDATA[<p>devdocs.io 是一个在线的web开发文档在线站点，收藏了500+的前端开发文档，还支持离线模式。很适合部署在公司内网中。</p>
-<p>如果是我的话，可能会开发一个Chrome插件，用于替换Chrome的欢迎页面，然后把我收藏的所有开发文档做成一个欢迎页。</p>
-<p>真是个好想法，行动起来。<br>先给你们一个仓库地址 <a href="https://github.com/alasq/web.devdocs.chrome.welcome">web.devdocs.chrome.welcome</a> 大家可以贡献代码</p>
-]]></content>
-      <tags>
-        <tag>dev</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>几款基于Ai的智能补全vscode插件</title>
     <url>/2021/09/25/%E5%87%A0%E6%AC%BE%E5%9F%BA%E4%BA%8EAi%E7%9A%84%E6%99%BA%E8%83%BD%E8%A1%A5%E5%85%A8vscode%E6%8F%92%E4%BB%B6/</url>
     <content><![CDATA[<h2 id="Github-Copilot"><a href="#Github-Copilot" class="headerlink" title="Github Copilot"></a>Github Copilot</h2><p>基于GitHub上的代码,训练出来的AI补全,需要准确描述函数的作用,它去找相似的</p>
@@ -365,17 +354,14 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>单页应用路由切换接口问题</title>
-    <url>/2021/11/25/%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%E8%B7%AF%E7%94%B1%E5%88%87%E6%8D%A2%E6%8E%A5%E5%8F%A3%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>页面跳转的时候,处于异步请求的接口会自动被去取消掉，但是单页应用没有这种机制。我们需要手动实现。<br>axios是基于Promise的。本身对外暴露了一个 cancelToken的配置项用于取消,实际开发中需要在路由跳转的钩子中使用。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> CancelToken = axios.CancelToken;</span><br><span class="line"><span class="keyword">const</span> source = CancelToken.source();</span><br><span class="line"></span><br><span class="line">axios.get(<span class="string">&#x27;/user/12345&#x27;</span>, &#123;</span><br><span class="line">  cancelToken: source.token</span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">thrown</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (axios.isCancel(thrown)) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Request canceled&#x27;</span>, thrown.message);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     <span class="comment">// 处理错误</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">axios.post(<span class="string">&#x27;/user/12345&#x27;</span>, &#123;</span><br><span class="line">  name: <span class="string">&#x27;new name&#x27;</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  cancelToken: source.token</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取消请求（message 参数是可选的）</span></span><br><span class="line">source.cancel(<span class="string">&#x27;Operation canceled by the user.&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>底层实现主要依靠  </p>
-<p><code>xhr abort</code><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/abort">https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/abort</a></p>
-<p><code>AbortController</code>与<code>fetch</code><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController">https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController</a></p>
+    <title>前端开发文档之devdocs</title>
+    <url>/2021/09/13/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3%E4%B9%8Bdevdocs/</url>
+    <content><![CDATA[<p>devdocs.io 是一个在线的web开发文档在线站点，收藏了500+的前端开发文档，还支持离线模式。很适合部署在公司内网中。</p>
+<p>如果是我的话，可能会开发一个Chrome插件，用于替换Chrome的欢迎页面，然后把我收藏的所有开发文档做成一个欢迎页。</p>
+<p>真是个好想法，行动起来。<br>先给你们一个仓库地址 <a href="https://github.com/alasq/web.devdocs.chrome.welcome">web.devdocs.chrome.welcome</a> 大家可以贡献代码</p>
 ]]></content>
       <tags>
-        <tag>vue</tag>
+        <tag>dev</tag>
       </tags>
   </entry>
   <entry>
@@ -412,6 +398,20 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       <tags>
         <tag>webpack</tag>
         <tag>前端架构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>单页应用路由切换接口问题</title>
+    <url>/2021/11/25/%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%E8%B7%AF%E7%94%B1%E5%88%87%E6%8D%A2%E6%8E%A5%E5%8F%A3%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>页面跳转的时候,处于异步请求的接口会自动被去取消掉，但是单页应用没有这种机制。我们需要手动实现。<br>axios是基于Promise的。本身对外暴露了一个 cancelToken的配置项用于取消,实际开发中需要在路由跳转的钩子中使用。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> CancelToken = axios.CancelToken;</span><br><span class="line"><span class="keyword">const</span> source = CancelToken.source();</span><br><span class="line"></span><br><span class="line">axios.get(<span class="string">&#x27;/user/12345&#x27;</span>, &#123;</span><br><span class="line">  cancelToken: source.token</span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">thrown</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (axios.isCancel(thrown)) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Request canceled&#x27;</span>, thrown.message);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     <span class="comment">// 处理错误</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">axios.post(<span class="string">&#x27;/user/12345&#x27;</span>, &#123;</span><br><span class="line">  name: <span class="string">&#x27;new name&#x27;</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  cancelToken: source.token</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取消请求（message 参数是可选的）</span></span><br><span class="line">source.cancel(<span class="string">&#x27;Operation canceled by the user.&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>底层实现主要依靠  </p>
+<p><code>xhr abort</code><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/abort">https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/abort</a></p>
+<p><code>AbortController</code>与<code>fetch</code><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController">https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController</a></p>
+]]></content>
+      <tags>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -1085,6 +1085,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 29. 自定义Network面板的显示列，展示我们关心的响应头</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2029.%20%E8%87%AA%E5%AE%9A%E4%B9%89Network%E9%9D%A2%E6%9D%BF%E7%9A%84%E6%98%BE%E7%A4%BA%E5%88%97%EF%BC%8C%E5%B1%95%E7%A4%BA%E6%88%91%E4%BB%AC%E5%85%B3%E5%BF%83%E7%9A%84%E5%93%8D%E5%BA%94%E5%A4%B4/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-73a4ae427d244218.gif?imageMogr2/auto-orient/strip" alt="manage-network-response-headers.gif"><br>正常情况下我们需要查看详情才能看到具体的信息，<br>通过自定义Network面板的显示列就可以在列表中展示我们关心的内容。</p>
+<h1 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h1><p>我暂时没想到开发中的实际用途，老铁们有妙用可以在评论区告诉在下</p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 28. Chrome带参数启动</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2028.%20Chrome%E5%B8%A6%E5%8F%82%E6%95%B0%E5%90%AF%E5%8A%A8/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-cbfad927c7427d7f.gif?imageMogr2/auto-orient/strip" alt="auto-open-devtools.gif"></p>
@@ -1093,16 +1103,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <h1 id="没生效！！"><a href="#没生效！！" class="headerlink" title="没生效！！"></a>没生效！！</h1><p>添加启动参数后,发现没生效。已经打开了一个浏览器实例导致的。关闭所有的Chrome浏览器，再通过这个快接方式打开就能生效了。</p>
 <h1 id="让Chrome支持跨域调用"><a href="#让Chrome支持跨域调用" class="headerlink" title="让Chrome支持跨域调用"></a>让Chrome支持跨域调用</h1><p>本地调试小程序挺好用的,不用代理服务器<br><code> --disable-web-security --user-data-dir=C:\MyChromeDevUserData</code> 高版本Chrome需要<code>--user-data-dir</code>这个参数才可以使disable-web-security生效,后面是个例子<br><code>&quot;C:\Program Files (x86)\Google\Chrome\Application\chrome.exe&quot; --disable-web-security --user-data-dir=C:\MyChromeDevUserData</code></p>
 <h1 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h1><p>老铁们,还有些什么有用的启动命令可以在评论区发下</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 29. 自定义Network面板的显示列，展示我们关心的响应头</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2029.%20%E8%87%AA%E5%AE%9A%E4%B9%89Network%E9%9D%A2%E6%9D%BF%E7%9A%84%E6%98%BE%E7%A4%BA%E5%88%97%EF%BC%8C%E5%B1%95%E7%A4%BA%E6%88%91%E4%BB%AC%E5%85%B3%E5%BF%83%E7%9A%84%E5%93%8D%E5%BA%94%E5%A4%B4/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-73a4ae427d244218.gif?imageMogr2/auto-orient/strip" alt="manage-network-response-headers.gif"><br>正常情况下我们需要查看详情才能看到具体的信息，<br>通过自定义Network面板的显示列就可以在列表中展示我们关心的内容。</p>
-<h1 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h1><p>我暂时没想到开发中的实际用途，老铁们有妙用可以在评论区告诉在下</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1174,6 +1174,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 38. 复制完整的调用栈</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2038.%20%E5%A4%8D%E5%88%B6%E5%AE%8C%E6%95%B4%E7%9A%84%E8%B0%83%E7%94%A8%E6%A0%88/</url>
+    <content><![CDATA[<p>当打断点的时候,可以在如下图进行调用栈的复制,复制到剪贴板!!<br><img src="https://upload-images.jianshu.io/upload_images/8156292-369ec63c02f61443.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h1><p>这个鸡肋功能到底有啥用啊?? 发stackOverflow帖子的时候用吗?</p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 36. 自定义时间测量API</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2036.%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%B6%E9%97%B4%E6%B5%8B%E9%87%8FAPI/</url>
     <content><![CDATA[<p>Performance 面板就是以前的timeline面板。用于可视化分析代码性能。js提供了对应的API用于分析<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/User_Timing_API">https://developer.mozilla.org/zh-CN/docs/Web/API/User_Timing_API</a></p>
@@ -1212,16 +1222,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 38. 复制完整的调用栈</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2038.%20%E5%A4%8D%E5%88%B6%E5%AE%8C%E6%95%B4%E7%9A%84%E8%B0%83%E7%94%A8%E6%A0%88/</url>
-    <content><![CDATA[<p>当打断点的时候,可以在如下图进行调用栈的复制,复制到剪贴板!!<br><img src="https://upload-images.jianshu.io/upload_images/8156292-369ec63c02f61443.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h1 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h1><p>这个鸡肋功能到底有啥用啊?? 发stackOverflow帖子的时候用吗?</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 7.将图片复制为base64编码data URI</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%207.%20%E5%B0%86%E5%9B%BE%E7%89%87%E5%A4%8D%E5%88%B6%E4%B8%BAbase64%E7%BC%96%E7%A0%81data%20URI/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-10bdf710d15689c8.gif?imageMogr2/auto-orient/strip" alt="copy-as-data-uri.gif"></p>
@@ -1231,17 +1231,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>webpack的url-loader 也能转base64</li>
 <li>css selector 可以查找元素，Xpath也是可以的</li>
 </ol>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 9.多光标编辑 框选</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%209.%E5%A4%9A%E5%85%89%E6%A0%87%E7%BC%96%E8%BE%91%20%E6%A1%86%E9%80%89/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-a28a562f0bf0c356.gif?imageMogr2/auto-orient/strip" alt="multiple-cursors.gif"><br><code>Ctrl + click </code> 撤销 <code>Ctrl + U </code></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/8156292-e85e9974e61816f8.gif?imageMogr2/auto-orient/strip" alt="drag-select.gif"></p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>vscode中的<strong>多光标</strong>快捷键是 <code>ALT+ click    </code><br>框选是 <code>ALT+ SHIFT + 拖动</code><br><code>Ctrl+D</code>选中相同项<br><code>Ctrl+ Alt+ ↑</code>  <code>Ctrl+ Alt+ ↓</code></p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1261,6 +1250,17 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li><code>ctrl shift o</code> 查找文件中的方法定义,不在source面板中使用会跳转到书签管理器界面。这个vscode快捷键是一样的。<br><img src="https://upload-images.jianshu.io/upload_images/8156292-cee42ec6605207cf.gif?imageMogr2/auto-orient/strip" alt="go-to-member.gif"></li>
 </ol>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>资源面板里面编辑文件是有智能提示和代码检测的呢</p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 9.多光标编辑 框选</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%209.%E5%A4%9A%E5%85%89%E6%A0%87%E7%BC%96%E8%BE%91%20%E6%A1%86%E9%80%89/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-a28a562f0bf0c356.gif?imageMogr2/auto-orient/strip" alt="multiple-cursors.gif"><br><code>Ctrl + click </code> 撤销 <code>Ctrl + U </code></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8156292-e85e9974e61816f8.gif?imageMogr2/auto-orient/strip" alt="drag-select.gif"></p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>vscode中的<strong>多光标</strong>快捷键是 <code>ALT+ click    </code><br>框选是 <code>ALT+ SHIFT + 拖动</code><br><code>Ctrl+D</code>选中相同项<br><code>Ctrl+ Alt+ ↑</code>  <code>Ctrl+ Alt+ ↓</code></p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1298,6 +1298,17 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
     <title>chrome浏览器窗口关闭后,后台进程仍在运行</title>
     <url>/2021/09/25/chrome/chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AA%97%E5%8F%A3%E5%85%B3%E9%97%AD%E5%90%8E-%E5%90%8E%E5%8F%B0%E8%BF%9B%E7%A8%8B%E4%BB%8D%E5%9C%A8%E8%BF%90%E8%A1%8C/</url>
     <content><![CDATA[<p><code>chrome://settings/system</code> 里面有一个<code>关闭 Google Chrome 后继续运行后台应用</code> 默认是打开的,需要手动关闭。<br>如果项目中用到了sessionStorage的话,可能会影响到正常的逻辑。<br><img src="/images/2021-09-25-20-54-05.png"></p>
+]]></content>
+      <tags>
+        <tag>chrome</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>几个chrome插件</title>
+    <url>/2021/09/25/chrome/%E5%87%A0%E4%B8%AAchrome%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<p>yet-another-rest-client 用于restful接口测试  </p>
+<p>xswitch 用于拦截浏览器发送出去的请求(跨域的也能处理),可以把生产环境的请求拦截到本地用于调试,非常好用</p>
+<p>json-handle 美化JSON显示</p>
 ]]></content>
       <tags>
         <tag>chrome</tag>
@@ -1362,17 +1373,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>rust</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>几个chrome插件</title>
-    <url>/2021/09/25/chrome/%E5%87%A0%E4%B8%AAchrome%E6%8F%92%E4%BB%B6/</url>
-    <content><![CDATA[<p>yet-another-rest-client 用于restful接口测试  </p>
-<p>xswitch 用于拦截浏览器发送出去的请求(跨域的也能处理),可以把生产环境的请求拦截到本地用于调试,非常好用</p>
-<p>json-handle 美化JSON显示</p>
-]]></content>
-      <tags>
-        <tag>chrome</tag>
       </tags>
   </entry>
   <entry>
@@ -1714,24 +1714,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>开源项目推荐 &amp; 好文推荐</title>
-    <url>/2021/09/26/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8E%A8%E8%8D%90/</url>
-    <content><![CDATA[<h1 id="JeecgBoot"><a href="#JeecgBoot" class="headerlink" title="JeecgBoot"></a>JeecgBoot</h1><p><a href="http://www.jeecg.com/">http://www.jeecg.com/</a> 官网  </p>
-<p><a href="http://boot.jeecg.com/">http://boot.jeecg.com</a> demo</p>
-<p>JeecgBoot是一款基于BPM的低代码平台！前后端分离架构 SpringBoot 2.x，SpringCloud，Ant Design&amp;Vue，Mybatis-plus，Shiro，JWT，支持微服务。强大的代码生成器让前后端代码一键生成，实现低代码开发！ JeecgBoot引领新低代码开发模式 OnlineCoding-&gt; 代码生成器-&gt; 手工MERGE， 帮助Java项目解决70%的重复工作，让开发更多关注业务，既能快速提高效率，节省研发成本，同时又不失灵活性！一系列低代码能力：Online表单、Online报表、Online图表、表单设计、流程设计、报表设计、大屏设计 等等…</p>
-<p>里面的积木报表还是很方便的</p>
-<h1 id="KodExplorer-可道云"><a href="#KodExplorer-可道云" class="headerlink" title="KodExplorer 可道云"></a>KodExplorer 可道云</h1><p>看着就是个跳板机,说是企业网盘,我记得那个vscode彩虹屁插件的资源界面有点像啊 </p>
-<h1 id="wordart-词云在线生成"><a href="#wordart-词云在线生成" class="headerlink" title="wordart 词云在线生成"></a>wordart 词云在线生成</h1><p><a href="https://wordart.com/">https://wordart.com</a> 无广告 支持图片轮廓 随机颜色 自定义字体</p>
-<h1 id="好文推荐"><a href="#好文推荐" class="headerlink" title="好文推荐"></a>好文推荐</h1><ul>
-<li><a href="https://juejin.cn/post/6892886272377880583">这些高阶的函数技术,你掌握了么</a></li>
-<li><a href="https://my.oschina.net/u/4585038/blog/4869304">从前端性能优化引申出来的5道经典面试题</a></li>
-<li><a href="https://segmentfault.com/a/1190000023066043?sort=newest">JavaScript ES6代理的实际用例</a></li>
-<li><a href="https://developer.aliyun.com/article/778120">如何打造一款标准的 JS SDK ？</a></li>
-<li><a href="https://juejin.cn/post/6844903927100473357">前后端常见的几种鉴权方式</a></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>tailwindcss 简介</title>
     <url>/2021/10/09/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/tailwindcss-%E7%AE%80%E4%BB%8B/</url>
     <content><![CDATA[<p><a href="https://www.tailwindcss.cn/">中文文档</a></p>
@@ -1774,6 +1756,24 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       <tags>
         <tag>css</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>开源项目推荐 &amp; 好文推荐</title>
+    <url>/2021/09/26/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8E%A8%E8%8D%90/</url>
+    <content><![CDATA[<h1 id="JeecgBoot"><a href="#JeecgBoot" class="headerlink" title="JeecgBoot"></a>JeecgBoot</h1><p><a href="http://www.jeecg.com/">http://www.jeecg.com/</a> 官网  </p>
+<p><a href="http://boot.jeecg.com/">http://boot.jeecg.com</a> demo</p>
+<p>JeecgBoot是一款基于BPM的低代码平台！前后端分离架构 SpringBoot 2.x，SpringCloud，Ant Design&amp;Vue，Mybatis-plus，Shiro，JWT，支持微服务。强大的代码生成器让前后端代码一键生成，实现低代码开发！ JeecgBoot引领新低代码开发模式 OnlineCoding-&gt; 代码生成器-&gt; 手工MERGE， 帮助Java项目解决70%的重复工作，让开发更多关注业务，既能快速提高效率，节省研发成本，同时又不失灵活性！一系列低代码能力：Online表单、Online报表、Online图表、表单设计、流程设计、报表设计、大屏设计 等等…</p>
+<p>里面的积木报表还是很方便的</p>
+<h1 id="KodExplorer-可道云"><a href="#KodExplorer-可道云" class="headerlink" title="KodExplorer 可道云"></a>KodExplorer 可道云</h1><p>看着就是个跳板机,说是企业网盘,我记得那个vscode彩虹屁插件的资源界面有点像啊 </p>
+<h1 id="wordart-词云在线生成"><a href="#wordart-词云在线生成" class="headerlink" title="wordart 词云在线生成"></a>wordart 词云在线生成</h1><p><a href="https://wordart.com/">https://wordart.com</a> 无广告 支持图片轮廓 随机颜色 自定义字体</p>
+<h1 id="好文推荐"><a href="#好文推荐" class="headerlink" title="好文推荐"></a>好文推荐</h1><ul>
+<li><a href="https://juejin.cn/post/6892886272377880583">这些高阶的函数技术,你掌握了么</a></li>
+<li><a href="https://my.oschina.net/u/4585038/blog/4869304">从前端性能优化引申出来的5道经典面试题</a></li>
+<li><a href="https://segmentfault.com/a/1190000023066043?sort=newest">JavaScript ES6代理的实际用例</a></li>
+<li><a href="https://developer.aliyun.com/article/778120">如何打造一款标准的 JS SDK ？</a></li>
+<li><a href="https://juejin.cn/post/6844903927100473357">前后端常见的几种鉴权方式</a></li>
+</ul>
+]]></content>
   </entry>
   <entry>
     <title>盘点几个js库</title>
@@ -1846,6 +1846,21 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>启用rss订阅功能</title>
+    <url>/2018/03/25/%E5%8D%9A%E5%AE%A2/2018-3-25-%E5%90%AF%E7%94%A8rss%E8%AE%A2%E9%98%85/</url>
+    <content><![CDATA[<h1 id="修改-config-yml文件"><a href="#修改-config-yml文件" class="headerlink" title="修改_config.yml文件"></a>修改_config.yml文件</h1><ol>
+<li>在gems中增加jekyll-feed依赖</li>
+<li>配置插件jekyll-feed </li>
+<li>页面中启用RSS按钮的显示   </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">plugins:</span><br><span class="line">  - jekyll-feed</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">gems:[jekyll-feed]  </span><br><span class="line"></span><br><span class="line">RSS: true</span><br></pre></td></tr></table></figure>
+<h1 id="根目录下应该有-feed-xml"><a href="#根目录下应该有-feed-xml" class="headerlink" title="根目录下应该有 feed.xml"></a>根目录下应该有 feed.xml</h1><p>具体可以参考<a href="https://blog.csdn.net/itmyhome1990/article/details/42919429">为Jekyll博客添加RSS feed订阅功能</a></p>
+]]></content>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>博客中使用emoji表情</title>
     <url>/2018/03/25/%E5%8D%9A%E5%AE%A2/2018-3-25-%E5%9C%A8%E5%8D%9A%E5%AE%A2%E4%B8%AD%E4%BD%BF%E7%94%A8emoji%E8%A1%A8%E6%83%85/</url>
     <content><![CDATA[<p><a href="https://github.com/guodongxiaren/README/blob/master/emoji.md">表情列表</a></p>
@@ -1863,21 +1878,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
     <title>2021-4-7-在博客中使用简书的图片</title>
     <url>/2021/04/07/%E5%8D%9A%E5%AE%A2/2021-4-7-%E5%9C%A8%E5%8D%9A%E5%AE%A2%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%AE%80%E4%B9%A6%E7%9A%84%E5%9B%BE%E7%89%87/</url>
     <content><![CDATA[<p>正常使用简书的图片会出现403错误,需要在页面头<code>_includes\head.html</code>加入   <code>&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;</code>防止被简书安全措施(跨站请求伪造)拦截</p>
-]]></content>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>启用rss订阅功能</title>
-    <url>/2018/03/25/%E5%8D%9A%E5%AE%A2/2018-3-25-%E5%90%AF%E7%94%A8rss%E8%AE%A2%E9%98%85/</url>
-    <content><![CDATA[<h1 id="修改-config-yml文件"><a href="#修改-config-yml文件" class="headerlink" title="修改_config.yml文件"></a>修改_config.yml文件</h1><ol>
-<li>在gems中增加jekyll-feed依赖</li>
-<li>配置插件jekyll-feed </li>
-<li>页面中启用RSS按钮的显示   </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">plugins:</span><br><span class="line">  - jekyll-feed</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">gems:[jekyll-feed]  </span><br><span class="line"></span><br><span class="line">RSS: true</span><br></pre></td></tr></table></figure>
-<h1 id="根目录下应该有-feed-xml"><a href="#根目录下应该有-feed-xml" class="headerlink" title="根目录下应该有 feed.xml"></a>根目录下应该有 feed.xml</h1><p>具体可以参考<a href="https://blog.csdn.net/itmyhome1990/article/details/42919429">为Jekyll博客添加RSS feed订阅功能</a></p>
 ]]></content>
       <tags>
         <tag>博客</tag>
@@ -2035,6 +2035,17 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>eclipse开启自动完成</title>
+    <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/eclipse%E5%BC%80%E5%90%AF%E8%87%AA%E5%8A%A8%E5%AE%8C%E6%88%90/</url>
+    <content><![CDATA[<p>依次点击Window –&gt; Perferences（选项设置） –&gt; Java –&gt; Editor（编辑） –&gt; Content Assist（内容辅助/代码提示）<br><img src="https://img-blog.csdn.net/20180612234507746" alt="alt"><br>然后在“Content Assist”页面中，可以看到下面有一个Auto Activation中有一个Auto activation triggers for Java</p>
+<p>在这一个输入框中输入<code>.qwertyuioplkjhgfdsazxcvbnm</code>，然后点击下面的“OK”，这样代码自动补全就已经设置好了</p>
+<p>在我们编写代码的时候，只要打出一个字母或者”.”都可以自动调出自动补全功能</p>
+]]></content>
+      <tags>
+        <tag>IDEA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>node打包成可执行文件exe</title>
     <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/node%E6%89%93%E5%8C%85%E6%88%90%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6exe/</url>
     <content><![CDATA[<h2 id="使用pkg这个npm工具打包"><a href="#使用pkg这个npm工具打包" class="headerlink" title="使用pkg这个npm工具打包"></a>使用pkg这个npm工具打包</h2><ol>
@@ -2059,17 +2070,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>npm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>eclipse开启自动完成</title>
-    <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/eclipse%E5%BC%80%E5%90%AF%E8%87%AA%E5%8A%A8%E5%AE%8C%E6%88%90/</url>
-    <content><![CDATA[<p>依次点击Window –&gt; Perferences（选项设置） –&gt; Java –&gt; Editor（编辑） –&gt; Content Assist（内容辅助/代码提示）<br><img src="https://img-blog.csdn.net/20180612234507746" alt="alt"><br>然后在“Content Assist”页面中，可以看到下面有一个Auto Activation中有一个Auto activation triggers for Java</p>
-<p>在这一个输入框中输入<code>.qwertyuioplkjhgfdsazxcvbnm</code>，然后点击下面的“OK”，这样代码自动补全就已经设置好了</p>
-<p>在我们编写代码的时候，只要打出一个字母或者”.”都可以自动调出自动补全功能</p>
-]]></content>
-      <tags>
-        <tag>IDEA</tag>
       </tags>
   </entry>
   <entry>
