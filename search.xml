@@ -525,19 +525,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>css冷门知识-获取windows系统主题</title>
-    <url>/2021/12/09/%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E4%B8%BB%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="使用-matchMedia-API找到-MediaQueryList-对象"><a href="#使用-matchMedia-API找到-MediaQueryList-对象" class="headerlink" title="使用 matchMedia API找到 MediaQueryList 对象"></a>使用 <code>matchMedia</code> API找到 <code>MediaQueryList</code> 对象</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span>  mqList = <span class="built_in">window</span>.matchMedia(<span class="string">&quot;(prefers-color-scheme:dark)&quot;</span>)</span><br><span class="line"><span class="keyword">if</span>(mqList.matches)&#123;<span class="comment">//匹配上了,说明windows使用的是黑暗主题模式</span></span><br><span class="line">  <span class="comment">// <span class="doctag">TODO:</span> 将我们网页的主题设置成暗黑模式</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li>媒体查询的类型 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">https://developer.mozilla.org/en-US/docs/Web/CSS/@media</a> </li>
-<li> <code>matchMedia</code>API介绍 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia">https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia</a> </li>
-</ol>
-]]></content>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>水印样式处理</title>
     <url>/2022/08/15/%E6%B0%B4%E5%8D%B0%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<p>水印一般要求zIndex层级特别高，但是又不能影响到点击事件</p>
@@ -546,6 +533,19 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>外层声明一个高度0的容器，并给上<code>pointer-events:none</code>取消鼠标事件</li>
 <li>内层水印给上很高的z-Index也不会影响到用户操作咯</li>
 </ul>
+]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>css冷门知识-获取windows系统主题</title>
+    <url>/2021/12/09/%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E4%B8%BB%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="使用-matchMedia-API找到-MediaQueryList-对象"><a href="#使用-matchMedia-API找到-MediaQueryList-对象" class="headerlink" title="使用 matchMedia API找到 MediaQueryList 对象"></a>使用 <code>matchMedia</code> API找到 <code>MediaQueryList</code> 对象</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span>  mqList = <span class="built_in">window</span>.matchMedia(<span class="string">&quot;(prefers-color-scheme:dark)&quot;</span>)</span><br><span class="line"><span class="keyword">if</span>(mqList.matches)&#123;<span class="comment">//匹配上了,说明windows使用的是黑暗主题模式</span></span><br><span class="line">  <span class="comment">// <span class="doctag">TODO:</span> 将我们网页的主题设置成暗黑模式</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li>媒体查询的类型 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">https://developer.mozilla.org/en-US/docs/Web/CSS/@media</a> </li>
+<li> <code>matchMedia</code>API介绍 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia">https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia</a> </li>
+</ol>
 ]]></content>
       <tags>
         <tag>css</tag>
@@ -566,23 +566,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>通过符号链接的方式移动vscode插件</title>
-    <url>/2021/09/26/%E9%80%9A%E8%BF%87%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5%E7%9A%84%E6%96%B9%E5%BC%8F%E7%A7%BB%E5%8A%A8vscode%E6%8F%92%E4%BB%B6/</url>
-    <content><![CDATA[<h2 id="创建目录符号链接-修改插件位置-防止C盘爆掉"><a href="#创建目录符号链接-修改插件位置-防止C盘爆掉" class="headerlink" title="创建目录符号链接,修改插件位置,防止C盘爆掉"></a>创建目录符号链接,修改插件位置,防止C盘爆掉</h2><ol>
-<li>剪切文件夹到新的目录,不然命令行会执行失败</li>
-<li>命令行使用管理员权限</li>
-<li><code>mklink /D &quot;C:\Users\&#123;username&#125;\.vscode&quot; &quot;D:\&#123;username&#125;\.vscode&quot;</code></li>
-</ol>
-<blockquote>
-<p>{username} 为用户名</p>
-</blockquote>
-<h2 id="vscode插件中文文档"><a href="#vscode插件中文文档" class="headerlink" title="vscode插件中文文档"></a>vscode插件中文文档</h2><p><a href="http://liik.gitee.io/vs-code-extension-doc-zh/#/">http://liik.gitee.io/vs-code-extension-doc-zh/#/</a></p>
-]]></content>
-      <tags>
-        <tag>vscode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>这两篇应该是最好的js 微任务 宏任务讲解了</title>
     <url>/2021/10/09/%E8%BF%99%E4%B8%A4%E7%AF%87%E5%BA%94%E8%AF%A5%E6%98%AF%E6%9C%80%E5%A5%BD%E7%9A%84js-%E5%BE%AE%E4%BB%BB%E5%8A%A1-%E5%AE%8F%E4%BB%BB%E5%8A%A1%E8%AE%B2%E8%A7%A3%E4%BA%86/</url>
     <content><![CDATA[<p><a href="https://www.cnblogs.com/jiasm/p/9482443.html">https://www.cnblogs.com/jiasm/p/9482443.html</a></p>
@@ -597,6 +580,23 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>通过符号链接的方式移动vscode插件</title>
+    <url>/2021/09/26/%E9%80%9A%E8%BF%87%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5%E7%9A%84%E6%96%B9%E5%BC%8F%E7%A7%BB%E5%8A%A8vscode%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="创建目录符号链接-修改插件位置-防止C盘爆掉"><a href="#创建目录符号链接-修改插件位置-防止C盘爆掉" class="headerlink" title="创建目录符号链接,修改插件位置,防止C盘爆掉"></a>创建目录符号链接,修改插件位置,防止C盘爆掉</h2><ol>
+<li>剪切文件夹到新的目录,不然命令行会执行失败</li>
+<li>命令行使用管理员权限</li>
+<li><code>mklink /D &quot;C:\Users\&#123;username&#125;\.vscode&quot; &quot;D:\&#123;username&#125;\.vscode&quot;</code></li>
+</ol>
+<blockquote>
+<p>{username} 为用户名</p>
+</blockquote>
+<h2 id="vscode插件中文文档"><a href="#vscode插件中文文档" class="headerlink" title="vscode插件中文文档"></a>vscode插件中文文档</h2><p><a href="http://liik.gitee.io/vs-code-extension-doc-zh/#/">http://liik.gitee.io/vs-code-extension-doc-zh/#/</a></p>
+]]></content>
+      <tags>
+        <tag>vscode</tag>
       </tags>
   </entry>
   <entry>
@@ -683,6 +683,18 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>2021-3-24 Chrome Devtools Tip： 2.如何使用DevTools触发CSS伪类</title>
+    <url>/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%202.%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8DevTools%E8%A7%A6%E5%8F%91CSS%E4%BC%AA%E7%B1%BB/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-fe137965f93360e7.gif?imageMogr2/auto-orient/strip" alt="pseudo-trigger.gif"><br>可以触发元素上的<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">伪类</a>，以研究元素（例如，将元素悬停在元素上）如何反应。您可以右键单击“元素”面板中的节点，然后选择“强制元素状态”。或者，可以在“<a href="https://developers.google.com/web/tools/chrome-devtools/inspect-styles">样式”</a>子窗格中单击“切换”元素状态图标。</p>
+<p>当一个元素应用了某种状态时，您将在节点的开始标签左侧看到一个视觉指示器，在某些情况下，也将在关闭标签左侧（如果它们相距很远）。</p>
+<p>我们可以触发：活动类（:active），焦点类(:focus)，悬停类(:hover)和访问过的（:visited）伪类。</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>一般伪类是<code>:PseudoClass</code>,伪元素是<code>::PseudoElement</code>,虽然伪元素也能写一个冒号，但是最好区分开来</p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2021-3-24 Chrome Devtools Tip： 3.使用cURL复制功能重播Network面板的请求</title>
     <url>/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%203.%E4%BD%BF%E7%94%A8cURL%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E9%87%8D%E6%92%ADNetwork%E9%9D%A2%E6%9D%BF%E7%9A%84%E8%AF%B7%E6%B1%82/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-2361d35d4917df7e.gif?imageMogr2/auto-orient/strip" alt="copy-as-curl.gif"><br>网络面板中显示的资源有一个上下文菜单，该菜单允许您复制为cURL，这将进入剪贴板，此时您可以将其粘贴到命令行中，必要时进行修改，然后查看响应。请求标头也包括在内。</p>
@@ -711,18 +723,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>代码段可以直接在 <code>Console</code>面板执行的，但是在里面不好调整格式，也没有自动完成，也不能保存。所以这种方式挺好的。</p>
 <p>总能遇到一些本地环境不能调试的代码，直接使用代码段功能在测试环境执行我们的代码，省去了打包上环境的时间，也确保了代码的正确性。</p>
 <h1 id="思考与尝试"><a href="#思考与尝试" class="headerlink" title="思考与尝试"></a>思考与尝试</h1><p>尝试下打断点，触发断点后，再执行代码段，不知道此时的变量作用域怎么样的呢？有兴趣的同学可以自己试试，评论区见答案。</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-3-24 Chrome Devtools Tip： 2.如何使用DevTools触发CSS伪类</title>
-    <url>/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%202.%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8DevTools%E8%A7%A6%E5%8F%91CSS%E4%BC%AA%E7%B1%BB/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-fe137965f93360e7.gif?imageMogr2/auto-orient/strip" alt="pseudo-trigger.gif"><br>可以触发元素上的<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">伪类</a>，以研究元素（例如，将元素悬停在元素上）如何反应。您可以右键单击“元素”面板中的节点，然后选择“强制元素状态”。或者，可以在“<a href="https://developers.google.com/web/tools/chrome-devtools/inspect-styles">样式”</a>子窗格中单击“切换”元素状态图标。</p>
-<p>当一个元素应用了某种状态时，您将在节点的开始标签左侧看到一个视觉指示器，在某些情况下，也将在关闭标签左侧（如果它们相距很远）。</p>
-<p>我们可以触发：活动类（:active），焦点类(:focus)，悬停类(:hover)和访问过的（:visited）伪类。</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>一般伪类是<code>:PseudoClass</code>,伪元素是<code>::PseudoElement</code>,虽然伪元素也能写一个冒号，但是最好区分开来</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -844,22 +844,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 12. Element面板</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2012.%20Element%E9%9D%A2%E6%9D%BF/</url>
-    <content><![CDATA[<h1 id="1-Alt-Click展开所有的子节点"><a href="#1-Alt-Click展开所有的子节点" class="headerlink" title="1. Alt + Click展开所有的子节点"></a>1. Alt + Click展开所有的子节点</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-4524814cf7ea524e.gif?imageMogr2/auto-orient/strip" alt="alt-click-expand-node.gif"></p>
-<h1 id="2-轻松修改tagName"><a href="#2-轻松修改tagName" class="headerlink" title="2. 轻松修改tagName"></a>2. 轻松修改tagName</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-7ef233fca006f66a.gif?imageMogr2/auto-orient/strip" alt="quick-edit-element.gif"></p>
-<h1 id="3-查看元素的事件侦听器"><a href="#3-查看元素的事件侦听器" class="headerlink" title="3. 查看元素的事件侦听器"></a>3. 查看元素的事件侦听器</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-731375e6190683ef.gif?imageMogr2/auto-orient/strip" alt="view-event-listeners.gif"></p>
-<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>DevTools可以向您显示在元素上注册的JavaScript事件侦听器。例如，向click注册的处理程序.addEventListener()。</p>
-<p>DevTools还可将您带到注册该事件的确切代码行，这在从中进行外部调试时非常有用。</p>
-<p>###如何使用此功能<br>在“Element”面板中检查元素<br>导航到“Element”面板中的“Event Listener”窗格<br>浏览在任何节点上注册的事件。您可以通过在上下文菜单中选择“显示函数定义”来查看事件侦听器的源。</p>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>有时候事件显示特别多，可以去掉 <code>Ancestors</code>复选框，只显示绑定在元素自身的事件，而非被代理的事件</p>
-<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><p>事件的冒泡与代理，事件的队列</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 11.Network 网络面板过滤器</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2011.%20Network%20%E7%BD%91%E7%BB%9C%E9%9D%A2%E6%9D%BF%E8%BF%87%E6%BB%A4%E5%99%A8/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-7fbd6b075cec6c2d.gif?imageMogr2/auto-orient/strip" alt="is-running.gif"></p>
@@ -888,6 +872,22 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>  status-code</li>
 <li>  url<h1 id="查看网络资源依赖关系"><a href="#查看网络资源依赖关系" class="headerlink" title="查看网络资源依赖关系"></a>查看网络资源依赖关系</h1><img src="https://upload-images.jianshu.io/upload_images/8156292-de7a51900ab3d6b1.gif?imageMogr2/auto-orient/strip" alt="network-dependency.gif"><br>点击到具体的请求，查看 initiator 面板也是可以看到的 请求的调用栈与树状依赖结构</li>
 </ul>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 12. Element面板</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2012.%20Element%E9%9D%A2%E6%9D%BF/</url>
+    <content><![CDATA[<h1 id="1-Alt-Click展开所有的子节点"><a href="#1-Alt-Click展开所有的子节点" class="headerlink" title="1. Alt + Click展开所有的子节点"></a>1. Alt + Click展开所有的子节点</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-4524814cf7ea524e.gif?imageMogr2/auto-orient/strip" alt="alt-click-expand-node.gif"></p>
+<h1 id="2-轻松修改tagName"><a href="#2-轻松修改tagName" class="headerlink" title="2. 轻松修改tagName"></a>2. 轻松修改tagName</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-7ef233fca006f66a.gif?imageMogr2/auto-orient/strip" alt="quick-edit-element.gif"></p>
+<h1 id="3-查看元素的事件侦听器"><a href="#3-查看元素的事件侦听器" class="headerlink" title="3. 查看元素的事件侦听器"></a>3. 查看元素的事件侦听器</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-731375e6190683ef.gif?imageMogr2/auto-orient/strip" alt="view-event-listeners.gif"></p>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>DevTools可以向您显示在元素上注册的JavaScript事件侦听器。例如，向click注册的处理程序.addEventListener()。</p>
+<p>DevTools还可将您带到注册该事件的确切代码行，这在从中进行外部调试时非常有用。</p>
+<p>###如何使用此功能<br>在“Element”面板中检查元素<br>导航到“Element”面板中的“Event Listener”窗格<br>浏览在任何节点上注册的事件。您可以通过在上下文菜单中选择“显示函数定义”来查看事件侦听器的源。</p>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>有时候事件显示特别多，可以去掉 <code>Ancestors</code>复选框，只显示绑定在元素自身的事件，而非被代理的事件</p>
+<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><p>事件的冒泡与代理，事件的队列</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -968,6 +968,19 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 19. 使用console.table 更好的展示对象 数组信息</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2019.%20%E4%BD%BF%E7%94%A8console.table%20%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%B1%95%E7%A4%BA%E5%AF%B9%E8%B1%A1%20%E6%95%B0%E7%BB%84%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-a154534659201462.gif?imageMogr2/auto-orient/strip" alt="console-table.gif"></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> languages = [</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;JavaScript&quot;</span>, <span class="attr">fileExtension</span>: <span class="string">&quot;.js&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;TypeScript&quot;</span>, <span class="attr">fileExtension</span>: <span class="string">&quot;.ts&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;CoffeeScript&quot;</span>, <span class="attr">fileExtension</span>: <span class="string">&quot;.coffee&quot;</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.table(languages);</span><br></pre></td></tr></table></figure>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>属性太多还可以传第二个参数 ,只展示要某些字段 <code>console.table(languages,[&#39;name&#39;]);</code></p>
+<h1 id="使用console-time-诊断程序的运行时间"><a href="#使用console-time-诊断程序的运行时间" class="headerlink" title="使用console.time 诊断程序的运行时间"></a>使用console.time 诊断程序的运行时间</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.time(<span class="string">&#x27;My time #1&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.timeLog(<span class="string">&#x27;My time #1&#x27;</span>); <span class="comment">//打印计时器时间</span></span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">&#x27;My time #1&#x27;</span>);<span class="comment">//打印计时器时间,并终止计时器</span></span><br></pre></td></tr></table></figure>
+<h1 id="使用-console-timeStamp-可以在录制性能时间线打标记-快速定位性能问题"><a href="#使用-console-timeStamp-可以在录制性能时间线打标记-快速定位性能问题" class="headerlink" title="使用 console.timeStamp() , 可以在录制性能时间线打标记,快速定位性能问题"></a>使用 console.timeStamp() , 可以在录制性能时间线打标记,快速定位性能问题</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-64043923a748af3c.gif?imageMogr2/auto-orient/strip" alt="console-timestamp-timeline.gif"></p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 20. Element面板快速切换class查看效果</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2020.%20Element%E9%9D%A2%E6%9D%BF%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2class%E6%9F%A5%E7%9C%8B%E6%95%88%E6%9E%9C/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-b89e5a5150f31bd9.gif?imageMogr2/auto-orient/strip" alt="toggle-element-classes.gif"></p>
@@ -983,13 +996,10 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 19. 使用console.table 更好的展示对象 数组信息</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2019.%20%E4%BD%BF%E7%94%A8console.table%20%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%B1%95%E7%A4%BA%E5%AF%B9%E8%B1%A1%20%E6%95%B0%E7%BB%84%E4%BF%A1%E6%81%AF/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-a154534659201462.gif?imageMogr2/auto-orient/strip" alt="console-table.gif"></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> languages = [</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;JavaScript&quot;</span>, <span class="attr">fileExtension</span>: <span class="string">&quot;.js&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;TypeScript&quot;</span>, <span class="attr">fileExtension</span>: <span class="string">&quot;.ts&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;CoffeeScript&quot;</span>, <span class="attr">fileExtension</span>: <span class="string">&quot;.coffee&quot;</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.table(languages);</span><br></pre></td></tr></table></figure>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>属性太多还可以传第二个参数 ,只展示要某些字段 <code>console.table(languages,[&#39;name&#39;]);</code></p>
-<h1 id="使用console-time-诊断程序的运行时间"><a href="#使用console-time-诊断程序的运行时间" class="headerlink" title="使用console.time 诊断程序的运行时间"></a>使用console.time 诊断程序的运行时间</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.time(<span class="string">&#x27;My time #1&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.timeLog(<span class="string">&#x27;My time #1&#x27;</span>); <span class="comment">//打印计时器时间</span></span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">&#x27;My time #1&#x27;</span>);<span class="comment">//打印计时器时间,并终止计时器</span></span><br></pre></td></tr></table></figure>
-<h1 id="使用-console-timeStamp-可以在录制性能时间线打标记-快速定位性能问题"><a href="#使用-console-timeStamp-可以在录制性能时间线打标记-快速定位性能问题" class="headerlink" title="使用 console.timeStamp() , 可以在录制性能时间线打标记,快速定位性能问题"></a>使用 console.timeStamp() , 可以在录制性能时间线打标记,快速定位性能问题</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-64043923a748af3c.gif?imageMogr2/auto-orient/strip" alt="console-timestamp-timeline.gif"></p>
+    <title>2021-4-7- Chrome Devtools Tip： 21. 降低CPU的性能与网络速度来观测性能</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2021.%20%E9%99%8D%E4%BD%8ECPU%E7%9A%84%E6%80%A7%E8%83%BD%E4%B8%8E%E7%BD%91%E7%BB%9C%E9%80%9F%E5%BA%A6%E6%9D%A5%E8%A7%82%E6%B5%8B%E6%80%A7%E8%83%BD/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-0444ada0cfd3c1c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>老版本面板名称叫 <code>Timeline</code> 时间线<br>有些部署在现网的局点,由于国际网络延时高,会导致一些意想不到的BUG,为了模拟延时,就能用上这个调试功能了<br>模拟低性能计算机可以将现有的性能问题进行放大,让我们的应用跑的更快,毕竟我们开发都是i5起步的CPU,还是要照顾下公司的老机器</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1008,10 +1018,12 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 21. 降低CPU的性能与网络速度来观测性能</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2021.%20%E9%99%8D%E4%BD%8ECPU%E7%9A%84%E6%80%A7%E8%83%BD%E4%B8%8E%E7%BD%91%E7%BB%9C%E9%80%9F%E5%BA%A6%E6%9D%A5%E8%A7%82%E6%B5%8B%E6%80%A7%E8%83%BD/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-0444ada0cfd3c1c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>老版本面板名称叫 <code>Timeline</code> 时间线<br>有些部署在现网的局点,由于国际网络延时高,会导致一些意想不到的BUG,为了模拟延时,就能用上这个调试功能了<br>模拟低性能计算机可以将现有的性能问题进行放大,让我们的应用跑的更快,毕竟我们开发都是i5起步的CPU,还是要照顾下公司的老机器</p>
+    <title>2021-4-7- Chrome Devtools Tip： 24. 在“Network”中查看来自其他应用程序的网络流量</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2024.%20%E5%9C%A8%E2%80%9CNetwork%E2%80%9D%E4%B8%AD%E6%9F%A5%E7%9C%8B%E6%9D%A5%E8%87%AA%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BD%91%E7%BB%9C%E6%B5%81%E9%87%8F/</url>
+    <content><![CDATA[<h2 id="常用的抓包工具"><a href="#常用的抓包工具" class="headerlink" title="常用的抓包工具"></a>常用的抓包工具</h2><p>Fiddler 小巧精悍,适合http<br>Burpsuite 安全测试的时候用过,很强大<br>wireshark  抓网卡,内容没有聚合上手难度高点</p>
+<p>NetWork 面板很好用,用来拦截操作系统的网络流量<br><img src="https://upload-images.jianshu.io/upload_images/8156292-af20e8217608951b.gif?imageMogr2/auto-orient/strip" alt="os-network-proxy.gif"></p>
+<p>这里需要另外一个 工具来配合 github kdzwinel/betwixt<br>安装好了再设置下系统的代理就好了</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>其实这个不是用Chrome DevTools去抓包啦,只是betwixt这个抓包工具,长得跟NetWork面板一样</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1038,18 +1050,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2025.%20%E9%80%9A%E8%BF%87Performance%E9%9D%A2%E6%9D%BF%E5%BD%95%E5%88%B6,%E8%A1%8C%E7%BA%A7%E5%88%AB%E6%9F%A5%E7%9C%8B%E4%BB%A3%E7%A0%81%E8%80%97%E6%97%B6/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-6b1b13e4a3b65a7b.gif?imageMogr2/auto-orient/strip" alt="line-level-profiling.gif"></p>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>页面性能主要看 接口性能(Network) CPU占用(Performance)  内存占用(Memory) 代码执行耗时</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 24. 在“Network”中查看来自其他应用程序的网络流量</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2024.%20%E5%9C%A8%E2%80%9CNetwork%E2%80%9D%E4%B8%AD%E6%9F%A5%E7%9C%8B%E6%9D%A5%E8%87%AA%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BD%91%E7%BB%9C%E6%B5%81%E9%87%8F/</url>
-    <content><![CDATA[<h2 id="常用的抓包工具"><a href="#常用的抓包工具" class="headerlink" title="常用的抓包工具"></a>常用的抓包工具</h2><p>Fiddler 小巧精悍,适合http<br>Burpsuite 安全测试的时候用过,很强大<br>wireshark  抓网卡,内容没有聚合上手难度高点</p>
-<p>NetWork 面板很好用,用来拦截操作系统的网络流量<br><img src="https://upload-images.jianshu.io/upload_images/8156292-af20e8217608951b.gif?imageMogr2/auto-orient/strip" alt="os-network-proxy.gif"></p>
-<p>这里需要另外一个 工具来配合 github kdzwinel/betwixt<br>安装好了再设置下系统的代理就好了</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>其实这个不是用Chrome DevTools去抓包啦,只是betwixt这个抓包工具,长得跟NetWork面板一样</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1404,11 +1404,13 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
   </entry>
   <entry>
-    <title>开发灵异事件之base64图片传输</title>
-    <url>/2023/03/28/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bfix%E5%AE%9A%E4%BD%8D%E5%A4%B1%E8%B4%A5/</url>
-    <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>使用了 <code>position:fixed</code>定位发现弹框不能定位到页面相对位置</p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>fixed默认是相对于页面的根元素的,但是有一种情况例外,就是如果父有元素做了transfrom变换的时候。此时会相对于该元素定位</p>
-<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>fixed定位的元素建议作为body直接子元素使用</p>
+    <title>开发灵异事件之图片下载</title>
+    <url>/2021/09/09/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD/</url>
+    <content><![CDATA[<h3 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h3><p>使用download属性用a标签下载图片，变成了新页签打开预览</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>下载的图片跨域，早期chrome没有这个限制</p>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>后台接口转发可以解决</p>
+<p>图片服务器增加允许跨域相关响应头</p>
+<p>前端用image拿到图片资源，使用Blob对象下载</p>
 ]]></content>
   </entry>
   <entry>
@@ -1420,13 +1422,11 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
   </entry>
   <entry>
-    <title>开发灵异事件之图片下载</title>
-    <url>/2021/09/09/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD/</url>
-    <content><![CDATA[<h3 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h3><p>使用download属性用a标签下载图片，变成了新页签打开预览</p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>下载的图片跨域，早期chrome没有这个限制</p>
-<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>后台接口转发可以解决</p>
-<p>图片服务器增加允许跨域相关响应头</p>
-<p>前端用image拿到图片资源，使用Blob对象下载</p>
+    <title>开发灵异事件之base64图片传输</title>
+    <url>/2023/03/28/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bfix%E5%AE%9A%E4%BD%8D%E5%A4%B1%E8%B4%A5/</url>
+    <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>使用了 <code>position:fixed</code>定位发现弹框不能定位到页面相对位置</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>fixed默认是相对于页面的根元素的,但是有一种情况例外,就是如果父有元素做了transfrom变换的时候。此时会相对于该元素定位</p>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>fixed定位的元素建议作为body直接子元素使用</p>
 ]]></content>
   </entry>
   <entry>
@@ -1703,17 +1703,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>js获取路径上的参数</title>
-    <url>/2021/09/25/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/js%E8%8E%B7%E5%8F%96%E8%B7%AF%E5%BE%84%E4%B8%8A%E7%9A%84%E5%8F%82%E6%95%B0/</url>
-    <content><![CDATA[<p>假如有如下请求js的路径,怎么在some.js中获取这个参数?<br><code>base_url/path/to/some.js?username=bob</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> url=<span class="keyword">new</span> <span class="built_in">Error</span>().stack.match(<span class="regexp">/at\s(.*)\s/</span>)[<span class="number">1</span>];</span><br></pre></td></tr></table></figure>
-<p>通过错误对象的堆栈信息,拿到报错的URL。我是真的佩服这个大神的脑洞。</p>
-]]></content>
-      <tags>
-        <tag>代码片段</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>tailwindcss 简介</title>
     <url>/2021/10/09/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/tailwindcss-%E7%AE%80%E4%BB%8B/</url>
     <content><![CDATA[<p><a href="https://www.tailwindcss.cn/">中文文档</a></p>
@@ -1755,6 +1744,17 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js获取路径上的参数</title>
+    <url>/2021/09/25/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/js%E8%8E%B7%E5%8F%96%E8%B7%AF%E5%BE%84%E4%B8%8A%E7%9A%84%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<p>假如有如下请求js的路径,怎么在some.js中获取这个参数?<br><code>base_url/path/to/some.js?username=bob</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> url=<span class="keyword">new</span> <span class="built_in">Error</span>().stack.match(<span class="regexp">/at\s(.*)\s/</span>)[<span class="number">1</span>];</span><br></pre></td></tr></table></figure>
+<p>通过错误对象的堆栈信息,拿到报错的URL。我是真的佩服这个大神的脑洞。</p>
+]]></content>
+      <tags>
+        <tag>代码片段</tag>
       </tags>
   </entry>
   <entry>
@@ -2135,6 +2135,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>设置node最大使用内存</title>
+    <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E8%AE%BE%E7%BD%AEnode%E6%9C%80%E5%A4%A7%E4%BD%BF%E7%94%A8%E5%86%85%E5%AD%98/</url>
+    <content><![CDATA[<p>node的最大使用内存是2G 超出会导致程序退出</p>
+<p>下面设置的是4096M<br><code>setx NODE_OPTIONS --max_old_space_size=4096</code></p>
+]]></content>
+      <tags>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>小工具集合</title>
     <url>/2021/04/19/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/</url>
     <content><![CDATA[<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://gitee.com/alasq/tools.git">https://gitee.com/alasq/tools.git</a> </p>
@@ -2185,16 +2195,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>email/foxmail</li>
 </ul>
 ]]></content>
-  </entry>
-  <entry>
-    <title>设置node最大使用内存</title>
-    <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E8%AE%BE%E7%BD%AEnode%E6%9C%80%E5%A4%A7%E4%BD%BF%E7%94%A8%E5%86%85%E5%AD%98/</url>
-    <content><![CDATA[<p>node的最大使用内存是2G 超出会导致程序退出</p>
-<p>下面设置的是4096M<br><code>setx NODE_OPTIONS --max_old_space_size=4096</code></p>
-]]></content>
-      <tags>
-        <tag>node</tag>
-      </tags>
   </entry>
   <entry>
     <title>主流的深度学习开源工具</title>
