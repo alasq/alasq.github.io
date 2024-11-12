@@ -249,15 +249,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>js避坑-new Array</title>
-    <url>/2022/08/15/js%E9%81%BF%E5%9D%91-new-Array/</url>
-    <content><![CDATA[<p><code>new Array(8).map(i=&gt;[])</code>这种声明二维数组的方式会报错</p>
-<p>改成 <code>new Array(8).fill().map(i=&gt;[])</code>即可</p>
-<p>报错的原因是 new Array 产生的数组比较特殊 有length 但是没有内容，所以无法迭代</p>
-<p>不过我一般用 <code>Array.form(&#123;length:8&#125;,i=&gt;[])</code>这么初始化</p>
-]]></content>
-  </entry>
-  <entry>
     <title>js踩坑 isNaN(null)返回的是false</title>
     <url>/2022/08/15/js%E8%B8%A9%E5%9D%91-isNaN-null-%E8%BF%94%E5%9B%9E%E7%9A%84%E6%98%AFfalse/</url>
     <content><![CDATA[<p><code>isNaN(null) === false</code> 按照方法名的字面意思  null不是一个数组,没毛病。<br>但是这个方法认为是一个数字，它的逻辑是先用<code>Number(null)</code>得到<code>0</code>,0是数字,所以等式成立。</p>
@@ -270,6 +261,15 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       <tags>
         <tag>js</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>js避坑-new Array</title>
+    <url>/2022/08/15/js%E9%81%BF%E5%9D%91-new-Array/</url>
+    <content><![CDATA[<p><code>new Array(8).map(i=&gt;[])</code>这种声明二维数组的方式会报错</p>
+<p>改成 <code>new Array(8).fill().map(i=&gt;[])</code>即可</p>
+<p>报错的原因是 new Array 产生的数组比较特殊 有length 但是没有内容，所以无法迭代</p>
+<p>不过我一般用 <code>Array.form(&#123;length:8&#125;,i=&gt;[])</code>这么初始化</p>
+]]></content>
   </entry>
   <entry>
     <title>promise分步请求接口</title>
@@ -476,15 +476,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>开发灵异事件之登录失效</title>
-    <url>/2021/09/13/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E7%99%BB%E5%BD%95%E5%A4%B1%E6%95%88/</url>
-    <content><![CDATA[<h1 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h1><p>登录界面多次重定向到自己。退出浏览器，清理缓存，无痕模式，都不行。</p>
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>google chrome在90+版本后，关闭所有窗口仍然会在后台运行，右下角有个小图标。这样会导致存在session Storage里面的数据不会被清理，或者是一些缓存命中机制出现变化，原有的登录判断逻辑出现问题。</p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>右击电脑屏幕右下角状态栏chrome小图标，测底关闭浏览器后台程序。</p>
-<p>一劳永逸法，chrome://settings 界面去勾选退出后在后台运行的设置<br><img src="%5Bhttps://%5D(https://upload-images.jianshu.io/upload_images/8156292-157357cdc6edd678.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)" alt="alt"><br>根本解决法，修改判断登录的机制，适配浏览器更新</p>
-]]></content>
-  </entry>
-  <entry>
     <title>无js的菜单栏收缩与折叠动画</title>
     <url>/2022/08/15/%E6%97%A0js%E7%9A%84tab%E6%A0%8F%E6%94%B6%E7%BC%A9%E4%B8%8E%E6%8A%98%E5%8F%A0%E5%8A%A8%E7%94%BB/</url>
     <content><![CDATA[<p>菜单栏收缩主要使用下面的样式实现</p>
@@ -499,15 +490,13 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>树形数据的广度优先与深度优先</title>
-    <url>/2021/09/25/%E6%A0%91%E5%BD%A2%E6%95%B0%E6%8D%AE%E7%9A%84%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E4%B8%8E%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88/</url>
-    <content><![CDATA[<p>这里只是做一个笔记,解释的话可以自行百度</p>
-<h2 id="广度优先"><a href="#广度优先" class="headerlink" title="广度优先"></a>广度优先</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foreach</span>(<span class="params">data,callback</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> nodes=[];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> data) &#123;</span><br><span class="line">    <span class="keyword">if</span>(item.childrens)&#123;</span><br><span class="line">      node=node.concat(item.childrens)</span><br><span class="line">    &#125;</span><br><span class="line">    callback(item)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(nodes.length==<span class="number">0</span>)<span class="keyword">return</span> </span><br><span class="line">  foreach(nodes)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="深度优先"><a href="#深度优先" class="headerlink" title="深度优先"></a>深度优先</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foreach</span>(<span class="params">data,callback</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> data) &#123;</span><br><span class="line">    <span class="keyword">if</span>(item.childrens)&#123;</span><br><span class="line">      foreach(item.childrens)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      callback(item)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>代码片段</tag>
-      </tags>
+    <title>开发灵异事件之登录失效</title>
+    <url>/2021/09/13/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E7%99%BB%E5%BD%95%E5%A4%B1%E6%95%88/</url>
+    <content><![CDATA[<h1 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h1><p>登录界面多次重定向到自己。退出浏览器，清理缓存，无痕模式，都不行。</p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>google chrome在90+版本后，关闭所有窗口仍然会在后台运行，右下角有个小图标。这样会导致存在session Storage里面的数据不会被清理，或者是一些缓存命中机制出现变化，原有的登录判断逻辑出现问题。</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>右击电脑屏幕右下角状态栏chrome小图标，测底关闭浏览器后台程序。</p>
+<p>一劳永逸法，chrome://settings 界面去勾选退出后在后台运行的设置<br><img src="%5Bhttps://%5D(https://upload-images.jianshu.io/upload_images/8156292-157357cdc6edd678.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)" alt="alt"><br>根本解决法，修改判断登录的机制，适配浏览器更新</p>
+]]></content>
   </entry>
   <entry>
     <title>极致简洁的微前端框架-京东MicroApp开源了</title>
@@ -522,6 +511,17 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>读后感</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>树形数据的广度优先与深度优先</title>
+    <url>/2021/09/25/%E6%A0%91%E5%BD%A2%E6%95%B0%E6%8D%AE%E7%9A%84%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E4%B8%8E%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88/</url>
+    <content><![CDATA[<p>这里只是做一个笔记,解释的话可以自行百度</p>
+<h2 id="广度优先"><a href="#广度优先" class="headerlink" title="广度优先"></a>广度优先</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foreach</span>(<span class="params">data,callback</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> nodes=[];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> data) &#123;</span><br><span class="line">    <span class="keyword">if</span>(item.childrens)&#123;</span><br><span class="line">      node=node.concat(item.childrens)</span><br><span class="line">    &#125;</span><br><span class="line">    callback(item)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(nodes.length==<span class="number">0</span>)<span class="keyword">return</span> </span><br><span class="line">  foreach(nodes)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="深度优先"><a href="#深度优先" class="headerlink" title="深度优先"></a>深度优先</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foreach</span>(<span class="params">data,callback</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> data) &#123;</span><br><span class="line">    <span class="keyword">if</span>(item.childrens)&#123;</span><br><span class="line">      foreach(item.childrens)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      callback(item)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>代码片段</tag>
       </tags>
   </entry>
   <entry>
@@ -619,16 +619,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>非vue-cli构建的项目使用 webpack-dev-server不打印代理日志</title>
-    <url>/2021/09/26/%E9%9D%9Evue-cli%E6%9E%84%E5%BB%BA%E7%9A%84%E9%A1%B9%E7%9B%AE%E4%BD%BF%E7%94%A8-webpack-dev-server%E4%B8%8D%E6%89%93%E5%8D%B0%E4%BB%A3%E7%90%86%E6%97%A5%E5%BF%97/</url>
-    <content><![CDATA[<p>使用 webpack-dev-server打印代理日志需要使用以下配置</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">  devServer:&#123;</span><br><span class="line">    proxy:&#123;</span><br><span class="line">      <span class="string">&quot;/&quot;</span>&#123;</span><br><span class="line">        target:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        logLevel:<span class="string">&#x27;debug&#x27;</span><span class="comment">//加上这个就可以了</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>webpack</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>需求管理</title>
     <url>/2022/08/15/%E9%9C%80%E6%B1%82%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<ul>
@@ -642,6 +632,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>非vue-cli构建的项目使用 webpack-dev-server不打印代理日志</title>
+    <url>/2021/09/26/%E9%9D%9Evue-cli%E6%9E%84%E5%BB%BA%E7%9A%84%E9%A1%B9%E7%9B%AE%E4%BD%BF%E7%94%A8-webpack-dev-server%E4%B8%8D%E6%89%93%E5%8D%B0%E4%BB%A3%E7%90%86%E6%97%A5%E5%BF%97/</url>
+    <content><![CDATA[<p>使用 webpack-dev-server打印代理日志需要使用以下配置</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">  devServer:&#123;</span><br><span class="line">    proxy:&#123;</span><br><span class="line">      <span class="string">&quot;/&quot;</span>&#123;</span><br><span class="line">        target:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        logLevel:<span class="string">&#x27;debug&#x27;</span><span class="comment">//加上这个就可以了</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>webpack</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>音乐分轨处理</title>
     <url>/2021/11/09/%E9%9F%B3%E4%B9%90%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<p>妹妹经常外出做音乐表演，需要伴奏，但是从酷狗下载的音乐很多都没有纯伴奏版本，全民K歌这种软件也没有这种伴奏下载的功能。</p>
@@ -652,18 +652,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>音乐</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-3-24 Chrome Devtools Tip： 2.如何使用DevTools触发CSS伪类</title>
-    <url>/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%202.%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8DevTools%E8%A7%A6%E5%8F%91CSS%E4%BC%AA%E7%B1%BB/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-fe137965f93360e7.gif?imageMogr2/auto-orient/strip" alt="pseudo-trigger.gif"><br>可以触发元素上的<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">伪类</a>，以研究元素（例如，将元素悬停在元素上）如何反应。您可以右键单击“元素”面板中的节点，然后选择“强制元素状态”。或者，可以在“<a href="https://developers.google.com/web/tools/chrome-devtools/inspect-styles">样式”</a>子窗格中单击“切换”元素状态图标。</p>
-<p>当一个元素应用了某种状态时，您将在节点的开始标签左侧看到一个视觉指示器，在某些情况下，也将在关闭标签左侧（如果它们相距很远）。</p>
-<p>我们可以触发：活动类（:active），焦点类(:focus)，悬停类(:hover)和访问过的（:visited）伪类。</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>一般伪类是<code>:PseudoClass</code>,伪元素是<code>::PseudoElement</code>,虽然伪元素也能写一个冒号，但是最好区分开来</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
       </tags>
   </entry>
   <entry>
@@ -690,6 +678,18 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       <categories>
         <category>Chrome Devtools Tip</category>
       </categories>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-3-24 Chrome Devtools Tip： 2.如何使用DevTools触发CSS伪类</title>
+    <url>/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%202.%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8DevTools%E8%A7%A6%E5%8F%91CSS%E4%BC%AA%E7%B1%BB/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-fe137965f93360e7.gif?imageMogr2/auto-orient/strip" alt="pseudo-trigger.gif"><br>可以触发元素上的<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">伪类</a>，以研究元素（例如，将元素悬停在元素上）如何反应。您可以右键单击“元素”面板中的节点，然后选择“强制元素状态”。或者，可以在“<a href="https://developers.google.com/web/tools/chrome-devtools/inspect-styles">样式”</a>子窗格中单击“切换”元素状态图标。</p>
+<p>当一个元素应用了某种状态时，您将在节点的开始标签左侧看到一个视觉指示器，在某些情况下，也将在关闭标签左侧（如果它们相距很远）。</p>
+<p>我们可以触发：活动类（:active），焦点类(:focus)，悬停类(:hover)和访问过的（:visited）伪类。</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>一般伪类是<code>:PseudoClass</code>,伪元素是<code>::PseudoElement</code>,虽然伪元素也能写一个冒号，但是最好区分开来</p>
+]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
       </tags>
@@ -935,15 +935,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 17. 调试jquery 事件监听</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2017.%20%E8%B0%83%E8%AF%95jquery%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-c203c83afc13da33.gif?imageMogr2/auto-orient/strip" alt="jquery-event-listeners.gif"><br>jquery事件监听指向jquery的源代码，这对于调试没啥用，我们可以通过查看监听器方法的定义，找到事件处理函数</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 16. 动画调试</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2016.%20%E5%8A%A8%E7%94%BB%E8%B0%83%E8%AF%95/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-f951ea3a660a13ac.gif?imageMogr2/auto-orient/strip" alt="easing-preview.gif"><br>如图，点击<code>ease-in</code>前面的icon可以预览渐变效果哟</p>
@@ -958,10 +949,32 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 17. 调试jquery 事件监听</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2017.%20%E8%B0%83%E8%AF%95jquery%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-c203c83afc13da33.gif?imageMogr2/auto-orient/strip" alt="jquery-event-listeners.gif"><br>jquery事件监听指向jquery的源代码，这对于调试没啥用，我们可以通过查看监听器方法的定义，找到事件处理函数</p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 18. 隐藏网络请求报错的console.error</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2018.%20%E9%9A%90%E8%97%8F%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E6%8A%A5%E9%94%99%E7%9A%84console.error/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-5a09ee8fb823b683.gif?imageMogr2/auto-orient/strip" alt="hide-network-console.gif"></p>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>在定位页面无限重定向,比如一直跳转登录的时候,可以勾选上 <code>Preserve log</code>复选框,查看页面信息<br>在console中执行代码的上下文是根据iframe来的,记得切换iframe来执行相应的代码</p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 19. 使用console.table 更好的展示对象 数组信息</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2019.%20%E4%BD%BF%E7%94%A8console.table%20%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%B1%95%E7%A4%BA%E5%AF%B9%E8%B1%A1%20%E6%95%B0%E7%BB%84%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-a154534659201462.gif?imageMogr2/auto-orient/strip" alt="console-table.gif"></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> languages = [</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;JavaScript&quot;</span>, <span class="attr">fileExtension</span>: <span class="string">&quot;.js&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;TypeScript&quot;</span>, <span class="attr">fileExtension</span>: <span class="string">&quot;.ts&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;CoffeeScript&quot;</span>, <span class="attr">fileExtension</span>: <span class="string">&quot;.coffee&quot;</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.table(languages);</span><br></pre></td></tr></table></figure>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>属性太多还可以传第二个参数 ,只展示要某些字段 <code>console.table(languages,[&#39;name&#39;]);</code></p>
+<h1 id="使用console-time-诊断程序的运行时间"><a href="#使用console-time-诊断程序的运行时间" class="headerlink" title="使用console.time 诊断程序的运行时间"></a>使用console.time 诊断程序的运行时间</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.time(<span class="string">&#x27;My time #1&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.timeLog(<span class="string">&#x27;My time #1&#x27;</span>); <span class="comment">//打印计时器时间</span></span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">&#x27;My time #1&#x27;</span>);<span class="comment">//打印计时器时间,并终止计时器</span></span><br></pre></td></tr></table></figure>
+<h1 id="使用-console-timeStamp-可以在录制性能时间线打标记-快速定位性能问题"><a href="#使用-console-timeStamp-可以在录制性能时间线打标记-快速定位性能问题" class="headerlink" title="使用 console.timeStamp() , 可以在录制性能时间线打标记,快速定位性能问题"></a>使用 console.timeStamp() , 可以在录制性能时间线打标记,快速定位性能问题</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-64043923a748af3c.gif?imageMogr2/auto-orient/strip" alt="console-timestamp-timeline.gif"></p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -983,13 +996,10 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 19. 使用console.table 更好的展示对象 数组信息</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2019.%20%E4%BD%BF%E7%94%A8console.table%20%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%B1%95%E7%A4%BA%E5%AF%B9%E8%B1%A1%20%E6%95%B0%E7%BB%84%E4%BF%A1%E6%81%AF/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-a154534659201462.gif?imageMogr2/auto-orient/strip" alt="console-table.gif"></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> languages = [</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;JavaScript&quot;</span>, <span class="attr">fileExtension</span>: <span class="string">&quot;.js&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;TypeScript&quot;</span>, <span class="attr">fileExtension</span>: <span class="string">&quot;.ts&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;CoffeeScript&quot;</span>, <span class="attr">fileExtension</span>: <span class="string">&quot;.coffee&quot;</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.table(languages);</span><br></pre></td></tr></table></figure>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>属性太多还可以传第二个参数 ,只展示要某些字段 <code>console.table(languages,[&#39;name&#39;]);</code></p>
-<h1 id="使用console-time-诊断程序的运行时间"><a href="#使用console-time-诊断程序的运行时间" class="headerlink" title="使用console.time 诊断程序的运行时间"></a>使用console.time 诊断程序的运行时间</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.time(<span class="string">&#x27;My time #1&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.timeLog(<span class="string">&#x27;My time #1&#x27;</span>); <span class="comment">//打印计时器时间</span></span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">&#x27;My time #1&#x27;</span>);<span class="comment">//打印计时器时间,并终止计时器</span></span><br></pre></td></tr></table></figure>
-<h1 id="使用-console-timeStamp-可以在录制性能时间线打标记-快速定位性能问题"><a href="#使用-console-timeStamp-可以在录制性能时间线打标记-快速定位性能问题" class="headerlink" title="使用 console.timeStamp() , 可以在录制性能时间线打标记,快速定位性能问题"></a>使用 console.timeStamp() , 可以在录制性能时间线打标记,快速定位性能问题</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-64043923a748af3c.gif?imageMogr2/auto-orient/strip" alt="console-timestamp-timeline.gif"></p>
+    <title>2021-4-7- Chrome Devtools Tip： 21. 降低CPU的性能与网络速度来观测性能</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2021.%20%E9%99%8D%E4%BD%8ECPU%E7%9A%84%E6%80%A7%E8%83%BD%E4%B8%8E%E7%BD%91%E7%BB%9C%E9%80%9F%E5%BA%A6%E6%9D%A5%E8%A7%82%E6%B5%8B%E6%80%A7%E8%83%BD/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-0444ada0cfd3c1c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>老版本面板名称叫 <code>Timeline</code> 时间线<br>有些部署在现网的局点,由于国际网络延时高,会导致一些意想不到的BUG,为了模拟延时,就能用上这个调试功能了<br>模拟低性能计算机可以将现有的性能问题进行放大,让我们的应用跑的更快,毕竟我们开发都是i5起步的CPU,还是要照顾下公司的老机器</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1002,16 +1012,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <p>由于每个线程都有其自己的全局脚本上下文，因此您可以选择一个特定的线程进行调试（例如，在其上设置断点）。只需在Sources面板中打开Threads 窗格即可。您应该看到主线程以及所有可用的其他线程。</p>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-91bbd2172b895f2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>这个是Chrome 89的截图,web worker是直接显示在左边的可以找打对应的文件打断点。右边只是一个指示器，告诉我们断点处在哪个线程<br>这里还可以看到 Content Scripts 面板 ,Chrome拓展开发的时候会用到这个,他能共享DOM</p>
 <p>在V3版本的Chrome拓展开发中 Service Worker 也替代了 background.js<br>Service Worker的调试 还有系统通知等等的调试可以看Application面板<br><img src="https://upload-images.jianshu.io/upload_images/8156292-77a7f279e19de948.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 21. 降低CPU的性能与网络速度来观测性能</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2021.%20%E9%99%8D%E4%BD%8ECPU%E7%9A%84%E6%80%A7%E8%83%BD%E4%B8%8E%E7%BD%91%E7%BB%9C%E9%80%9F%E5%BA%A6%E6%9D%A5%E8%A7%82%E6%B5%8B%E6%80%A7%E8%83%BD/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-0444ada0cfd3c1c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>老版本面板名称叫 <code>Timeline</code> 时间线<br>有些部署在现网的局点,由于国际网络延时高,会导致一些意想不到的BUG,为了模拟延时,就能用上这个调试功能了<br>模拟低性能计算机可以将现有的性能问题进行放大,让我们的应用跑的更快,毕竟我们开发都是i5起步的CPU,还是要照顾下公司的老机器</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1056,20 +1056,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 27. 利用Quick Source 快速写样式</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2027.%20%E5%88%A9%E7%94%A8Quick%20Source%20%E5%BF%AB%E9%80%9F%E5%86%99%E6%A0%B7%E5%BC%8F/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-16ac3e0e3083942e.gif?imageMogr2/auto-orient/strip" alt="quick-source.gif"></p>
-<ol>
-<li><code>ctrl shift p</code> 快速打开 <code>quick source</code>面板  </li>
-<li>在<code>Element</code> <code>Style</code>面板修改样式可以与 该面板下的文件同步</li>
-<li>修改好以后直接另存为覆盖代码库中的文件</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 26. Store as global variable 存储成全局变量</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2026.%20Store%20as%20global%20variable%20%E5%AD%98%E5%82%A8%E6%88%90%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-4e305ded9d17242a.gif?imageMogr2/auto-orient/strip" alt="web-animation-api.gif"></p>
@@ -1079,6 +1065,20 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <h2 id="打断点时候的任意一个局部变量"><a href="#打断点时候的任意一个局部变量" class="headerlink" title="打断点时候的任意一个局部变量"></a>打断点时候的任意一个局部变量</h2><p><img src="https://upload-images.jianshu.io/upload_images/8156292-1ee0184cd551f0b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h2 id="消息的响应体预览界面"><a href="#消息的响应体预览界面" class="headerlink" title="消息的响应体预览界面"></a>消息的响应体预览界面</h2><p><img src="https://upload-images.jianshu.io/upload_images/8156292-792fb8a98b463887.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h2 id="还有其他我没发现的地方"><a href="#还有其他我没发现的地方" class="headerlink" title="还有其他我没发现的地方"></a>还有其他我没发现的地方</h2><p>请大家评论区补充</p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 27. 利用Quick Source 快速写样式</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2027.%20%E5%88%A9%E7%94%A8Quick%20Source%20%E5%BF%AB%E9%80%9F%E5%86%99%E6%A0%B7%E5%BC%8F/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-16ac3e0e3083942e.gif?imageMogr2/auto-orient/strip" alt="quick-source.gif"></p>
+<ol>
+<li><code>ctrl shift p</code> 快速打开 <code>quick source</code>面板  </li>
+<li>在<code>Element</code> <code>Style</code>面板修改样式可以与 该面板下的文件同步</li>
+<li>修改好以后直接另存为覆盖代码库中的文件</li>
+</ol>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1164,6 +1164,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 35. Network 查看实际访问的IP</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2035.%20Network%20%E6%9F%A5%E7%9C%8B%E5%AE%9E%E9%99%85%E8%AE%BF%E9%97%AE%E7%9A%84IP/</url>
+    <content><![CDATA[<p>通过自定义显示列的方式,可以看到域名解析后的IP地址<br><img src="https://upload-images.jianshu.io/upload_images/8156292-bcce4dd0424848bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="快速找到CDN-这个我没找到-Chrome-89"><a href="#快速找到CDN-这个我没找到-Chrome-89" class="headerlink" title="快速找到CDN(这个我没找到 Chrome 89)"></a>快速找到CDN(这个我没找到 Chrome 89)</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-bb7d635078e3f763.gif?imageMogr2/auto-orient/strip" alt="network-products.gif"></p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 36. 自定义时间测量API</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2036.%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%B6%E9%97%B4%E6%B5%8B%E9%87%8FAPI/</url>
     <content><![CDATA[<p>Performance 面板就是以前的timeline面板。用于可视化分析代码性能。js提供了对应的API用于分析<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/User_Timing_API">https://developer.mozilla.org/zh-CN/docs/Web/API/User_Timing_API</a></p>
@@ -1212,16 +1222,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 35. Network 查看实际访问的IP</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2035.%20Network%20%E6%9F%A5%E7%9C%8B%E5%AE%9E%E9%99%85%E8%AE%BF%E9%97%AE%E7%9A%84IP/</url>
-    <content><![CDATA[<p>通过自定义显示列的方式,可以看到域名解析后的IP地址<br><img src="https://upload-images.jianshu.io/upload_images/8156292-bcce4dd0424848bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h1 id="快速找到CDN-这个我没找到-Chrome-89"><a href="#快速找到CDN-这个我没找到-Chrome-89" class="headerlink" title="快速找到CDN(这个我没找到 Chrome 89)"></a>快速找到CDN(这个我没找到 Chrome 89)</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-bb7d635078e3f763.gif?imageMogr2/auto-orient/strip" alt="network-products.gif"></p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 7.将图片复制为base64编码data URI</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%207.%20%E5%B0%86%E5%9B%BE%E7%89%87%E5%A4%8D%E5%88%B6%E4%B8%BAbase64%E7%BC%96%E7%A0%81data%20URI/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-10bdf710d15689c8.gif?imageMogr2/auto-orient/strip" alt="copy-as-data-uri.gif"></p>
@@ -1231,6 +1231,25 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>webpack的url-loader 也能转base64</li>
 <li>css selector 可以查找元素，Xpath也是可以的</li>
 </ol>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 8.资源面板Source中的快捷键</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%208.%20%E8%B5%84%E6%BA%90%E9%9D%A2%E6%9D%BFSource%E4%B8%AD%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-293c6c7a656174ab.gif?imageMogr2/auto-orient/strip" alt="go-to-column.gif"></p>
+<ol>
+<li>Ctrl + O 或者是 Ctrl + P 可以用于查找文件，这个跟vscode是一致的</li>
+<li>打开查找工具栏 @开头查找函数 ：开头跳转行好 &gt; 开头查找命令</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/8156292-8f0a42c8c47ca12c.gif?imageMogr2/auto-orient/strip" alt="editing-locations.gif"></p>
+<ol>
+<li>ALT+ ←  ALT+ → 可以跳转光标的历史位置，vscode中也是一样的，方便查看定义，再回到原来的位置</li>
+<li><code>ctrl shift o</code> 查找文件中的方法定义,不在source面板中使用会跳转到书签管理器界面。这个vscode快捷键是一样的。<br><img src="https://upload-images.jianshu.io/upload_images/8156292-cee42ec6605207cf.gif?imageMogr2/auto-orient/strip" alt="go-to-member.gif"></li>
+</ol>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>资源面板里面编辑文件是有智能提示和代码检测的呢</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1259,25 +1278,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 </blockquote>
 <p><img src="https://upload-images.jianshu.io/upload_images/8156292-e47f4f9b065e1322.gif?imageMogr2/auto-orient/strip" alt="render-perf-pane.gif"></p>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>新版的这个功能貌似被移除了,我以前还用过 render 面板去看元素重绘还是很方便的,有颜色做区分<br>如果真要看FPS,建议还是在录制一下,参考下图去查看比较方便<br><img src="https://upload-images.jianshu.io/upload_images/8156292-eb77c220b0f33ff5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 8.资源面板Source中的快捷键</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%208.%20%E8%B5%84%E6%BA%90%E9%9D%A2%E6%9D%BFSource%E4%B8%AD%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-293c6c7a656174ab.gif?imageMogr2/auto-orient/strip" alt="go-to-column.gif"></p>
-<ol>
-<li>Ctrl + O 或者是 Ctrl + P 可以用于查找文件，这个跟vscode是一致的</li>
-<li>打开查找工具栏 @开头查找函数 ：开头跳转行好 &gt; 开头查找命令</li>
-</ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/8156292-8f0a42c8c47ca12c.gif?imageMogr2/auto-orient/strip" alt="editing-locations.gif"></p>
-<ol>
-<li>ALT+ ←  ALT+ → 可以跳转光标的历史位置，vscode中也是一样的，方便查看定义，再回到原来的位置</li>
-<li><code>ctrl shift o</code> 查找文件中的方法定义,不在source面板中使用会跳转到书签管理器界面。这个vscode快捷键是一样的。<br><img src="https://upload-images.jianshu.io/upload_images/8156292-cee42ec6605207cf.gif?imageMogr2/auto-orient/strip" alt="go-to-member.gif"></li>
-</ol>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>资源面板里面编辑文件是有智能提示和代码检测的呢</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1397,18 +1397,18 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
   </entry>
   <entry>
     <title>开发灵异事件之base64图片传输</title>
-    <url>/2023/03/28/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bfix%E5%AE%9A%E4%BD%8D%E5%A4%B1%E8%B4%A5/</url>
-    <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>使用了 <code>position:fixed</code>定位发现弹框不能定位到页面相对位置</p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>fixed默认是相对于页面的根元素的,但是有一种情况例外,就是如果父有元素做了transfrom变换的时候。此时会相对于该元素定位</p>
-<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>fixed定位的元素建议作为body直接子元素使用</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>开发灵异事件之base64图片传输</title>
     <url>/2021/09/09/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bbase64%E5%9B%BE%E7%89%87%E4%BC%A0%E8%BE%93/</url>
     <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>发出去的请求一毛一样，都包含了同一张base64格式的图片，图片显示出来是一样的。对比内容不一样。但是请求时间差距3分钟，甚至超时。接口20M大小的图片也能秒级处理。 图片来源一个是前端上传转换的base64，一个是后端把pdf文件首页转换出来的。</p>
 <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>后端生成的图片base64包含大量的换行符，http协议中的换行符有特殊含义，会被网关服务器解析，导致请求超时。</p>
 <h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>base64格式里面有大量的换行符，会严重影响传输效率</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>开发灵异事件之base64图片传输</title>
+    <url>/2023/03/28/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bfix%E5%AE%9A%E4%BD%8D%E5%A4%B1%E8%B4%A5/</url>
+    <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>使用了 <code>position:fixed</code>定位发现弹框不能定位到页面相对位置</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>fixed默认是相对于页面的根元素的,但是有一种情况例外,就是如果父有元素做了transfrom变换的时候。此时会相对于该元素定位</p>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>fixed定位的元素建议作为body直接子元素使用</p>
 ]]></content>
   </entry>
   <entry>
@@ -1598,16 +1598,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>JSON Stream 用于JSON数据的解析</title>
-    <url>/2021/09/25/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/JSON-Stream-%E7%94%A8%E4%BA%8EJSON%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A7%A3%E6%9E%90/</url>
-    <content><![CDATA[<p>JSON Stream使用流的方式去解析JSON文件,即使是非常大的文件也不会造成内存卡顿</p>
-<p><a href="https://www.npmjs.com/package/JSONStream">https://www.npmjs.com/package/JSONStream</a></p>
-]]></content>
-      <tags>
-        <tag>json npm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>rxjs</title>
     <url>/2021/04/19/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/2021-4-29-%20rxjs/</url>
     <content><![CDATA[<h1 id="rxjs"><a href="#rxjs" class="headerlink" title="rxjs"></a>rxjs</h1><p>rxjs是一个响应式编程的js实现,angular工程里面经常会用到</p>
@@ -1661,6 +1651,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>JSON Stream 用于JSON数据的解析</title>
+    <url>/2021/09/25/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/JSON-Stream-%E7%94%A8%E4%BA%8EJSON%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A7%A3%E6%9E%90/</url>
+    <content><![CDATA[<p>JSON Stream使用流的方式去解析JSON文件,即使是非常大的文件也不会造成内存卡顿</p>
+<p><a href="https://www.npmjs.com/package/JSONStream">https://www.npmjs.com/package/JSONStream</a></p>
+]]></content>
+      <tags>
+        <tag>json npm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UI框架之uikit</title>
     <url>/2021/09/13/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/UI%E6%A1%86%E6%9E%B6%E4%B9%8Buikit/</url>
     <content><![CDATA[<h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p><a href="https://getuikit.com/">官网</a></p>
@@ -1711,34 +1711,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>代码片段</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>盘点几个js库</title>
-    <url>/2021/09/26/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/%E7%9B%98%E7%82%B9%E5%87%A0%E4%B8%AAjs%E5%BA%93/</url>
-    <content><![CDATA[<h1 id="p5-js"><a href="#p5-js" class="headerlink" title="p5.js"></a>p5.js</h1><p>把整个浏览器当做一个画板进行创意创作的绘图库<br>官网: https:p5js.org</p>
-<h1 id="SpriteJS"><a href="#SpriteJS" class="headerlink" title="SpriteJS"></a>SpriteJS</h1><p>SpriteJS是一款由360奇舞团开源的跨终端 canvas/webgl绘图库,我看了下API非常友好<br>官网: https:gitee.com/qihoo360/SpriteJS</p>
-<h1 id="Annie2x"><a href="#Annie2x" class="headerlink" title="Annie2x"></a>Annie2x</h1><p>Annie2x是一款Adobe Flash的插件,支持Flash CC 2015及以上 和 Adobe Animate全线版本。<br>官网： <a href="http://annie2x.com/">http://annie2x.com/</a></p>
-<h1 id="flatfile"><a href="#flatfile" class="headerlink" title="flatfile"></a>flatfile</h1><p>超强的数据导入js库,可以将Excel PDF CSV 导出成廷议的符合规则的结构化数据,强大的UI界面支持,非常适合集成到大数据采集的项目</p>
-<h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><p><a href="https://flatfile.io/">https://flatfile.io</a></p>
-<h2 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h2><ol>
-<li>前端数据导入,校验,格式化</li>
-<li>无须构建CSV解析器</li>
-<li>强大的API可以将结构化数据发布到任意端点</li>
-</ol>
-<h2 id="flatfile库的设计思路"><a href="#flatfile库的设计思路" class="headerlink" title="flatfile库的设计思路"></a>flatfile库的设计思路</h2><ol>
-<li>定义JSONschema用于数据自身的校验</li>
-<li>提供导入校验的钩子 用于数据行字段之间的的校验,以及数据处理能力</li>
-<li>点击导入按钮,解析Excel,将Excel列与JSONschema列进行自动映射</li>
-<li>提供映射交互页面,给用户修改自动映射的结果</li>
-<li>生成数据处理后的结果,让用户填充校验失败的字段</li>
-<li>提供导出的API 提供平台能力使用这些结构化数据</li>
-</ol>
-<h1 id="handsontable-强大的表格-数据再多都不会卡"><a href="#handsontable-强大的表格-数据再多都不会卡" class="headerlink" title="handsontable 强大的表格,数据再多都不会卡"></a>handsontable 强大的表格,数据再多都不会卡</h1><p><a href="https://handsontable.com/">https://handsontable.com/</a></p>
-<h1 id="ag-grid-The-Best-JavaScript-Grid-in-the-World"><a href="#ag-grid-The-Best-JavaScript-Grid-in-the-World" class="headerlink" title="ag-grid The Best JavaScript Grid in the World"></a>ag-grid The Best JavaScript Grid in the World</h1><p><a href="https://www.ag-grid.com/">https://www.ag-grid.com</a></p>
-]]></content>
-      <tags>
-        <tag>npm</tag>
       </tags>
   </entry>
   <entry>
@@ -1804,18 +1776,31 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
   </entry>
   <entry>
-    <title>启用rss订阅功能</title>
-    <url>/2018/03/25/%E5%8D%9A%E5%AE%A2/2018-3-25-%E5%90%AF%E7%94%A8rss%E8%AE%A2%E9%98%85/</url>
-    <content><![CDATA[<h1 id="修改-config-yml文件"><a href="#修改-config-yml文件" class="headerlink" title="修改_config.yml文件"></a>修改_config.yml文件</h1><ol>
-<li>在gems中增加jekyll-feed依赖</li>
-<li>配置插件jekyll-feed </li>
-<li>页面中启用RSS按钮的显示   </li>
+    <title>盘点几个js库</title>
+    <url>/2021/09/26/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/%E7%9B%98%E7%82%B9%E5%87%A0%E4%B8%AAjs%E5%BA%93/</url>
+    <content><![CDATA[<h1 id="p5-js"><a href="#p5-js" class="headerlink" title="p5.js"></a>p5.js</h1><p>把整个浏览器当做一个画板进行创意创作的绘图库<br>官网: https:p5js.org</p>
+<h1 id="SpriteJS"><a href="#SpriteJS" class="headerlink" title="SpriteJS"></a>SpriteJS</h1><p>SpriteJS是一款由360奇舞团开源的跨终端 canvas/webgl绘图库,我看了下API非常友好<br>官网: https:gitee.com/qihoo360/SpriteJS</p>
+<h1 id="Annie2x"><a href="#Annie2x" class="headerlink" title="Annie2x"></a>Annie2x</h1><p>Annie2x是一款Adobe Flash的插件,支持Flash CC 2015及以上 和 Adobe Animate全线版本。<br>官网： <a href="http://annie2x.com/">http://annie2x.com/</a></p>
+<h1 id="flatfile"><a href="#flatfile" class="headerlink" title="flatfile"></a>flatfile</h1><p>超强的数据导入js库,可以将Excel PDF CSV 导出成廷议的符合规则的结构化数据,强大的UI界面支持,非常适合集成到大数据采集的项目</p>
+<h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><p><a href="https://flatfile.io/">https://flatfile.io</a></p>
+<h2 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h2><ol>
+<li>前端数据导入,校验,格式化</li>
+<li>无须构建CSV解析器</li>
+<li>强大的API可以将结构化数据发布到任意端点</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">plugins:</span><br><span class="line">  - jekyll-feed</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">gems:[jekyll-feed]  </span><br><span class="line"></span><br><span class="line">RSS: true</span><br></pre></td></tr></table></figure>
-<h1 id="根目录下应该有-feed-xml"><a href="#根目录下应该有-feed-xml" class="headerlink" title="根目录下应该有 feed.xml"></a>根目录下应该有 feed.xml</h1><p>具体可以参考<a href="https://blog.csdn.net/itmyhome1990/article/details/42919429">为Jekyll博客添加RSS feed订阅功能</a></p>
+<h2 id="flatfile库的设计思路"><a href="#flatfile库的设计思路" class="headerlink" title="flatfile库的设计思路"></a>flatfile库的设计思路</h2><ol>
+<li>定义JSONschema用于数据自身的校验</li>
+<li>提供导入校验的钩子 用于数据行字段之间的的校验,以及数据处理能力</li>
+<li>点击导入按钮,解析Excel,将Excel列与JSONschema列进行自动映射</li>
+<li>提供映射交互页面,给用户修改自动映射的结果</li>
+<li>生成数据处理后的结果,让用户填充校验失败的字段</li>
+<li>提供导出的API 提供平台能力使用这些结构化数据</li>
+</ol>
+<h1 id="handsontable-强大的表格-数据再多都不会卡"><a href="#handsontable-强大的表格-数据再多都不会卡" class="headerlink" title="handsontable 强大的表格,数据再多都不会卡"></a>handsontable 强大的表格,数据再多都不会卡</h1><p><a href="https://handsontable.com/">https://handsontable.com/</a></p>
+<h1 id="ag-grid-The-Best-JavaScript-Grid-in-the-World"><a href="#ag-grid-The-Best-JavaScript-Grid-in-the-World" class="headerlink" title="ag-grid The Best JavaScript Grid in the World"></a>ag-grid The Best JavaScript Grid in the World</h1><p><a href="https://www.ag-grid.com/">https://www.ag-grid.com</a></p>
 ]]></content>
       <tags>
-        <tag>博客</tag>
+        <tag>npm</tag>
       </tags>
   </entry>
   <entry>
@@ -1855,6 +1840,21 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>最后说几句吐嘈几句， Gitalk 需要你点开每篇文章的页面才会创建对应的 issue,对我来说真是个糟糕的体验（文章有点多~）。</p>
 <p>当然，也有解决办法，这篇 <a href="https://draveness.me/git-comments-initialize">自动初始化 Gitalk 和 Gitment 评论</a>，就解决了这个问题。</p>
 <p>最后，<a href="https://github.com/qiubaiying/qiubaiying.github.io">给个 star 吧</a>~</p>
+]]></content>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>启用rss订阅功能</title>
+    <url>/2018/03/25/%E5%8D%9A%E5%AE%A2/2018-3-25-%E5%90%AF%E7%94%A8rss%E8%AE%A2%E9%98%85/</url>
+    <content><![CDATA[<h1 id="修改-config-yml文件"><a href="#修改-config-yml文件" class="headerlink" title="修改_config.yml文件"></a>修改_config.yml文件</h1><ol>
+<li>在gems中增加jekyll-feed依赖</li>
+<li>配置插件jekyll-feed </li>
+<li>页面中启用RSS按钮的显示   </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">plugins:</span><br><span class="line">  - jekyll-feed</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">gems:[jekyll-feed]  </span><br><span class="line"></span><br><span class="line">RSS: true</span><br></pre></td></tr></table></figure>
+<h1 id="根目录下应该有-feed-xml"><a href="#根目录下应该有-feed-xml" class="headerlink" title="根目录下应该有 feed.xml"></a>根目录下应该有 feed.xml</h1><p>具体可以参考<a href="https://blog.csdn.net/itmyhome1990/article/details/42919429">为Jekyll博客添加RSS feed订阅功能</a></p>
 ]]></content>
       <tags>
         <tag>博客</tag>
@@ -2145,6 +2145,58 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>小工具集合</title>
+    <url>/2021/04/19/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/</url>
+    <content><![CDATA[<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://gitee.com/alasq/tools.git">https://gitee.com/alasq/tools.git</a> </p>
+<p>请原谅我把gitee当网盘用☺️</p>
+<h1 id="开发用的小工具"><a href="#开发用的小工具" class="headerlink" title="开发用的小工具"></a>开发用的小工具</h1><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>前端开发用的小工具</p>
+<h4 id="工具列表-该仓库有安装包的工具"><a href="#工具列表-该仓库有安装包的工具" class="headerlink" title="工具列表(该仓库有安装包的工具)"></a>工具列表(该仓库有安装包的工具)</h4><ul>
+<li>Hotkey Commander 检测快捷键冲突</li>
+<li>小书匠 写作工具,可直接同步到多个平台</li>
+<li>licecap 录屏</li>
+<li>ScreenToGif 录Gif还能编辑 gif</li>
+<li>fscupture 截屏,测距,取色,录屏(视频),滚动录屏</li>
+<li>Snipaste 截屏,粘贴到桌面</li>
+<li>everything 文件系统快速搜索</li>
+<li>Q-dir 分屏资源管理器</li>
+</ul>
+<h4 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h4><ul>
+<li>chrome &amp; firefox &amp; ie &amp; edge &amp; 360浏览器</li>
+<li>Git &amp; Git tortoise 版本管理工具</li>
+<li>Node 跑Node代码用</li>
+<li>nvm node版本管理工具</li>
+<li>Oracle JDK / Open JDK 跑java代码用的</li>
+<li>Postman 接口测试工具</li>
+<li>XAMPP（Apache+MySQL+PHP+PERL）跑PHP用,还白送一个comcat 一个mysql数据库</li>
+<li>Beyond Compare 比较文件夹很好用</li>
+<li>WinSCP sftp工具</li>
+<li>xShell / mabaxterm ssh远程连接工具</li>
+<li>docker windows上不建议装,能用的镜像太少</li>
+</ul>
+<h3 id="Chrome-插件"><a href="#Chrome-插件" class="headerlink" title="Chrome 插件"></a>Chrome 插件</h3><ul>
+<li>RSS 订阅</li>
+<li>划词翻译</li>
+<li>Vue DevTools</li>
+</ul>
+<h4 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h4><ul>
+<li>Vscode/WebStorm</li>
+<li>HBuilder</li>
+<li>微信开发者工具</li>
+<li>nodePad++</li>
+</ul>
+<h4 id="直播三件套"><a href="#直播三件套" class="headerlink" title="直播三件套"></a>直播三件套</h4><ul>
+<li>OBS Studio 录屏</li>
+<li>Arctime Pro 字幕工具</li>
+<li>Adobe Pr 视频编辑(会声会影/拍大师/剪映/爱剪辑)</li>
+</ul>
+<h3 id="办公软件"><a href="#办公软件" class="headerlink" title="办公软件"></a>办公软件</h3><ul>
+<li>word &amp; ppt &amp; excel </li>
+<li>pdf</li>
+<li>email/foxmail</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>主流的深度学习开源工具</title>
     <url>/2021/04/21/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2021-4-21-%20%E4%B8%BB%E6%B5%81%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<table>
@@ -2207,56 +2259,53 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>小工具集合</title>
-    <url>/2021/04/19/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/2021-4-19-%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/</url>
-    <content><![CDATA[<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://gitee.com/alasq/tools.git">https://gitee.com/alasq/tools.git</a> </p>
-<p>请原谅我把gitee当网盘用☺️</p>
-<h1 id="开发用的小工具"><a href="#开发用的小工具" class="headerlink" title="开发用的小工具"></a>开发用的小工具</h1><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>前端开发用的小工具</p>
-<h4 id="工具列表-该仓库有安装包的工具"><a href="#工具列表-该仓库有安装包的工具" class="headerlink" title="工具列表(该仓库有安装包的工具)"></a>工具列表(该仓库有安装包的工具)</h4><ul>
-<li>Hotkey Commander 检测快捷键冲突</li>
-<li>小书匠 写作工具,可直接同步到多个平台</li>
-<li>licecap 录屏</li>
-<li>ScreenToGif 录Gif还能编辑 gif</li>
-<li>fscupture 截屏,测距,取色,录屏(视频),滚动录屏</li>
-<li>Snipaste 截屏,粘贴到桌面</li>
-<li>everything 文件系统快速搜索</li>
-<li>Q-dir 分屏资源管理器</li>
+    <title>《编写可测试javascript》 第二章 复杂度（一）</title>
+    <url>/2019/04/03/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/2019-4-3-%E3%80%8A%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95javascript%E3%80%8B%20%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+<li>代码大小</li>
+<li>JSLint</li>
+<li>圈复杂度</li>
+<li>重用</li>
+<li>扇出</li>
+<li>扇入</li>
+<li>耦合（耦合度由大到小排列）<br>内容耦合<br>公共耦合<br>控制耦合<br>印记耦合<br>数据耦合<br>无耦合<br>实例化</li>
+<li>耦合性度量</li>
+<li>现实中耦合</li>
+<li>依赖注入</li>
+<li>注释<br>YUIDoc JSDoc Docco/Rocco</li>
+<li>人工测试</li>
+<li>小结</li>
+</ol>
+<h3 id="1-代码大小"><a href="#1-代码大小" class="headerlink" title="1.代码大小"></a>1.代码大小</h3><p><strong>定义</strong>：函数的行数（包括注释行数）<br>减少该复杂度的方式 <strong>拆函数</strong></p>
+<ul>
+<li>命令（command）和 查询（query）分离<br>命令（command）：没有return 的函数<br>查询（query）：带return 的函数<h3 id="2-JSLint"><a href="#2-JSLint" class="headerlink" title="2.JSLint"></a>2.JSLint</h3></li>
+<li>*规范书写语法**，简洁代码，减少复杂度<h3 id="3-圈复杂度"><a href="#3-圈复杂度" class="headerlink" title="3.圈复杂度"></a>3.圈复杂度</h3></li>
+<li>*定义<strong>：获得100%代码覆盖率需要编写的</strong>单元测试个数<strong>（if/else/switch/then 的使用）<br>最佳实践：</strong>方法的圈复杂度应该小于10个**，&gt;25个一定有bug；&gt;100个，bug越改越多<br>检测工具：jscheckstyle<blockquote>
+<p><code>npm i -g jscheckstyle</code> </p>
+</blockquote>
+</li>
 </ul>
-<h4 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h4><ul>
-<li>chrome &amp; firefox &amp; ie &amp; edge &amp; 360浏览器</li>
-<li>Git &amp; Git tortoise 版本管理工具</li>
-<li>Node 跑Node代码用</li>
-<li>nvm node版本管理工具</li>
-<li>Oracle JDK / Open JDK 跑java代码用的</li>
-<li>Postman 接口测试工具</li>
-<li>XAMPP（Apache+MySQL+PHP+PERL）跑PHP用,还白送一个comcat 一个mysql数据库</li>
-<li>Beyond Compare 比较文件夹很好用</li>
-<li>WinSCP sftp工具</li>
-<li>xShell / mabaxterm ssh远程连接工具</li>
-<li>docker windows上不建议装,能用的镜像太少</li>
-</ul>
-<h3 id="Chrome-插件"><a href="#Chrome-插件" class="headerlink" title="Chrome 插件"></a>Chrome 插件</h3><ul>
-<li>RSS 订阅</li>
-<li>划词翻译</li>
-<li>Vue DevTools</li>
-</ul>
-<h4 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h4><ul>
-<li>Vscode/WebStorm</li>
-<li>HBuilder</li>
-<li>微信开发者工具</li>
-<li>nodePad++</li>
-</ul>
-<h4 id="直播三件套"><a href="#直播三件套" class="headerlink" title="直播三件套"></a>直播三件套</h4><ul>
-<li>OBS Studio 录屏</li>
-<li>Arctime Pro 字幕工具</li>
-<li>Adobe Pr 视频编辑(会声会影/拍大师/剪映/爱剪辑)</li>
-</ul>
-<h3 id="办公软件"><a href="#办公软件" class="headerlink" title="办公软件"></a>办公软件</h3><ul>
-<li>word &amp; ppt &amp; excel </li>
-<li>pdf</li>
-<li>email/foxmail</li>
+<p><strong>理论与实践</strong>：<br>我做的项目中有一个判断基站颜色显示的逻辑，绘制canvas站点的fillStyle<br>入参包括</p>
+<ul>
+<li>是否规划站 黄色</li>
+<li>是否现网站 蓝色</li>
+<li>是否新建站 绿色</li>
+<li>天线型号 2t2t 4t4r 8t8r 16t16r  基于站点类型增加颜色饱和度</li>
+<li>是否离线站点  灰色</li>
+<li>是否搜索结果  红色<br>这些放在一个方法里面的圈复杂度应该是<br>圈复杂度=天线4<em>站点类型3</em>是否离线2*是否搜索结果2=48<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getColor</span>(<span class="params">siteType,trType,isSearchResult,isOffAir</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> color=<span class="string">&#x27;blue&#x27;</span></span><br><span class="line">  <span class="keyword">if</span>(isSearchResult)&#123;</span><br><span class="line">      <span class="keyword">return</span> color=<span class="string">&#x27;red&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(isOffAir)&#123;</span><br><span class="line">   <span class="keyword">return</span> color=<span class="string">&#x27;gray&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//这里项目中用的if else if else 的嵌套结构，太恶心，这里用switch优化了下</span></span><br><span class="line">  <span class="keyword">switch</span>(siteType)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;current&#x27;</span>:  </span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;2t2r&#x27;</span>)color=<span class="string">&#x27;淡蓝&#x27;</span></span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;4t4r&#x27;</span>)color=<span class="string">&#x27;浅蓝&#x27;</span></span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;8t8r&#x27;</span>)color=<span class="string">&#x27;蓝&#x27;</span></span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;16t16r&#x27;</span>)color=<span class="string">&#x27;深蓝&#x27;</span></span><br><span class="line">           <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;new&#x27;</span>: </span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;2t2r&#x27;</span>)color=<span class="string">&#x27;淡绿&#x27;</span></span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;4t24&#x27;</span>)color=<span class="string">&#x27;浅绿&#x27;</span></span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;8t8r&#x27;</span>)color=<span class="string">&#x27;绿&#x27;</span></span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;16t16r&#x27;</span>)color=<span class="string">&#x27;深绿&#x27;</span></span><br><span class="line">           <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;plan&#x27;</span>: </span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;2t2r&#x27;</span>)color=<span class="string">&#x27;淡黄&#x27;</span></span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;4t24&#x27;</span>)color=<span class="string">&#x27;浅黄&#x27;</span></span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;8t8r&#x27;</span>)color=<span class="string">&#x27; 黄&#x27;</span></span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;16t16r&#x27;</span>)color=<span class="string">&#x27;深黄&#x27;</span></span><br><span class="line">           <span class="keyword">break</span>;</span><br><span class="line">         <span class="keyword">default</span>:</span><br><span class="line">          </span><br><span class="line">  &#125;</span><br><span class="line"> <span class="keyword">return</span> color</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+尝试降低上面这个方法的圈复杂度<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">getColor</span>(<span class="params">siteType,trType,isSearchResult,isOffAir</span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> colorMap=&#123;</span><br><span class="line">    current:&#123;</span><br><span class="line">   <span class="string">&#x27;2t2r&#x27;</span>:<span class="string">&#x27;淡蓝&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;4t4r&#x27;</span>:<span class="string">&#x27;浅蓝&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;8t8r&#x27;</span>:<span class="string">&#x27;蓝&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;16t16r&#x27;</span>:<span class="string">&#x27;深蓝&#x27;</span></span><br><span class="line">&#125;,</span><br><span class="line">    <span class="string">&#x27;new&#x27;</span>:&#123;</span><br><span class="line">   <span class="string">&#x27;2t2r&#x27;</span>:<span class="string">&#x27;淡蓝&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;4t4r&#x27;</span>:<span class="string">&#x27;浅蓝&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;8t8r&#x27;</span>:<span class="string">&#x27;蓝&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;16t16r&#x27;</span>:<span class="string">&#x27;深蓝&#x27;</span></span><br><span class="line">&#125;,</span><br><span class="line">    plan:&#123;</span><br><span class="line">   <span class="string">&#x27;2t2r&#x27;</span>:<span class="string">&#x27;淡蓝&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;4t4r&#x27;</span>:<span class="string">&#x27;浅蓝&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;8t8r&#x27;</span>:<span class="string">&#x27;蓝&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;16t16r&#x27;</span>:<span class="string">&#x27;深蓝&#x27;</span></span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">  <span class="keyword">var</span> color=<span class="string">&#x27;blue&#x27;</span></span><br><span class="line">  <span class="keyword">if</span>(isSearchResult)&#123;</span><br><span class="line">      <span class="keyword">return</span> color=<span class="string">&#x27;red&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(isOffAir)&#123;</span><br><span class="line">   <span class="keyword">return</span> color=<span class="string">&#x27;gray&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    color =colorMap[siteType][trType]</span><br><span class="line">  &#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;colorMap 中没有定义这个颜色&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> color</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+后续如果增加新的站点类型或者天线类型，只要维护mapColor这个hash表就行了，不会再增加代码的圈复杂度，代码的可读与可维护性大大增强<h3 id="4-重用"><a href="#4-重用" class="headerlink" title="4.重用"></a>4.重用</h3></li>
+<li><em>同样的代码不要写两次</em>* 没什么好说的，就像出轨有了第一次就一定有第二次……<br>另外就是能使用框架，就不要自己造轮子<h3 id="5-扇出Fan-Out（这个词好难理解），对应的还有扇入Fan-In"><a href="#5-扇出Fan-Out（这个词好难理解），对应的还有扇入Fan-In" class="headerlink" title="5.扇出Fan-Out（这个词好难理解），对应的还有扇入Fan-In"></a>5.扇出Fan-Out（这个词好难理解），对应的还有扇入Fan-In</h3></li>
+<li>*定义**：函数直接或间接使用的模块或者对象数量<br>个人理解：<code>扇出就衡量一个函数做多少事。类比于人做事情，就是这个人指挥别人做的+他自己做的</code></li>
+<li>*复杂度计算公式**：<code> (fan_in * fan_out)²</code></li>
+<li>*扇出计算公式**：扇出=内部流程数量（指挥别人做的）+所更新数据结构数量（自己做的）</li>
+<li>*最佳实践<strong>：函数的</strong>扇出应该小于等于4**，绝对不要大于7，超过的话就需要重构<br>解决方式：拆分模块，依赖注入<br>例子：requirejs定义一个模块，下面的就需要拆分了<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//拆分前</span></span><br><span class="line">define([a,b,c,d,e,f,g,h],<span class="function"><span class="keyword">function</span>(<span class="params">a,b,c,d,e,f,g,h</span>)</span>&#123;<span class="comment">//定义一个模块，依赖了7个小模块</span></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">module</span>=&#123;</span><br><span class="line">    a,b,c,d,e,f,g,h</span><br><span class="line">  &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">module</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//拆分后</span></span><br><span class="line">define([],<span class="function"><span class="keyword">function</span>(<span class="params">a,b,c,d</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">SubModule</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.a=<span class="keyword">new</span> a()</span><br><span class="line">        <span class="built_in">this</span>.b=<span class="keyword">new</span> b()</span><br><span class="line">        <span class="built_in">this</span>.c=<span class="keyword">new</span> c()</span><br><span class="line">        <span class="built_in">this</span>.d=<span class="keyword">new</span> d()</span><br><span class="line">    &#125;</span><br><span class="line">    subModule.prototype.getA=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">this</span>.a&#125;</span><br><span class="line">    subModule.prototype.getB=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">this</span>.b&#125;</span><br><span class="line">    subModule.prototype.getC=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">this</span>.c&#125;</span><br><span class="line">    subModule.prototype.getD=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">this</span>.d&#125;</span><br><span class="line">    <span class="keyword">return</span> subModule</span><br><span class="line">&#125;)</span><br><span class="line">define([subModule,e,f,g,h],<span class="function"><span class="keyword">function</span>(<span class="params">subModule,e,f,g,h</span>)</span>&#123;<span class="comment">//仅仅减小扇出，但无实际意义</span></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">module</span>=&#123;</span><br><span class="line">    a:subModule.getA(),</span><br><span class="line">    b:subModule.getB(),</span><br><span class="line">    c:subModule.getC(),</span><br><span class="line">    d:subModule.getD(),</span><br><span class="line">    e,f,g,h</span><br><span class="line">  &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">module</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="6-扇入（入参？）"><a href="#6-扇入（入参？）" class="headerlink" title="6.扇入（入参？）"></a>6.扇入（入参？）</h3>定义：过程A的扇入是  过程A的内部流程数量 与 欲从过程A中获取信息的数据结构总和<br>高扇入复用程度越高，底层函数应该扇入高，扇出低。上层函数应该扇入低，扇出高。这样能保证函数的复杂度都比较低。<h3 id="7-耦合"><a href="#7-耦合" class="headerlink" title="7.耦合"></a>7.耦合</h3><a href="https://www.jianshu.com/p/33faf9d810f0">《编写可测试javascript》 第二章 复杂度（二）</a></li>
 </ul>
 ]]></content>
+      <tags>
+        <tag>读书笔记</tag>
+      </tags>
   </entry>
   <entry>
     <title>《编写可测试javascript》 第三章</title>
@@ -2308,55 +2357,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>《编写可测试javascript》 第二章 复杂度（一）</title>
-    <url>/2019/04/03/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/2019-4-3-%E3%80%8A%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95javascript%E3%80%8B%20%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%88%E4%B8%80%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
-<li>代码大小</li>
-<li>JSLint</li>
-<li>圈复杂度</li>
-<li>重用</li>
-<li>扇出</li>
-<li>扇入</li>
-<li>耦合（耦合度由大到小排列）<br>内容耦合<br>公共耦合<br>控制耦合<br>印记耦合<br>数据耦合<br>无耦合<br>实例化</li>
-<li>耦合性度量</li>
-<li>现实中耦合</li>
-<li>依赖注入</li>
-<li>注释<br>YUIDoc JSDoc Docco/Rocco</li>
-<li>人工测试</li>
-<li>小结</li>
-</ol>
-<h3 id="1-代码大小"><a href="#1-代码大小" class="headerlink" title="1.代码大小"></a>1.代码大小</h3><p><strong>定义</strong>：函数的行数（包括注释行数）<br>减少该复杂度的方式 <strong>拆函数</strong></p>
-<ul>
-<li>命令（command）和 查询（query）分离<br>命令（command）：没有return 的函数<br>查询（query）：带return 的函数<h3 id="2-JSLint"><a href="#2-JSLint" class="headerlink" title="2.JSLint"></a>2.JSLint</h3></li>
-<li>*规范书写语法**，简洁代码，减少复杂度<h3 id="3-圈复杂度"><a href="#3-圈复杂度" class="headerlink" title="3.圈复杂度"></a>3.圈复杂度</h3></li>
-<li>*定义<strong>：获得100%代码覆盖率需要编写的</strong>单元测试个数<strong>（if/else/switch/then 的使用）<br>最佳实践：</strong>方法的圈复杂度应该小于10个**，&gt;25个一定有bug；&gt;100个，bug越改越多<br>检测工具：jscheckstyle<blockquote>
-<p><code>npm i -g jscheckstyle</code> </p>
-</blockquote>
-</li>
-</ul>
-<p><strong>理论与实践</strong>：<br>我做的项目中有一个判断基站颜色显示的逻辑，绘制canvas站点的fillStyle<br>入参包括</p>
-<ul>
-<li>是否规划站 黄色</li>
-<li>是否现网站 蓝色</li>
-<li>是否新建站 绿色</li>
-<li>天线型号 2t2t 4t4r 8t8r 16t16r  基于站点类型增加颜色饱和度</li>
-<li>是否离线站点  灰色</li>
-<li>是否搜索结果  红色<br>这些放在一个方法里面的圈复杂度应该是<br>圈复杂度=天线4<em>站点类型3</em>是否离线2*是否搜索结果2=48<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getColor</span>(<span class="params">siteType,trType,isSearchResult,isOffAir</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> color=<span class="string">&#x27;blue&#x27;</span></span><br><span class="line">  <span class="keyword">if</span>(isSearchResult)&#123;</span><br><span class="line">      <span class="keyword">return</span> color=<span class="string">&#x27;red&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(isOffAir)&#123;</span><br><span class="line">   <span class="keyword">return</span> color=<span class="string">&#x27;gray&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//这里项目中用的if else if else 的嵌套结构，太恶心，这里用switch优化了下</span></span><br><span class="line">  <span class="keyword">switch</span>(siteType)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;current&#x27;</span>:  </span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;2t2r&#x27;</span>)color=<span class="string">&#x27;淡蓝&#x27;</span></span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;4t4r&#x27;</span>)color=<span class="string">&#x27;浅蓝&#x27;</span></span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;8t8r&#x27;</span>)color=<span class="string">&#x27;蓝&#x27;</span></span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;16t16r&#x27;</span>)color=<span class="string">&#x27;深蓝&#x27;</span></span><br><span class="line">           <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;new&#x27;</span>: </span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;2t2r&#x27;</span>)color=<span class="string">&#x27;淡绿&#x27;</span></span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;4t24&#x27;</span>)color=<span class="string">&#x27;浅绿&#x27;</span></span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;8t8r&#x27;</span>)color=<span class="string">&#x27;绿&#x27;</span></span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;16t16r&#x27;</span>)color=<span class="string">&#x27;深绿&#x27;</span></span><br><span class="line">           <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;plan&#x27;</span>: </span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;2t2r&#x27;</span>)color=<span class="string">&#x27;淡黄&#x27;</span></span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;4t24&#x27;</span>)color=<span class="string">&#x27;浅黄&#x27;</span></span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;8t8r&#x27;</span>)color=<span class="string">&#x27; 黄&#x27;</span></span><br><span class="line">           <span class="keyword">if</span>(trType==<span class="string">&#x27;16t16r&#x27;</span>)color=<span class="string">&#x27;深黄&#x27;</span></span><br><span class="line">           <span class="keyword">break</span>;</span><br><span class="line">         <span class="keyword">default</span>:</span><br><span class="line">          </span><br><span class="line">  &#125;</span><br><span class="line"> <span class="keyword">return</span> color</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-尝试降低上面这个方法的圈复杂度<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">getColor</span>(<span class="params">siteType,trType,isSearchResult,isOffAir</span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> colorMap=&#123;</span><br><span class="line">    current:&#123;</span><br><span class="line">   <span class="string">&#x27;2t2r&#x27;</span>:<span class="string">&#x27;淡蓝&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;4t4r&#x27;</span>:<span class="string">&#x27;浅蓝&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;8t8r&#x27;</span>:<span class="string">&#x27;蓝&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;16t16r&#x27;</span>:<span class="string">&#x27;深蓝&#x27;</span></span><br><span class="line">&#125;,</span><br><span class="line">    <span class="string">&#x27;new&#x27;</span>:&#123;</span><br><span class="line">   <span class="string">&#x27;2t2r&#x27;</span>:<span class="string">&#x27;淡蓝&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;4t4r&#x27;</span>:<span class="string">&#x27;浅蓝&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;8t8r&#x27;</span>:<span class="string">&#x27;蓝&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;16t16r&#x27;</span>:<span class="string">&#x27;深蓝&#x27;</span></span><br><span class="line">&#125;,</span><br><span class="line">    plan:&#123;</span><br><span class="line">   <span class="string">&#x27;2t2r&#x27;</span>:<span class="string">&#x27;淡蓝&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;4t4r&#x27;</span>:<span class="string">&#x27;浅蓝&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;8t8r&#x27;</span>:<span class="string">&#x27;蓝&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;16t16r&#x27;</span>:<span class="string">&#x27;深蓝&#x27;</span></span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">  <span class="keyword">var</span> color=<span class="string">&#x27;blue&#x27;</span></span><br><span class="line">  <span class="keyword">if</span>(isSearchResult)&#123;</span><br><span class="line">      <span class="keyword">return</span> color=<span class="string">&#x27;red&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(isOffAir)&#123;</span><br><span class="line">   <span class="keyword">return</span> color=<span class="string">&#x27;gray&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    color =colorMap[siteType][trType]</span><br><span class="line">  &#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;colorMap 中没有定义这个颜色&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> color</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-后续如果增加新的站点类型或者天线类型，只要维护mapColor这个hash表就行了，不会再增加代码的圈复杂度，代码的可读与可维护性大大增强<h3 id="4-重用"><a href="#4-重用" class="headerlink" title="4.重用"></a>4.重用</h3></li>
-<li><em>同样的代码不要写两次</em>* 没什么好说的，就像出轨有了第一次就一定有第二次……<br>另外就是能使用框架，就不要自己造轮子<h3 id="5-扇出Fan-Out（这个词好难理解），对应的还有扇入Fan-In"><a href="#5-扇出Fan-Out（这个词好难理解），对应的还有扇入Fan-In" class="headerlink" title="5.扇出Fan-Out（这个词好难理解），对应的还有扇入Fan-In"></a>5.扇出Fan-Out（这个词好难理解），对应的还有扇入Fan-In</h3></li>
-<li>*定义**：函数直接或间接使用的模块或者对象数量<br>个人理解：<code>扇出就衡量一个函数做多少事。类比于人做事情，就是这个人指挥别人做的+他自己做的</code></li>
-<li>*复杂度计算公式**：<code> (fan_in * fan_out)²</code></li>
-<li>*扇出计算公式**：扇出=内部流程数量（指挥别人做的）+所更新数据结构数量（自己做的）</li>
-<li>*最佳实践<strong>：函数的</strong>扇出应该小于等于4**，绝对不要大于7，超过的话就需要重构<br>解决方式：拆分模块，依赖注入<br>例子：requirejs定义一个模块，下面的就需要拆分了<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//拆分前</span></span><br><span class="line">define([a,b,c,d,e,f,g,h],<span class="function"><span class="keyword">function</span>(<span class="params">a,b,c,d,e,f,g,h</span>)</span>&#123;<span class="comment">//定义一个模块，依赖了7个小模块</span></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">module</span>=&#123;</span><br><span class="line">    a,b,c,d,e,f,g,h</span><br><span class="line">  &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">module</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//拆分后</span></span><br><span class="line">define([],<span class="function"><span class="keyword">function</span>(<span class="params">a,b,c,d</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">SubModule</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.a=<span class="keyword">new</span> a()</span><br><span class="line">        <span class="built_in">this</span>.b=<span class="keyword">new</span> b()</span><br><span class="line">        <span class="built_in">this</span>.c=<span class="keyword">new</span> c()</span><br><span class="line">        <span class="built_in">this</span>.d=<span class="keyword">new</span> d()</span><br><span class="line">    &#125;</span><br><span class="line">    subModule.prototype.getA=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">this</span>.a&#125;</span><br><span class="line">    subModule.prototype.getB=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">this</span>.b&#125;</span><br><span class="line">    subModule.prototype.getC=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">this</span>.c&#125;</span><br><span class="line">    subModule.prototype.getD=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">this</span>.d&#125;</span><br><span class="line">    <span class="keyword">return</span> subModule</span><br><span class="line">&#125;)</span><br><span class="line">define([subModule,e,f,g,h],<span class="function"><span class="keyword">function</span>(<span class="params">subModule,e,f,g,h</span>)</span>&#123;<span class="comment">//仅仅减小扇出，但无实际意义</span></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">module</span>=&#123;</span><br><span class="line">    a:subModule.getA(),</span><br><span class="line">    b:subModule.getB(),</span><br><span class="line">    c:subModule.getC(),</span><br><span class="line">    d:subModule.getD(),</span><br><span class="line">    e,f,g,h</span><br><span class="line">  &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">module</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="6-扇入（入参？）"><a href="#6-扇入（入参？）" class="headerlink" title="6.扇入（入参？）"></a>6.扇入（入参？）</h3>定义：过程A的扇入是  过程A的内部流程数量 与 欲从过程A中获取信息的数据结构总和<br>高扇入复用程度越高，底层函数应该扇入高，扇出低。上层函数应该扇入低，扇出高。这样能保证函数的复杂度都比较低。<h3 id="7-耦合"><a href="#7-耦合" class="headerlink" title="7.耦合"></a>7.耦合</h3><a href="https://www.jianshu.com/p/33faf9d810f0">《编写可测试javascript》 第二章 复杂度（二）</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>读书笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>466时间管理</title>
     <url>/2021/05/06/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/2021-5-6-466%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<h2 id="时间的4个特性"><a href="#时间的4个特性" class="headerlink" title="时间的4个特性"></a>时间的4个特性</h2><ul>
@@ -2383,23 +2383,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>EOM 停止销售</li>
 <li>EOS 停止服务</li>
 </ol>
-]]></content>
-      <tags>
-        <tag>项目管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>模块设计工程师(MDE)</title>
-    <url>/2021/11/04/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1%E5%B7%A5%E7%A8%8B%E5%B8%88/</url>
-    <content><![CDATA[<p>最近在做项目组MDE关键角色认证评审的工作,记录下</p>
-<h2 id="模块设计工程师"><a href="#模块设计工程师" class="headerlink" title="模块设计工程师"></a>模块设计工程师</h2><p>MDE 是 Module Design Engineer 的缩写。</p>
-<h2 id="MDE-任职要求"><a href="#MDE-任职要求" class="headerlink" title="MDE 任职要求"></a>MDE 任职要求</h2><ol>
-<li>（需求处理）完成需求对齐,分解,输出概要设计(这个有些是SE出),详细设计</li>
-<li>（模块设计）考虑模块复用,梳理内部外部依赖,确定目录结构,数据流向,对代码安全,代码质量负责</li>
-<li>（持续优化）技术攻关,代码重构,废弃功能管理,历史需求整理,文档优化</li>
-<li>（知识分享）能总结提供开发文档，提供技术培训</li>
-</ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>MDE 除了编码能力外,还需要良好的理解能力,沟通能力,以及协助他人的一个意愿。不再局限于完成自己的开发任务，需要对项目中的某个模块负责。</p>
 ]]></content>
       <tags>
         <tag>项目管理</tag>
@@ -2666,6 +2649,23 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>人力资源管理 采购管理 财务管理 风险管理</li>
 <li>整体管理（沟通管理）</li>
 </ul>
+]]></content>
+      <tags>
+        <tag>项目管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>模块设计工程师(MDE)</title>
+    <url>/2021/11/04/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1%E5%B7%A5%E7%A8%8B%E5%B8%88/</url>
+    <content><![CDATA[<p>最近在做项目组MDE关键角色认证评审的工作,记录下</p>
+<h2 id="模块设计工程师"><a href="#模块设计工程师" class="headerlink" title="模块设计工程师"></a>模块设计工程师</h2><p>MDE 是 Module Design Engineer 的缩写。</p>
+<h2 id="MDE-任职要求"><a href="#MDE-任职要求" class="headerlink" title="MDE 任职要求"></a>MDE 任职要求</h2><ol>
+<li>（需求处理）完成需求对齐,分解,输出概要设计(这个有些是SE出),详细设计</li>
+<li>（模块设计）考虑模块复用,梳理内部外部依赖,确定目录结构,数据流向,对代码安全,代码质量负责</li>
+<li>（持续优化）技术攻关,代码重构,废弃功能管理,历史需求整理,文档优化</li>
+<li>（知识分享）能总结提供开发文档，提供技术培训</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>MDE 除了编码能力外,还需要良好的理解能力,沟通能力,以及协助他人的一个意愿。不再局限于完成自己的开发任务，需要对项目中的某个模块负责。</p>
 ]]></content>
       <tags>
         <tag>项目管理</tag>
