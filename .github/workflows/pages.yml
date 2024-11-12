@@ -33,11 +33,13 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: master  # deploying branch
-      - name: Set up AWS CLI
-        uses: aws-actions/configure-aws-credentials@v1
+      - name: Minio Deploy
+        uses: lovellfelix/minio-deploy-action@v1
         with:
-          aws-access-key-id: ${{ secrets.MINIO_ACCESS_KEY }}
-          aws-secret-access-key: ${{ secrets.MINIO_SECRET_KEY }}
-          aws-region: us-east-1  # You can set this to any region, as it's not used by MinIO
-      - name: Deploy to MinIO
-        run: aws s3 sync public s3://${{ secrets.MINIO_BUCKET }} --endpoint-url=${{ secrets.MINIO_ENDPOINT }} --acl public-read --follow-symlinks --delete
+          endpoint: ${{ secrets.MINIO_ENDPOINT }}
+          access_key: ${{ secrets.MINIO_ACCESS_KEY }}
+          secret_key: ${{ secrets.MINIO_SECRET_KEY }}
+          bucket: 'blog'
+          # Optional inputs with their defaults:
+          source_dir: 'public'
+          target_dir: '/'
