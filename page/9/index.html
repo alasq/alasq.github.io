@@ -218,7 +218,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-11 14:47:12" itemprop="dateModified" datetime="2024-11-11T14:47:12+00:00">2024-11-11</time>
+                <time title="修改时间：2024-11-12 11:27:03" itemprop="dateModified" datetime="2024-11-12T11:27:03+00:00">2024-11-12</time>
               </span>
 
           
@@ -249,91 +249,6 @@
           <h1 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h1><p>软件部署的时候,我们需要打包发布到 开发环境 测试环境 生产环境。<br>但是我开发环境,测试环境用的是windows 。 集成测试环境, 生产环境用的linux。<br>由于环境的不同可能会导致意想不到的问题，明明在环境A测试通过，在环境B测试失败。于是又要加班定位，而这种系统级别的定位往往是最费时间和脑子的，而聪明的程序员就想到，我直接备份我的操作系统，然后你那边直接还原我的操作系统就好了。<br>备份操作系统文件太大，操作系统的硬件也可能不一样，那么怎么办？<br>虚拟机呗！！！<br>虚拟机还不够快，不够小，不够方便，docker应运而生!!</p>
 <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>docker最重要的两个概念,是<strong>容器</strong>,和<strong>镜像</strong><br>其实根据我的docker起源说,聪明的小伙伴肯定能类比到上述的虚拟机和虚拟机用到的镜像文件,对的,咱就这么理解就好了<br>容器==虚拟机 镜像==虚拟机启动用到的镜像<br>要想我们发布的软件跑起来,怎么做?<br>运行一个容器,容器里面装个镜像就可以了!!! so easy</p>
 <h1 id="Git神模仿"><a href="#Git神模仿" class="headerlink" title="Git神模仿"></a>Git神模仿</h1><p>做过开发的应该都用过git去管理源代码,docker将git的思想用在镜像上。<br>假如有个容器运行着linux的基础镜像,你在此容器中上安装了nodejs,然后我们就可以commit一下这个容器,容器的状态就会被保存成生成一个新的镜像了.<br>很多docker命令都能做到类似git commit 的这种命令,然后返回一个hash值来标识新的镜像,我们就可以根据这些hash标记,在容器内时光倒流,docker也支持git打标签的方式给容器或者镜像取个别名,方便查找,hash谁记得住<br>#下一篇文章 就是hello world环节了</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-%20win7%20docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Alasq">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="有人在代码里下毒，啊……">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-%20win7%20docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">2021-4-19- win7 docker环境安装</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-19 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-19T00:00:00+00:00">2021-04-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-11 14:47:12" itemprop="dateModified" datetime="2024-11-11T14:47:12+00:00">2024-11-11</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-%20win7%20docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-%20win7%20docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ol>
-<li>本人win7,先下载DockerToolBox,win10的可以下载docker desktop for windows<br>下载地址 <a target="_blank" rel="noopener" href="https://docs.docker.com/toolbox/overview/">https://docs.docker.com/toolbox/overview/</a><br>双击运行 一路下一步就好了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-f83cd8976a133c8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-<li>然后报错,手按太快,询问是否安装虚拟机的时候直接点了回车,不安装,这里要注意下<br><img src="https://upload-images.jianshu.io/upload_images/8156292-bf7c186d1f902ae6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-<li>正常安装后桌面应该出现这三个小图标,第一个是docker的命令行工具,第二个是联网查看dockerhub的镜像,第三个是虚拟机<br><img src="https://upload-images.jianshu.io/upload_images/8156292-5424787ab9e6b89d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-<li>把提前下载好的 docker2boot镜像丢到缓存里面,否则启动的时候找不到会自动下载比较慢<br><img src="https://upload-images.jianshu.io/upload_images/8156292-06cb26f3eeb4ada1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-<li>我们运行第一个Docker Quickstart Terminal ,出现下面的界面就ok了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-35392cc5cc1dcd05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-</ol>
 
       
     </div>
@@ -384,7 +299,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-11 14:47:12" itemprop="dateModified" datetime="2024-11-11T14:47:12+00:00">2024-11-11</time>
+                <time title="修改时间：2024-11-12 11:27:03" itemprop="dateModified" datetime="2024-11-12T11:27:03+00:00">2024-11-12</time>
               </span>
 
           
@@ -461,6 +376,91 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-%20win7%20docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alasq">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有人在代码里下毒，啊……">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-%20win7%20docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">2021-4-19- win7 docker环境安装</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-19 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-19T00:00:00+00:00">2021-04-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-12 11:27:03" itemprop="dateModified" datetime="2024-11-12T11:27:03+00:00">2024-11-12</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-%20win7%20docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-%20win7%20docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li>本人win7,先下载DockerToolBox,win10的可以下载docker desktop for windows<br>下载地址 <a target="_blank" rel="noopener" href="https://docs.docker.com/toolbox/overview/">https://docs.docker.com/toolbox/overview/</a><br>双击运行 一路下一步就好了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-f83cd8976a133c8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+<li>然后报错,手按太快,询问是否安装虚拟机的时候直接点了回车,不安装,这里要注意下<br><img src="https://upload-images.jianshu.io/upload_images/8156292-bf7c186d1f902ae6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+<li>正常安装后桌面应该出现这三个小图标,第一个是docker的命令行工具,第二个是联网查看dockerhub的镜像,第三个是虚拟机<br><img src="https://upload-images.jianshu.io/upload_images/8156292-5424787ab9e6b89d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+<li>把提前下载好的 docker2boot镜像丢到缓存里面,否则启动的时候找不到会自动下载比较慢<br><img src="https://upload-images.jianshu.io/upload_images/8156292-06cb26f3eeb4ada1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+<li>我们运行第一个Docker Quickstart Terminal ,出现下面的界面就ok了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-35392cc5cc1dcd05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -492,7 +492,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-11 14:47:12" itemprop="dateModified" datetime="2024-11-11T14:47:12+00:00">2024-11-11</time>
+                <time title="修改时间：2024-11-12 11:27:03" itemprop="dateModified" datetime="2024-11-12T11:27:03+00:00">2024-11-12</time>
               </span>
 
           
@@ -577,7 +577,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-11 14:47:12" itemprop="dateModified" datetime="2024-11-11T14:47:12+00:00">2024-11-11</time>
+                <time title="修改时间：2024-11-12 11:27:03" itemprop="dateModified" datetime="2024-11-12T11:27:03+00:00">2024-11-12</time>
               </span>
 
           
@@ -702,7 +702,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-11 14:47:12" itemprop="dateModified" datetime="2024-11-11T14:47:12+00:00">2024-11-11</time>
+                <time title="修改时间：2024-11-12 11:27:03" itemprop="dateModified" datetime="2024-11-12T11:27:03+00:00">2024-11-12</time>
               </span>
 
           
@@ -789,7 +789,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-11 14:47:12" itemprop="dateModified" datetime="2024-11-11T14:47:12+00:00">2024-11-11</time>
+                <time title="修改时间：2024-11-12 11:27:03" itemprop="dateModified" datetime="2024-11-12T11:27:03+00:00">2024-11-12</time>
               </span>
 
           
@@ -893,7 +893,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-11 14:47:12" itemprop="dateModified" datetime="2024-11-11T14:47:12+00:00">2024-11-11</time>
+                <time title="修改时间：2024-11-12 11:27:03" itemprop="dateModified" datetime="2024-11-12T11:27:03+00:00">2024-11-12</time>
               </span>
 
           
@@ -979,7 +979,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-11 14:47:12" itemprop="dateModified" datetime="2024-11-11T14:47:12+00:00">2024-11-11</time>
+                <time title="修改时间：2024-11-12 11:27:03" itemprop="dateModified" datetime="2024-11-12T11:27:03+00:00">2024-11-12</time>
               </span>
 
           
@@ -1059,7 +1059,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-11 14:47:12" itemprop="dateModified" datetime="2024-11-11T14:47:12+00:00">2024-11-11</time>
+                <time title="修改时间：2024-11-12 11:27:03" itemprop="dateModified" datetime="2024-11-12T11:27:03+00:00">2024-11-12</time>
               </span>
 
           

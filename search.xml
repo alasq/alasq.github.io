@@ -343,6 +343,17 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>前端开发文档之devdocs</title>
+    <url>/2021/09/13/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3%E4%B9%8Bdevdocs/</url>
+    <content><![CDATA[<p>devdocs.io 是一个在线的web开发文档在线站点，收藏了500+的前端开发文档，还支持离线模式。很适合部署在公司内网中。</p>
+<p>如果是我的话，可能会开发一个Chrome插件，用于替换Chrome的欢迎页面，然后把我收藏的所有开发文档做成一个欢迎页。</p>
+<p>真是个好想法，行动起来。<br>先给你们一个仓库地址 <a href="https://github.com/alasq/web.devdocs.chrome.welcome">web.devdocs.chrome.welcome</a> 大家可以贡献代码</p>
+]]></content>
+      <tags>
+        <tag>dev</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>几款基于Ai的智能补全vscode插件</title>
     <url>/2021/09/25/%E5%87%A0%E6%AC%BE%E5%9F%BA%E4%BA%8EAi%E7%9A%84%E6%99%BA%E8%83%BD%E8%A1%A5%E5%85%A8vscode%E6%8F%92%E4%BB%B6/</url>
     <content><![CDATA[<h2 id="Github-Copilot"><a href="#Github-Copilot" class="headerlink" title="Github Copilot"></a>Github Copilot</h2><p>基于GitHub上的代码,训练出来的AI补全,需要准确描述函数的作用,它去找相似的</p>
@@ -351,6 +362,20 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>vscode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>单页应用路由切换接口问题</title>
+    <url>/2021/11/25/%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%E8%B7%AF%E7%94%B1%E5%88%87%E6%8D%A2%E6%8E%A5%E5%8F%A3%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>页面跳转的时候,处于异步请求的接口会自动被去取消掉，但是单页应用没有这种机制。我们需要手动实现。<br>axios是基于Promise的。本身对外暴露了一个 cancelToken的配置项用于取消,实际开发中需要在路由跳转的钩子中使用。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> CancelToken = axios.CancelToken;</span><br><span class="line"><span class="keyword">const</span> source = CancelToken.source();</span><br><span class="line"></span><br><span class="line">axios.get(<span class="string">&#x27;/user/12345&#x27;</span>, &#123;</span><br><span class="line">  cancelToken: source.token</span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">thrown</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (axios.isCancel(thrown)) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Request canceled&#x27;</span>, thrown.message);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     <span class="comment">// 处理错误</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">axios.post(<span class="string">&#x27;/user/12345&#x27;</span>, &#123;</span><br><span class="line">  name: <span class="string">&#x27;new name&#x27;</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  cancelToken: source.token</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取消请求（message 参数是可选的）</span></span><br><span class="line">source.cancel(<span class="string">&#x27;Operation canceled by the user.&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>底层实现主要依靠  </p>
+<p><code>xhr abort</code><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/abort">https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/abort</a></p>
+<p><code>AbortController</code>与<code>fetch</code><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController">https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController</a></p>
+]]></content>
+      <tags>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -387,31 +412,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       <tags>
         <tag>webpack</tag>
         <tag>前端架构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>单页应用路由切换接口问题</title>
-    <url>/2021/11/25/%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%E8%B7%AF%E7%94%B1%E5%88%87%E6%8D%A2%E6%8E%A5%E5%8F%A3%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>页面跳转的时候,处于异步请求的接口会自动被去取消掉，但是单页应用没有这种机制。我们需要手动实现。<br>axios是基于Promise的。本身对外暴露了一个 cancelToken的配置项用于取消,实际开发中需要在路由跳转的钩子中使用。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> CancelToken = axios.CancelToken;</span><br><span class="line"><span class="keyword">const</span> source = CancelToken.source();</span><br><span class="line"></span><br><span class="line">axios.get(<span class="string">&#x27;/user/12345&#x27;</span>, &#123;</span><br><span class="line">  cancelToken: source.token</span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">thrown</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (axios.isCancel(thrown)) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Request canceled&#x27;</span>, thrown.message);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     <span class="comment">// 处理错误</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">axios.post(<span class="string">&#x27;/user/12345&#x27;</span>, &#123;</span><br><span class="line">  name: <span class="string">&#x27;new name&#x27;</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  cancelToken: source.token</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取消请求（message 参数是可选的）</span></span><br><span class="line">source.cancel(<span class="string">&#x27;Operation canceled by the user.&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>底层实现主要依靠  </p>
-<p><code>xhr abort</code><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/abort">https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/abort</a></p>
-<p><code>AbortController</code>与<code>fetch</code><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController">https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController</a></p>
-]]></content>
-      <tags>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端开发文档之devdocs</title>
-    <url>/2021/09/13/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3%E4%B9%8Bdevdocs/</url>
-    <content><![CDATA[<p>devdocs.io 是一个在线的web开发文档在线站点，收藏了500+的前端开发文档，还支持离线模式。很适合部署在公司内网中。</p>
-<p>如果是我的话，可能会开发一个Chrome插件，用于替换Chrome的欢迎页面，然后把我收藏的所有开发文档做成一个欢迎页。</p>
-<p>真是个好想法，行动起来。<br>先给你们一个仓库地址 <a href="https://github.com/alasq/web.devdocs.chrome.welcome">web.devdocs.chrome.welcome</a> 大家可以贡献代码</p>
-]]></content>
-      <tags>
-        <tag>dev</tag>
       </tags>
   </entry>
   <entry>
@@ -619,16 +619,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>非vue-cli构建的项目使用 webpack-dev-server不打印代理日志</title>
-    <url>/2021/09/26/%E9%9D%9Evue-cli%E6%9E%84%E5%BB%BA%E7%9A%84%E9%A1%B9%E7%9B%AE%E4%BD%BF%E7%94%A8-webpack-dev-server%E4%B8%8D%E6%89%93%E5%8D%B0%E4%BB%A3%E7%90%86%E6%97%A5%E5%BF%97/</url>
-    <content><![CDATA[<p>使用 webpack-dev-server打印代理日志需要使用以下配置</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">  devServer:&#123;</span><br><span class="line">    proxy:&#123;</span><br><span class="line">      <span class="string">&quot;/&quot;</span>&#123;</span><br><span class="line">        target:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        logLevel:<span class="string">&#x27;debug&#x27;</span><span class="comment">//加上这个就可以了</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>webpack</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>需求管理</title>
     <url>/2022/08/15/%E9%9C%80%E6%B1%82%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<ul>
@@ -639,6 +629,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>项目管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>非vue-cli构建的项目使用 webpack-dev-server不打印代理日志</title>
+    <url>/2021/09/26/%E9%9D%9Evue-cli%E6%9E%84%E5%BB%BA%E7%9A%84%E9%A1%B9%E7%9B%AE%E4%BD%BF%E7%94%A8-webpack-dev-server%E4%B8%8D%E6%89%93%E5%8D%B0%E4%BB%A3%E7%90%86%E6%97%A5%E5%BF%97/</url>
+    <content><![CDATA[<p>使用 webpack-dev-server打印代理日志需要使用以下配置</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">  devServer:&#123;</span><br><span class="line">    proxy:&#123;</span><br><span class="line">      <span class="string">&quot;/&quot;</span>&#123;</span><br><span class="line">        target:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        logLevel:<span class="string">&#x27;debug&#x27;</span><span class="comment">//加上这个就可以了</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>webpack</tag>
       </tags>
   </entry>
   <entry>
@@ -695,6 +695,20 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>2021-3-24 Chrome Devtools Tip： 3.使用cURL复制功能重播Network面板的请求</title>
+    <url>/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%203.%E4%BD%BF%E7%94%A8cURL%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E9%87%8D%E6%92%ADNetwork%E9%9D%A2%E6%9D%BF%E7%9A%84%E8%AF%B7%E6%B1%82/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-2361d35d4917df7e.gif?imageMogr2/auto-orient/strip" alt="copy-as-curl.gif"><br>网络面板中显示的资源有一个上下文菜单，该菜单允许您复制为cURL，这将进入剪贴板，此时您可以将其粘贴到命令行中，必要时进行修改，然后查看响应。请求标头也包括在内。</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ol>
+<li><code>Numbers API</code>给个数字，会返回这个数字相关的信息。其实有很多免费的API很有趣，可以自行收集下，比如天气的，历史上的今天，新冠疫情数据，这样我们没有自己的服务器也能做出有意思的应用。</li>
+<li>Windows 系统没有<code>curl</code>命令行工具（除非自己安装），可以使用<code>Copy as PowerShell</code>进行请求重播，复制成fetch代码也不错，做接口测试的时候就省代码了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-bb4bd22c59eaa1f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+</ol>
+<h1 id="将网络回复复制到剪贴板"><a href="#将网络回复复制到剪贴板" class="headerlink" title="将网络回复复制到剪贴板"></a>将网络回复复制到剪贴板</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-6eb17dca94cc97df.gif?imageMogr2/auto-orient/strip" alt="copy-response.gif"></p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2021-3-24 Chrome Devtools Tip： 4.在任何网页上运行预定义的代码段</title>
     <url>/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%204.%E5%9C%A8%E4%BB%BB%E4%BD%95%E7%BD%91%E9%A1%B5%E4%B8%8A%E8%BF%90%E8%A1%8C%E9%A2%84%E5%AE%9A%E4%B9%89%E7%9A%84%E4%BB%A3%E7%A0%81%E6%AE%B5/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-3ab1f856b9a0a89b.gif?imageMogr2/auto-orient/strip" alt="snippets.gif"><br>DevTools中提供了一个名为Snippets的功能，使您可以注入可在网页上运行的JavaScript代码（与在控制台面板中重新键入JavaScript代码相比，这更方便）。尝试一下：</p>
@@ -709,20 +723,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>代码段可以直接在 <code>Console</code>面板执行的，但是在里面不好调整格式，也没有自动完成，也不能保存。所以这种方式挺好的。</p>
 <p>总能遇到一些本地环境不能调试的代码，直接使用代码段功能在测试环境执行我们的代码，省去了打包上环境的时间，也确保了代码的正确性。</p>
 <h1 id="思考与尝试"><a href="#思考与尝试" class="headerlink" title="思考与尝试"></a>思考与尝试</h1><p>尝试下打断点，触发断点后，再执行代码段，不知道此时的变量作用域怎么样的呢？有兴趣的同学可以自己试试，评论区见答案。</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-3-24 Chrome Devtools Tip： 3.使用cURL复制功能重播Network面板的请求</title>
-    <url>/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%203.%E4%BD%BF%E7%94%A8cURL%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E9%87%8D%E6%92%ADNetwork%E9%9D%A2%E6%9D%BF%E7%9A%84%E8%AF%B7%E6%B1%82/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-2361d35d4917df7e.gif?imageMogr2/auto-orient/strip" alt="copy-as-curl.gif"><br>网络面板中显示的资源有一个上下文菜单，该菜单允许您复制为cURL，这将进入剪贴板，此时您可以将其粘贴到命令行中，必要时进行修改，然后查看响应。请求标头也包括在内。</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ol>
-<li><code>Numbers API</code>给个数字，会返回这个数字相关的信息。其实有很多免费的API很有趣，可以自行收集下，比如天气的，历史上的今天，新冠疫情数据，这样我们没有自己的服务器也能做出有意思的应用。</li>
-<li>Windows 系统没有<code>curl</code>命令行工具（除非自己安装），可以使用<code>Copy as PowerShell</code>进行请求重播，复制成fetch代码也不错，做接口测试的时候就省代码了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-bb4bd22c59eaa1f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-</ol>
-<h1 id="将网络回复复制到剪贴板"><a href="#将网络回复复制到剪贴板" class="headerlink" title="将网络回复复制到剪贴板"></a>将网络回复复制到剪贴板</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-6eb17dca94cc97df.gif?imageMogr2/auto-orient/strip" alt="copy-response.gif"></p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -757,23 +757,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>录制时间线的重点就是，缩短录制时间，仅仅录制要分析的操作，这样大大减少了分析成本。这个小技巧就是干这个的。</li>
 <li>有时候输入法的快捷键会跟我们的IDE快捷键冲突，比如 <code>ctrl shift f</code>在vscode中是聚焦到搜索面板，搜狗输入法是繁简体切换，Hotkey Commander<a href="https://gitee.com/alasq/tools/raw/master/Hotkey%20Commander/hkcmdr_inst.exe"> [ 下载 ]</a>这个工具可以检测快捷键的冲突<br><img src="https://upload-images.jianshu.io/upload_images/8156292-b3ec75b5e13a6402.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1>假如我们写一个vscode 插件，怎么尽可能的不与现有的快捷键冲突</li>
 </ol>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 10.Console面板的一些API</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2010.%20Console%E9%9D%A2%E6%9D%BF%E7%9A%84%E4%B8%80%E4%BA%9BAPI/</url>
-    <content><![CDATA[<h1 id="快速监控JavaScript中的事件"><a href="#快速监控JavaScript中的事件" class="headerlink" title="快速监控JavaScript中的事件"></a>快速监控JavaScript中的事件</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-b7226d2fe4dede77.gif?imageMogr2/auto-orient/strip" alt="monitor-events.gif"><br>您可以使用命令行API方法<code>monitorEvents（object [，events]）</code>记录分发给对象的所有事件。然后将事件对象记录到控制台。当您需要提醒事件对象的可用属性时很有用。</p>
-<h2 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h2><p>例如，直接在控制台面板中尝试以下代码：</p>
-<blockquote>
-<p>monitorEvents(window, ‘click’)  </p>
-</blockquote>
-<p>当您在网页中单击时，现在应该看到click事件自动记录到控制台。</p>
-<h1 id="控制台获取当前选定的DOM节点的快捷方式"><a href="#控制台获取当前选定的DOM节点的快捷方式" class="headerlink" title="控制台获取当前选定的DOM节点的快捷方式"></a>控制台获取当前选定的DOM节点的快捷方式</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-f6444ade5bf7074e.gif?imageMogr2/auto-orient/strip" alt="dollar-zero.gif"></p>
-<p>在“Element”面板中选择节点后，请在控制台面板中使用表达式<code>$0</code>进行访问。您还可以使用<code>$_</code>访问最近求值的表达式的值</p>
-<h1 id="控制台快速定位DOM位置"><a href="#控制台快速定位DOM位置" class="headerlink" title="控制台快速定位DOM位置"></a>控制台快速定位DOM位置</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-2d4c59000b3e4d31.gif?imageMogr2/auto-orient/strip" alt="reveal-in-elements.gif"></p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -838,6 +821,23 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>复制完整的调用栈</li>
 <li>网页全页截图</li>
 </ol>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 10.Console面板的一些API</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2010.%20Console%E9%9D%A2%E6%9D%BF%E7%9A%84%E4%B8%80%E4%BA%9BAPI/</url>
+    <content><![CDATA[<h1 id="快速监控JavaScript中的事件"><a href="#快速监控JavaScript中的事件" class="headerlink" title="快速监控JavaScript中的事件"></a>快速监控JavaScript中的事件</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-b7226d2fe4dede77.gif?imageMogr2/auto-orient/strip" alt="monitor-events.gif"><br>您可以使用命令行API方法<code>monitorEvents（object [，events]）</code>记录分发给对象的所有事件。然后将事件对象记录到控制台。当您需要提醒事件对象的可用属性时很有用。</p>
+<h2 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h2><p>例如，直接在控制台面板中尝试以下代码：</p>
+<blockquote>
+<p>monitorEvents(window, ‘click’)  </p>
+</blockquote>
+<p>当您在网页中单击时，现在应该看到click事件自动记录到控制台。</p>
+<h1 id="控制台获取当前选定的DOM节点的快捷方式"><a href="#控制台获取当前选定的DOM节点的快捷方式" class="headerlink" title="控制台获取当前选定的DOM节点的快捷方式"></a>控制台获取当前选定的DOM节点的快捷方式</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-f6444ade5bf7074e.gif?imageMogr2/auto-orient/strip" alt="dollar-zero.gif"></p>
+<p>在“Element”面板中选择节点后，请在控制台面板中使用表达式<code>$0</code>进行访问。您还可以使用<code>$_</code>访问最近求值的表达式的值</p>
+<h1 id="控制台快速定位DOM位置"><a href="#控制台快速定位DOM位置" class="headerlink" title="控制台快速定位DOM位置"></a>控制台快速定位DOM位置</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-2d4c59000b3e4d31.gif?imageMogr2/auto-orient/strip" alt="reveal-in-elements.gif"></p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1046,6 +1046,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 25. 通过Performance面板录制,行级别查看代码耗时</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2025.%20%E9%80%9A%E8%BF%87Performance%E9%9D%A2%E6%9D%BF%E5%BD%95%E5%88%B6,%E8%A1%8C%E7%BA%A7%E5%88%AB%E6%9F%A5%E7%9C%8B%E4%BB%A3%E7%A0%81%E8%80%97%E6%97%B6/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-6b1b13e4a3b65a7b.gif?imageMogr2/auto-orient/strip" alt="line-level-profiling.gif"></p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>页面性能主要看 接口性能(Network) CPU占用(Performance)  内存占用(Memory) 代码执行耗时</p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 26. Store as global variable 存储成全局变量</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2026.%20Store%20as%20global%20variable%20%E5%AD%98%E5%82%A8%E6%88%90%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-4e305ded9d17242a.gif?imageMogr2/auto-orient/strip" alt="web-animation-api.gif"></p>
@@ -1055,16 +1065,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <h2 id="打断点时候的任意一个局部变量"><a href="#打断点时候的任意一个局部变量" class="headerlink" title="打断点时候的任意一个局部变量"></a>打断点时候的任意一个局部变量</h2><p><img src="https://upload-images.jianshu.io/upload_images/8156292-1ee0184cd551f0b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h2 id="消息的响应体预览界面"><a href="#消息的响应体预览界面" class="headerlink" title="消息的响应体预览界面"></a>消息的响应体预览界面</h2><p><img src="https://upload-images.jianshu.io/upload_images/8156292-792fb8a98b463887.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h2 id="还有其他我没发现的地方"><a href="#还有其他我没发现的地方" class="headerlink" title="还有其他我没发现的地方"></a>还有其他我没发现的地方</h2><p>请大家评论区补充</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 25. 通过Performance面板录制,行级别查看代码耗时</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2025.%20%E9%80%9A%E8%BF%87Performance%E9%9D%A2%E6%9D%BF%E5%BD%95%E5%88%B6,%E8%A1%8C%E7%BA%A7%E5%88%AB%E6%9F%A5%E7%9C%8B%E4%BB%A3%E7%A0%81%E8%80%97%E6%97%B6/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-6b1b13e4a3b65a7b.gif?imageMogr2/auto-orient/strip" alt="line-level-profiling.gif"></p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>页面性能主要看 接口性能(Network) CPU占用(Performance)  内存占用(Memory) 代码执行耗时</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1196,6 +1196,22 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 39. 网页全页截图</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2039.%20%E7%BD%91%E9%A1%B5%E5%85%A8%E9%A1%B5%E6%88%AA%E5%9B%BE/</url>
+    <content><![CDATA[<p>这个真心不错,以前都是装插件使用滚动截图的功能弄得</p>
+<ol>
+<li>F12 打开</li>
+<li><code>ctrl shift p</code>打开 goto anywhere 命令栏</li>
+<li>输入 <code>full</code>找到对应的命令回车<br><img src="https://upload-images.jianshu.io/upload_images/8156292-07c9b096e0015d2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+</ol>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>如果觉得每次找这个命令麻烦,可以把该功能设置成快捷键<br>除了全页截图,还有<br>Capture node screenshot - 截取正在检查的节点<br>Capture screenshot - 只截取可视区域的页面<br>Capture full size screenshot - 整个页面的截图,即使没有呈现在可视区域内的<br>Capture area screenshot - 跟QQ截图一样,自己划定区域</p>
+<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>这个截图功能在做自动化测试时候非常有用,不知道 webDriver是不是用这种内置API去实现的,还是说用的c++调用操作系统能力去实现的?有知道的老铁留言讨论下</p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 38. 复制完整的调用栈</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2038.%20%E5%A4%8D%E5%88%B6%E5%AE%8C%E6%95%B4%E7%9A%84%E8%B0%83%E7%94%A8%E6%A0%88/</url>
     <content><![CDATA[<p>当打断点的时候,可以在如下图进行调用栈的复制,复制到剪贴板!!<br><img src="https://upload-images.jianshu.io/upload_images/8156292-369ec63c02f61443.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
@@ -1221,6 +1237,17 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 9.多光标编辑 框选</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%209.%E5%A4%9A%E5%85%89%E6%A0%87%E7%BC%96%E8%BE%91%20%E6%A1%86%E9%80%89/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-a28a562f0bf0c356.gif?imageMogr2/auto-orient/strip" alt="multiple-cursors.gif"><br><code>Ctrl + click </code> 撤销 <code>Ctrl + U </code></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8156292-e85e9974e61816f8.gif?imageMogr2/auto-orient/strip" alt="drag-select.gif"></p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>vscode中的<strong>多光标</strong>快捷键是 <code>ALT+ click    </code><br>框选是 <code>ALT+ SHIFT + 拖动</code><br><code>Ctrl+D</code>选中相同项<br><code>Ctrl+ Alt+ ↑</code>  <code>Ctrl+ Alt+ ↓</code></p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 8.资源面板Source中的快捷键</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%208.%20%E8%B5%84%E6%BA%90%E9%9D%A2%E6%9D%BFSource%E4%B8%AD%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-293c6c7a656174ab.gif?imageMogr2/auto-orient/strip" alt="go-to-column.gif"></p>
@@ -1234,33 +1261,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li><code>ctrl shift o</code> 查找文件中的方法定义,不在source面板中使用会跳转到书签管理器界面。这个vscode快捷键是一样的。<br><img src="https://upload-images.jianshu.io/upload_images/8156292-cee42ec6605207cf.gif?imageMogr2/auto-orient/strip" alt="go-to-member.gif"></li>
 </ol>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>资源面板里面编辑文件是有智能提示和代码检测的呢</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 39. 网页全页截图</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2039.%20%E7%BD%91%E9%A1%B5%E5%85%A8%E9%A1%B5%E6%88%AA%E5%9B%BE/</url>
-    <content><![CDATA[<p>这个真心不错,以前都是装插件使用滚动截图的功能弄得</p>
-<ol>
-<li>F12 打开</li>
-<li><code>ctrl shift p</code>打开 goto anywhere 命令栏</li>
-<li>输入 <code>full</code>找到对应的命令回车<br><img src="https://upload-images.jianshu.io/upload_images/8156292-07c9b096e0015d2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-</ol>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>如果觉得每次找这个命令麻烦,可以把该功能设置成快捷键<br>除了全页截图,还有<br>Capture node screenshot - 截取正在检查的节点<br>Capture screenshot - 只截取可视区域的页面<br>Capture full size screenshot - 整个页面的截图,即使没有呈现在可视区域内的<br>Capture area screenshot - 跟QQ截图一样,自己划定区域</p>
-<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>这个截图功能在做自动化测试时候非常有用,不知道 webDriver是不是用这种内置API去实现的,还是说用的c++调用操作系统能力去实现的?有知道的老铁留言讨论下</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 9.多光标编辑 框选</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%209.%E5%A4%9A%E5%85%89%E6%A0%87%E7%BC%96%E8%BE%91%20%E6%A1%86%E9%80%89/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-a28a562f0bf0c356.gif?imageMogr2/auto-orient/strip" alt="multiple-cursors.gif"><br><code>Ctrl + click </code> 撤销 <code>Ctrl + U </code></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/8156292-e85e9974e61816f8.gif?imageMogr2/auto-orient/strip" alt="drag-select.gif"></p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>vscode中的<strong>多光标</strong>快捷键是 <code>ALT+ click    </code><br>框选是 <code>ALT+ SHIFT + 拖动</code><br><code>Ctrl+D</code>选中相同项<br><code>Ctrl+ Alt+ ↑</code>  <code>Ctrl+ Alt+ ↓</code></p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1304,17 +1304,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>几个chrome插件</title>
-    <url>/2021/09/25/chrome/%E5%87%A0%E4%B8%AAchrome%E6%8F%92%E4%BB%B6/</url>
-    <content><![CDATA[<p>yet-another-rest-client 用于restful接口测试  </p>
-<p>xswitch 用于拦截浏览器发送出去的请求(跨域的也能处理),可以把生产环境的请求拦截到本地用于调试,非常好用</p>
-<p>json-handle 美化JSON显示</p>
-]]></content>
-      <tags>
-        <tag>chrome</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>让 chrome h5 支持 m3u8格式视频</title>
     <url>/2021/09/26/chrome/%E8%AE%A9-chrome-H5-%E6%94%AF%E6%8C%81-m3u8%E6%A0%BC%E5%BC%8F%E8%A7%86%E9%A2%91/</url>
     <content><![CDATA[<ul>
@@ -1342,34 +1331,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
         <tag>chrome</tag>
         <tag>m38u</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>wa-lang windows踩坑指南</title>
-    <url>/2022/11/20/wa-lang/wa%20windows%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<h1 id="wa-lang-windows系统初体验"><a href="#wa-lang-windows系统初体验" class="headerlink" title="wa-lang windows系统初体验"></a>wa-lang windows系统初体验</h1><p><img src="images/2022-11-19-15-49-38.png"><br>按照官网的执行的install，嗯安装不上，应该是被墙了？<br>不过翻墙后仍然报错!!</p>
-<p>于是从gitee上下载了源代码,执行了<code>go install .</code>，报错如下</p>
-<p><img src="images/2022-11-19-15-51-50.png"></p>
-<p>于是网上找了下国内的镜像仓库，安装成功，但是 <code>wa 不是内部或外部命令</code><br><img src="images/2022-11-19-15-53-20.png"></p>
-<p>在项目目录下创建一个<code>wa.cmd</code>来执行下<code>go run main.go %*</code>,这样也能愉快的执行wa命令咯,效果如下<br><img src="images/2022-11-19-16-02-13.png"></p>
-<p>后来检查了下 install 的时候会在 <code>$home/go/bin</code>目录(我的电脑是这个路径C:\Users\win7\go\bin)创建 <code>wa.exe</code>的</p>
-<p>配置下这个目录的地址到path就行了,最根本的原因是安装前系统中的 <code>$GO_PATH</code>没有设置对。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
-<li>安装前检查go有没用正确安装</li>
-<li>安装前设置好go的国内的镜像仓库</li>
-<li>安装完如果出现<code>wa 不是内部或外部命令</code>,用<code>Everything</code>全盘检索<code>wa.exe</code>文件,把所在目录配置到环境变量中</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>wa-lang</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>开发灵异事件之base64图片传输</title>
-    <url>/2021/09/09/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bbase64%E5%9B%BE%E7%89%87%E4%BC%A0%E8%BE%93/</url>
-    <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>发出去的请求一毛一样，都包含了同一张base64格式的图片，图片显示出来是一样的。对比内容不一样。但是请求时间差距3分钟，甚至超时。接口20M大小的图片也能秒级处理。 图片来源一个是前端上传转换的base64，一个是后端把pdf文件首页转换出来的。</p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>后端生成的图片base64包含大量的换行符，http协议中的换行符有特殊含义，会被网关服务器解析，导致请求超时。</p>
-<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>base64格式里面有大量的换行符，会严重影响传输效率</p>
-]]></content>
   </entry>
   <entry>
     <title>2021-4-19- windows系统rust wasm环境准备</title>
@@ -1404,6 +1365,45 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>几个chrome插件</title>
+    <url>/2021/09/25/chrome/%E5%87%A0%E4%B8%AAchrome%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<p>yet-another-rest-client 用于restful接口测试  </p>
+<p>xswitch 用于拦截浏览器发送出去的请求(跨域的也能处理),可以把生产环境的请求拦截到本地用于调试,非常好用</p>
+<p>json-handle 美化JSON显示</p>
+]]></content>
+      <tags>
+        <tag>chrome</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>wa-lang windows踩坑指南</title>
+    <url>/2022/11/20/wa-lang/wa%20windows%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<h1 id="wa-lang-windows系统初体验"><a href="#wa-lang-windows系统初体验" class="headerlink" title="wa-lang windows系统初体验"></a>wa-lang windows系统初体验</h1><p><img src="images/2022-11-19-15-49-38.png"><br>按照官网的执行的install，嗯安装不上，应该是被墙了？<br>不过翻墙后仍然报错!!</p>
+<p>于是从gitee上下载了源代码,执行了<code>go install .</code>，报错如下</p>
+<p><img src="images/2022-11-19-15-51-50.png"></p>
+<p>于是网上找了下国内的镜像仓库，安装成功，但是 <code>wa 不是内部或外部命令</code><br><img src="images/2022-11-19-15-53-20.png"></p>
+<p>在项目目录下创建一个<code>wa.cmd</code>来执行下<code>go run main.go %*</code>,这样也能愉快的执行wa命令咯,效果如下<br><img src="images/2022-11-19-16-02-13.png"></p>
+<p>后来检查了下 install 的时候会在 <code>$home/go/bin</code>目录(我的电脑是这个路径C:\Users\win7\go\bin)创建 <code>wa.exe</code>的</p>
+<p>配置下这个目录的地址到path就行了,最根本的原因是安装前系统中的 <code>$GO_PATH</code>没有设置对。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>安装前检查go有没用正确安装</li>
+<li>安装前设置好go的国内的镜像仓库</li>
+<li>安装完如果出现<code>wa 不是内部或外部命令</code>,用<code>Everything</code>全盘检索<code>wa.exe</code>文件,把所在目录配置到环境变量中</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>wa-lang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>开发灵异事件之base64图片传输</title>
+    <url>/2021/09/09/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bbase64%E5%9B%BE%E7%89%87%E4%BC%A0%E8%BE%93/</url>
+    <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>发出去的请求一毛一样，都包含了同一张base64格式的图片，图片显示出来是一样的。对比内容不一样。但是请求时间差距3分钟，甚至超时。接口20M大小的图片也能秒级处理。 图片来源一个是前端上传转换的base64，一个是后端把pdf文件首页转换出来的。</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>后端生成的图片base64包含大量的换行符，http协议中的换行符有特殊含义，会被网关服务器解析，导致请求超时。</p>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>base64格式里面有大量的换行符，会严重影响传输效率</p>
+]]></content>
+  </entry>
+  <entry>
     <title>开发灵异事件之base64图片传输</title>
     <url>/2023/03/28/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bfix%E5%AE%9A%E4%BD%8D%E5%A4%B1%E8%B4%A5/</url>
     <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>使用了 <code>position:fixed</code>定位发现弹框不能定位到页面相对位置</p>
@@ -1427,6 +1427,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
     <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>弹框看起来很模糊</p>
 <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>弹框写了居中效果,但是用了的方式是 <code>transform:translate(-50%,-50%,);left:50%</code>,但是弹框的宽度 或者 高度使用的单位是奇数 例如 <code>501px</code> 就会模糊 因为电脑是没办法识别<code>0.5px</code>这种显示的</p>
 <h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>居中的话建议用使用 上下左右0 的写法 , <code>margin auto</code> 或者<code>flex布局</code></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>开发灵异事件之浏览器变卡</title>
+    <url>/2021/09/09/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%98%E5%8D%A1/</url>
+    <content><![CDATA[<h3 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h3><p>使用window.open 开一个页签后，回到原本的页面，动画啥的变卡了。开的页面越多越卡</p>
+<p>当新开的页签崩溃，原有页面也会一起崩溃。</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>window.open 新开的页面跟原有页面用的是同一个渲染器。另外 超链接  target=_blank也是一样的。</p>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>使用超链接打开新页面，并使用<code>&lt;a href=&quot;&quot; rel=&quot;noopener&quot;&gt;&lt;/a&gt;</code>属性</p>
+<p>也能使用 <code>window.open(URL,_blank,&#39;noopener&#39;)</code></p>
 ]]></content>
   </entry>
   <entry>
@@ -1667,16 +1677,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>开发灵异事件之浏览器变卡</title>
-    <url>/2021/09/09/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%98%E5%8D%A1/</url>
-    <content><![CDATA[<h3 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h3><p>使用window.open 开一个页签后，回到原本的页面，动画啥的变卡了。开的页面越多越卡</p>
-<p>当新开的页签崩溃，原有页面也会一起崩溃。</p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>window.open 新开的页面跟原有页面用的是同一个渲染器。另外 超链接  target=_blank也是一样的。</p>
-<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>使用超链接打开新页面，并使用<code>&lt;a href=&quot;&quot; rel=&quot;noopener&quot;&gt;&lt;/a&gt;</code>属性</p>
-<p>也能使用 <code>window.open(URL,_blank,&#39;noopener&#39;)</code></p>
-]]></content>
-  </entry>
-  <entry>
     <title>bpmn 业务流程建模与标注</title>
     <url>/2021/09/25/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/bpmn-io/</url>
     <content><![CDATA[<p><a href="https://bpmn.io/">https://bpmn.io</a> 用于绘制流程图的js库</p>
@@ -1732,34 +1732,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
   </entry>
   <entry>
-    <title>盘点几个js库</title>
-    <url>/2021/09/26/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/%E7%9B%98%E7%82%B9%E5%87%A0%E4%B8%AAjs%E5%BA%93/</url>
-    <content><![CDATA[<h1 id="p5-js"><a href="#p5-js" class="headerlink" title="p5.js"></a>p5.js</h1><p>把整个浏览器当做一个画板进行创意创作的绘图库<br>官网: https:p5js.org</p>
-<h1 id="SpriteJS"><a href="#SpriteJS" class="headerlink" title="SpriteJS"></a>SpriteJS</h1><p>SpriteJS是一款由360奇舞团开源的跨终端 canvas/webgl绘图库,我看了下API非常友好<br>官网: https:gitee.com/qihoo360/SpriteJS</p>
-<h1 id="Annie2x"><a href="#Annie2x" class="headerlink" title="Annie2x"></a>Annie2x</h1><p>Annie2x是一款Adobe Flash的插件,支持Flash CC 2015及以上 和 Adobe Animate全线版本。<br>官网： <a href="http://annie2x.com/">http://annie2x.com/</a></p>
-<h1 id="flatfile"><a href="#flatfile" class="headerlink" title="flatfile"></a>flatfile</h1><p>超强的数据导入js库,可以将Excel PDF CSV 导出成廷议的符合规则的结构化数据,强大的UI界面支持,非常适合集成到大数据采集的项目</p>
-<h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><p><a href="https://flatfile.io/">https://flatfile.io</a></p>
-<h2 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h2><ol>
-<li>前端数据导入,校验,格式化</li>
-<li>无须构建CSV解析器</li>
-<li>强大的API可以将结构化数据发布到任意端点</li>
-</ol>
-<h2 id="flatfile库的设计思路"><a href="#flatfile库的设计思路" class="headerlink" title="flatfile库的设计思路"></a>flatfile库的设计思路</h2><ol>
-<li>定义JSONschema用于数据自身的校验</li>
-<li>提供导入校验的钩子 用于数据行字段之间的的校验,以及数据处理能力</li>
-<li>点击导入按钮,解析Excel,将Excel列与JSONschema列进行自动映射</li>
-<li>提供映射交互页面,给用户修改自动映射的结果</li>
-<li>生成数据处理后的结果,让用户填充校验失败的字段</li>
-<li>提供导出的API 提供平台能力使用这些结构化数据</li>
-</ol>
-<h1 id="handsontable-强大的表格-数据再多都不会卡"><a href="#handsontable-强大的表格-数据再多都不会卡" class="headerlink" title="handsontable 强大的表格,数据再多都不会卡"></a>handsontable 强大的表格,数据再多都不会卡</h1><p><a href="https://handsontable.com/">https://handsontable.com/</a></p>
-<h1 id="ag-grid-The-Best-JavaScript-Grid-in-the-World"><a href="#ag-grid-The-Best-JavaScript-Grid-in-the-World" class="headerlink" title="ag-grid The Best JavaScript Grid in the World"></a>ag-grid The Best JavaScript Grid in the World</h1><p><a href="https://www.ag-grid.com/">https://www.ag-grid.com</a></p>
-]]></content>
-      <tags>
-        <tag>npm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>tailwindcss 简介</title>
     <url>/2021/10/09/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/tailwindcss-%E7%AE%80%E4%BB%8B/</url>
     <content><![CDATA[<p><a href="https://www.tailwindcss.cn/">中文文档</a></p>
@@ -1801,6 +1773,34 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>盘点几个js库</title>
+    <url>/2021/09/26/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/%E7%9B%98%E7%82%B9%E5%87%A0%E4%B8%AAjs%E5%BA%93/</url>
+    <content><![CDATA[<h1 id="p5-js"><a href="#p5-js" class="headerlink" title="p5.js"></a>p5.js</h1><p>把整个浏览器当做一个画板进行创意创作的绘图库<br>官网: https:p5js.org</p>
+<h1 id="SpriteJS"><a href="#SpriteJS" class="headerlink" title="SpriteJS"></a>SpriteJS</h1><p>SpriteJS是一款由360奇舞团开源的跨终端 canvas/webgl绘图库,我看了下API非常友好<br>官网: https:gitee.com/qihoo360/SpriteJS</p>
+<h1 id="Annie2x"><a href="#Annie2x" class="headerlink" title="Annie2x"></a>Annie2x</h1><p>Annie2x是一款Adobe Flash的插件,支持Flash CC 2015及以上 和 Adobe Animate全线版本。<br>官网： <a href="http://annie2x.com/">http://annie2x.com/</a></p>
+<h1 id="flatfile"><a href="#flatfile" class="headerlink" title="flatfile"></a>flatfile</h1><p>超强的数据导入js库,可以将Excel PDF CSV 导出成廷议的符合规则的结构化数据,强大的UI界面支持,非常适合集成到大数据采集的项目</p>
+<h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><p><a href="https://flatfile.io/">https://flatfile.io</a></p>
+<h2 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h2><ol>
+<li>前端数据导入,校验,格式化</li>
+<li>无须构建CSV解析器</li>
+<li>强大的API可以将结构化数据发布到任意端点</li>
+</ol>
+<h2 id="flatfile库的设计思路"><a href="#flatfile库的设计思路" class="headerlink" title="flatfile库的设计思路"></a>flatfile库的设计思路</h2><ol>
+<li>定义JSONschema用于数据自身的校验</li>
+<li>提供导入校验的钩子 用于数据行字段之间的的校验,以及数据处理能力</li>
+<li>点击导入按钮,解析Excel,将Excel列与JSONschema列进行自动映射</li>
+<li>提供映射交互页面,给用户修改自动映射的结果</li>
+<li>生成数据处理后的结果,让用户填充校验失败的字段</li>
+<li>提供导出的API 提供平台能力使用这些结构化数据</li>
+</ol>
+<h1 id="handsontable-强大的表格-数据再多都不会卡"><a href="#handsontable-强大的表格-数据再多都不会卡" class="headerlink" title="handsontable 强大的表格,数据再多都不会卡"></a>handsontable 强大的表格,数据再多都不会卡</h1><p><a href="https://handsontable.com/">https://handsontable.com/</a></p>
+<h1 id="ag-grid-The-Best-JavaScript-Grid-in-the-World"><a href="#ag-grid-The-Best-JavaScript-Grid-in-the-World" class="headerlink" title="ag-grid The Best JavaScript Grid in the World"></a>ag-grid The Best JavaScript Grid in the World</h1><p><a href="https://www.ag-grid.com/">https://www.ag-grid.com</a></p>
+]]></content>
+      <tags>
+        <tag>npm</tag>
       </tags>
   </entry>
   <entry>
@@ -1846,21 +1846,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>启用rss订阅功能</title>
-    <url>/2018/03/25/%E5%8D%9A%E5%AE%A2/2018-3-25-%E5%90%AF%E7%94%A8rss%E8%AE%A2%E9%98%85/</url>
-    <content><![CDATA[<h1 id="修改-config-yml文件"><a href="#修改-config-yml文件" class="headerlink" title="修改_config.yml文件"></a>修改_config.yml文件</h1><ol>
-<li>在gems中增加jekyll-feed依赖</li>
-<li>配置插件jekyll-feed </li>
-<li>页面中启用RSS按钮的显示   </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">plugins:</span><br><span class="line">  - jekyll-feed</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">gems:[jekyll-feed]  </span><br><span class="line"></span><br><span class="line">RSS: true</span><br></pre></td></tr></table></figure>
-<h1 id="根目录下应该有-feed-xml"><a href="#根目录下应该有-feed-xml" class="headerlink" title="根目录下应该有 feed.xml"></a>根目录下应该有 feed.xml</h1><p>具体可以参考<a href="https://blog.csdn.net/itmyhome1990/article/details/42919429">为Jekyll博客添加RSS feed订阅功能</a></p>
-]]></content>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>博客中使用emoji表情</title>
     <url>/2018/03/25/%E5%8D%9A%E5%AE%A2/2018-3-25-%E5%9C%A8%E5%8D%9A%E5%AE%A2%E4%B8%AD%E4%BD%BF%E7%94%A8emoji%E8%A1%A8%E6%83%85/</url>
     <content><![CDATA[<p><a href="https://github.com/guodongxiaren/README/blob/master/emoji.md">表情列表</a></p>
@@ -1884,6 +1869,27 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>启用rss订阅功能</title>
+    <url>/2018/03/25/%E5%8D%9A%E5%AE%A2/2018-3-25-%E5%90%AF%E7%94%A8rss%E8%AE%A2%E9%98%85/</url>
+    <content><![CDATA[<h1 id="修改-config-yml文件"><a href="#修改-config-yml文件" class="headerlink" title="修改_config.yml文件"></a>修改_config.yml文件</h1><ol>
+<li>在gems中增加jekyll-feed依赖</li>
+<li>配置插件jekyll-feed </li>
+<li>页面中启用RSS按钮的显示   </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">plugins:</span><br><span class="line">  - jekyll-feed</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">gems:[jekyll-feed]  </span><br><span class="line"></span><br><span class="line">RSS: true</span><br></pre></td></tr></table></figure>
+<h1 id="根目录下应该有-feed-xml"><a href="#根目录下应该有-feed-xml" class="headerlink" title="根目录下应该有 feed.xml"></a>根目录下应该有 feed.xml</h1><p>具体可以参考<a href="https://blog.csdn.net/itmyhome1990/article/details/42919429">为Jekyll博客添加RSS feed订阅功能</a></p>
+]]></content>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo github pages 域名设置</title>
+    <url>/2021/05/06/%E5%8D%9A%E5%AE%A2/2021-5-6-%20hexo%20cname%20github%20pages%20%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</url>
+    <content><![CDATA[<p>将<code>CNAME</code>文件放在 <code>/source/</code>目录下即可</p>
+]]></content>
+  </entry>
+  <entry>
     <title>netlify介绍</title>
     <url>/2021/12/17/%E5%8D%9A%E5%AE%A2/netlify%E4%BB%8B%E7%BB%8D/</url>
     <content><![CDATA[<h1 id="目前博客存在的问题"><a href="#目前博客存在的问题" class="headerlink" title="目前博客存在的问题"></a>目前博客存在的问题</h1><p>github pages服务部署,国内访问很慢,github防止百度爬虫不收录</p>
@@ -1902,12 +1908,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       <tags>
         <tag>博客</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>hexo github pages 域名设置</title>
-    <url>/2021/05/06/%E5%8D%9A%E5%AE%A2/2021-5-6-%20hexo%20cname%20github%20pages%20%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</url>
-    <content><![CDATA[<p>将<code>CNAME</code>文件放在 <code>/source/</code>目录下即可</p>
-]]></content>
   </entry>
   <entry>
     <title>给hexo next换个色调</title>
@@ -1935,21 +1935,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
     <content><![CDATA[<h1 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h1><p>软件部署的时候,我们需要打包发布到 开发环境 测试环境 生产环境。<br>但是我开发环境,测试环境用的是windows 。 集成测试环境, 生产环境用的linux。<br>由于环境的不同可能会导致意想不到的问题，明明在环境A测试通过，在环境B测试失败。于是又要加班定位，而这种系统级别的定位往往是最费时间和脑子的，而聪明的程序员就想到，我直接备份我的操作系统，然后你那边直接还原我的操作系统就好了。<br>备份操作系统文件太大，操作系统的硬件也可能不一样，那么怎么办？<br>虚拟机呗！！！<br>虚拟机还不够快，不够小，不够方便，docker应运而生!!</p>
 <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>docker最重要的两个概念,是<strong>容器</strong>,和<strong>镜像</strong><br>其实根据我的docker起源说,聪明的小伙伴肯定能类比到上述的虚拟机和虚拟机用到的镜像文件,对的,咱就这么理解就好了<br>容器==虚拟机 镜像==虚拟机启动用到的镜像<br>要想我们发布的软件跑起来,怎么做?<br>运行一个容器,容器里面装个镜像就可以了!!! so easy</p>
 <h1 id="Git神模仿"><a href="#Git神模仿" class="headerlink" title="Git神模仿"></a>Git神模仿</h1><p>做过开发的应该都用过git去管理源代码,docker将git的思想用在镜像上。<br>假如有个容器运行着linux的基础镜像,你在此容器中上安装了nodejs,然后我们就可以commit一下这个容器,容器的状态就会被保存成生成一个新的镜像了.<br>很多docker命令都能做到类似git commit 的这种命令,然后返回一个hash值来标识新的镜像,我们就可以根据这些hash标记,在容器内时光倒流,docker也支持git打标签的方式给容器或者镜像取个别名,方便查找,hash谁记得住<br>#下一篇文章 就是hello world环节了</p>
-]]></content>
-      <tags>
-        <tag>docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-4-19- win7 docker环境安装</title>
-    <url>/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-%20win7%20docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<ol>
-<li>本人win7,先下载DockerToolBox,win10的可以下载docker desktop for windows<br>下载地址 <a href="https://docs.docker.com/toolbox/overview/">https://docs.docker.com/toolbox/overview/</a><br>双击运行 一路下一步就好了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-f83cd8976a133c8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-<li>然后报错,手按太快,询问是否安装虚拟机的时候直接点了回车,不安装,这里要注意下<br><img src="https://upload-images.jianshu.io/upload_images/8156292-bf7c186d1f902ae6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-<li>正常安装后桌面应该出现这三个小图标,第一个是docker的命令行工具,第二个是联网查看dockerhub的镜像,第三个是虚拟机<br><img src="https://upload-images.jianshu.io/upload_images/8156292-5424787ab9e6b89d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-<li>把提前下载好的 docker2boot镜像丢到缓存里面,否则启动的时候找不到会自动下载比较慢<br><img src="https://upload-images.jianshu.io/upload_images/8156292-06cb26f3eeb4ada1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-<li>我们运行第一个Docker Quickstart Terminal ,出现下面的界面就ok了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-35392cc5cc1dcd05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-</ol>
 ]]></content>
       <tags>
         <tag>docker</tag>
@@ -1988,6 +1973,21 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <h1 id="stop与kill的区别"><a href="#stop与kill的区别" class="headerlink" title="stop与kill的区别"></a>stop与kill的区别</h1><p>stop 会等10秒后再kill容器,并会告知容器内的程序<br>详情请参考 <a href="https://blog.csdn.net/weixin_34414196/article/details/86428138">https://blog.csdn.net/weixin_34414196/article/details/86428138</a></p>
 <h1 id="run-跟-start的区别"><a href="#run-跟-start的区别" class="headerlink" title="run 跟 start的区别"></a>run 跟 start的区别</h1><p>run =create + start<br>所以咱们第一次用run  后面用start就好了</p>
 <p>当我们具体用哪个命令的时候,<code>docker COMMAND --help</code> 查看某个命令的帮助文档<br><img src="https://upload-images.jianshu.io/upload_images/8156292-42e1a0d65a8641d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>[OPTIONS] 上图中的这种参数就是可有可无,大写代表变量,不要直接抄哦<br>NAME|ID  容器的名称或者ID 必选<br>[NAME|ID…] 表示可以填多个</p>
+]]></content>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-4-19- win7 docker环境安装</title>
+    <url>/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-%20win7%20docker%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<ol>
+<li>本人win7,先下载DockerToolBox,win10的可以下载docker desktop for windows<br>下载地址 <a href="https://docs.docker.com/toolbox/overview/">https://docs.docker.com/toolbox/overview/</a><br>双击运行 一路下一步就好了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-f83cd8976a133c8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+<li>然后报错,手按太快,询问是否安装虚拟机的时候直接点了回车,不安装,这里要注意下<br><img src="https://upload-images.jianshu.io/upload_images/8156292-bf7c186d1f902ae6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+<li>正常安装后桌面应该出现这三个小图标,第一个是docker的命令行工具,第二个是联网查看dockerhub的镜像,第三个是虚拟机<br><img src="https://upload-images.jianshu.io/upload_images/8156292-5424787ab9e6b89d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+<li>把提前下载好的 docker2boot镜像丢到缓存里面,否则启动的时候找不到会自动下载比较慢<br><img src="https://upload-images.jianshu.io/upload_images/8156292-06cb26f3eeb4ada1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+<li>我们运行第一个Docker Quickstart Terminal ,出现下面的界面就ok了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-35392cc5cc1dcd05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+</ol>
 ]]></content>
       <tags>
         <tag>docker</tag>
@@ -2035,17 +2035,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>eclipse开启自动完成</title>
-    <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/eclipse%E5%BC%80%E5%90%AF%E8%87%AA%E5%8A%A8%E5%AE%8C%E6%88%90/</url>
-    <content><![CDATA[<p>依次点击Window –&gt; Perferences（选项设置） –&gt; Java –&gt; Editor（编辑） –&gt; Content Assist（内容辅助/代码提示）<br><img src="https://img-blog.csdn.net/20180612234507746" alt="alt"><br>然后在“Content Assist”页面中，可以看到下面有一个Auto Activation中有一个Auto activation triggers for Java</p>
-<p>在这一个输入框中输入<code>.qwertyuioplkjhgfdsazxcvbnm</code>，然后点击下面的“OK”，这样代码自动补全就已经设置好了</p>
-<p>在我们编写代码的时候，只要打出一个字母或者”.”都可以自动调出自动补全功能</p>
-]]></content>
-      <tags>
-        <tag>IDEA</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>node打包成可执行文件exe</title>
     <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/node%E6%89%93%E5%8C%85%E6%88%90%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6exe/</url>
     <content><![CDATA[<h2 id="使用pkg这个npm工具打包"><a href="#使用pkg这个npm工具打包" class="headerlink" title="使用pkg这个npm工具打包"></a>使用pkg这个npm工具打包</h2><ol>
@@ -2070,6 +2059,17 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>eclipse开启自动完成</title>
+    <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/eclipse%E5%BC%80%E5%90%AF%E8%87%AA%E5%8A%A8%E5%AE%8C%E6%88%90/</url>
+    <content><![CDATA[<p>依次点击Window –&gt; Perferences（选项设置） –&gt; Java –&gt; Editor（编辑） –&gt; Content Assist（内容辅助/代码提示）<br><img src="https://img-blog.csdn.net/20180612234507746" alt="alt"><br>然后在“Content Assist”页面中，可以看到下面有一个Auto Activation中有一个Auto activation triggers for Java</p>
+<p>在这一个输入框中输入<code>.qwertyuioplkjhgfdsazxcvbnm</code>，然后点击下面的“OK”，这样代码自动补全就已经设置好了</p>
+<p>在我们编写代码的时候，只要打出一个字母或者”.”都可以自动调出自动补全功能</p>
+]]></content>
+      <tags>
+        <tag>IDEA</tag>
       </tags>
   </entry>
   <entry>
@@ -2125,16 +2125,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>设置node最大使用内存</title>
-    <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E8%AE%BE%E7%BD%AEnode%E6%9C%80%E5%A4%A7%E4%BD%BF%E7%94%A8%E5%86%85%E5%AD%98/</url>
-    <content><![CDATA[<p>node的最大使用内存是2G 超出会导致程序退出</p>
-<p>下面设置的是4096M<br><code>setx NODE_OPTIONS --max_old_space_size=4096</code></p>
-]]></content>
-      <tags>
-        <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>启动tomcat时,log出现淇℃伅</title>
     <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E5%90%AF%E5%8A%A8tomcat%E6%97%B6-log%E5%87%BA%E7%8E%B0%E6%B7%87%E2%84%83/</url>
     <content><![CDATA[<p><code>淇℃伅</code>其实是 <code>信息</code>的乱码显示<br>修改tomcat安装目录下的<code>config/logging.properties</code>文件,找到<code>java.util.logging.Consolehandler.encoding</code>,将值改成<code>GBK</code>即可解决该问题。我下载的comcat8.5默认是<code>UTF-8</code></p>
@@ -2142,6 +2132,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <figure class="highlight properties"><figcaption><span>config/logging.properties</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">java.util.logging.Consolehandler.encoding</span> = <span class="string">GBK</span></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>tomcat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>设置node最大使用内存</title>
+    <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E8%AE%BE%E7%BD%AEnode%E6%9C%80%E5%A4%A7%E4%BD%BF%E7%94%A8%E5%86%85%E5%AD%98/</url>
+    <content><![CDATA[<p>node的最大使用内存是2G 超出会导致程序退出</p>
+<p>下面设置的是4096M<br><code>setx NODE_OPTIONS --max_old_space_size=4096</code></p>
+]]></content>
+      <tags>
+        <tag>node</tag>
       </tags>
   </entry>
   <entry>
