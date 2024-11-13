@@ -295,6 +295,15 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>一个10年工程师的感慨</title>
+    <url>/2021/09/25/%E4%B8%80%E4%B8%AA10%E5%B9%B4%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%84%9F%E6%85%A8/</url>
+    <content><![CDATA[<p>原文 <a href="https://old.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/">https://old.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/</a></p>
+]]></content>
+      <tags>
+        <tag>好文</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>web技术方向的思考</title>
     <url>/2024/11/11/web%E6%8A%80%E6%9C%AF%E6%96%B9%E5%90%91%E7%9A%84%E6%80%9D%E8%80%83/</url>
     <content><![CDATA[<p>好久没写文章了，适当的回顾下过去展望下未来总是好的。</p>
@@ -322,15 +331,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>思考未来</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一个10年工程师的感慨</title>
-    <url>/2021/09/25/%E4%B8%80%E4%B8%AA10%E5%B9%B4%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%84%9F%E6%85%A8/</url>
-    <content><![CDATA[<p>原文 <a href="https://old.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/">https://old.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/</a></p>
-]]></content>
-      <tags>
-        <tag>好文</tag>
       </tags>
   </entry>
   <entry>
@@ -655,6 +655,32 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>2021-3-24 Chrome Devtools Tip： 2.如何使用DevTools触发CSS伪类</title>
+    <url>/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%202.%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8DevTools%E8%A7%A6%E5%8F%91CSS%E4%BC%AA%E7%B1%BB/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-fe137965f93360e7.gif?imageMogr2/auto-orient/strip" alt="pseudo-trigger.gif"><br>可以触发元素上的<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">伪类</a>，以研究元素（例如，将元素悬停在元素上）如何反应。您可以右键单击“元素”面板中的节点，然后选择“强制元素状态”。或者，可以在“<a href="https://developers.google.com/web/tools/chrome-devtools/inspect-styles">样式”</a>子窗格中单击“切换”元素状态图标。</p>
+<p>当一个元素应用了某种状态时，您将在节点的开始标签左侧看到一个视觉指示器，在某些情况下，也将在关闭标签左侧（如果它们相距很远）。</p>
+<p>我们可以触发：活动类（:active），焦点类(:focus)，悬停类(:hover)和访问过的（:visited）伪类。</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>一般伪类是<code>:PseudoClass</code>,伪元素是<code>::PseudoElement</code>,虽然伪元素也能写一个冒号，但是最好区分开来</p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-3-24 Chrome Devtools Tip： 3.使用cURL复制功能重播Network面板的请求</title>
+    <url>/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%203.%E4%BD%BF%E7%94%A8cURL%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E9%87%8D%E6%92%ADNetwork%E9%9D%A2%E6%9D%BF%E7%9A%84%E8%AF%B7%E6%B1%82/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-2361d35d4917df7e.gif?imageMogr2/auto-orient/strip" alt="copy-as-curl.gif"><br>网络面板中显示的资源有一个上下文菜单，该菜单允许您复制为cURL，这将进入剪贴板，此时您可以将其粘贴到命令行中，必要时进行修改，然后查看响应。请求标头也包括在内。</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ol>
+<li><code>Numbers API</code>给个数字，会返回这个数字相关的信息。其实有很多免费的API很有趣，可以自行收集下，比如天气的，历史上的今天，新冠疫情数据，这样我们没有自己的服务器也能做出有意思的应用。</li>
+<li>Windows 系统没有<code>curl</code>命令行工具（除非自己安装），可以使用<code>Copy as PowerShell</code>进行请求重播，复制成fetch代码也不错，做接口测试的时候就省代码了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-bb4bd22c59eaa1f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+</ol>
+<h1 id="将网络回复复制到剪贴板"><a href="#将网络回复复制到剪贴板" class="headerlink" title="将网络回复复制到剪贴板"></a>将网络回复复制到剪贴板</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-6eb17dca94cc97df.gif?imageMogr2/auto-orient/strip" alt="copy-response.gif"></p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2021-3-24 Chrome Devtools Tip： 1. Port Forwarding 允许localhost URL 在移动设备调试</title>
     <url>/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%201.%20Port%20Forwarding%20%E5%85%81%E8%AE%B8localhost%20URL%20%E5%9C%A8%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E8%B0%83%E8%AF%95/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-21eac099700614e6.gif?imageMogr2/auto-orient/strip" alt="port-forward.gif"></p>
@@ -683,26 +709,19 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-3-24 Chrome Devtools Tip： 2.如何使用DevTools触发CSS伪类</title>
-    <url>/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%202.%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8DevTools%E8%A7%A6%E5%8F%91CSS%E4%BC%AA%E7%B1%BB/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-fe137965f93360e7.gif?imageMogr2/auto-orient/strip" alt="pseudo-trigger.gif"><br>可以触发元素上的<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">伪类</a>，以研究元素（例如，将元素悬停在元素上）如何反应。您可以右键单击“元素”面板中的节点，然后选择“强制元素状态”。或者，可以在“<a href="https://developers.google.com/web/tools/chrome-devtools/inspect-styles">样式”</a>子窗格中单击“切换”元素状态图标。</p>
-<p>当一个元素应用了某种状态时，您将在节点的开始标签左侧看到一个视觉指示器，在某些情况下，也将在关闭标签左侧（如果它们相距很远）。</p>
-<p>我们可以触发：活动类（:active），焦点类(:focus)，悬停类(:hover)和访问过的（:visited）伪类。</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>一般伪类是<code>:PseudoClass</code>,伪元素是<code>::PseudoElement</code>,虽然伪元素也能写一个冒号，但是最好区分开来</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-3-24 Chrome Devtools Tip： 3.使用cURL复制功能重播Network面板的请求</title>
-    <url>/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%203.%E4%BD%BF%E7%94%A8cURL%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E9%87%8D%E6%92%ADNetwork%E9%9D%A2%E6%9D%BF%E7%9A%84%E8%AF%B7%E6%B1%82/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-2361d35d4917df7e.gif?imageMogr2/auto-orient/strip" alt="copy-as-curl.gif"><br>网络面板中显示的资源有一个上下文菜单，该菜单允许您复制为cURL，这将进入剪贴板，此时您可以将其粘贴到命令行中，必要时进行修改，然后查看响应。请求标头也包括在内。</p>
+    <title>2021-3-24 Chrome Devtools Tip： 5.通过本地修改查看您的更改</title>
+    <url>/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%205.%E9%80%9A%E8%BF%87%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9%E6%9F%A5%E7%9C%8B%E6%82%A8%E7%9A%84%E6%9B%B4%E6%94%B9/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-d122d3505663c200.gif?imageMogr2/auto-orient/strip" alt="local-mods.gif"></p>
+<p>本地修改使您可以查看（通过DevTools）对某些源文件进行了哪些更改。</p>
+<p>进行更改并保存后，右键单击“源代码”面板中的文件，然后选择“本地修改”。每个修改都将列为新的更改，并且每个修改都可以单独还原。</p>
+<p>本地修改有助于跟踪，进行了哪些更改，何时进行了这些更改以及对哪些文件进行了更改。</p>
+<p>您可能还对较新的<a href="https://umaar.com/dev-tips/137-changes-panel/">DevTools更改面板</a>感兴趣。</p>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ol>
-<li><code>Numbers API</code>给个数字，会返回这个数字相关的信息。其实有很多免费的API很有趣，可以自行收集下，比如天气的，历史上的今天，新冠疫情数据，这样我们没有自己的服务器也能做出有意思的应用。</li>
-<li>Windows 系统没有<code>curl</code>命令行工具（除非自己安装），可以使用<code>Copy as PowerShell</code>进行请求重播，复制成fetch代码也不错，做接口测试的时候就省代码了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-bb4bd22c59eaa1f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+<li>一般IDE（IDEA，VSCODE）自带的diff比较工具都挺好用的，但是如果去比较两个文件夹，还是建议使用<strong>Beyond Compare 4</strong></li>
+<li>git 自身的diff工具如果用的不舒服,可以改成vscode呢！这个文章是写怎么设置的，其他工具设置方法类似<a href="https://blog.csdn.net/LeonBec/article/details/78989149">https://blog.csdn.net/LeonBec/article/details/78989149</a></li>
+<li>可视化的git工具，小乌龟我用的还是很习惯的，建议下载一个。<a href="https://tortoisegit.org/">https://tortoisegit.org/</a></li>
+<li>真的很讨厌用命令行装B，骗骗外行还行，这里怼一下那些天天 <code>git add .</code> 提交所有文件，也不<code>diff</code>一下的菜鸡<h1 id="思考与尝试"><a href="#思考与尝试" class="headerlink" title="思考与尝试"></a>思考与尝试</h1>devtools自带的diff工具，不知道git 命令行能不能设置成这个工具，知道的小伙伴评论区见哈！</li>
 </ol>
-<h1 id="将网络回复复制到剪贴板"><a href="#将网络回复复制到剪贴板" class="headerlink" title="将网络回复复制到剪贴板"></a>将网络回复复制到剪贴板</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-6eb17dca94cc97df.gif?imageMogr2/auto-orient/strip" alt="copy-response.gif"></p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -723,25 +742,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>代码段可以直接在 <code>Console</code>面板执行的，但是在里面不好调整格式，也没有自动完成，也不能保存。所以这种方式挺好的。</p>
 <p>总能遇到一些本地环境不能调试的代码，直接使用代码段功能在测试环境执行我们的代码，省去了打包上环境的时间，也确保了代码的正确性。</p>
 <h1 id="思考与尝试"><a href="#思考与尝试" class="headerlink" title="思考与尝试"></a>思考与尝试</h1><p>尝试下打断点，触发断点后，再执行代码段，不知道此时的变量作用域怎么样的呢？有兴趣的同学可以自己试试，评论区见答案。</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-3-24 Chrome Devtools Tip： 5.通过本地修改查看您的更改</title>
-    <url>/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%205.%E9%80%9A%E8%BF%87%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9%E6%9F%A5%E7%9C%8B%E6%82%A8%E7%9A%84%E6%9B%B4%E6%94%B9/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-d122d3505663c200.gif?imageMogr2/auto-orient/strip" alt="local-mods.gif"></p>
-<p>本地修改使您可以查看（通过DevTools）对某些源文件进行了哪些更改。</p>
-<p>进行更改并保存后，右键单击“源代码”面板中的文件，然后选择“本地修改”。每个修改都将列为新的更改，并且每个修改都可以单独还原。</p>
-<p>本地修改有助于跟踪，进行了哪些更改，何时进行了这些更改以及对哪些文件进行了更改。</p>
-<p>您可能还对较新的<a href="https://umaar.com/dev-tips/137-changes-panel/">DevTools更改面板</a>感兴趣。</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ol>
-<li>一般IDE（IDEA，VSCODE）自带的diff比较工具都挺好用的，但是如果去比较两个文件夹，还是建议使用<strong>Beyond Compare 4</strong></li>
-<li>git 自身的diff工具如果用的不舒服,可以改成vscode呢！这个文章是写怎么设置的，其他工具设置方法类似<a href="https://blog.csdn.net/LeonBec/article/details/78989149">https://blog.csdn.net/LeonBec/article/details/78989149</a></li>
-<li>可视化的git工具，小乌龟我用的还是很习惯的，建议下载一个。<a href="https://tortoisegit.org/">https://tortoisegit.org/</a></li>
-<li>真的很讨厌用命令行装B，骗骗外行还行，这里怼一下那些天天 <code>git add .</code> 提交所有文件，也不<code>diff</code>一下的菜鸡<h1 id="思考与尝试"><a href="#思考与尝试" class="headerlink" title="思考与尝试"></a>思考与尝试</h1>devtools自带的diff工具，不知道git 命令行能不能设置成这个工具，知道的小伙伴评论区见哈！</li>
-</ol>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1018,18 +1018,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 24. 在“Network”中查看来自其他应用程序的网络流量</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2024.%20%E5%9C%A8%E2%80%9CNetwork%E2%80%9D%E4%B8%AD%E6%9F%A5%E7%9C%8B%E6%9D%A5%E8%87%AA%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BD%91%E7%BB%9C%E6%B5%81%E9%87%8F/</url>
-    <content><![CDATA[<h2 id="常用的抓包工具"><a href="#常用的抓包工具" class="headerlink" title="常用的抓包工具"></a>常用的抓包工具</h2><p>Fiddler 小巧精悍,适合http<br>Burpsuite 安全测试的时候用过,很强大<br>wireshark  抓网卡,内容没有聚合上手难度高点</p>
-<p>NetWork 面板很好用,用来拦截操作系统的网络流量<br><img src="https://upload-images.jianshu.io/upload_images/8156292-af20e8217608951b.gif?imageMogr2/auto-orient/strip" alt="os-network-proxy.gif"></p>
-<p>这里需要另外一个 工具来配合 github kdzwinel/betwixt<br>安装好了再设置下系统的代理就好了</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>其实这个不是用Chrome DevTools去抓包啦,只是betwixt这个抓包工具,长得跟NetWork面板一样</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 23. 使用sourceMap 调试ESNext语法</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2023.%20%E4%BD%BF%E7%94%A8sourceMap%20%E8%B0%83%E8%AF%95ESNext%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<p>现在经常使用ESNext语法书写代码,再使用babel转换成ES5,</p>
@@ -1040,6 +1028,18 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 </ol>
 <h1 id="使用Sourcemap-调试时解析变量名"><a href="#使用Sourcemap-调试时解析变量名" class="headerlink" title="使用Sourcemap 调试时解析变量名"></a>使用Sourcemap 调试时解析变量名</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-ede34451980feb28.gif?imageMogr2/auto-orient/strip" alt="resolve-variable-names.gif"><br>调试的时候就算有sourceMap,显示的依然是被混淆的名字<code>a,b,c</code>这种,我们想看到真实的变量名称,怎么做呢?<br>启动 试验功能的<code>Resolve Variable Names</code></p>
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>我在Chrome 89 看不到这个老外说的这个试验功能,应该是已经转正了!!不需要单独启用,知道有这个东西就好了</p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 24. 在“Network”中查看来自其他应用程序的网络流量</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2024.%20%E5%9C%A8%E2%80%9CNetwork%E2%80%9D%E4%B8%AD%E6%9F%A5%E7%9C%8B%E6%9D%A5%E8%87%AA%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BD%91%E7%BB%9C%E6%B5%81%E9%87%8F/</url>
+    <content><![CDATA[<h2 id="常用的抓包工具"><a href="#常用的抓包工具" class="headerlink" title="常用的抓包工具"></a>常用的抓包工具</h2><p>Fiddler 小巧精悍,适合http<br>Burpsuite 安全测试的时候用过,很强大<br>wireshark  抓网卡,内容没有聚合上手难度高点</p>
+<p>NetWork 面板很好用,用来拦截操作系统的网络流量<br><img src="https://upload-images.jianshu.io/upload_images/8156292-af20e8217608951b.gif?imageMogr2/auto-orient/strip" alt="os-network-proxy.gif"></p>
+<p>这里需要另外一个 工具来配合 github kdzwinel/betwixt<br>安装好了再设置下系统的代理就好了</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>其实这个不是用Chrome DevTools去抓包啦,只是betwixt这个抓包工具,长得跟NetWork面板一样</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1304,17 +1304,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>几个chrome插件</title>
-    <url>/2021/09/25/chrome/%E5%87%A0%E4%B8%AAchrome%E6%8F%92%E4%BB%B6/</url>
-    <content><![CDATA[<p>yet-another-rest-client 用于restful接口测试  </p>
-<p>xswitch 用于拦截浏览器发送出去的请求(跨域的也能处理),可以把生产环境的请求拦截到本地用于调试,非常好用</p>
-<p>json-handle 美化JSON显示</p>
-]]></content>
-      <tags>
-        <tag>chrome</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>让 chrome h5 支持 m3u8格式视频</title>
     <url>/2021/09/26/chrome/%E8%AE%A9-chrome-H5-%E6%94%AF%E6%8C%81-m3u8%E6%A0%BC%E5%BC%8F%E8%A7%86%E9%A2%91/</url>
     <content><![CDATA[<ul>
@@ -1341,6 +1330,17 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       <tags>
         <tag>chrome</tag>
         <tag>m38u</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>几个chrome插件</title>
+    <url>/2021/09/25/chrome/%E5%87%A0%E4%B8%AAchrome%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<p>yet-another-rest-client 用于restful接口测试  </p>
+<p>xswitch 用于拦截浏览器发送出去的请求(跨域的也能处理),可以把生产环境的请求拦截到本地用于调试,非常好用</p>
+<p>json-handle 美化JSON显示</p>
+]]></content>
+      <tags>
+        <tag>chrome</tag>
       </tags>
   </entry>
   <entry>
@@ -1404,6 +1404,14 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
   </entry>
   <entry>
+    <title>开发灵异事件之base64图片传输</title>
+    <url>/2023/03/28/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bfix%E5%AE%9A%E4%BD%8D%E5%A4%B1%E8%B4%A5/</url>
+    <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>使用了 <code>position:fixed</code>定位发现弹框不能定位到页面相对位置</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>fixed默认是相对于页面的根元素的,但是有一种情况例外,就是如果父有元素做了transfrom变换的时候。此时会相对于该元素定位</p>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>fixed定位的元素建议作为body直接子元素使用</p>
+]]></content>
+  </entry>
+  <entry>
     <title>开发灵异事件之图片下载</title>
     <url>/2021/09/09/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD/</url>
     <content><![CDATA[<h3 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h3><p>使用download属性用a标签下载图片，变成了新页签打开预览</p>
@@ -1419,14 +1427,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
     <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>弹框看起来很模糊</p>
 <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>弹框写了居中效果,但是用了的方式是 <code>transform:translate(-50%,-50%,);left:50%</code>,但是弹框的宽度 或者 高度使用的单位是奇数 例如 <code>501px</code> 就会模糊 因为电脑是没办法识别<code>0.5px</code>这种显示的</p>
 <h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>居中的话建议用使用 上下左右0 的写法 , <code>margin auto</code> 或者<code>flex布局</code></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>开发灵异事件之base64图片传输</title>
-    <url>/2023/03/28/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bfix%E5%AE%9A%E4%BD%8D%E5%A4%B1%E8%B4%A5/</url>
-    <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>使用了 <code>position:fixed</code>定位发现弹框不能定位到页面相对位置</p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>fixed默认是相对于页面的根元素的,但是有一种情况例外,就是如果父有元素做了transfrom变换的时候。此时会相对于该元素定位</p>
-<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>fixed定位的元素建议作为body直接子元素使用</p>
 ]]></content>
   </entry>
   <entry>
@@ -1598,6 +1598,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>JSON Stream 用于JSON数据的解析</title>
+    <url>/2021/09/25/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/JSON-Stream-%E7%94%A8%E4%BA%8EJSON%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A7%A3%E6%9E%90/</url>
+    <content><![CDATA[<p>JSON Stream使用流的方式去解析JSON文件,即使是非常大的文件也不会造成内存卡顿</p>
+<p><a href="https://www.npmjs.com/package/JSONStream">https://www.npmjs.com/package/JSONStream</a></p>
+]]></content>
+      <tags>
+        <tag>json npm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>rxjs</title>
     <url>/2021/04/19/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/2021-4-29-%20rxjs/</url>
     <content><![CDATA[<h1 id="rxjs"><a href="#rxjs" class="headerlink" title="rxjs"></a>rxjs</h1><p>rxjs是一个响应式编程的js实现,angular工程里面经常会用到</p>
@@ -1651,16 +1661,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>JSON Stream 用于JSON数据的解析</title>
-    <url>/2021/09/25/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/JSON-Stream-%E7%94%A8%E4%BA%8EJSON%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A7%A3%E6%9E%90/</url>
-    <content><![CDATA[<p>JSON Stream使用流的方式去解析JSON文件,即使是非常大的文件也不会造成内存卡顿</p>
-<p><a href="https://www.npmjs.com/package/JSONStream">https://www.npmjs.com/package/JSONStream</a></p>
-]]></content>
-      <tags>
-        <tag>json npm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>UI框架之uikit</title>
     <url>/2021/09/13/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/UI%E6%A1%86%E6%9E%B6%E4%B9%8Buikit/</url>
     <content><![CDATA[<h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p><a href="https://getuikit.com/">官网</a></p>
@@ -1697,6 +1697,17 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <h1 id="全组合"><a href="#全组合" class="headerlink" title="全组合"></a>全组合</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 全组合</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>arr  用于组合的元数据</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>n 取其中的n个数据用于组合</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns </span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAllMix</span>(<span class="params">arr, n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> len = arr.length ** n <span class="comment">//全排列的长度</span></span><br><span class="line">  <span class="keyword">let</span> res = <span class="built_in">Array</span>.from(&#123; <span class="attr">length</span>: len &#125;, <span class="function">(<span class="params">item, k</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 构造都是0的空数组</span></span><br><span class="line">    <span class="keyword">let</span> g = <span class="built_in">Array</span>.from(&#123; <span class="attr">length</span>: n &#125;, <span class="function">() =&gt;</span> <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">let</span> ret = [...g, ...k.toString(arr.length).split(<span class="string">&#x27;&#x27;</span>)].slice(-n).map(<span class="function"><span class="params">j</span> =&gt;</span> arr[j])</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getAllMix([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],<span class="number">2</span>)</span><br><span class="line"><span class="comment">// 从1,2,3中获取其中两个数的所有组合</span></span><br><span class="line"><span class="comment">// [1, 1]</span></span><br><span class="line"><span class="comment">// [1, 2]</span></span><br><span class="line"><span class="comment">// [1, 3]</span></span><br><span class="line"><span class="comment">// [2, 1]</span></span><br><span class="line"><span class="comment">// [2, 2]</span></span><br><span class="line"><span class="comment">// [2, 3]</span></span><br><span class="line"><span class="comment">// [3, 1]</span></span><br><span class="line"><span class="comment">// [3, 2]</span></span><br><span class="line"><span class="comment">// [3, 3]</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="全排列"><a href="#全排列" class="headerlink" title="全排列"></a>全排列</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 全排列</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>arr 全排列的元数据</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns </span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAllSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> len = arr.length ** arr.length</span><br><span class="line">  <span class="keyword">let</span> res = <span class="built_in">Array</span>.from(&#123; <span class="attr">length</span>: len &#125;, <span class="function">(<span class="params">item, k</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 构造都是0的空数组</span></span><br><span class="line">    <span class="keyword">let</span> g = <span class="built_in">Array</span>.from(&#123; <span class="attr">length</span>: arr.length &#125;, <span class="function">() =&gt;</span> <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">let</span> ret = [...g, ...k.toString(arr.length).split(<span class="string">&#x27;&#x27;</span>)].slice(-arr.length)</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">let</span> dd = res.filter(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    item=item.map(<span class="function"><span class="params">k</span>=&gt;</span><span class="built_in">parseInt</span>(k))</span><br><span class="line">    <span class="keyword">let</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>(item)</span><br><span class="line">    <span class="keyword">return</span> set.size == item.length</span><br><span class="line">  &#125;).map(<span class="function">(<span class="params">i</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> out=[]</span><br><span class="line">    i.forEach(<span class="function">(<span class="params">j,k</span>) =&gt;</span> &#123;</span><br><span class="line">      out[k]=arr[j]</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> out</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> dd</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getAllSort([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"><span class="comment">// 数组1,2,3的全排列</span></span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//     [ 1, 2, 3 ],</span></span><br><span class="line"><span class="comment">//     [ 1, 3, 2 ],</span></span><br><span class="line"><span class="comment">//     [ 2, 1, 3 ],</span></span><br><span class="line"><span class="comment">//     [ 2, 3, 1 ],</span></span><br><span class="line"><span class="comment">//     [ 3, 1, 2 ],</span></span><br><span class="line"><span class="comment">//     [ 3, 2, 1 ]</span></span><br><span class="line"><span class="comment">// ]</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>代码片段</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js获取路径上的参数</title>
+    <url>/2021/09/25/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/js%E8%8E%B7%E5%8F%96%E8%B7%AF%E5%BE%84%E4%B8%8A%E7%9A%84%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<p>假如有如下请求js的路径,怎么在some.js中获取这个参数?<br><code>base_url/path/to/some.js?username=bob</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> url=<span class="keyword">new</span> <span class="built_in">Error</span>().stack.match(<span class="regexp">/at\s(.*)\s/</span>)[<span class="number">1</span>];</span><br></pre></td></tr></table></figure>
+<p>通过错误对象的堆栈信息,拿到报错的URL。我是真的佩服这个大神的脑洞。</p>
 ]]></content>
       <tags>
         <tag>代码片段</tag>
@@ -1744,17 +1755,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js获取路径上的参数</title>
-    <url>/2021/09/25/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/js%E8%8E%B7%E5%8F%96%E8%B7%AF%E5%BE%84%E4%B8%8A%E7%9A%84%E5%8F%82%E6%95%B0/</url>
-    <content><![CDATA[<p>假如有如下请求js的路径,怎么在some.js中获取这个参数?<br><code>base_url/path/to/some.js?username=bob</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> url=<span class="keyword">new</span> <span class="built_in">Error</span>().stack.match(<span class="regexp">/at\s(.*)\s/</span>)[<span class="number">1</span>];</span><br></pre></td></tr></table></figure>
-<p>通过错误对象的堆栈信息,拿到报错的URL。我是真的佩服这个大神的脑洞。</p>
-]]></content>
-      <tags>
-        <tag>代码片段</tag>
       </tags>
   </entry>
   <entry>
@@ -2046,6 +2046,15 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>npm install 命令报错的情况下 显示详细log用于排查问题</title>
+    <url>/2021/09/25/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/npm-install-%E5%91%BD%E4%BB%A4%E6%8A%A5%E9%94%99%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B-%E6%98%BE%E7%A4%BA%E8%AF%A6%E7%BB%86log%E7%94%A8%E4%BA%8E%E6%8E%92%E6%9F%A5%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p><code>npm install ionic --loglevel verbose</code> 修改日志级别即可</p>
+]]></content>
+      <tags>
+        <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>node打包成可执行文件exe</title>
     <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/node%E6%89%93%E5%8C%85%E6%88%90%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6exe/</url>
     <content><![CDATA[<h2 id="使用pkg这个npm工具打包"><a href="#使用pkg这个npm工具打包" class="headerlink" title="使用pkg这个npm工具打包"></a>使用pkg这个npm工具打包</h2><ol>
@@ -2061,15 +2070,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       <tags>
         <tag>npm</tag>
         <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>npm install 命令报错的情况下 显示详细log用于排查问题</title>
-    <url>/2021/09/25/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/npm-install-%E5%91%BD%E4%BB%A4%E6%8A%A5%E9%94%99%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B-%E6%98%BE%E7%A4%BA%E8%AF%A6%E7%BB%86log%E7%94%A8%E4%BA%8E%E6%8E%92%E6%9F%A5%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p><code>npm install ionic --loglevel verbose</code> 修改日志级别即可</p>
-]]></content>
-      <tags>
-        <tag>npm</tag>
       </tags>
   </entry>
   <entry>
