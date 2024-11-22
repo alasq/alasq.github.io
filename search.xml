@@ -249,15 +249,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>js避坑-new Array</title>
-    <url>/2022/08/15/js%E9%81%BF%E5%9D%91-new-Array/</url>
-    <content><![CDATA[<p><code>new Array(8).map(i=&gt;[])</code>这种声明二维数组的方式会报错</p>
-<p>改成 <code>new Array(8).fill().map(i=&gt;[])</code>即可</p>
-<p>报错的原因是 new Array 产生的数组比较特殊 有length 但是没有内容，所以无法迭代</p>
-<p>不过我一般用 <code>Array.form(&#123;length:8&#125;,i=&gt;[])</code>这么初始化</p>
-]]></content>
-  </entry>
-  <entry>
     <title>js踩坑 isNaN(null)返回的是false</title>
     <url>/2022/08/15/js%E8%B8%A9%E5%9D%91-isNaN-null-%E8%BF%94%E5%9B%9E%E7%9A%84%E6%98%AFfalse/</url>
     <content><![CDATA[<p><code>isNaN(null) === false</code> 按照方法名的字面意思  null不是一个数组,没毛病。<br>但是这个方法认为是一个数字，它的逻辑是先用<code>Number(null)</code>得到<code>0</code>,0是数字,所以等式成立。</p>
@@ -270,6 +261,15 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       <tags>
         <tag>js</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>js避坑-new Array</title>
+    <url>/2022/08/15/js%E9%81%BF%E5%9D%91-new-Array/</url>
+    <content><![CDATA[<p><code>new Array(8).map(i=&gt;[])</code>这种声明二维数组的方式会报错</p>
+<p>改成 <code>new Array(8).fill().map(i=&gt;[])</code>即可</p>
+<p>报错的原因是 new Array 产生的数组比较特殊 有length 但是没有内容，所以无法迭代</p>
+<p>不过我一般用 <code>Array.form(&#123;length:8&#125;,i=&gt;[])</code>这么初始化</p>
+]]></content>
   </entry>
   <entry>
     <title>promise分步请求接口</title>
@@ -292,6 +292,15 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>webpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一个10年工程师的感慨</title>
+    <url>/2021/09/25/%E4%B8%80%E4%B8%AA10%E5%B9%B4%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%84%9F%E6%85%A8/</url>
+    <content><![CDATA[<p>原文 <a href="https://old.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/">https://old.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/</a></p>
+]]></content>
+      <tags>
+        <tag>好文</tag>
       </tags>
   </entry>
   <entry>
@@ -322,15 +331,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>思考未来</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一个10年工程师的感慨</title>
-    <url>/2021/09/25/%E4%B8%80%E4%B8%AA10%E5%B9%B4%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%84%9F%E6%85%A8/</url>
-    <content><![CDATA[<p>原文 <a href="https://old.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/">https://old.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/</a></p>
-]]></content>
-      <tags>
-        <tag>好文</tag>
       </tags>
   </entry>
   <entry>
@@ -401,14 +401,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>图片base64转文件</title>
-    <url>/2021/09/26/%E5%9B%BE%E7%89%87base64%E8%BD%AC%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * base64格式图片转二进制文件</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> </span>base64str </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns  </span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">base64ToFile</span>(<span class="params">base64str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> mimeType=base64str.match(<span class="regexp">/:(.*?);/</span>)[<span class="number">1</span>];</span><br><span class="line">  <span class="keyword">let</span> base64=base64str.slice(base64str.indexOf(<span class="string">&#x27;;&#x27;</span>)+<span class="number">1</span>)</span><br><span class="line">  <span class="keyword">let</span> bstr=atob(base64),</span><br><span class="line">  n=bstr.length,</span><br><span class="line">  u8Arr=<span class="keyword">new</span> <span class="built_in">Uint8Array</span>(n);</span><br><span class="line">  <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">    u8Arr[n]=bstr.charCodeAt(n);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> file=<span class="keyword">new</span> Blob([u8Arr],&#123;<span class="attr">type</span>:mimeType&#125;)</span><br><span class="line">  <span class="keyword">return</span> file</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>代码片段</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>单页应用路由切换接口问题</title>
     <url>/2021/11/25/%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%E8%B7%AF%E7%94%B1%E5%88%87%E6%8D%A2%E6%8E%A5%E5%8F%A3%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>页面跳转的时候,处于异步请求的接口会自动被去取消掉，但是单页应用没有这种机制。我们需要手动实现。<br>axios是基于Promise的。本身对外暴露了一个 cancelToken的配置项用于取消,实际开发中需要在路由跳转的钩子中使用。</p>
@@ -420,6 +412,14 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图片base64转文件</title>
+    <url>/2021/09/26/%E5%9B%BE%E7%89%87base64%E8%BD%AC%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * base64格式图片转二进制文件</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> </span>base64str </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns  </span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">base64ToFile</span>(<span class="params">base64str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> mimeType=base64str.match(<span class="regexp">/:(.*?);/</span>)[<span class="number">1</span>];</span><br><span class="line">  <span class="keyword">let</span> base64=base64str.slice(base64str.indexOf(<span class="string">&#x27;;&#x27;</span>)+<span class="number">1</span>)</span><br><span class="line">  <span class="keyword">let</span> bstr=atob(base64),</span><br><span class="line">  n=bstr.length,</span><br><span class="line">  u8Arr=<span class="keyword">new</span> <span class="built_in">Uint8Array</span>(n);</span><br><span class="line">  <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">    u8Arr[n]=bstr.charCodeAt(n);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> file=<span class="keyword">new</span> Blob([u8Arr],&#123;<span class="attr">type</span>:mimeType&#125;)</span><br><span class="line">  <span class="keyword">return</span> file</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>代码片段</tag>
       </tags>
   </entry>
   <entry>
@@ -440,6 +440,25 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 </ul>
 <p>这几个工具都用到了C模块</p>
 <h1 id="webpack-img-loader-不推荐"><a href="#webpack-img-loader-不推荐" class="headerlink" title="webpack img-loader(不推荐)"></a>webpack img-loader(不推荐)</h1><p>不推荐的原因是压缩图片一般是一次性的动作，而且耗时较长，另外原图提交到仓库，别的同学下载也麻烦</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>基于strapi gridsome技术架构的内容管理系统(CMS)</title>
+    <url>/2021/09/09/%E5%9F%BA%E4%BA%8Estrapi-gridsome%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84%E7%9A%84%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F-CMS/</url>
+    <content><![CDATA[<p><a href="https://strapi.io/">strapi</a>是目前github上最流行的基于nodejs 的Handless CMS项目。</p>
+<p><a href="https://gridsome.org/">gridsome</a>是基于vue的静态站点构造器，具有SEO友好，站点响应快，安装npm依赖后可以直接启动运行。</p>
+<p>CMS我们一般用于网站的后台管理，基于这个技术架构，我们可以快速搭建博客系统，企业官网，项目文档网站等。</p>
+<p>改技术架构只需要一个纯前端的开发者就可以运行维护，由于数据库是sqlite3省了数据存储费用，自带了媒体资源上传与存储服务，也节省了静态资源存储服务的费用。非常适合小型网站的构建。</p>
+<h2 id="该技术架构成本"><a href="#该技术架构成本" class="headerlink" title="该技术架构成本"></a>该技术架构成本</h2><ol>
+<li><p>阿里云ECS大概800一年</p>
+</li>
+<li><p>定制化界面开发 7-15人天</p>
+</li>
+<li><p>com域名约75元/年</p>
+</li>
+</ol>
+<p>最基础的站点，大概首次投入7000元。后续1000/年。就可以长期运行下去了。</p>
+<p>有需要做网站的可以留言联系我(微信号:sq88sq)</p>
 ]]></content>
   </entry>
   <entry>
@@ -478,25 +497,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
         <tag>html</tag>
         <tag>css</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>基于strapi gridsome技术架构的内容管理系统(CMS)</title>
-    <url>/2021/09/09/%E5%9F%BA%E4%BA%8Estrapi-gridsome%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84%E7%9A%84%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F-CMS/</url>
-    <content><![CDATA[<p><a href="https://strapi.io/">strapi</a>是目前github上最流行的基于nodejs 的Handless CMS项目。</p>
-<p><a href="https://gridsome.org/">gridsome</a>是基于vue的静态站点构造器，具有SEO友好，站点响应快，安装npm依赖后可以直接启动运行。</p>
-<p>CMS我们一般用于网站的后台管理，基于这个技术架构，我们可以快速搭建博客系统，企业官网，项目文档网站等。</p>
-<p>改技术架构只需要一个纯前端的开发者就可以运行维护，由于数据库是sqlite3省了数据存储费用，自带了媒体资源上传与存储服务，也节省了静态资源存储服务的费用。非常适合小型网站的构建。</p>
-<h2 id="该技术架构成本"><a href="#该技术架构成本" class="headerlink" title="该技术架构成本"></a>该技术架构成本</h2><ol>
-<li><p>阿里云ECS大概800一年</p>
-</li>
-<li><p>定制化界面开发 7-15人天</p>
-</li>
-<li><p>com域名约75元/年</p>
-</li>
-</ol>
-<p>最基础的站点，大概首次投入7000元。后续1000/年。就可以长期运行下去了。</p>
-<p>有需要做网站的可以留言联系我(微信号:sq88sq)</p>
-]]></content>
   </entry>
   <entry>
     <title>极致简洁的微前端框架-京东MicroApp开源了</title>
@@ -539,6 +539,19 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>css冷门知识-获取windows系统主题</title>
+    <url>/2021/12/09/%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E4%B8%BB%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="使用-matchMedia-API找到-MediaQueryList-对象"><a href="#使用-matchMedia-API找到-MediaQueryList-对象" class="headerlink" title="使用 matchMedia API找到 MediaQueryList 对象"></a>使用 <code>matchMedia</code> API找到 <code>MediaQueryList</code> 对象</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span>  mqList = <span class="built_in">window</span>.matchMedia(<span class="string">&quot;(prefers-color-scheme:dark)&quot;</span>)</span><br><span class="line"><span class="keyword">if</span>(mqList.matches)&#123;<span class="comment">//匹配上了,说明windows使用的是黑暗主题模式</span></span><br><span class="line">  <span class="comment">// <span class="doctag">TODO:</span> 将我们网页的主题设置成暗黑模式</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li>媒体查询的类型 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">https://developer.mozilla.org/en-US/docs/Web/CSS/@media</a> </li>
+<li> <code>matchMedia</code>API介绍 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia">https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia</a> </li>
+</ol>
+]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>记录webpack4的两个坑</title>
     <url>/2021/09/26/%E8%AE%B0%E5%BD%95webpack4%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%9D%91/</url>
     <content><![CDATA[<ol>
@@ -550,19 +563,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>webpack</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>css冷门知识-获取windows系统主题</title>
-    <url>/2021/12/09/%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E4%B8%BB%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="使用-matchMedia-API找到-MediaQueryList-对象"><a href="#使用-matchMedia-API找到-MediaQueryList-对象" class="headerlink" title="使用 matchMedia API找到 MediaQueryList 对象"></a>使用 <code>matchMedia</code> API找到 <code>MediaQueryList</code> 对象</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span>  mqList = <span class="built_in">window</span>.matchMedia(<span class="string">&quot;(prefers-color-scheme:dark)&quot;</span>)</span><br><span class="line"><span class="keyword">if</span>(mqList.matches)&#123;<span class="comment">//匹配上了,说明windows使用的是黑暗主题模式</span></span><br><span class="line">  <span class="comment">// <span class="doctag">TODO:</span> 将我们网页的主题设置成暗黑模式</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li>媒体查询的类型 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">https://developer.mozilla.org/en-US/docs/Web/CSS/@media</a> </li>
-<li> <code>matchMedia</code>API介绍 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia">https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia</a> </li>
-</ol>
-]]></content>
-      <tags>
-        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -583,6 +583,23 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>通过符号链接的方式移动vscode插件</title>
+    <url>/2021/09/26/%E9%80%9A%E8%BF%87%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5%E7%9A%84%E6%96%B9%E5%BC%8F%E7%A7%BB%E5%8A%A8vscode%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="创建目录符号链接-修改插件位置-防止C盘爆掉"><a href="#创建目录符号链接-修改插件位置-防止C盘爆掉" class="headerlink" title="创建目录符号链接,修改插件位置,防止C盘爆掉"></a>创建目录符号链接,修改插件位置,防止C盘爆掉</h2><ol>
+<li>剪切文件夹到新的目录,不然命令行会执行失败</li>
+<li>命令行使用管理员权限</li>
+<li><code>mklink /D &quot;C:\Users\&#123;username&#125;\.vscode&quot; &quot;D:\&#123;username&#125;\.vscode&quot;</code></li>
+</ol>
+<blockquote>
+<p>{username} 为用户名</p>
+</blockquote>
+<h2 id="vscode插件中文文档"><a href="#vscode插件中文文档" class="headerlink" title="vscode插件中文文档"></a>vscode插件中文文档</h2><p><a href="http://liik.gitee.io/vs-code-extension-doc-zh/#/">http://liik.gitee.io/vs-code-extension-doc-zh/#/</a></p>
+]]></content>
+      <tags>
+        <tag>vscode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>防止xss注入</title>
     <url>/2021/10/22/%E9%98%B2%E6%AD%A2xss%E6%B3%A8%E5%85%A5/</url>
     <content><![CDATA[<h2 id="谁是-OWASP-®基金会"><a href="#谁是-OWASP-®基金会" class="headerlink" title="谁是 OWASP ®基金会"></a>谁是 OWASP ®基金会</h2><p>Open Web Application Security Project</p>
@@ -599,23 +616,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>web安全</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>通过符号链接的方式移动vscode插件</title>
-    <url>/2021/09/26/%E9%80%9A%E8%BF%87%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5%E7%9A%84%E6%96%B9%E5%BC%8F%E7%A7%BB%E5%8A%A8vscode%E6%8F%92%E4%BB%B6/</url>
-    <content><![CDATA[<h2 id="创建目录符号链接-修改插件位置-防止C盘爆掉"><a href="#创建目录符号链接-修改插件位置-防止C盘爆掉" class="headerlink" title="创建目录符号链接,修改插件位置,防止C盘爆掉"></a>创建目录符号链接,修改插件位置,防止C盘爆掉</h2><ol>
-<li>剪切文件夹到新的目录,不然命令行会执行失败</li>
-<li>命令行使用管理员权限</li>
-<li><code>mklink /D &quot;C:\Users\&#123;username&#125;\.vscode&quot; &quot;D:\&#123;username&#125;\.vscode&quot;</code></li>
-</ol>
-<blockquote>
-<p>{username} 为用户名</p>
-</blockquote>
-<h2 id="vscode插件中文文档"><a href="#vscode插件中文文档" class="headerlink" title="vscode插件中文文档"></a>vscode插件中文文档</h2><p><a href="http://liik.gitee.io/vs-code-extension-doc-zh/#/">http://liik.gitee.io/vs-code-extension-doc-zh/#/</a></p>
-]]></content>
-      <tags>
-        <tag>vscode</tag>
       </tags>
   </entry>
   <entry>
@@ -695,6 +695,20 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>2021-3-24 Chrome Devtools Tip： 3.使用cURL复制功能重播Network面板的请求</title>
+    <url>/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%203.%E4%BD%BF%E7%94%A8cURL%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E9%87%8D%E6%92%ADNetwork%E9%9D%A2%E6%9D%BF%E7%9A%84%E8%AF%B7%E6%B1%82/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-2361d35d4917df7e.gif?imageMogr2/auto-orient/strip" alt="copy-as-curl.gif"><br>网络面板中显示的资源有一个上下文菜单，该菜单允许您复制为cURL，这将进入剪贴板，此时您可以将其粘贴到命令行中，必要时进行修改，然后查看响应。请求标头也包括在内。</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ol>
+<li><code>Numbers API</code>给个数字，会返回这个数字相关的信息。其实有很多免费的API很有趣，可以自行收集下，比如天气的，历史上的今天，新冠疫情数据，这样我们没有自己的服务器也能做出有意思的应用。</li>
+<li>Windows 系统没有<code>curl</code>命令行工具（除非自己安装），可以使用<code>Copy as PowerShell</code>进行请求重播，复制成fetch代码也不错，做接口测试的时候就省代码了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-bb4bd22c59eaa1f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+</ol>
+<h1 id="将网络回复复制到剪贴板"><a href="#将网络回复复制到剪贴板" class="headerlink" title="将网络回复复制到剪贴板"></a>将网络回复复制到剪贴板</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-6eb17dca94cc97df.gif?imageMogr2/auto-orient/strip" alt="copy-response.gif"></p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2021-3-24 Chrome Devtools Tip： 4.在任何网页上运行预定义的代码段</title>
     <url>/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%204.%E5%9C%A8%E4%BB%BB%E4%BD%95%E7%BD%91%E9%A1%B5%E4%B8%8A%E8%BF%90%E8%A1%8C%E9%A2%84%E5%AE%9A%E4%B9%89%E7%9A%84%E4%BB%A3%E7%A0%81%E6%AE%B5/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-3ab1f856b9a0a89b.gif?imageMogr2/auto-orient/strip" alt="snippets.gif"><br>DevTools中提供了一个名为Snippets的功能，使您可以注入可在网页上运行的JavaScript代码（与在控制台面板中重新键入JavaScript代码相比，这更方便）。尝试一下：</p>
@@ -709,20 +723,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>代码段可以直接在 <code>Console</code>面板执行的，但是在里面不好调整格式，也没有自动完成，也不能保存。所以这种方式挺好的。</p>
 <p>总能遇到一些本地环境不能调试的代码，直接使用代码段功能在测试环境执行我们的代码，省去了打包上环境的时间，也确保了代码的正确性。</p>
 <h1 id="思考与尝试"><a href="#思考与尝试" class="headerlink" title="思考与尝试"></a>思考与尝试</h1><p>尝试下打断点，触发断点后，再执行代码段，不知道此时的变量作用域怎么样的呢？有兴趣的同学可以自己试试，评论区见答案。</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-3-24 Chrome Devtools Tip： 3.使用cURL复制功能重播Network面板的请求</title>
-    <url>/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%203.%E4%BD%BF%E7%94%A8cURL%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E9%87%8D%E6%92%ADNetwork%E9%9D%A2%E6%9D%BF%E7%9A%84%E8%AF%B7%E6%B1%82/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-2361d35d4917df7e.gif?imageMogr2/auto-orient/strip" alt="copy-as-curl.gif"><br>网络面板中显示的资源有一个上下文菜单，该菜单允许您复制为cURL，这将进入剪贴板，此时您可以将其粘贴到命令行中，必要时进行修改，然后查看响应。请求标头也包括在内。</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ol>
-<li><code>Numbers API</code>给个数字，会返回这个数字相关的信息。其实有很多免费的API很有趣，可以自行收集下，比如天气的，历史上的今天，新冠疫情数据，这样我们没有自己的服务器也能做出有意思的应用。</li>
-<li>Windows 系统没有<code>curl</code>命令行工具（除非自己安装），可以使用<code>Copy as PowerShell</code>进行请求重播，复制成fetch代码也不错，做接口测试的时候就省代码了<br><img src="https://upload-images.jianshu.io/upload_images/8156292-bb4bd22c59eaa1f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-</ol>
-<h1 id="将网络回复复制到剪贴板"><a href="#将网络回复复制到剪贴板" class="headerlink" title="将网络回复复制到剪贴板"></a>将网络回复复制到剪贴板</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-6eb17dca94cc97df.gif?imageMogr2/auto-orient/strip" alt="copy-response.gif"></p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -748,17 +748,15 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 10.Console面板的一些API</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2010.%20Console%E9%9D%A2%E6%9D%BF%E7%9A%84%E4%B8%80%E4%BA%9BAPI/</url>
-    <content><![CDATA[<h1 id="快速监控JavaScript中的事件"><a href="#快速监控JavaScript中的事件" class="headerlink" title="快速监控JavaScript中的事件"></a>快速监控JavaScript中的事件</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-b7226d2fe4dede77.gif?imageMogr2/auto-orient/strip" alt="monitor-events.gif"><br>您可以使用命令行API方法<code>monitorEvents（object [，events]）</code>记录分发给对象的所有事件。然后将事件对象记录到控制台。当您需要提醒事件对象的可用属性时很有用。</p>
-<h2 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h2><p>例如，直接在控制台面板中尝试以下代码：</p>
-<blockquote>
-<p>monitorEvents(window, ‘click’)  </p>
-</blockquote>
-<p>当您在网页中单击时，现在应该看到click事件自动记录到控制台。</p>
-<h1 id="控制台获取当前选定的DOM节点的快捷方式"><a href="#控制台获取当前选定的DOM节点的快捷方式" class="headerlink" title="控制台获取当前选定的DOM节点的快捷方式"></a>控制台获取当前选定的DOM节点的快捷方式</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-f6444ade5bf7074e.gif?imageMogr2/auto-orient/strip" alt="dollar-zero.gif"></p>
-<p>在“Element”面板中选择节点后，请在控制台面板中使用表达式<code>$0</code>进行访问。您还可以使用<code>$_</code>访问最近求值的表达式的值</p>
-<h1 id="控制台快速定位DOM位置"><a href="#控制台快速定位DOM位置" class="headerlink" title="控制台快速定位DOM位置"></a>控制台快速定位DOM位置</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-2d4c59000b3e4d31.gif?imageMogr2/auto-orient/strip" alt="reveal-in-elements.gif"></p>
+    <title>2021-3-24 Chrome Devtools Tip： 6.轻松的使用性能面板录制时间线</title>
+    <url>/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%206.%E8%BD%BB%E6%9D%BE%E7%9A%84%E4%BD%BF%E7%94%A8%E6%80%A7%E8%83%BD%E9%9D%A2%E6%9D%BF%E5%BD%95%E5%88%B6%E6%97%B6%E9%97%B4%E7%BA%BF/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-6bc177b57bdb952e.gif?imageMogr2/auto-orient/strip" alt="record-timeline-undocked.gif"><br>当您需要在Mac上执行时间线录制时，请尝试将DevTools停靠到一个单独的窗口中，以便将录制按钮放在需要执行操作的页面部分附近。</p>
+<p>或者，使用快捷键Cmd + E启动和停止录制。</p>
+<p>通过这种方式进行录制，可以使录制的内容简短而甜美，并且可以减少录制时的“杂音”，因为您无需长时间在页面上移动鼠标。</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ol>
+<li>录制时间线的重点就是，缩短录制时间，仅仅录制要分析的操作，这样大大减少了分析成本。这个小技巧就是干这个的。</li>
+<li>有时候输入法的快捷键会跟我们的IDE快捷键冲突，比如 <code>ctrl shift f</code>在vscode中是聚焦到搜索面板，搜狗输入法是繁简体切换，Hotkey Commander<a href="https://gitee.com/alasq/tools/raw/master/Hotkey%20Commander/hkcmdr_inst.exe"> [ 下载 ]</a>这个工具可以检测快捷键的冲突<br><img src="https://upload-images.jianshu.io/upload_images/8156292-b3ec75b5e13a6402.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1>假如我们写一个vscode 插件，怎么尽可能的不与现有的快捷键冲突</li>
+</ol>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -829,15 +827,43 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-3-24 Chrome Devtools Tip： 6.轻松的使用性能面板录制时间线</title>
-    <url>/2021/03/24/Chrome%20Devtools%20Tip/2021-3-24-%20Chrome%20Devtools%20Tip%EF%BC%9A%206.%E8%BD%BB%E6%9D%BE%E7%9A%84%E4%BD%BF%E7%94%A8%E6%80%A7%E8%83%BD%E9%9D%A2%E6%9D%BF%E5%BD%95%E5%88%B6%E6%97%B6%E9%97%B4%E7%BA%BF/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-6bc177b57bdb952e.gif?imageMogr2/auto-orient/strip" alt="record-timeline-undocked.gif"><br>当您需要在Mac上执行时间线录制时，请尝试将DevTools停靠到一个单独的窗口中，以便将录制按钮放在需要执行操作的页面部分附近。</p>
-<p>或者，使用快捷键Cmd + E启动和停止录制。</p>
-<p>通过这种方式进行录制，可以使录制的内容简短而甜美，并且可以减少录制时的“杂音”，因为您无需长时间在页面上移动鼠标。</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ol>
-<li>录制时间线的重点就是，缩短录制时间，仅仅录制要分析的操作，这样大大减少了分析成本。这个小技巧就是干这个的。</li>
-<li>有时候输入法的快捷键会跟我们的IDE快捷键冲突，比如 <code>ctrl shift f</code>在vscode中是聚焦到搜索面板，搜狗输入法是繁简体切换，Hotkey Commander<a href="https://gitee.com/alasq/tools/raw/master/Hotkey%20Commander/hkcmdr_inst.exe"> [ 下载 ]</a>这个工具可以检测快捷键的冲突<br><img src="https://upload-images.jianshu.io/upload_images/8156292-b3ec75b5e13a6402.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1>假如我们写一个vscode 插件，怎么尽可能的不与现有的快捷键冲突</li>
-</ol>
+    <title>2021-4-7- Chrome Devtools Tip： 10.Console面板的一些API</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2010.%20Console%E9%9D%A2%E6%9D%BF%E7%9A%84%E4%B8%80%E4%BA%9BAPI/</url>
+    <content><![CDATA[<h1 id="快速监控JavaScript中的事件"><a href="#快速监控JavaScript中的事件" class="headerlink" title="快速监控JavaScript中的事件"></a>快速监控JavaScript中的事件</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-b7226d2fe4dede77.gif?imageMogr2/auto-orient/strip" alt="monitor-events.gif"><br>您可以使用命令行API方法<code>monitorEvents（object [，events]）</code>记录分发给对象的所有事件。然后将事件对象记录到控制台。当您需要提醒事件对象的可用属性时很有用。</p>
+<h2 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h2><p>例如，直接在控制台面板中尝试以下代码：</p>
+<blockquote>
+<p>monitorEvents(window, ‘click’)  </p>
+</blockquote>
+<p>当您在网页中单击时，现在应该看到click事件自动记录到控制台。</p>
+<h1 id="控制台获取当前选定的DOM节点的快捷方式"><a href="#控制台获取当前选定的DOM节点的快捷方式" class="headerlink" title="控制台获取当前选定的DOM节点的快捷方式"></a>控制台获取当前选定的DOM节点的快捷方式</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-f6444ade5bf7074e.gif?imageMogr2/auto-orient/strip" alt="dollar-zero.gif"></p>
+<p>在“Element”面板中选择节点后，请在控制台面板中使用表达式<code>$0</code>进行访问。您还可以使用<code>$_</code>访问最近求值的表达式的值</p>
+<h1 id="控制台快速定位DOM位置"><a href="#控制台快速定位DOM位置" class="headerlink" title="控制台快速定位DOM位置"></a>控制台快速定位DOM位置</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-2d4c59000b3e4d31.gif?imageMogr2/auto-orient/strip" alt="reveal-in-elements.gif"></p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 12. Element面板</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2012.%20Element%E9%9D%A2%E6%9D%BF/</url>
+    <content><![CDATA[<h1 id="1-Alt-Click展开所有的子节点"><a href="#1-Alt-Click展开所有的子节点" class="headerlink" title="1. Alt + Click展开所有的子节点"></a>1. Alt + Click展开所有的子节点</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-4524814cf7ea524e.gif?imageMogr2/auto-orient/strip" alt="alt-click-expand-node.gif"></p>
+<h1 id="2-轻松修改tagName"><a href="#2-轻松修改tagName" class="headerlink" title="2. 轻松修改tagName"></a>2. 轻松修改tagName</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-7ef233fca006f66a.gif?imageMogr2/auto-orient/strip" alt="quick-edit-element.gif"></p>
+<h1 id="3-查看元素的事件侦听器"><a href="#3-查看元素的事件侦听器" class="headerlink" title="3. 查看元素的事件侦听器"></a>3. 查看元素的事件侦听器</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-731375e6190683ef.gif?imageMogr2/auto-orient/strip" alt="view-event-listeners.gif"></p>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>DevTools可以向您显示在元素上注册的JavaScript事件侦听器。例如，向click注册的处理程序.addEventListener()。</p>
+<p>DevTools还可将您带到注册该事件的确切代码行，这在从中进行外部调试时非常有用。</p>
+<p>###如何使用此功能<br>在“Element”面板中检查元素<br>导航到“Element”面板中的“Event Listener”窗格<br>浏览在任何节点上注册的事件。您可以通过在上下文菜单中选择“显示函数定义”来查看事件侦听器的源。</p>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>有时候事件显示特别多，可以去掉 <code>Ancestors</code>复选框，只显示绑定在元素自身的事件，而非被代理的事件</p>
+<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><p>事件的冒泡与代理，事件的队列</p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 13. 通过快捷键快速切换 devtools 附着状态</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2013.%20%E9%80%9A%E8%BF%87%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2%20devtools%20%E9%99%84%E7%9D%80%E7%8A%B6%E6%80%81/</url>
+    <content><![CDATA[<p><code>Ctrl + Shift + D</code><br><img src="https://upload-images.jianshu.io/upload_images/8156292-1429d3fb31add89d.gif?imageMogr2/auto-orient/strip" alt="dock-undock-shortcut.gif"></p>
+<h1 id="调试chrome-devtools面板自身"><a href="#调试chrome-devtools面板自身" class="headerlink" title="调试chrome devtools面板自身"></a>调试chrome devtools面板自身</h1><p>chrome devtools 可以检查我们的htnl页面，而devtools自身也是一个html页面，可以通过 <code>Ctrl shift I </code>快捷键调试检查面板自己，适用场景为devtools插件开发</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -878,22 +904,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 12. Element面板</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2012.%20Element%E9%9D%A2%E6%9D%BF/</url>
-    <content><![CDATA[<h1 id="1-Alt-Click展开所有的子节点"><a href="#1-Alt-Click展开所有的子节点" class="headerlink" title="1. Alt + Click展开所有的子节点"></a>1. Alt + Click展开所有的子节点</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-4524814cf7ea524e.gif?imageMogr2/auto-orient/strip" alt="alt-click-expand-node.gif"></p>
-<h1 id="2-轻松修改tagName"><a href="#2-轻松修改tagName" class="headerlink" title="2. 轻松修改tagName"></a>2. 轻松修改tagName</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-7ef233fca006f66a.gif?imageMogr2/auto-orient/strip" alt="quick-edit-element.gif"></p>
-<h1 id="3-查看元素的事件侦听器"><a href="#3-查看元素的事件侦听器" class="headerlink" title="3. 查看元素的事件侦听器"></a>3. 查看元素的事件侦听器</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-731375e6190683ef.gif?imageMogr2/auto-orient/strip" alt="view-event-listeners.gif"></p>
-<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>DevTools可以向您显示在元素上注册的JavaScript事件侦听器。例如，向click注册的处理程序.addEventListener()。</p>
-<p>DevTools还可将您带到注册该事件的确切代码行，这在从中进行外部调试时非常有用。</p>
-<p>###如何使用此功能<br>在“Element”面板中检查元素<br>导航到“Element”面板中的“Event Listener”窗格<br>浏览在任何节点上注册的事件。您可以通过在上下文菜单中选择“显示函数定义”来查看事件侦听器的源。</p>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>有时候事件显示特别多，可以去掉 <code>Ancestors</code>复选框，只显示绑定在元素自身的事件，而非被代理的事件</p>
-<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><p>事件的冒泡与代理，事件的队列</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 14.断点调试相关的技巧</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2014.%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E7%9B%B8%E5%85%B3%E7%9A%84%E6%8A%80%E5%B7%A7/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-b182b48798fc84b5.gif?imageMogr2/auto-orient/strip" alt="highlight-paused-statement.gif"><br>调试器暂停后，您现在可以看到正在执行的代码的确切部分。它以高亮显示较深的蓝色阴影。这在调试精简代码时很有用。</p>
@@ -903,16 +913,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <h3 id="通过DOM被修改，被移除命中断点"><a href="#通过DOM被修改，被移除命中断点" class="headerlink" title="通过DOM被修改，被移除命中断点"></a>通过DOM被修改，被移除命中断点</h3><p><img src="https://upload-images.jianshu.io/upload_images/8156292-a07045fdf96cc168.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h3 id="通过触发网络请求命中断点"><a href="#通过触发网络请求命中断点" class="headerlink" title="通过触发网络请求命中断点"></a>通过触发网络请求命中断点</h3><p><img src="https://upload-images.jianshu.io/upload_images/8156292-f9c5980598e753fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h3 id="断点触发后，按住Ctrl-能跳转到的地方会被高亮"><a href="#断点触发后，按住Ctrl-能跳转到的地方会被高亮" class="headerlink" title="断点触发后，按住Ctrl 能跳转到的地方会被高亮"></a>断点触发后，按住Ctrl 能跳转到的地方会被高亮</h3><p><img src="https://upload-images.jianshu.io/upload_images/8156292-371da7a472f180de.gif?imageMogr2/auto-orient/strip" alt="js-jump-to-destination.gif"></p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 13. 通过快捷键快速切换 devtools 附着状态</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2013.%20%E9%80%9A%E8%BF%87%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2%20devtools%20%E9%99%84%E7%9D%80%E7%8A%B6%E6%80%81/</url>
-    <content><![CDATA[<p><code>Ctrl + Shift + D</code><br><img src="https://upload-images.jianshu.io/upload_images/8156292-1429d3fb31add89d.gif?imageMogr2/auto-orient/strip" alt="dock-undock-shortcut.gif"></p>
-<h1 id="调试chrome-devtools面板自身"><a href="#调试chrome-devtools面板自身" class="headerlink" title="调试chrome devtools面板自身"></a>调试chrome devtools面板自身</h1><p>chrome devtools 可以检查我们的htnl页面，而devtools自身也是一个html页面，可以通过 <code>Ctrl shift I </code>快捷键调试检查面板自己，适用场景为devtools插件开发</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -929,6 +929,15 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>彩色格式切换器（十六进制，rgba，hsla）。</li>
 <li>对比度功能（当前景色与背景色对比度不高的时候会提示）</li>
 </ul>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 17. 调试jquery 事件监听</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2017.%20%E8%B0%83%E8%AF%95jquery%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-c203c83afc13da33.gif?imageMogr2/auto-orient/strip" alt="jquery-event-listeners.gif"><br>jquery事件监听指向jquery的源代码，这对于调试没啥用，我们可以通过查看监听器方法的定义，找到事件处理函数</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -953,15 +962,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2018.%20%E9%9A%90%E8%97%8F%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E6%8A%A5%E9%94%99%E7%9A%84console.error/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-5a09ee8fb823b683.gif?imageMogr2/auto-orient/strip" alt="hide-network-console.gif"></p>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>在定位页面无限重定向,比如一直跳转登录的时候,可以勾选上 <code>Preserve log</code>复选框,查看页面信息<br>在console中执行代码的上下文是根据iframe来的,记得切换iframe来执行相应的代码</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 17. 调试jquery 事件监听</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2017.%20%E8%B0%83%E8%AF%95jquery%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-c203c83afc13da33.gif?imageMogr2/auto-orient/strip" alt="jquery-event-listeners.gif"><br>jquery事件监听指向jquery的源代码，这对于调试没啥用，我们可以通过查看监听器方法的定义，找到事件处理函数</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1196,16 +1196,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 38. 复制完整的调用栈</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2038.%20%E5%A4%8D%E5%88%B6%E5%AE%8C%E6%95%B4%E7%9A%84%E8%B0%83%E7%94%A8%E6%A0%88/</url>
-    <content><![CDATA[<p>当打断点的时候,可以在如下图进行调用栈的复制,复制到剪贴板!!<br><img src="https://upload-images.jianshu.io/upload_images/8156292-369ec63c02f61443.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h1 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h1><p>这个鸡肋功能到底有啥用啊?? 发stackOverflow帖子的时候用吗?</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 39. 网页全页截图</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2039.%20%E7%BD%91%E9%A1%B5%E5%85%A8%E9%A1%B5%E6%88%AA%E5%9B%BE/</url>
     <content><![CDATA[<p>这个真心不错,以前都是装插件使用滚动截图的功能弄得</p>
@@ -1216,6 +1206,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 </ol>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>如果觉得每次找这个命令麻烦,可以把该功能设置成快捷键<br>除了全页截图,还有<br>Capture node screenshot - 截取正在检查的节点<br>Capture screenshot - 只截取可视区域的页面<br>Capture full size screenshot - 整个页面的截图,即使没有呈现在可视区域内的<br>Capture area screenshot - 跟QQ截图一样,自己划定区域</p>
 <h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>这个截图功能在做自动化测试时候非常有用,不知道 webDriver是不是用这种内置API去实现的,还是说用的c++调用操作系统能力去实现的?有知道的老铁留言讨论下</p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 38. 复制完整的调用栈</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2038.%20%E5%A4%8D%E5%88%B6%E5%AE%8C%E6%95%B4%E7%9A%84%E8%B0%83%E7%94%A8%E6%A0%88/</url>
+    <content><![CDATA[<p>当打断点的时候,可以在如下图进行调用栈的复制,复制到剪贴板!!<br><img src="https://upload-images.jianshu.io/upload_images/8156292-369ec63c02f61443.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h1><p>这个鸡肋功能到底有啥用啊?? 发stackOverflow帖子的时候用吗?</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1315,35 +1315,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>让 chrome h5 支持 m3u8格式视频</title>
-    <url>/2021/09/26/chrome/%E8%AE%A9-chrome-H5-%E6%94%AF%E6%8C%81-m3u8%E6%A0%BC%E5%BC%8F%E8%A7%86%E9%A2%91/</url>
-    <content><![CDATA[<ul>
-<li><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Audio_and_video_delivery">Audio_and_video_delivery</a></p>
-</li>
-<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery/Live_streaming_web_audio_and_video">Live streaming web audio and video</a></p>
-</li>
-<li><p><a href="https://www.jianshu.com/p/e97f6555a070">m3u8 文件格式详解</a></p>
-</li>
-<li><p>HTTP live Streaming (HLS)</p>
-</li>
-<li><p>chrome 桌面版是不支持 m3u8格式视频的直接播放</p>
-</li>
-<li><p>可以通过 hls.js来支持m3u8源的播放,其他播放器也可以</p>
-</li>
-<li><p>videojs要支持hls类型视频的播放需要安装 videojs-contrib-hls</p>
-</li>
-<li><p><a href="https://www.vdocipher.com/blog/2020/09/online-video-player-html5-website/">Top 17 Online Video Players For 2021</a></p>
-</li>
-<li><p>西瓜视频播放器值得推荐</p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>chrome</tag>
-        <tag>m38u</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021-4-19- windows系统rust wasm环境准备</title>
     <url>/2021/04/19/rust/2021-4-19-%20windows%E7%B3%BB%E7%BB%9Frust%20wasm%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</url>
     <content><![CDATA[<h1 id="rust开发环境搭建"><a href="#rust开发环境搭建" class="headerlink" title="rust开发环境搭建"></a>rust开发环境搭建</h1><p>rustup-init 下载地址 <a href="https://www.rust-lang.org/zh-CN/tools/install">https://www.rust-lang.org/zh-CN/tools/install</a></p>
@@ -1376,6 +1347,43 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>让 chrome h5 支持 m3u8格式视频</title>
+    <url>/2021/09/26/chrome/%E8%AE%A9-chrome-H5-%E6%94%AF%E6%8C%81-m3u8%E6%A0%BC%E5%BC%8F%E8%A7%86%E9%A2%91/</url>
+    <content><![CDATA[<ul>
+<li><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Audio_and_video_delivery">Audio_and_video_delivery</a></p>
+</li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery/Live_streaming_web_audio_and_video">Live streaming web audio and video</a></p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/e97f6555a070">m3u8 文件格式详解</a></p>
+</li>
+<li><p>HTTP live Streaming (HLS)</p>
+</li>
+<li><p>chrome 桌面版是不支持 m3u8格式视频的直接播放</p>
+</li>
+<li><p>可以通过 hls.js来支持m3u8源的播放,其他播放器也可以</p>
+</li>
+<li><p>videojs要支持hls类型视频的播放需要安装 videojs-contrib-hls</p>
+</li>
+<li><p><a href="https://www.vdocipher.com/blog/2020/09/online-video-player-html5-website/">Top 17 Online Video Players For 2021</a></p>
+</li>
+<li><p>西瓜视频播放器值得推荐</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>chrome</tag>
+        <tag>m38u</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>开发灵异事件之base64图片传输</title>
+    <url>/2021/09/09/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bbase64%E5%9B%BE%E7%89%87%E4%BC%A0%E8%BE%93/</url>
+    <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>发出去的请求一毛一样，都包含了同一张base64格式的图片，图片显示出来是一样的。对比内容不一样。但是请求时间差距3分钟，甚至超时。接口20M大小的图片也能秒级处理。 图片来源一个是前端上传转换的base64，一个是后端把pdf文件首页转换出来的。</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>后端生成的图片base64包含大量的换行符，http协议中的换行符有特殊含义，会被网关服务器解析，导致请求超时。</p>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>base64格式里面有大量的换行符，会严重影响传输效率</p>
+]]></content>
+  </entry>
+  <entry>
     <title>wa-lang windows踩坑指南</title>
     <url>/2022/11/20/wa-lang/wa%20windows%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<h1 id="wa-lang-windows系统初体验"><a href="#wa-lang-windows系统初体验" class="headerlink" title="wa-lang windows系统初体验"></a>wa-lang windows系统初体验</h1><p><img src="images/2022-11-19-15-49-38.png"><br>按照官网的执行的install，嗯安装不上，应该是被墙了？<br>不过翻墙后仍然报错!!</p>
@@ -1394,14 +1402,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       <tags>
         <tag>wa-lang</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>开发灵异事件之base64图片传输</title>
-    <url>/2021/09/09/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bbase64%E5%9B%BE%E7%89%87%E4%BC%A0%E8%BE%93/</url>
-    <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>发出去的请求一毛一样，都包含了同一张base64格式的图片，图片显示出来是一样的。对比内容不一样。但是请求时间差距3分钟，甚至超时。接口20M大小的图片也能秒级处理。 图片来源一个是前端上传转换的base64，一个是后端把pdf文件首页转换出来的。</p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>后端生成的图片base64包含大量的换行符，http协议中的换行符有特殊含义，会被网关服务器解析，导致请求超时。</p>
-<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>base64格式里面有大量的换行符，会严重影响传输效率</p>
-]]></content>
   </entry>
   <entry>
     <title>开发灵异事件之base64图片传输</title>
@@ -1651,6 +1651,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>JSON Stream 用于JSON数据的解析</title>
+    <url>/2021/09/25/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/JSON-Stream-%E7%94%A8%E4%BA%8EJSON%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A7%A3%E6%9E%90/</url>
+    <content><![CDATA[<p>JSON Stream使用流的方式去解析JSON文件,即使是非常大的文件也不会造成内存卡顿</p>
+<p><a href="https://www.npmjs.com/package/JSONStream">https://www.npmjs.com/package/JSONStream</a></p>
+]]></content>
+      <tags>
+        <tag>json npm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UI框架之uikit</title>
     <url>/2021/09/13/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/UI%E6%A1%86%E6%9E%B6%E4%B9%8Buikit/</url>
     <content><![CDATA[<h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p><a href="https://getuikit.com/">官网</a></p>
@@ -1678,16 +1688,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>流程图</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JSON Stream 用于JSON数据的解析</title>
-    <url>/2021/09/25/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/JSON-Stream-%E7%94%A8%E4%BA%8EJSON%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A7%A3%E6%9E%90/</url>
-    <content><![CDATA[<p>JSON Stream使用流的方式去解析JSON文件,即使是非常大的文件也不会造成内存卡顿</p>
-<p><a href="https://www.npmjs.com/package/JSONStream">https://www.npmjs.com/package/JSONStream</a></p>
-]]></content>
-      <tags>
-        <tag>json npm</tag>
       </tags>
   </entry>
   <entry>
@@ -1875,21 +1875,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7-在博客中使用简书的图片</title>
-    <url>/2021/04/07/%E5%8D%9A%E5%AE%A2/2021-4-7-%E5%9C%A8%E5%8D%9A%E5%AE%A2%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%AE%80%E4%B9%A6%E7%9A%84%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<p>正常使用简书的图片会出现403错误,需要在页面头<code>_includes\head.html</code>加入   <code>&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;</code>防止被简书安全措施(跨站请求伪造)拦截</p>
-]]></content>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo github pages 域名设置</title>
-    <url>/2021/05/06/%E5%8D%9A%E5%AE%A2/2021-5-6-%20hexo%20cname%20github%20pages%20%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</url>
-    <content><![CDATA[<p>将<code>CNAME</code>文件放在 <code>/source/</code>目录下即可</p>
-]]></content>
-  </entry>
-  <entry>
     <title>netlify介绍</title>
     <url>/2021/12/17/%E5%8D%9A%E5%AE%A2/netlify%E4%BB%8B%E7%BB%8D/</url>
     <content><![CDATA[<h1 id="目前博客存在的问题"><a href="#目前博客存在的问题" class="headerlink" title="目前博客存在的问题"></a>目前博客存在的问题</h1><p>github pages服务部署,国内访问很慢,github防止百度爬虫不收录</p>
@@ -1908,6 +1893,21 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       <tags>
         <tag>博客</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>2021-4-7-在博客中使用简书的图片</title>
+    <url>/2021/04/07/%E5%8D%9A%E5%AE%A2/2021-4-7-%E5%9C%A8%E5%8D%9A%E5%AE%A2%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%AE%80%E4%B9%A6%E7%9A%84%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<p>正常使用简书的图片会出现403错误,需要在页面头<code>_includes\head.html</code>加入   <code>&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;</code>防止被简书安全措施(跨站请求伪造)拦截</p>
+]]></content>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo github pages 域名设置</title>
+    <url>/2021/05/06/%E5%8D%9A%E5%AE%A2/2021-5-6-%20hexo%20cname%20github%20pages%20%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</url>
+    <content><![CDATA[<p>将<code>CNAME</code>文件放在 <code>/source/</code>目录下即可</p>
+]]></content>
   </entry>
   <entry>
     <title>给hexo next换个色调</title>
@@ -1994,6 +1994,15 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>IDEA maven helper 插件</title>
+    <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA-maven-helper-%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<p>用于分析没有使用的jar包依赖</p>
+]]></content>
+      <tags>
+        <tag>IDEA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git常见问题</title>
     <url>/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="使用git提交到github-每次都要输入用户名和密码的解决方法"><a href="#使用git提交到github-每次都要输入用户名和密码的解决方法" class="headerlink" title="使用git提交到github,每次都要输入用户名和密码的解决方法"></a>使用git提交到github,每次都要输入用户名和密码的解决方法</h1><p><a href="https://www.cnblogs.com/sky6862/p/7992736.html">https://www.cnblogs.com/sky6862/p/7992736.html</a></p>
@@ -2006,15 +2015,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>IDEA maven helper 插件</title>
-    <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA-maven-helper-%E6%8F%92%E4%BB%B6/</url>
-    <content><![CDATA[<p>用于分析没有使用的jar包依赖</p>
-]]></content>
-      <tags>
-        <tag>IDEA</tag>
       </tags>
   </entry>
   <entry>
@@ -2125,16 +2125,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>设置node最大使用内存</title>
-    <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E8%AE%BE%E7%BD%AEnode%E6%9C%80%E5%A4%A7%E4%BD%BF%E7%94%A8%E5%86%85%E5%AD%98/</url>
-    <content><![CDATA[<p>node的最大使用内存是2G 超出会导致程序退出</p>
-<p>下面设置的是4096M<br><code>setx NODE_OPTIONS --max_old_space_size=4096</code></p>
-]]></content>
-      <tags>
-        <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>启动tomcat时,log出现淇℃伅</title>
     <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E5%90%AF%E5%8A%A8tomcat%E6%97%B6-log%E5%87%BA%E7%8E%B0%E6%B7%87%E2%84%83/</url>
     <content><![CDATA[<p><code>淇℃伅</code>其实是 <code>信息</code>的乱码显示<br>修改tomcat安装目录下的<code>config/logging.properties</code>文件,找到<code>java.util.logging.Consolehandler.encoding</code>,将值改成<code>GBK</code>即可解决该问题。我下载的comcat8.5默认是<code>UTF-8</code></p>
@@ -2142,6 +2132,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <figure class="highlight properties"><figcaption><span>config/logging.properties</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">java.util.logging.Consolehandler.encoding</span> = <span class="string">GBK</span></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>tomcat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>设置node最大使用内存</title>
+    <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E8%AE%BE%E7%BD%AEnode%E6%9C%80%E5%A4%A7%E4%BD%BF%E7%94%A8%E5%86%85%E5%AD%98/</url>
+    <content><![CDATA[<p>node的最大使用内存是2G 超出会导致程序退出</p>
+<p>下面设置的是4096M<br><code>setx NODE_OPTIONS --max_old_space_size=4096</code></p>
+]]></content>
+      <tags>
+        <tag>node</tag>
       </tags>
   </entry>
   <entry>
