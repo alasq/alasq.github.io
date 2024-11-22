@@ -196,6 +196,18 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>burp suite</title>
+    <url>/2021/09/26/burp-suite/</url>
+    <content><![CDATA[<p>集成化的渗透测试工具<br><a href="https://t0data.gitbooks.io/burpsuite/content/">Burp Suite 实战指南</a></p>
+<p>抓包功能也是吊打fiddler,真心好用</p>
+<p>Burp Suite 配合 AWVS web网络漏洞扫描工具使用</p>
+<p>DFNRecorder用来模拟登录的,类似于webDriver 是IBM Security APPScan Standard的一部分</p>
+]]></content>
+      <tags>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>babel与core-js</title>
     <url>/2021/12/09/babel%E4%B8%8Ecore-js%E7%9A%84%E5%85%B3%E7%B3%BB/</url>
     <content><![CDATA[<h1 id="babel-垫片是什么"><a href="#babel-垫片是什么" class="headerlink" title="babel,垫片是什么?"></a>babel,垫片是什么?</h1><ol>
@@ -219,18 +231,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>babel</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>burp suite</title>
-    <url>/2021/09/26/burp-suite/</url>
-    <content><![CDATA[<p>集成化的渗透测试工具<br><a href="https://t0data.gitbooks.io/burpsuite/content/">Burp Suite 实战指南</a></p>
-<p>抓包功能也是吊打fiddler,真心好用</p>
-<p>Burp Suite 配合 AWVS web网络漏洞扫描工具使用</p>
-<p>DFNRecorder用来模拟登录的,类似于webDriver 是IBM Security APPScan Standard的一部分</p>
-]]></content>
-      <tags>
-        <tag>test</tag>
       </tags>
   </entry>
   <entry>
@@ -295,15 +295,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>一个10年工程师的感慨</title>
-    <url>/2021/09/25/%E4%B8%80%E4%B8%AA10%E5%B9%B4%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%84%9F%E6%85%A8/</url>
-    <content><![CDATA[<p>原文 <a href="https://old.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/">https://old.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/</a></p>
-]]></content>
-      <tags>
-        <tag>好文</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>web技术方向的思考</title>
     <url>/2024/11/11/web%E6%8A%80%E6%9C%AF%E6%96%B9%E5%90%91%E7%9A%84%E6%80%9D%E8%80%83/</url>
     <content><![CDATA[<p>好久没写文章了，适当的回顾下过去展望下未来总是好的。</p>
@@ -340,6 +331,15 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>图片处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一个10年工程师的感慨</title>
+    <url>/2021/09/25/%E4%B8%80%E4%B8%AA10%E5%B9%B4%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%84%9F%E6%85%A8/</url>
+    <content><![CDATA[<p>原文 <a href="https://old.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/">https://old.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/</a></p>
+]]></content>
+      <tags>
+        <tag>好文</tag>
       </tags>
   </entry>
   <entry>
@@ -844,32 +844,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 12. Element面板</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2012.%20Element%E9%9D%A2%E6%9D%BF/</url>
-    <content><![CDATA[<h1 id="1-Alt-Click展开所有的子节点"><a href="#1-Alt-Click展开所有的子节点" class="headerlink" title="1. Alt + Click展开所有的子节点"></a>1. Alt + Click展开所有的子节点</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-4524814cf7ea524e.gif?imageMogr2/auto-orient/strip" alt="alt-click-expand-node.gif"></p>
-<h1 id="2-轻松修改tagName"><a href="#2-轻松修改tagName" class="headerlink" title="2. 轻松修改tagName"></a>2. 轻松修改tagName</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-7ef233fca006f66a.gif?imageMogr2/auto-orient/strip" alt="quick-edit-element.gif"></p>
-<h1 id="3-查看元素的事件侦听器"><a href="#3-查看元素的事件侦听器" class="headerlink" title="3. 查看元素的事件侦听器"></a>3. 查看元素的事件侦听器</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-731375e6190683ef.gif?imageMogr2/auto-orient/strip" alt="view-event-listeners.gif"></p>
-<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>DevTools可以向您显示在元素上注册的JavaScript事件侦听器。例如，向click注册的处理程序.addEventListener()。</p>
-<p>DevTools还可将您带到注册该事件的确切代码行，这在从中进行外部调试时非常有用。</p>
-<p>###如何使用此功能<br>在“Element”面板中检查元素<br>导航到“Element”面板中的“Event Listener”窗格<br>浏览在任何节点上注册的事件。您可以通过在上下文菜单中选择“显示函数定义”来查看事件侦听器的源。</p>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>有时候事件显示特别多，可以去掉 <code>Ancestors</code>复选框，只显示绑定在元素自身的事件，而非被代理的事件</p>
-<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><p>事件的冒泡与代理，事件的队列</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 13. 通过快捷键快速切换 devtools 附着状态</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2013.%20%E9%80%9A%E8%BF%87%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2%20devtools%20%E9%99%84%E7%9D%80%E7%8A%B6%E6%80%81/</url>
-    <content><![CDATA[<p><code>Ctrl + Shift + D</code><br><img src="https://upload-images.jianshu.io/upload_images/8156292-1429d3fb31add89d.gif?imageMogr2/auto-orient/strip" alt="dock-undock-shortcut.gif"></p>
-<h1 id="调试chrome-devtools面板自身"><a href="#调试chrome-devtools面板自身" class="headerlink" title="调试chrome devtools面板自身"></a>调试chrome devtools面板自身</h1><p>chrome devtools 可以检查我们的htnl页面，而devtools自身也是一个html页面，可以通过 <code>Ctrl shift I </code>快捷键调试检查面板自己，适用场景为devtools插件开发</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 11.Network 网络面板过滤器</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2011.%20Network%20%E7%BD%91%E7%BB%9C%E9%9D%A2%E6%9D%BF%E8%BF%87%E6%BB%A4%E5%99%A8/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-7fbd6b075cec6c2d.gif?imageMogr2/auto-orient/strip" alt="is-running.gif"></p>
@@ -898,6 +872,32 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <li>  status-code</li>
 <li>  url<h1 id="查看网络资源依赖关系"><a href="#查看网络资源依赖关系" class="headerlink" title="查看网络资源依赖关系"></a>查看网络资源依赖关系</h1><img src="https://upload-images.jianshu.io/upload_images/8156292-de7a51900ab3d6b1.gif?imageMogr2/auto-orient/strip" alt="network-dependency.gif"><br>点击到具体的请求，查看 initiator 面板也是可以看到的 请求的调用栈与树状依赖结构</li>
 </ul>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 12. Element面板</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2012.%20Element%E9%9D%A2%E6%9D%BF/</url>
+    <content><![CDATA[<h1 id="1-Alt-Click展开所有的子节点"><a href="#1-Alt-Click展开所有的子节点" class="headerlink" title="1. Alt + Click展开所有的子节点"></a>1. Alt + Click展开所有的子节点</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-4524814cf7ea524e.gif?imageMogr2/auto-orient/strip" alt="alt-click-expand-node.gif"></p>
+<h1 id="2-轻松修改tagName"><a href="#2-轻松修改tagName" class="headerlink" title="2. 轻松修改tagName"></a>2. 轻松修改tagName</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-7ef233fca006f66a.gif?imageMogr2/auto-orient/strip" alt="quick-edit-element.gif"></p>
+<h1 id="3-查看元素的事件侦听器"><a href="#3-查看元素的事件侦听器" class="headerlink" title="3. 查看元素的事件侦听器"></a>3. 查看元素的事件侦听器</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-731375e6190683ef.gif?imageMogr2/auto-orient/strip" alt="view-event-listeners.gif"></p>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>DevTools可以向您显示在元素上注册的JavaScript事件侦听器。例如，向click注册的处理程序.addEventListener()。</p>
+<p>DevTools还可将您带到注册该事件的确切代码行，这在从中进行外部调试时非常有用。</p>
+<p>###如何使用此功能<br>在“Element”面板中检查元素<br>导航到“Element”面板中的“Event Listener”窗格<br>浏览在任何节点上注册的事件。您可以通过在上下文菜单中选择“显示函数定义”来查看事件侦听器的源。</p>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>有时候事件显示特别多，可以去掉 <code>Ancestors</code>复选框，只显示绑定在元素自身的事件，而非被代理的事件</p>
+<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><p>事件的冒泡与代理，事件的队列</p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 13. 通过快捷键快速切换 devtools 附着状态</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2013.%20%E9%80%9A%E8%BF%87%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2%20devtools%20%E9%99%84%E7%9D%80%E7%8A%B6%E6%80%81/</url>
+    <content><![CDATA[<p><code>Ctrl + Shift + D</code><br><img src="https://upload-images.jianshu.io/upload_images/8156292-1429d3fb31add89d.gif?imageMogr2/auto-orient/strip" alt="dock-undock-shortcut.gif"></p>
+<h1 id="调试chrome-devtools面板自身"><a href="#调试chrome-devtools面板自身" class="headerlink" title="调试chrome devtools面板自身"></a>调试chrome devtools面板自身</h1><p>chrome devtools 可以检查我们的htnl页面，而devtools自身也是一个html页面，可以通过 <code>Ctrl shift I </code>快捷键调试检查面板自己，适用场景为devtools插件开发</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -935,15 +935,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 17. 调试jquery 事件监听</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2017.%20%E8%B0%83%E8%AF%95jquery%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-c203c83afc13da33.gif?imageMogr2/auto-orient/strip" alt="jquery-event-listeners.gif"><br>jquery事件监听指向jquery的源代码，这对于调试没啥用，我们可以通过查看监听器方法的定义，找到事件处理函数</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 16. 动画调试</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2016.%20%E5%8A%A8%E7%94%BB%E8%B0%83%E8%AF%95/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-f951ea3a660a13ac.gif?imageMogr2/auto-orient/strip" alt="easing-preview.gif"><br>如图，点击<code>ease-in</code>前面的icon可以预览渐变效果哟</p>
@@ -952,6 +943,15 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <h1 id="动画检查器"><a href="#动画检查器" class="headerlink" title="动画检查器"></a>动画检查器</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-19d5948d48e40fbb.gif?imageMogr2/auto-orient/strip" alt="animation-inspector.gif"></p>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>炫酷的动效能让老板分分钟给你加薪，因为它能让产品卖上价格，用户一看就是大制作，高端大气上档次，这才是前端的价值所在。</p>
 <h1 id="阴影调整器"><a href="#阴影调整器" class="headerlink" title="阴影调整器"></a>阴影调整器</h1><p><img src="https://upload-images.jianshu.io/upload_images/8156292-50867e7bfb721216.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 17. 调试jquery 事件监听</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2017.%20%E8%B0%83%E8%AF%95jquery%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/8156292-c203c83afc13da33.gif?imageMogr2/auto-orient/strip" alt="jquery-event-listeners.gif"><br>jquery事件监听指向jquery的源代码，这对于调试没啥用，我们可以通过查看监听器方法的定义，找到事件处理函数</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1196,6 +1196,16 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>2021-4-7- Chrome Devtools Tip： 38. 复制完整的调用栈</title>
+    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2038.%20%E5%A4%8D%E5%88%B6%E5%AE%8C%E6%95%B4%E7%9A%84%E8%B0%83%E7%94%A8%E6%A0%88/</url>
+    <content><![CDATA[<p>当打断点的时候,可以在如下图进行调用栈的复制,复制到剪贴板!!<br><img src="https://upload-images.jianshu.io/upload_images/8156292-369ec63c02f61443.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h1><p>这个鸡肋功能到底有啥用啊?? 发stackOverflow帖子的时候用吗?</p>
+]]></content>
+      <tags>
+        <tag>Chrome Devtools Tip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2021-4-7- Chrome Devtools Tip： 39. 网页全页截图</title>
     <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2039.%20%E7%BD%91%E9%A1%B5%E5%85%A8%E9%A1%B5%E6%88%AA%E5%9B%BE/</url>
     <content><![CDATA[<p>这个真心不错,以前都是装插件使用滚动截图的功能弄得</p>
@@ -1206,16 +1216,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 </ol>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>如果觉得每次找这个命令麻烦,可以把该功能设置成快捷键<br>除了全页截图,还有<br>Capture node screenshot - 截取正在检查的节点<br>Capture screenshot - 只截取可视区域的页面<br>Capture full size screenshot - 整个页面的截图,即使没有呈现在可视区域内的<br>Capture area screenshot - 跟QQ截图一样,自己划定区域</p>
 <h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>这个截图功能在做自动化测试时候非常有用,不知道 webDriver是不是用这种内置API去实现的,还是说用的c++调用操作系统能力去实现的?有知道的老铁留言讨论下</p>
-]]></content>
-      <tags>
-        <tag>Chrome Devtools Tip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021-4-7- Chrome Devtools Tip： 38. 复制完整的调用栈</title>
-    <url>/2021/04/07/Chrome%20Devtools%20Tip/2021-4-7-%20Chrome%20Devtools%20Tip%EF%BC%9A%2038.%20%E5%A4%8D%E5%88%B6%E5%AE%8C%E6%95%B4%E7%9A%84%E8%B0%83%E7%94%A8%E6%A0%88/</url>
-    <content><![CDATA[<p>当打断点的时候,可以在如下图进行调用栈的复制,复制到剪贴板!!<br><img src="https://upload-images.jianshu.io/upload_images/8156292-369ec63c02f61443.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h1 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h1><p>这个鸡肋功能到底有啥用啊?? 发stackOverflow帖子的时候用吗?</p>
 ]]></content>
       <tags>
         <tag>Chrome Devtools Tip</tag>
@@ -1315,6 +1315,35 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>让 chrome h5 支持 m3u8格式视频</title>
+    <url>/2021/09/26/chrome/%E8%AE%A9-chrome-H5-%E6%94%AF%E6%8C%81-m3u8%E6%A0%BC%E5%BC%8F%E8%A7%86%E9%A2%91/</url>
+    <content><![CDATA[<ul>
+<li><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Audio_and_video_delivery">Audio_and_video_delivery</a></p>
+</li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery/Live_streaming_web_audio_and_video">Live streaming web audio and video</a></p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/e97f6555a070">m3u8 文件格式详解</a></p>
+</li>
+<li><p>HTTP live Streaming (HLS)</p>
+</li>
+<li><p>chrome 桌面版是不支持 m3u8格式视频的直接播放</p>
+</li>
+<li><p>可以通过 hls.js来支持m3u8源的播放,其他播放器也可以</p>
+</li>
+<li><p>videojs要支持hls类型视频的播放需要安装 videojs-contrib-hls</p>
+</li>
+<li><p><a href="https://www.vdocipher.com/blog/2020/09/online-video-player-html5-website/">Top 17 Online Video Players For 2021</a></p>
+</li>
+<li><p>西瓜视频播放器值得推荐</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>chrome</tag>
+        <tag>m38u</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2021-4-19- windows系统rust wasm环境准备</title>
     <url>/2021/04/19/rust/2021-4-19-%20windows%E7%B3%BB%E7%BB%9Frust%20wasm%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</url>
     <content><![CDATA[<h1 id="rust开发环境搭建"><a href="#rust开发环境搭建" class="headerlink" title="rust开发环境搭建"></a>rust开发环境搭建</h1><p>rustup-init 下载地址 <a href="https://www.rust-lang.org/zh-CN/tools/install">https://www.rust-lang.org/zh-CN/tools/install</a></p>
@@ -1347,43 +1376,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>让 chrome h5 支持 m3u8格式视频</title>
-    <url>/2021/09/26/chrome/%E8%AE%A9-chrome-H5-%E6%94%AF%E6%8C%81-m3u8%E6%A0%BC%E5%BC%8F%E8%A7%86%E9%A2%91/</url>
-    <content><![CDATA[<ul>
-<li><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Audio_and_video_delivery">Audio_and_video_delivery</a></p>
-</li>
-<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery/Live_streaming_web_audio_and_video">Live streaming web audio and video</a></p>
-</li>
-<li><p><a href="https://www.jianshu.com/p/e97f6555a070">m3u8 文件格式详解</a></p>
-</li>
-<li><p>HTTP live Streaming (HLS)</p>
-</li>
-<li><p>chrome 桌面版是不支持 m3u8格式视频的直接播放</p>
-</li>
-<li><p>可以通过 hls.js来支持m3u8源的播放,其他播放器也可以</p>
-</li>
-<li><p>videojs要支持hls类型视频的播放需要安装 videojs-contrib-hls</p>
-</li>
-<li><p><a href="https://www.vdocipher.com/blog/2020/09/online-video-player-html5-website/">Top 17 Online Video Players For 2021</a></p>
-</li>
-<li><p>西瓜视频播放器值得推荐</p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>chrome</tag>
-        <tag>m38u</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>开发灵异事件之base64图片传输</title>
-    <url>/2021/09/09/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bbase64%E5%9B%BE%E7%89%87%E4%BC%A0%E8%BE%93/</url>
-    <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>发出去的请求一毛一样，都包含了同一张base64格式的图片，图片显示出来是一样的。对比内容不一样。但是请求时间差距3分钟，甚至超时。接口20M大小的图片也能秒级处理。 图片来源一个是前端上传转换的base64，一个是后端把pdf文件首页转换出来的。</p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>后端生成的图片base64包含大量的换行符，http协议中的换行符有特殊含义，会被网关服务器解析，导致请求超时。</p>
-<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>base64格式里面有大量的换行符，会严重影响传输效率</p>
-]]></content>
-  </entry>
-  <entry>
     <title>wa-lang windows踩坑指南</title>
     <url>/2022/11/20/wa-lang/wa%20windows%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<h1 id="wa-lang-windows系统初体验"><a href="#wa-lang-windows系统初体验" class="headerlink" title="wa-lang windows系统初体验"></a>wa-lang windows系统初体验</h1><p><img src="images/2022-11-19-15-49-38.png"><br>按照官网的执行的install，嗯安装不上，应该是被墙了？<br>不过翻墙后仍然报错!!</p>
@@ -1405,10 +1397,26 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
   </entry>
   <entry>
     <title>开发灵异事件之base64图片传输</title>
+    <url>/2021/09/09/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bbase64%E5%9B%BE%E7%89%87%E4%BC%A0%E8%BE%93/</url>
+    <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>发出去的请求一毛一样，都包含了同一张base64格式的图片，图片显示出来是一样的。对比内容不一样。但是请求时间差距3分钟，甚至超时。接口20M大小的图片也能秒级处理。 图片来源一个是前端上传转换的base64，一个是后端把pdf文件首页转换出来的。</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>后端生成的图片base64包含大量的换行符，http协议中的换行符有特殊含义，会被网关服务器解析，导致请求超时。</p>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>base64格式里面有大量的换行符，会严重影响传输效率</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>开发灵异事件之base64图片传输</title>
     <url>/2023/03/28/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8Bfix%E5%AE%9A%E4%BD%8D%E5%A4%B1%E8%B4%A5/</url>
     <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>使用了 <code>position:fixed</code>定位发现弹框不能定位到页面相对位置</p>
 <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>fixed默认是相对于页面的根元素的,但是有一种情况例外,就是如果父有元素做了transfrom变换的时候。此时会相对于该元素定位</p>
 <h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>fixed定位的元素建议作为body直接子元素使用</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>开发灵异事件之显示模糊</title>
+    <url>/2023/03/28/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E6%98%BE%E7%A4%BA%E6%A8%A1%E7%B3%8A/</url>
+    <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>弹框看起来很模糊</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>弹框写了居中效果,但是用了的方式是 <code>transform:translate(-50%,-50%,);left:50%</code>,但是弹框的宽度 或者 高度使用的单位是奇数 例如 <code>501px</code> 就会模糊 因为电脑是没办法识别<code>0.5px</code>这种显示的</p>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>居中的话建议用使用 上下左右0 的写法 , <code>margin auto</code> 或者<code>flex布局</code></p>
 ]]></content>
   </entry>
   <entry>
@@ -1419,14 +1427,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>后台接口转发可以解决</p>
 <p>图片服务器增加允许跨域相关响应头</p>
 <p>前端用image拿到图片资源，使用Blob对象下载</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>开发灵异事件之显示模糊</title>
-    <url>/2023/03/28/web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%81%B5%E5%BC%82%E4%BA%8B%E4%BB%B6%E4%B9%8B%E6%98%BE%E7%A4%BA%E6%A8%A1%E7%B3%8A/</url>
-    <content><![CDATA[<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>弹框看起来很模糊</p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>弹框写了居中效果,但是用了的方式是 <code>transform:translate(-50%,-50%,);left:50%</code>,但是弹框的宽度 或者 高度使用的单位是奇数 例如 <code>501px</code> 就会模糊 因为电脑是没办法识别<code>0.5px</code>这种显示的</p>
-<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>居中的话建议用使用 上下左右0 的写法 , <code>margin auto</code> 或者<code>flex布局</code></p>
 ]]></content>
   </entry>
   <entry>
@@ -1661,6 +1661,20 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
+    <title>bpmn 业务流程建模与标注</title>
+    <url>/2021/09/25/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/bpmn-io/</url>
+    <content><![CDATA[<p><a href="https://bpmn.io/">https://bpmn.io</a> 用于绘制流程图的js库</p>
+<blockquote>
+<p>BPMN Business Process Modeling Notation 业务流程建模与标注</p>
+</blockquote>
+<p>中文文档 <a href="https://github.com/LinDaiDai/bpmn-chinese-document">https://github.com/LinDaiDai/bpmn-chinese-document</a></p>
+<p><em>另外还有个mermaid Markdown的流程图绘制库</em></p>
+]]></content>
+      <tags>
+        <tag>流程图</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UI框架之uikit</title>
     <url>/2021/09/13/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/UI%E6%A1%86%E6%9E%B6%E4%B9%8Buikit/</url>
     <content><![CDATA[<h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p><a href="https://getuikit.com/">官网</a></p>
@@ -1674,20 +1688,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>UI Framework</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>bpmn 业务流程建模与标注</title>
-    <url>/2021/09/25/%E5%8C%85%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/bpmn-io/</url>
-    <content><![CDATA[<p><a href="https://bpmn.io/">https://bpmn.io</a> 用于绘制流程图的js库</p>
-<blockquote>
-<p>BPMN Business Process Modeling Notation 业务流程建模与标注</p>
-</blockquote>
-<p>中文文档 <a href="https://github.com/LinDaiDai/bpmn-chinese-document">https://github.com/LinDaiDai/bpmn-chinese-document</a></p>
-<p><em>另外还有个mermaid Markdown的流程图绘制库</em></p>
-]]></content>
-      <tags>
-        <tag>流程图</tag>
       </tags>
   </entry>
   <entry>
@@ -1875,26 +1875,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>netlify介绍</title>
-    <url>/2021/12/17/%E5%8D%9A%E5%AE%A2/netlify%E4%BB%8B%E7%BB%8D/</url>
-    <content><![CDATA[<h1 id="目前博客存在的问题"><a href="#目前博客存在的问题" class="headerlink" title="目前博客存在的问题"></a>目前博客存在的问题</h1><p>github pages服务部署,国内访问很慢,github防止百度爬虫不收录</p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>使用netlify可以做静态网站的cdn部署</p>
-<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><ol>
-<li>使用github账号登录netlify</li>
-<li>授权netlify访问需要部署的仓库与分支</li>
-</ol>
-<hr>
-<ol start="3">
-<li>如果有自己的域名,在DNS解析服务器上,CNAME解析到netlify提供的域名即可</li>
-</ol>
-<h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><p>ping 一下自己的域名,看下真实地址对不对就可以的<br><img src="images/2021-12-17-22-27-52.png"></p>
-<h1 id="netlify官网"><a href="#netlify官网" class="headerlink" title="netlify官网"></a>netlify官网</h1><p><a href="https://www.netlify.com/">https://www.netlify.com/</a></p>
-]]></content>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021-4-7-在博客中使用简书的图片</title>
     <url>/2021/04/07/%E5%8D%9A%E5%AE%A2/2021-4-7-%E5%9C%A8%E5%8D%9A%E5%AE%A2%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%AE%80%E4%B9%A6%E7%9A%84%E5%9B%BE%E7%89%87/</url>
     <content><![CDATA[<p>正常使用简书的图片会出现403错误,需要在页面头<code>_includes\head.html</code>加入   <code>&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;</code>防止被简书安全措施(跨站请求伪造)拦截</p>
@@ -1924,6 +1904,26 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 <figure class="highlight less"><figcaption><span>source/_data/variables.styl</span></figcaption><table><tr><td class="code"><pre><span class="line">$body-bg-color   = #BEE7E9 </span><br><span class="line">$content-bg-color   = #a1e6e9  </span><br><span class="line"><span class="comment">// $card-bg-color   = #</span></span><br><span class="line"><span class="comment">// $text-color   = #</span></span><br><span class="line"><span class="comment">// $blockquote-color   = #</span></span><br><span class="line"><span class="comment">// $link-color   = #</span></span><br><span class="line"><span class="comment">// $link-hover-color   = #e4393c</span></span><br><span class="line"><span class="comment">// $brand-color   = #</span></span><br><span class="line"><span class="comment">// $brand-hover-color   = #</span></span><br><span class="line"><span class="comment">// $table-row-odd-bg-color   = #</span></span><br><span class="line"><span class="comment">// $table-row-hover-bg-color   = #</span></span><br><span class="line"><span class="comment">// $menu-item-bg-color   = #</span></span><br><span class="line"><span class="comment">// $btn-default-bg   = #</span></span><br><span class="line"><span class="comment">// $btn-default-color   = #</span></span><br><span class="line"><span class="comment">// $btn-default-border-color   = #</span></span><br><span class="line"><span class="comment">// $btn-default-hover-bg   = #</span></span><br><span class="line"><span class="comment">// $btn-default-hover-color   = #</span></span><br><span class="line"><span class="comment">// $btn-default-hover-border-color   = #</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
+]]></content>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>netlify介绍</title>
+    <url>/2021/12/17/%E5%8D%9A%E5%AE%A2/netlify%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<h1 id="目前博客存在的问题"><a href="#目前博客存在的问题" class="headerlink" title="目前博客存在的问题"></a>目前博客存在的问题</h1><p>github pages服务部署,国内访问很慢,github防止百度爬虫不收录</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>使用netlify可以做静态网站的cdn部署</p>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><ol>
+<li>使用github账号登录netlify</li>
+<li>授权netlify访问需要部署的仓库与分支</li>
+</ol>
+<hr>
+<ol start="3">
+<li>如果有自己的域名,在DNS解析服务器上,CNAME解析到netlify提供的域名即可</li>
+</ol>
+<h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><p>ping 一下自己的域名,看下真实地址对不对就可以的<br><img src="images/2021-12-17-22-27-52.png"></p>
+<h1 id="netlify官网"><a href="#netlify官网" class="headerlink" title="netlify官网"></a>netlify官网</h1><p><a href="https://www.netlify.com/">https://www.netlify.com/</a></p>
 ]]></content>
       <tags>
         <tag>博客</tag>
@@ -1994,15 +1994,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>IDEA maven helper 插件</title>
-    <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA-maven-helper-%E6%8F%92%E4%BB%B6/</url>
-    <content><![CDATA[<p>用于分析没有使用的jar包依赖</p>
-]]></content>
-      <tags>
-        <tag>IDEA</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>git常见问题</title>
     <url>/2021/04/19/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2021-4-19-git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="使用git提交到github-每次都要输入用户名和密码的解决方法"><a href="#使用git提交到github-每次都要输入用户名和密码的解决方法" class="headerlink" title="使用git提交到github,每次都要输入用户名和密码的解决方法"></a>使用git提交到github,每次都要输入用户名和密码的解决方法</h1><p><a href="https://www.cnblogs.com/sky6862/p/7992736.html">https://www.cnblogs.com/sky6862/p/7992736.html</a></p>
@@ -2015,6 +2006,15 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
 ]]></content>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IDEA maven helper 插件</title>
+    <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/IDEA-maven-helper-%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<p>用于分析没有使用的jar包依赖</p>
+]]></content>
+      <tags>
+        <tag>IDEA</tag>
       </tags>
   </entry>
   <entry>
@@ -2035,17 +2035,6 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       </tags>
   </entry>
   <entry>
-    <title>eclipse开启自动完成</title>
-    <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/eclipse%E5%BC%80%E5%90%AF%E8%87%AA%E5%8A%A8%E5%AE%8C%E6%88%90/</url>
-    <content><![CDATA[<p>依次点击Window –&gt; Perferences（选项设置） –&gt; Java –&gt; Editor（编辑） –&gt; Content Assist（内容辅助/代码提示）<br><img src="https://img-blog.csdn.net/20180612234507746" alt="alt"><br>然后在“Content Assist”页面中，可以看到下面有一个Auto Activation中有一个Auto activation triggers for Java</p>
-<p>在这一个输入框中输入<code>.qwertyuioplkjhgfdsazxcvbnm</code>，然后点击下面的“OK”，这样代码自动补全就已经设置好了</p>
-<p>在我们编写代码的时候，只要打出一个字母或者”.”都可以自动调出自动补全功能</p>
-]]></content>
-      <tags>
-        <tag>IDEA</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>node打包成可执行文件exe</title>
     <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/node%E6%89%93%E5%8C%85%E6%88%90%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6exe/</url>
     <content><![CDATA[<h2 id="使用pkg这个npm工具打包"><a href="#使用pkg这个npm工具打包" class="headerlink" title="使用pkg这个npm工具打包"></a>使用pkg这个npm工具打包</h2><ol>
@@ -2061,6 +2050,17 @@ $如果有用到 filter的话就还要定义filter,我们项目没有这么用�
       <tags>
         <tag>npm</tag>
         <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>eclipse开启自动完成</title>
+    <url>/2021/09/26/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/eclipse%E5%BC%80%E5%90%AF%E8%87%AA%E5%8A%A8%E5%AE%8C%E6%88%90/</url>
+    <content><![CDATA[<p>依次点击Window –&gt; Perferences（选项设置） –&gt; Java –&gt; Editor（编辑） –&gt; Content Assist（内容辅助/代码提示）<br><img src="https://img-blog.csdn.net/20180612234507746" alt="alt"><br>然后在“Content Assist”页面中，可以看到下面有一个Auto Activation中有一个Auto activation triggers for Java</p>
+<p>在这一个输入框中输入<code>.qwertyuioplkjhgfdsazxcvbnm</code>，然后点击下面的“OK”，这样代码自动补全就已经设置好了</p>
+<p>在我们编写代码的时候，只要打出一个字母或者”.”都可以自动调出自动补全功能</p>
+]]></content>
+      <tags>
+        <tag>IDEA</tag>
       </tags>
   </entry>
   <entry>
