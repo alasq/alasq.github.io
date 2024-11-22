@@ -27,12 +27,6 @@ jobs:
         run: git clone https://github.com/alasq/hexo-theme-next themes/next
       - name: Build
         run: npm run build
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          publish_branch: master  # deploying branch
       - name: Minio Deploy
         uses: lovellfelix/minio-deploy-action@v1
         with:
@@ -42,4 +36,10 @@ jobs:
           bucket: 'blog'
           # Optional inputs with their defaults:
           source_dir: 'public'
-          target_dir: '/'
+          target_dir: '/'  
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: master  # deploying branch
